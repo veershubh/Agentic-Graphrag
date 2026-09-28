@@ -5,10 +5,22 @@
   "source": "arXiv public search",
   "collected_on": "2026-09-28",
   "search_strategy": {
-    "years": [2022, 2023, 2024, 2025, 2026],
+    "years": [
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
     "query_pairs": [
-      ["large language model", "evaluation"],
-      ["large language model", "benchmark"]
+      [
+        "large language model",
+        "evaluation"
+      ],
+      [
+        "large language model",
+        "benchmark"
+      ]
     ],
     "fields": "abstract",
     "category_filter": "Computer Science including cross-lists",
@@ -47,12 +59,42 @@
     "status": "acquisition snapshot only; paper relevance, rights, and domain questions still require review"
   },
   "question_draft": {
-    "path": "questions_draft_v0.1.jsonl",
-    "sha256": "851bea5efdb5bf5a01a63648001540427a84704f637b02f35728b1182a9e3b68",
-    "bytes": 7100,
-    "count": 20,
-    "answerable": 18,
+    "path": "questions_draft_v0.2.jsonl",
+    "sha256": "08df5b5a5e4fbabbb031cc3e2acd7be3a1e0a0801668fd17a522ced0c9ed721a",
+    "bytes": 10659,
+    "count": 25,
+    "answerable": 23,
     "unanswerable_probes": 2,
-    "status": "draft; not a frozen evaluation set"
-  }
+    "hop_counts": {
+      "1": 18,
+      "2": 3,
+      "3": 2
+    },
+    "status": "draft; abstention probes pending and unanswerable share below final target"
+  },
+  "question_drafts": [
+    {
+      "path": "questions_draft_v0.2.jsonl",
+      "sha256": "08df5b5a5e4fbabbb031cc3e2acd7be3a1e0a0801668fd17a522ced0c9ed721a",
+      "bytes": 10659,
+      "count": 25,
+      "answerable": 23,
+      "unanswerable_probes": 2,
+      "hop_counts": {
+        "1": 18,
+        "2": 3,
+        "3": 2
+      },
+      "status": "draft; abstention probes pending and unanswerable share below final target"
+    },
+    {
+      "path": "questions_draft_v0.1.jsonl",
+      "sha256": "851bea5efdb5bf5a01a63648001540427a84704f637b02f35728b1182a9e3b68",
+      "bytes": 7100,
+      "count": 20,
+      "answerable": 18,
+      "unanswerable_probes": 2,
+      "status": "superseded draft"
+    }
+  ]
 }
