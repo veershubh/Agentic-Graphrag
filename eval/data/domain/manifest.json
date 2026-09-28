@@ -59,21 +59,36 @@
     "status": "acquisition snapshot only; paper relevance, rights, and domain questions still require review"
   },
   "question_draft": {
-    "path": "questions_draft_v1.0.jsonl",
-    "sha256": "93ab7b2201e8484b64fbd9fbec50fce2704143a3e3d76e18d83daab4c7135bf2",
-    "bytes": 46761,
-    "count": 91,
-    "answerable": 89,
+    "path": "questions_draft_v1.1.jsonl",
+    "sha256": "fa17a4a344fe239726a487a1ae4bdd294f1ed6443de3e87ff494d7152c6e7324",
+    "bytes": 52758,
+    "count": 100,
+    "answerable": 98,
     "unanswerable": 2,
-    "reviewed_verified": 91,
+    "reviewed_verified": 100,
     "hop_counts": {
       "1": 38,
       "2": 30,
-      "3": 21
+      "3": 30
     },
-    "status": "draft; abstention probes verified but unanswerable share below final target"
+    "status": "superseded draft; abstention share below target"
   },
   "question_drafts": [
+    {
+      "path": "questions_draft_v1.1.jsonl",
+      "sha256": "fa17a4a344fe239726a487a1ae4bdd294f1ed6443de3e87ff494d7152c6e7324",
+      "bytes": 52758,
+      "count": 100,
+      "answerable": 98,
+      "unanswerable": 2,
+      "reviewed_verified": 100,
+      "hop_counts": {
+        "1": 38,
+        "2": 30,
+        "3": 30
+      },
+      "status": "superseded draft; abstention share below target"
+    },
     {
       "path": "questions_draft_v1.0.jsonl",
       "sha256": "93ab7b2201e8484b64fbd9fbec50fce2704143a3e3d76e18d83daab4c7135bf2",
@@ -87,7 +102,7 @@
         "2": 30,
         "3": 21
       },
-      "status": "draft; abstention probes verified but unanswerable share below final target"
+      "status": "superseded draft"
     },
     {
       "path": "questions_draft_v0.9.jsonl",
@@ -222,5 +237,23 @@
       },
       "status": "superseded draft"
     }
-  ]
+  ],
+  "question_set": {
+    "path": "questions_v1.0.jsonl",
+    "sha256": "944f354db3fbb0e30733b2ecb075743fb38746ad16597b18fc0a24c04df2e540",
+    "bytes": 97308,
+    "count": 109,
+    "answerable": 98,
+    "unanswerable": 11,
+    "unanswerable_share": 0.1009,
+    "hop_counts": {
+      "1": 38,
+      "2": 30,
+      "3": 30
+    },
+    "verified_abstention_audits": 11,
+    "resolved_passage_ids": 98,
+    "status": "frozen v1.0; paper-corpus relevance and rights review remains outstanding",
+    "reviewed_verified": 109
+  }
 }

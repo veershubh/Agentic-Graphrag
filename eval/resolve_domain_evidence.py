@@ -19,7 +19,7 @@ def resolve(questions: list[dict[str, Any]], passages: list[dict[str, Any]]) -> 
     }
     resolved = []
     for question in questions:
-        refs = question.pop("supporting_evidence_refs", [])
+        refs = question.get("supporting_evidence_refs", [])
         supports = []
         source_papers = []
         for ref in refs:
