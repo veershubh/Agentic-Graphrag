@@ -58,6 +58,18 @@
     "full_text_location": "local ignored data/raw and data/processed directories; not committed",
     "status": "acquisition snapshot only; paper relevance, rights, and domain questions still require review"
   },
+  "paper_inventory": {
+    "path": "papers_inventory_v1.0.jsonl",
+    "sha256": "c3638ad91acfb0131061b66f2ed4512f8349d05bd25743eadaae6b4c56634b92",
+    "bytes": 284930,
+    "count": 325,
+    "year_counts": {"2022": 52, "2023": 67, "2024": 72, "2025": 71, "2026": 63},
+    "text_bearing_papers": 325,
+    "page_aware_passages": 10878,
+    "qa_evidence_source_papers": 57,
+    "abstract_screen": "selection_score >= 6; retain all locally extractable frozen QA evidence sources",
+    "status": "metadata-only working inventory; manual full-text relevance and rights review pending"
+  },
   "question_draft": {
     "path": "questions_draft_v1.1.jsonl",
     "sha256": "fa17a4a344fe239726a487a1ae4bdd294f1ed6443de3e87ff494d7152c6e7324",

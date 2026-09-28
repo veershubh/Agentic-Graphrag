@@ -4,7 +4,7 @@ An experimental multi-hop retrieval system that combines dense retrieval, keywor
 
 ## Current stage
 
-Phase 0 setup is complete. Phase 1 data and evaluation preparation is underway: the 300-question MuSiQue slice and 109-question domain evaluation set are versioned. The 400-reference domain bibliography has yielded 350 locally extractable full texts and 11,784 page-aware passages; full-text relevance and rights review for the paper corpus is still pending. The local smoke pipeline reads five fixture documents, normalizes metadata, splits text into configurable chunks, and writes a deterministic JSON artifact. Retrieval, embeddings, and Neo4j are not implemented yet.
+Phase 0 setup is complete. Phase 1 data and evaluation preparation is underway: the 300-question MuSiQue slice and 109-question domain evaluation set are versioned. A metadata-only working inventory contains 325 extractable papers (including all 57 unique frozen QA evidence-source papers) and 10,878 page-aware passages. The inventory uses an abstract-screen threshold; manual full-text relevance and rights review is still pending. The local smoke pipeline reads five fixture documents, normalizes metadata, splits text into configurable chunks, and writes a deterministic JSON artifact. Retrieval, embeddings, and Neo4j are not implemented yet.
 
 ## Quick start
 
@@ -23,5 +23,5 @@ The folders follow the implementation plan: `ingest/`, `extract/`, `graph/`, `re
 
 ## Evaluation status
 
-No project benchmark results are reported yet. The public MuSiQue questions and candidate passage corpus are versioned in `eval/data/public/`; the domain evaluation set is frozen in `eval/data/domain/questions_v1.0.jsonl`. The domain paper corpus remains a candidate collection under full-text relevance and rights review. The planned retrieval features have not been implemented, as described in `docs/implementation-plan.md`.
+No project benchmark results are reported yet. The public MuSiQue questions and candidate passage corpus are versioned in `eval/data/public/`; the domain evaluation set is frozen in `eval/data/domain/questions_v1.0.jsonl`. The 325-record domain paper inventory is provisional until full-text relevance and rights review is complete. The planned retrieval features have not been implemented, as described in `docs/implementation-plan.md`.
 
