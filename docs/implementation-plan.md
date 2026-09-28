@@ -113,7 +113,7 @@ Build the test before the system.
 
 ## Phase 4: Hybrid and Agentic Retrieval (Weeks 4-5)
 
-**Progress (2026-09-29):** A bounded in-memory graph expansion index and fixed BM25+graph RRF retriever are implemented, with optional dense passage rankings and external entity seeds. They have not been run end to end; Phase 4 remains pending graph extractions and retrieval evaluation.
+**Progress (2026-09-29):** A bounded in-memory graph expansion index, fixed BM25+graph RRF retriever, and domain graph retrieval evaluation command are implemented, with optional dense passage rankings and external entity seeds. They have not been run end to end; Phase 4 remains pending graph extractions and retrieval evaluation.
 
 **Fixed hybrid pipeline**
 - [ ] Vector search finds seed entities and chunks

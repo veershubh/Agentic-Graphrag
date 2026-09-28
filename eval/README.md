@@ -2,6 +2,8 @@
 
 `eval/data/public/` contains the frozen 300-question MuSiQue slice, its candidate passages, and source manifest. `eval/data/domain/` contains a frozen 109-question set and provisional metadata inventory; full-text paper relevance and rights review remain open. `python eval/run_retrieval_eval.py` runs the BM25 retrieval-only baseline. `python eval/run_hybrid_eval.py` compares BM25, dense, and BM25+dense RRF retrieval on the same public slice. The bounded answer evaluator is available, but no API-backed answer run is recorded yet; faithfulness judging and graph-assisted variants remain future work. Keep the public and domain tracks independent.
 
+Once graph extraction and consolidation have produced local node and edge files, `python eval/run_graph_eval.py` compares graph-only and BM25+graph RRF on the frozen domain questions. Add `--include-dense` to also compare dense-only and BM25+dense+graph RRF; dense domain encoding may be slow on CPU. The runner reports hop-stratified supporting recall, bootstrap intervals, paired comparisons, and input hashes. It has not been run because graph extraction output is not available.
+
 ## Public BM25 retrieval baseline
 
 The first retrieval-only run used Okapi BM25 (`k1=1.5`, `b=0.75`) over 4,020 candidate passages, with `top_k=5`. Supporting-document recall averages the fraction of gold supporting passages retrieved for each question. Confidence intervals use 10,000 deterministic bootstrap resamples of questions.
