@@ -17,6 +17,11 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def safe_unicode(value: str) -> str:
+    """Replace unpaired surrogates that can appear in malformed PDF text maps."""
+    return value.encode("utf-8", errors="replace").decode("utf-8")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--references", type=Path, default=Path("eval/data/domain/papers_candidates.jsonl"))
@@ -41,7 +46,7 @@ def main() -> None:
         if reference is None:
             continue
         with pymupdf.open(pdf_path) as pdf:
-            pages = [page.get_text("text") for page in pdf]
+            pages = [safe_unicode(page.get_text("text")) for page in pdf]
             text = "\n\n".join(pages)
             text = text.replace("\x00", "")
             text = re.sub(r"[ \t]+\n", "\n", text)
@@ -64,7 +69,7 @@ def main() -> None:
     if not extracted:
         raise SystemExit(f"No PDFs matching references found in {args.paper_dir}")
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text("".join(json.dumps(row, ensure_ascii=False) + "\n" for row in extracted), encoding="utf-8")
+    args.output.write_text("".join(json.dumps(row, ensure_ascii=True) + "\n" for row in extracted), encoding="utf-8")
     total_chars = sum(row["character_count"] for row in extracted)
     print(f"Extracted {len(extracted)} papers, {total_chars:,} characters to {args.output}")
 

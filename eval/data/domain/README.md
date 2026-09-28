@@ -16,6 +16,8 @@ python ingest/extract_arxiv_papers.py
 
 Search rankings change over time. `manifest.json` pins the current reference-list checksum and the candidate snapshot checksum used to produce it. Full text must be reviewed before promoting candidates into the domain corpus. Domain questions must be drafted from raw paper passages, not from the graph.
 
+`questions_draft_v0.1.jsonl` is the first 10-question draft: eight answerable one-hop questions have been checked against the cited first-page passages, and two Neo4j questions remain provisional abstention probes pending a full-corpus check. This is a draft, not the final 100–150 question set. Resolve its page references locally with `python eval/resolve_domain_evidence.py eval/data/domain/questions_draft_v0.1.jsonl`; generated passage IDs stay under ignored `data/processed/`.
+
 Downloaded PDFs and extracted full text are local working data under ignored `data/raw/` and `data/processed/` directories. The default download count is a 20-paper pilot; `--limit 0` selects the full reference list after the pilot is reviewed. The downloader waits between requests and can resume by skipping existing PDFs. Check each paper's rights before redistributing its PDF or extracted text.
 
 ## Acquisition pilot

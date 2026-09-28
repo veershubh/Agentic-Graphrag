@@ -28,6 +28,7 @@ def make_passages(paper: dict[str, Any], target_words: int, overlap_words: int) 
             text = " ".join(words[start : start + target_words]).strip()
             if not text:
                 break
+            page_chunk_index = start // step
             chunk_index = len(passages)
             passages.append(
                 {
@@ -37,6 +38,7 @@ def make_passages(paper: dict[str, Any], target_words: int, overlap_words: int) 
                     "title": paper["title"],
                     "year": paper["year"],
                     "page_number": page_number,
+                    "page_chunk_index": page_chunk_index,
                     "chunk_index": chunk_index,
                     "text": text,
                 }
@@ -59,7 +61,7 @@ def main() -> None:
     if not passages:
         raise SystemExit(f"No passages were produced from {args.input}")
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text("".join(json.dumps(row, ensure_ascii=False) + "\n" for row in passages), encoding="utf-8")
+    args.output.write_text("".join(json.dumps(row, ensure_ascii=True) + "\n" for row in passages), encoding="utf-8")
     print(f"Created {len(passages)} passages from {len(papers)} papers: {args.output}")
 
 
