@@ -179,6 +179,8 @@ Build the test before the system.
 
 ## Phase 7: CI and Deployment (Weeks 7-8)
 
+**Progress (2026-09-29):** A GitHub Actions workflow now runs the full public BM25 retrieval evaluation for relevant pull requests, nightly, or manually, then enforces conservative overall and hop-specific recall floors. This is a retrieval-only gate; the planned cached answer/faithfulness evaluation and graph/agent checks remain pending.
+
 **CI**
 - [ ] GitHub Actions runs a small cached eval (~30 questions) on each PR
 - [ ] Fail the build if F1 or faithfulness drops below threshold (leave a margin for LLM nondeterminism)

@@ -4,6 +4,8 @@
 
 Once graph extraction and consolidation have produced local node and edge files, `python eval/run_graph_eval.py` compares graph-only and BM25+graph RRF on the frozen domain questions. Add `--include-dense` to also compare dense-only and BM25+dense+graph RRF; dense domain encoding may be slow on CPU. The runner reports hop-stratified supporting recall, bootstrap intervals, paired comparisons, and input hashes. It has not been run because graph extraction output is not available.
 
+`.github/workflows/retrieval-eval.yml` runs the dependency-free public BM25 evaluation on retrieval-related pull requests, nightly, or manually. It enforces conservative overall and per-hop recall floors. This gate covers retrieval only; it does not evaluate generated answers, faithfulness, graph retrieval, or agent behavior.
+
 ## Public BM25 retrieval baseline
 
 The first retrieval-only run used Okapi BM25 (`k1=1.5`, `b=0.75`) over 4,020 candidate passages, with `top_k=5`. Supporting-document recall averages the fraction of gold supporting passages retrieved for each question. Confidence intervals use 10,000 deterministic bootstrap resamples of questions.

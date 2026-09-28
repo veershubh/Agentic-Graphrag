@@ -1,0 +1,34 @@
+name: Public retrieval quality gate
+
+on:
+  pull_request:
+    paths:
+      - "retrieval/**"
+      - "eval/**"
+      - "configs/default.toml"
+      - ".github/workflows/retrieval-eval.yml"
+  schedule:
+    - cron: "17 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  public-bm25:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run public BM25 retrieval evaluation
+        run: python eval/run_hybrid_eval.py --bm25-only --output data/processed/ci_retrieval_eval.json
+      - name: Enforce public recall floors
+        run: >-
+          python eval/check_retrieval_floor.py
+          --result data/processed/ci_retrieval_eval.json
+          --overall-min 0.42
+          --hop-min 2=0.54
+          --hop-min 3=0.39
+          --hop-min 4=0.28
