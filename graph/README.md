@@ -26,4 +26,6 @@ The merger consolidates stable-name nodes, groups repeated relationships while r
 
 `resolve_entity_candidates.py` uses the pinned local sentence-transformer model to rank same-kind name pairs by cosine similarity. Install `python -m pip install -e ".[retrieval]"` and run `python graph/resolve_entity_candidates.py` after consolidation. It writes a review queue with `UNREVIEWED` decisions; it never merges entities automatically. The candidate generator is implemented but has not been run because extraction output is not available yet.
 
+`audit_triples.py` prepares a deterministic random sample of up to 50 edge-evidence rows, including each local source passage, for manual accuracy review. The worksheet is written under ignored `data/processed/` so source text is not committed. Fill `reviewer_correct` with `true` or `false`, then score it with `python graph/audit_triples.py --score data/processed/triple_audit_v1.0.jsonl`. Neither the audit worksheet nor an accuracy result exists until extraction output is available and a reviewer labels it.
+
 Human/LLM adjudication, resolution audits, extraction audits, and scaling beyond the pilot remain future work.

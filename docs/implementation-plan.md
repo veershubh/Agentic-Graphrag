@@ -107,13 +107,13 @@ Build the test before the system.
 
 **Exit criterion:** graph loaded, with audit accuracy and extraction cost documented.
 
-**Progress (2026-09-28):** The constrained ontology and deterministic 20-paper, year-balanced structured extraction runner are implemented. Extraction output is provenance-linked and cached by prompt/model/chunk/content hash. Offline consolidation merges stable-name nodes, groups edges while retaining chunk evidence, and emits a conservative alias table plus unresolved collisions. An idempotent batched Neo4j loader and local embedding-based duplicate candidate review queue are implemented, but neither has been run because extraction output is not available. The paid pilot has not been run; Phase 3 remains in progress pending extraction cost and quality measurements, ambiguous-pair adjudication, Neo4j loading, and audits.
+**Progress (2026-09-29):** The constrained ontology and deterministic 20-paper, year-balanced structured extraction runner are implemented. Extraction output is provenance-linked and cached by prompt/model/chunk/content hash. Offline consolidation merges stable-name nodes, groups edges while retaining chunk evidence, and emits a conservative alias table plus unresolved collisions. An idempotent batched Neo4j loader, local embedding-based duplicate candidate review queue, and deterministic evidence-backed triple audit worksheet are implemented, but none have been run because extraction output is not available. The paid pilot has not been run; Phase 3 remains in progress pending extraction cost and quality measurements, ambiguous-pair adjudication, Neo4j loading, and audits.
 
 ---
 
 ## Phase 4: Hybrid and Agentic Retrieval (Weeks 4-5)
 
-**Progress (2026-09-28):** A bounded in-memory graph expansion index and fixed BM25+graph RRF retriever are implemented, with optional dense passage rankings and external entity seeds. They have not been run end to end; Phase 4 remains pending graph extractions and retrieval evaluation.
+**Progress (2026-09-29):** A bounded in-memory graph expansion index and fixed BM25+graph RRF retriever are implemented, with optional dense passage rankings and external entity seeds. They have not been run end to end; Phase 4 remains pending graph extractions and retrieval evaluation.
 
 **Fixed hybrid pipeline**
 - [ ] Vector search finds seed entities and chunks
