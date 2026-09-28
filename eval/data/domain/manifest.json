@@ -59,33 +59,50 @@
     "status": "acquisition snapshot only; paper relevance, rights, and domain questions still require review"
   },
   "question_draft": {
-    "path": "questions_draft_v0.3.jsonl",
-    "sha256": "5848e5ecf9b86e4224203d37dfe735ee7b50480d56a3d77a8b990c77abfc6308",
-    "bytes": 15625,
-    "count": 33,
-    "answerable": 31,
-    "unanswerable_probes": 2,
+    "path": "questions_draft_v0.4.jsonl",
+    "sha256": "052090daf45e7a8f851f5a291920bc801c684a34c5aa7c497d849f833a7341f2",
+    "bytes": 18444,
+    "count": 38,
+    "answerable": 36,
+    "unanswerable": 2,
+    "reviewed_verified": 38,
     "hop_counts": {
       "1": 18,
-      "2": 10,
-      "3": 3
+      "2": 14,
+      "3": 4
     },
-    "status": "draft; abstention probes pending and unanswerable share below final target"
+    "status": "draft; abstention probes verified but unanswerable share below final target"
   },
   "question_drafts": [
+    {
+      "path": "questions_draft_v0.4.jsonl",
+      "sha256": "052090daf45e7a8f851f5a291920bc801c684a34c5aa7c497d849f833a7341f2",
+      "bytes": 18444,
+      "count": 38,
+      "answerable": 36,
+      "unanswerable": 2,
+      "reviewed_verified": 38,
+      "hop_counts": {
+        "1": 18,
+        "2": 14,
+        "3": 4
+      },
+      "status": "draft; abstention probes verified but unanswerable share below final target"
+    },
     {
       "path": "questions_draft_v0.3.jsonl",
       "sha256": "5848e5ecf9b86e4224203d37dfe735ee7b50480d56a3d77a8b990c77abfc6308",
       "bytes": 15625,
       "count": 33,
       "answerable": 31,
-      "unanswerable_probes": 2,
+      "unanswerable": 2,
+      "reviewed_verified": 31,
       "hop_counts": {
         "1": 18,
         "2": 10,
         "3": 3
       },
-      "status": "draft; abstention probes pending and unanswerable share below final target"
+      "status": "superseded draft"
     },
     {
       "path": "questions_draft_v0.2.jsonl",
@@ -93,7 +110,8 @@
       "bytes": 10659,
       "count": 25,
       "answerable": 23,
-      "unanswerable_probes": 2,
+      "unanswerable": 2,
+      "reviewed_verified": 23,
       "hop_counts": {
         "1": 18,
         "2": 3,
@@ -107,7 +125,8 @@
       "bytes": 7100,
       "count": 20,
       "answerable": 18,
-      "unanswerable_probes": 2,
+      "unanswerable": 2,
+      "reviewed_verified": 18,
       "hop_counts": {
         "1": 18
       },
