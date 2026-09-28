@@ -35,10 +35,10 @@
   },
   "question_draft": {
     "path": "questions_draft_v0.1.jsonl",
-    "sha256": "9c7116adaf52947155af3aaccdcf571453a4f5270d0994e8aadfe49a49498289",
-    "bytes": 3559,
-    "count": 10,
-    "answerable": 8,
+    "sha256": "851bea5efdb5bf5a01a63648001540427a84704f637b02f35728b1182a9e3b68",
+    "bytes": 7100,
+    "count": 20,
+    "answerable": 18,
     "unanswerable_probes": 2,
     "status": "draft; not a frozen evaluation set"
   }
