@@ -5,6 +5,12 @@ answer = "gpt-4o"
 embedding = "text-embedding-3-small"
 temperature = 0.0
 
+[generation]
+max_output_tokens = 256
+# Add current per-million-token rates to enable cost estimates for API runs.
+# input_usd_per_million = 0.0
+# output_usd_per_million = 0.0
+
 [chunking]
 target_tokens = 500
 overlap_tokens = 75

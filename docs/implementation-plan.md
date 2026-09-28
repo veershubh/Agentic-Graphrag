@@ -79,7 +79,7 @@ Build the test before the system.
 
 **Exit criterion:** `make eval` outputs a baseline results table.
 
-**Progress (2026-09-28):** BM25, pinned local dense embeddings, and BM25+dense RRF have been evaluated on the public MuSiQue slice. Supporting-document recall@5 is reported by hop count with paired bootstrap intervals in `eval/results/public_hybrid_v0.1.json`. Phase 2 remains in progress: generation, EM/F1, calibrated faithfulness, cost/latency, and a complete harness for all metrics are not yet implemented.
+**Progress (2026-09-28):** BM25, pinned local dense embeddings, and BM25+dense RRF have been evaluated on the public MuSiQue slice. Supporting-document recall@5 is reported by hop count with paired bootstrap intervals in `eval/results/public_hybrid_v0.1.json`. A citation-constrained OpenAI Responses API evaluator now supports EM/F1, citation validation, token usage, latency, and optional cost estimates, but has not been run. Phase 2 remains in progress until answer metrics, calibrated faithfulness, cost/latency results, and a complete harness are reported.
 
 ---
 

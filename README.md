@@ -4,7 +4,7 @@ An experimental multi-hop retrieval system that combines dense retrieval, keywor
 
 ## Current stage
 
-Phase 0 setup is complete. Phase 1 data and evaluation preparation is underway: the 300-question MuSiQue slice and 109-question domain evaluation set are versioned. A metadata-only working inventory contains 325 extractable papers (including all 57 unique frozen QA evidence-source papers) and 10,878 page-aware passages. The inventory uses an abstract-screen threshold; manual full-text relevance and rights review is still pending. Phase 2 retrieval has BM25 and local dense baselines plus BM25+dense reciprocal-rank fusion on the public benchmark; answer generation and Neo4j graph retrieval are not implemented yet.
+Phase 0 setup is complete. Phase 1 data and evaluation preparation is underway: the 300-question MuSiQue slice and 109-question domain evaluation set are versioned. A metadata-only working inventory contains 325 extractable papers (including all 57 unique frozen QA evidence-source papers) and 10,878 page-aware passages. The inventory uses an abstract-screen threshold; manual full-text relevance and rights review is still pending. Phase 2 has BM25 and local dense baselines plus BM25+dense reciprocal-rank fusion on the public benchmark. An optional citation-constrained answer evaluator is implemented but has not been run; Neo4j graph retrieval remains future work.
 
 ## Quick start
 

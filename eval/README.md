@@ -1,6 +1,6 @@
 # Evaluation
 
-`eval/data/public/` contains the frozen 300-question MuSiQue slice, its candidate passages, and source manifest. `eval/data/domain/` contains a frozen 109-question set and provisional metadata inventory; full-text paper relevance and rights review remain open. `python eval/run_retrieval_eval.py` runs the BM25 retrieval-only baseline. `python eval/run_hybrid_eval.py` compares BM25, dense, and BM25+dense RRF retrieval on the same public slice. Answer generation, answer metrics, faithfulness, and graph-assisted variants are not yet implemented. Keep the public and domain tracks independent.
+`eval/data/public/` contains the frozen 300-question MuSiQue slice, its candidate passages, and source manifest. `eval/data/domain/` contains a frozen 109-question set and provisional metadata inventory; full-text paper relevance and rights review remain open. `python eval/run_retrieval_eval.py` runs the BM25 retrieval-only baseline. `python eval/run_hybrid_eval.py` compares BM25, dense, and BM25+dense RRF retrieval on the same public slice. The bounded answer evaluator is available, but no API-backed answer run is recorded yet; faithfulness judging and graph-assisted variants remain future work. Keep the public and domain tracks independent.
 
 ## Public BM25 retrieval baseline
 
@@ -26,3 +26,7 @@ This run used a locally cached, revision-pinned `sentence-transformers/all-MiniL
 | BM25 + dense RRF | 0.620 | 0.470 | 0.388 | 0.492 |
 
 The paired question-bootstrap 95% interval for the overall RRF-minus-BM25 difference is +0.042 to +0.084 (mean +0.063). The per-variant intervals and paired differences by hop are in `results/public_hybrid_v0.1.json`. This is retrieval evidence coverage only and does not measure answer correctness. The local embedding model and cache are described in `../retrieval/README.md`.
+
+## Answer generation evaluator
+
+`python eval/run_answer_eval.py` uses the selected retriever's top-5 passages and the OpenAI [Responses API](https://developers.openai.com/api/docs/guides/text) with [Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs) to generate answers with citations. It defaults to 30 questions; pass `--limit 0` to run the full remaining set, or use `--offset` for a bounded slice. Install the optional SDK with `python -m pip install -e ".[api]"` and provide `OPENAI_API_KEY` in the environment before running. The script measures exact match, token F1, citation validity, supporting recall, latency, and token usage. It writes progress after each question to ignored `data/processed/`; no API calls or generated answer metrics are included in this repository yet. Cost is reported only when current input and output token rates are supplied in the config.
