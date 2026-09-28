@@ -47,6 +47,13 @@ summary_path = "data/processed/domain_graph_pilot_summary.json"
 # input_usd_per_million = 0.0
 # output_usd_per_million = 0.0
 
+[agent]
+max_steps = 5
+tool_top_k = 5
+context_chars_per_passage = 1200
+planner_max_output_tokens = 450
+dense_cache_path = "data/processed/domain_agent_dense_cache.npz"
+
 [paths]
 raw_data = "data/raw"
 processed_data = "data/processed"

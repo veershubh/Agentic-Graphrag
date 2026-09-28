@@ -129,6 +129,8 @@ Build the test before the system.
 - [ ] Require citations in the answer
 - [ ] Verify every cited chunk was actually retrieved
 
+**Progress (2026-09-29):** A bounded single-query controller is implemented with keyword/vector/graph tool routing, a configurable step budget, early finish and insufficient-evidence behavior, citation validation, and local token/latency reporting. It has not been run; API usage and domain graph files are still pending.
+
 **Exit criterion:** both retrievers run through the same eval harness.
 
 ---
