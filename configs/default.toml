@@ -53,6 +53,11 @@ tool_top_k = 5
 context_chars_per_passage = 1200
 planner_max_output_tokens = 450
 dense_cache_path = "data/processed/domain_agent_dense_cache.npz"
+# Add current per-million-token rates to enable estimated agent call costs.
+# planner_input_usd_per_million = 0.0
+# planner_output_usd_per_million = 0.0
+# answer_input_usd_per_million = 0.0
+# answer_output_usd_per_million = 0.0
 
 [paths]
 raw_data = "data/raw"

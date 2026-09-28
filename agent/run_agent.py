@@ -153,12 +153,23 @@ def main() -> None:
             ],
             text={"format": {"type": "json_schema", "name": "retrieval_plan", "strict": True, "schema": PLAN_SCHEMA}},
         )
-        planner_latency += time.perf_counter() - started
+        step_planner_latency = time.perf_counter() - started
+        planner_latency += step_planner_latency
         plan = parse_output(plan_response)
         if plan_response.usage:
             planner_input_tokens += int(plan_response.usage.input_tokens)
             planner_output_tokens += int(plan_response.usage.output_tokens)
-        history_row = {"step": step_number, "action": plan["action"], "tool": plan["tool"], "query": plan["query"], "reason": plan["reason"]}
+        history_row = {
+            "step": step_number,
+            "action": plan["action"],
+            "tool": plan["tool"],
+            "query": plan["query"],
+            "reason": plan["reason"],
+            "response_id": plan_response.id,
+            "latency_seconds": step_planner_latency,
+            "input_tokens": int(plan_response.usage.input_tokens) if plan_response.usage else 0,
+            "output_tokens": int(plan_response.usage.output_tokens) if plan_response.usage else 0,
+        }
         if plan["action"] == "finish":
             history.append({**history_row, "result_ids": []})
             stop_reason = "planner_finished"
@@ -199,6 +210,7 @@ def main() -> None:
 
     citation_valid = True
     invalid_citations: list[str] = []
+    answer_response_id = None
     if not retrieved:
         final = {"answer": "", "citation_ids": [], "abstained": True}
         stop_reason = "insufficient_evidence"
@@ -226,6 +238,7 @@ def main() -> None:
             text={"format": {"type": "json_schema", "name": "grounded_answer", "strict": True, "schema": ANSWER_SCHEMA}},
         )
         answer_latency = time.perf_counter() - started
+        answer_response_id = answer_response.id
         final = parse_output(answer_response)
         if answer_response.usage:
             answer_input_tokens = int(answer_response.usage.input_tokens)
@@ -240,6 +253,22 @@ def main() -> None:
             final = {"answer": "", "citation_ids": [], "abstained": True}
             stop_reason = "invalid_citation_abstained" if invalid_citations else "missing_citation_abstained"
 
+    planner_input_rate = agent_config.get("planner_input_usd_per_million")
+    planner_output_rate = agent_config.get("planner_output_usd_per_million")
+    answer_input_rate = agent_config.get("answer_input_usd_per_million")
+    answer_output_rate = agent_config.get("answer_output_usd_per_million")
+    planner_cost = None
+    if planner_input_rate is not None and planner_output_rate is not None:
+        planner_cost = (
+            planner_input_tokens * float(planner_input_rate)
+            + planner_output_tokens * float(planner_output_rate)
+        ) / 1_000_000
+    answer_cost = 0.0 if answer_response_id is None else None
+    if answer_response_id is not None and answer_input_rate is not None and answer_output_rate is not None:
+        answer_cost = (
+            answer_input_tokens * float(answer_input_rate)
+            + answer_output_tokens * float(answer_output_rate)
+        ) / 1_000_000
     output = {
         "question": args.question,
         "answer": final["answer"],
@@ -254,6 +283,7 @@ def main() -> None:
             for identifier, row in retrieved.items()
         ],
         "models": {"planner": planner_model, "answer": answer_model},
+        "answer_response_id": answer_response_id,
         "usage": {
             "planner_input_tokens": planner_input_tokens,
             "planner_output_tokens": planner_output_tokens,
@@ -263,6 +293,12 @@ def main() -> None:
             "answer_latency_seconds": answer_latency,
             "tool_latency_seconds": tool_latency,
             "total_latency_seconds": time.perf_counter() - run_started,
+        },
+        "estimated_cost_usd": {
+            "planner": planner_cost,
+            "answer": answer_cost,
+            "total": planner_cost + answer_cost if planner_cost is not None and answer_cost is not None else None,
+            "rate_status": "configured" if planner_cost is not None and answer_cost is not None else "not fully configured",
         },
         "dense_embedding_cache_hit": dense.cache_hit,
     }
