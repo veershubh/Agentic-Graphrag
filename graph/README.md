@@ -22,4 +22,6 @@ The default selection covers 20 papers and at most 200 passages. The runner make
 
 The merger consolidates stable-name nodes, groups repeated relationships while retaining per-chunk evidence, and writes a normalized alias table. Alias collisions are emitted separately for later review rather than resolved automatically. The merger also has not been run because there are no extraction records yet.
 
-Embedding-based duplicate candidates, human/LLM adjudication, resolution audits, Neo4j storage, extraction audits, and scaling beyond the pilot remain future work.
+`load_neo4j.py` imports the consolidated files in idempotent batches, creates uniqueness constraints, and links each edge's evidence to its source chunk and paper. Preview counts without connecting with `python graph/load_neo4j.py --dry-run`. To load, install `python -m pip install -e ".[neo4j]"`, set `NEO4J_URI`, `NEO4J_USERNAME`, and `NEO4J_PASSWORD` (optionally `NEO4J_DATABASE`), then run `python graph/load_neo4j.py`. The database loader has not been run; it does not clear existing data.
+
+Embedding-based duplicate candidates, human/LLM adjudication, resolution audits, extraction audits, and scaling beyond the pilot remain future work.
