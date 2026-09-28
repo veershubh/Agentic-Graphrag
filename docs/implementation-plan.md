@@ -86,11 +86,11 @@ Build the test before the system.
 ## Phase 3: Graph Construction (Weeks 3-4)
 
 **Schema and extraction**
-- [ ] Define a constrained ontology
+- [x] Define a constrained ontology
   - Entities: Paper, Method, Dataset, Metric, Task
   - Relations: PROPOSES, EVALUATES_ON, USES, OUTPERFORMS, CITES
-- [ ] Extract triples per chunk with structured JSON output (cheaper model)
-- [ ] Cache extraction results by chunk hash so re-runs are free
+- [x] Implement per-chunk triple extraction with structured JSON output (cheaper model)
+- [x] Implement extraction caching by prompt, model, chunk ID, and content hash
 - [ ] Pilot on 20 documents, measure cost, extrapolate, then scale
 
 **Entity resolution**
@@ -106,6 +106,8 @@ Build the test before the system.
 - [ ] Record total extraction cost and time
 
 **Exit criterion:** graph loaded, with audit accuracy and extraction cost documented.
+
+**Progress (2026-09-28):** The constrained ontology and a deterministic 20-paper, year-balanced structured extraction runner are implemented. Extraction output is provenance-linked and cached by prompt/model/chunk/content hash. The paid pilot has not been run; Phase 3 remains in progress pending extraction cost and quality measurements, entity resolution, Neo4j loading, and audits.
 
 ---
 

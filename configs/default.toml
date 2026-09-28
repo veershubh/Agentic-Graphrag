@@ -36,6 +36,17 @@ cpu_threads = 4
 candidate_k = 50
 rrf_k = 60
 
+[graph.extraction]
+papers_per_year = 4
+max_passages_per_paper = 10
+max_output_tokens = 700
+cache_path = "data/processed/graph_extraction_cache.jsonl"
+output_path = "data/processed/domain_graph_pilot.jsonl"
+summary_path = "data/processed/domain_graph_pilot_summary.json"
+# Add current per-million-token rates to enable extraction cost estimates.
+# input_usd_per_million = 0.0
+# output_usd_per_million = 0.0
+
 [paths]
 raw_data = "data/raw"
 processed_data = "data/processed"
