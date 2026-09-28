@@ -4,7 +4,7 @@ An experimental multi-hop retrieval system that combines dense retrieval, keywor
 
 ## Current stage
 
-Phase 0 setup is complete. Phase 1 data and evaluation preparation is underway: the 300-question MuSiQue slice and 109-question domain evaluation set are versioned. A metadata-only working inventory contains 325 extractable papers (including all 57 unique frozen QA evidence-source papers) and 10,878 page-aware passages. The inventory uses an abstract-screen threshold; manual full-text relevance and rights review is still pending. The local smoke pipeline reads five fixture documents, normalizes metadata, splits text into configurable chunks, and writes a deterministic JSON artifact. Retrieval, embeddings, and Neo4j are not implemented yet.
+Phase 0 setup is complete. Phase 1 data and evaluation preparation is underway: the 300-question MuSiQue slice and 109-question domain evaluation set are versioned. A metadata-only working inventory contains 325 extractable papers (including all 57 unique frozen QA evidence-source papers) and 10,878 page-aware passages. The inventory uses an abstract-screen threshold; manual full-text relevance and rights review is still pending. Phase 2 retrieval has BM25 and local dense baselines plus BM25+dense reciprocal-rank fusion on the public benchmark; answer generation and Neo4j graph retrieval are not implemented yet.
 
 ## Quick start
 
@@ -23,5 +23,5 @@ The folders follow the implementation plan: `ingest/`, `extract/`, `graph/`, `re
 
 ## Evaluation status
 
-No project benchmark results are reported yet. The public MuSiQue questions and candidate passage corpus are versioned in `eval/data/public/`; the domain evaluation set is frozen in `eval/data/domain/questions_v1.0.jsonl`. The 325-record domain paper inventory is provisional until full-text relevance and rights review is complete. The planned retrieval features have not been implemented, as described in `docs/implementation-plan.md`.
+Retrieval-only public benchmark results are reported in `eval/README.md`; answer generation and answer-quality results are not available yet. The public MuSiQue questions and candidate passage corpus are versioned in `eval/data/public/`; the domain evaluation set is frozen in `eval/data/domain/questions_v1.0.jsonl`. The 325-record domain paper inventory is provisional until full-text relevance and rights review is complete. Graph construction and agentic retrieval remain future work, as described in `docs/implementation-plan.md`.
 

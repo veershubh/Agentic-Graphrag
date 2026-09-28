@@ -66,10 +66,10 @@ Build the test before the system.
 ## Phase 2: Baseline RAG + Eval Harness (Week 2)
 
 - [ ] Chunk (~500 tokens with overlap), embed, store, retrieve top-k, generate
-- [ ] Add hybrid retrieval: BM25 + dense with reciprocal rank fusion (a stronger baseline makes later gains more credible)
+- [x] Add hybrid retrieval: BM25 + dense with reciprocal rank fusion (a stronger baseline makes later gains more credible)
 - [ ] Build the harness with these metrics:
   - [ ] Exact match and F1
-  - [ ] Supporting-document recall@k
+  - [x] Supporting-document recall@k
   - [ ] Faithfulness (LLM judge, calibrated against ~50 human-labeled answers)
   - [ ] Cost per query
   - [ ] Latency (p50 / p95)
@@ -78,6 +78,8 @@ Build the test before the system.
 - [ ] Make one command produce a results table
 
 **Exit criterion:** `make eval` outputs a baseline results table.
+
+**Progress (2026-09-28):** BM25, pinned local dense embeddings, and BM25+dense RRF have been evaluated on the public MuSiQue slice. Supporting-document recall@5 is reported by hop count with paired bootstrap intervals in `eval/results/public_hybrid_v0.1.json`. Phase 2 remains in progress: generation, EM/F1, calibrated faithfulness, cost/latency, and a complete harness for all metrics are not yet implemented.
 
 ---
 

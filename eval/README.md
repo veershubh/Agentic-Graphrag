@@ -1,6 +1,6 @@
 # Evaluation
 
-`eval/data/public/` contains the frozen 300-question MuSiQue slice, its candidate passages, and source manifest. `eval/data/domain/` contains a frozen 109-question set and provisional metadata inventory; full-text paper relevance and rights review remain open. `python eval/run_retrieval_eval.py` runs the public-track BM25 retrieval-only baseline and reports supporting-document recall@k by hop count. Answer generation, answer metrics, dense retrieval, and graph-assisted variants are not yet implemented. Keep the public and domain tracks independent.
+`eval/data/public/` contains the frozen 300-question MuSiQue slice, its candidate passages, and source manifest. `eval/data/domain/` contains a frozen 109-question set and provisional metadata inventory; full-text paper relevance and rights review remain open. `python eval/run_retrieval_eval.py` runs the BM25 retrieval-only baseline. `python eval/run_hybrid_eval.py` compares BM25, dense, and BM25+dense RRF retrieval on the same public slice. Answer generation, answer metrics, faithfulness, and graph-assisted variants are not yet implemented. Keep the public and domain tracks independent.
 
 ## Public BM25 retrieval baseline
 
@@ -14,3 +14,15 @@ The first retrieval-only run used Okapi BM25 (`k1=1.5`, `b=0.75`) over 4,020 can
 | Overall | 300 | 0.429 | 0.400–0.459 |
 
 The detailed run, per-question retrieved passage IDs, settings, and input checksums are versioned in `results/public_bm25_v0.1.json`. This result measures retrieval evidence coverage only; it is not an answer EM/F1 or faithfulness result.
+
+## Dense and hybrid comparison
+
+This run used a locally cached, revision-pinned `sentence-transformers/all-MiniLM-L6-v2` model and the same 300 questions and 4,020 passages. The hybrid uses reciprocal-rank fusion over the top 50 candidates from each retriever (`rrf_k=60`) and evaluates the fused top 5.
+
+| Variant | 2-hop recall@5 | 3-hop recall@5 | 4-hop recall@5 | Overall recall@5 |
+|---|---:|---:|---:|---:|
+| BM25 | 0.575 | 0.403 | 0.310 | 0.429 |
+| Dense | 0.630 | 0.467 | 0.350 | 0.482 |
+| BM25 + dense RRF | 0.620 | 0.470 | 0.388 | 0.492 |
+
+The paired question-bootstrap 95% interval for the overall RRF-minus-BM25 difference is +0.042 to +0.084 (mean +0.063). The per-variant intervals and paired differences by hop are in `results/public_hybrid_v0.1.json`. This is retrieval evidence coverage only and does not measure answer correctness. The local embedding model and cache are described in `../retrieval/README.md`.

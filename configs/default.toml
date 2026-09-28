@@ -21,6 +21,14 @@ bootstrap_seed = 20260928
 k1 = 1.5
 b = 0.75
 
+[retrieval.dense]
+model = "sentence-transformers/all-MiniLM-L6-v2"
+revision = "b8903db39f65d93ae28d49a37c4f3fa90c5f94e0"
+cache_path = "data/processed/musique_all_minilm_l6_v2.npz"
+batch_size = 64
+candidate_k = 50
+rrf_k = 60
+
 [paths]
 raw_data = "data/raw"
 processed_data = "data/processed"
