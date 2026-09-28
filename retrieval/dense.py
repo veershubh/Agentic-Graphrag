@@ -26,11 +26,16 @@ class DenseRetriever:
         revision: str,
         cache_path: Path,
         batch_size: int = 64,
+        cpu_threads: int = 4,
     ):
         try:
             from sentence_transformers import SentenceTransformer
+            import torch
         except ImportError as error:
             raise RuntimeError('Install the optional dependencies with: python -m pip install -e ".[retrieval]"') from error
+        if cpu_threads < 1:
+            raise ValueError("cpu_threads must be at least 1")
+        torch.set_num_threads(cpu_threads)
 
         self.documents = documents
         self.model_name = model_name

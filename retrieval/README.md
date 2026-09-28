@@ -8,6 +8,8 @@ python eval/run_retrieval_eval.py
 
 It retrieves from the fixed MuSiQue candidate-passage corpus and reports supporting-document recall@k overall and by hop count with deterministic question-level bootstrap confidence intervals. The detailed per-question ranking artifact is written under ignored `data/processed/`. Graph expansion and model cost/latency remain pending. Answer generation and EM/F1 are available through the optional evaluator described in `eval/README.md`. `top_k`, BM25 `k1`/`b`, and bootstrap settings are configured in `configs/default.toml`.
 
+For local domain diagnostics, `python eval/run_hybrid_eval.py --questions eval/data/domain/questions_v1.0.jsonl --passages data/processed/domain_inventory_passages_v1.0.jsonl --output eval/results/domain_inventory_bm25_v0.1.json --bm25-only` runs the same BM25 scorer over the provisional paper inventory without loading the embedding model. See `eval/README.md` for the reported hop-stratified metrics and limitations.
+
 ## Dense and hybrid retrieval
 
 Install the optional local embedding dependency with `python -m pip install -e ".[retrieval]"`, then run `python eval/run_hybrid_eval.py`. The command compares BM25, cosine similarity over normalized sentence embeddings, and BM25+dense reciprocal-rank fusion on the same frozen questions. It reports retrieval recall by hop count and bootstrap intervals. The embedding model revision is pinned in `configs/default.toml`; passage embeddings are cached locally under ignored `data/processed/` and reused only when the model revision, passage IDs, and passage content hashes match. This command downloads and runs the configured model locally and makes no paid API calls.

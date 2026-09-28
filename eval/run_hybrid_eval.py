@@ -1,4 +1,4 @@
-"""Compare BM25, local dense retrieval, and reciprocal-rank fusion on MuSiQue."""
+"""Compare BM25, local dense retrieval, and reciprocal-rank fusion on a frozen QA track."""
 
 from __future__ import annotations
 
@@ -17,7 +17,6 @@ if str(REPOSITORY_ROOT) not in sys.path:
     sys.path.insert(0, str(REPOSITORY_ROOT))
 
 from retrieval.bm25 import BM25
-from retrieval.dense import DenseRetriever
 from retrieval.fusion import reciprocal_rank_fusion
 
 
@@ -27,6 +26,11 @@ def read_jsonl(path: Path) -> list[dict[str, Any]]:
 
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def supporting_ids(question: dict[str, Any]) -> set[str]:
+    values = question.get("supporting_paragraph_ids", question.get("supporting_passage_ids", []))
+    return {str(identifier) for identifier in values}
 
 
 def bootstrap_interval(values: list[float], replicates: int, seed: int) -> list[float]:
@@ -74,7 +78,7 @@ def summarize(
     groups: dict[str, list[float]] = defaultdict(list)
     records = []
     for question, ranking in zip(questions, rankings, strict=True):
-        expected = set(question.get("supporting_paragraph_ids", []))
+        expected = supporting_ids(question)
         retrieved = ranking[:top_k]
         retrieved_ids = [str(passages[index]["id"]) for index, _score in retrieved]
         recall = len(expected.intersection(retrieved_ids)) / len(expected) if expected else 0.0
@@ -113,12 +117,18 @@ def main() -> None:
     parser.add_argument("--passages", type=Path, default=Path("eval/data/public/musique_v1.0_corpus.jsonl"))
     parser.add_argument("--config", type=Path, default=Path("configs/default.toml"))
     parser.add_argument("--output", type=Path, default=Path("eval/results/public_hybrid_v0.1.json"))
+    parser.add_argument("--embedding-cache", type=Path, help="Override the configured local passage-vector cache path")
+    parser.add_argument("--bm25-only", action="store_true", help="Run lexical retrieval without loading the embedding model")
     args = parser.parse_args()
 
     config = tomllib.loads(args.config.read_text(encoding="utf-8"))
     retrieval_config = config["retrieval"]
     dense_config = retrieval_config["dense"]
-    questions = read_jsonl(args.questions)
+    all_questions = read_jsonl(args.questions)
+    questions = [question for question in all_questions if question.get("is_answerable", True)]
+    if not questions:
+        raise SystemExit("No answerable questions in the selected input")
+    track = "domain" if any("supporting_passage_ids" in question for question in questions) else "public"
     passages = read_jsonl(args.passages)
     top_k = int(retrieval_config["top_k"])
     candidate_k = int(dense_config.get("candidate_k", 50))
@@ -129,61 +139,84 @@ def main() -> None:
     passage_index = {str(document["id"]): index for index, document in enumerate(passages)}
     lexical_rankings = [bm25.search(question["question"], top_k=candidate_k) for question in questions]
     lexical = [[(passage_index[str(result.document["id"])], result.score) for result in row] for row in lexical_rankings]
+    retrievers = {
+        "bm25": summarize(questions, passages, lexical, top_k, bootstrap_replicates, bootstrap_seed),
+    }
+    settings = {
+        "top_k": top_k,
+        "candidate_k": candidate_k,
+        "bm25_k1": float(retrieval_config["bm25"]["k1"]),
+        "bm25_b": float(retrieval_config["bm25"]["b"]),
+        "bootstrap_replicates": bootstrap_replicates,
+        "bootstrap_seed": bootstrap_seed,
+    }
+    dense = None
+    cache_path = None
+    if not args.bm25_only:
+        from retrieval.dense import DenseRetriever
 
-    cache_path = Path(dense_config["cache_path"])
-    if not cache_path.is_absolute():
-        cache_path = REPOSITORY_ROOT / cache_path
-    dense = DenseRetriever(
-        passages,
-        model_name=dense_config["model"],
-        revision=dense_config["revision"],
-        cache_path=cache_path,
-        batch_size=int(dense_config.get("batch_size", 64)),
-    )
-    dense_rankings = dense.search_many(
-        [question["question"] for question in questions],
-        top_k=candidate_k,
-        batch_size=int(dense_config.get("batch_size", 64)),
-    )
-    hybrid_rankings = [reciprocal_rank_fusion(sparse, vector, rrf_k=int(dense_config.get("rrf_k", 60))) for sparse, vector in zip(lexical, dense_rankings, strict=True)]
+        cache_path = args.embedding_cache or Path(dense_config["cache_path"])
+        if not cache_path.is_absolute():
+            cache_path = REPOSITORY_ROOT / cache_path
+        dense = DenseRetriever(
+            passages,
+            model_name=dense_config["model"],
+            revision=dense_config["revision"],
+            cache_path=cache_path,
+            batch_size=int(dense_config.get("batch_size", 64)),
+            cpu_threads=int(dense_config.get("cpu_threads", 4)),
+        )
+        dense_rankings = dense.search_many(
+            [question["question"] for question in questions],
+            top_k=candidate_k,
+            batch_size=int(dense_config.get("batch_size", 64)),
+        )
+        hybrid_rankings = [
+            reciprocal_rank_fusion(sparse, vector, rrf_k=int(dense_config.get("rrf_k", 60)))
+            for sparse, vector in zip(lexical, dense_rankings, strict=True)
+        ]
+        retrievers["dense"] = summarize(questions, passages, dense_rankings, top_k, bootstrap_replicates, bootstrap_seed)
+        retrievers["bm25_dense_rrf"] = summarize(questions, passages, hybrid_rankings, top_k, bootstrap_replicates, bootstrap_seed)
+        settings.update(
+            {
+                "rrf_k": int(dense_config.get("rrf_k", 60)),
+                "embedding_model": dense_config["model"],
+                "embedding_revision": dense_config["revision"],
+                "embedding_batch_size": int(dense_config.get("batch_size", 64)),
+                "embedding_cpu_threads": int(dense_config.get("cpu_threads", 4)),
+                "embedding_cache_hit": dense.cache_hit,
+            }
+        )
 
     result = {
-        "retrievers": {
-            "bm25": summarize(questions, passages, lexical, top_k, bootstrap_replicates, bootstrap_seed),
-            "dense": summarize(questions, passages, dense_rankings, top_k, bootstrap_replicates, bootstrap_seed),
-            "bm25_dense_rrf": summarize(questions, passages, hybrid_rankings, top_k, bootstrap_replicates, bootstrap_seed),
-        },
-        "settings": {
-            "top_k": top_k,
-            "candidate_k": candidate_k,
-            "rrf_k": int(dense_config.get("rrf_k", 60)),
-            "embedding_model": dense_config["model"],
-            "embedding_revision": dense_config["revision"],
-            "embedding_cache_hit": dense.cache_hit,
-            "bootstrap_replicates": bootstrap_replicates,
-            "bootstrap_seed": bootstrap_seed,
-        },
+        "track": track,
+        "retrievers": retrievers,
+        "settings": settings,
         "question_count": len(questions),
+        "unanswerable_question_count_excluded": len(all_questions) - len(questions),
         "passage_count": len(passages),
         "inputs": {"questions_sha256": sha256(args.questions), "passages_sha256": sha256(args.passages)},
     }
-    result["paired_comparisons"] = {
-        "dense_minus_bm25": paired_comparison(
-            result["retrievers"]["bm25"], result["retrievers"]["dense"], bootstrap_replicates, bootstrap_seed
-        ),
-        "bm25_dense_rrf_minus_bm25": paired_comparison(
-            result["retrievers"]["bm25"], result["retrievers"]["bm25_dense_rrf"], bootstrap_replicates, bootstrap_seed
-        ),
-    }
+    if "dense" in retrievers:
+        result["paired_comparisons"] = {
+            "dense_minus_bm25": paired_comparison(
+                result["retrievers"]["bm25"], result["retrievers"]["dense"], bootstrap_replicates, bootstrap_seed
+            ),
+            "bm25_dense_rrf_minus_bm25": paired_comparison(
+                result["retrievers"]["bm25"], result["retrievers"]["bm25_dense_rrf"], bootstrap_replicates, bootstrap_seed
+            ),
+        }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"Embedding cache {'hit' if dense.cache_hit else 'created'}: {cache_path}")
-    print("| Variant | 2-hop recall@5 | 3-hop recall@5 | 4-hop recall@5 | Overall recall@5 |")
-    print("|---|---:|---:|---:|---:|")
+    if dense is not None:
+        print(f"Embedding cache {'hit' if dense.cache_hit else 'created'}: {cache_path}")
+    hop_columns = list(next(iter(result["retrievers"].values()))["by_hop"])
+    print("| Variant | " + " | ".join(f"{hop}-hop recall@{top_k}" for hop in hop_columns) + f" | Overall recall@{top_k} |")
+    print("|---|" + "---:|" * (len(hop_columns) + 1))
     for name, metrics in result["retrievers"].items():
         low, high = metrics["bootstrap_95_ci"]
         print(f"{name}: recall@{top_k}={metrics['supporting_recall_at_k']:.3f} [{low:.3f}, {high:.3f}]")
-        hop_values = [metrics["by_hop"][hop]["supporting_recall_at_k"] for hop in ("2", "3", "4")]
+        hop_values = [metrics["by_hop"][hop]["supporting_recall_at_k"] for hop in hop_columns]
         print(f"| {name} | " + " | ".join(f"{value:.3f}" for value in hop_values) + f" | {metrics['supporting_recall_at_k']:.3f} |")
         for hop, values in metrics["by_hop"].items():
             low, high = values["bootstrap_95_ci"]

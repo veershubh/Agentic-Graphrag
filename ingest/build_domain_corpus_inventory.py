@@ -84,22 +84,39 @@ def main() -> None:
     parser.add_argument("--questions", type=Path, default=Path("eval/data/domain/questions_v1.0.jsonl"))
     parser.add_argument("--min-selection-score", type=int, default=6)
     parser.add_argument("--output", type=Path, default=Path("eval/data/domain/papers_inventory_v1.0.jsonl"))
+    parser.add_argument(
+        "--passages-output",
+        type=Path,
+        default=Path("data/processed/domain_inventory_passages_v1.0.jsonl"),
+        help="Write locally filtered passages for the inventory; keep this ignored working data out of Git",
+    )
     args = parser.parse_args()
 
+    references = read_jsonl(args.references)
+    extracted = read_jsonl(args.papers)
+    passages = read_jsonl(args.passages)
+    questions = read_jsonl(args.questions)
     inventory = build_inventory(
-        read_jsonl(args.references),
-        read_jsonl(args.papers),
-        read_jsonl(args.passages),
-        read_jsonl(args.questions),
+        references,
+        extracted,
+        passages,
+        questions,
         args.min_selection_score,
     )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text("".join(json.dumps(row, ensure_ascii=False) + "\n" for row in inventory), encoding="utf-8")
+    inventory_ids = {row["arxiv_id"] for row in inventory}
+    inventory_passages = [row for row in passages if str(row.get("arxiv_id", "")) in inventory_ids]
+    args.passages_output.parent.mkdir(parents=True, exist_ok=True)
+    args.passages_output.write_text(
+        "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in inventory_passages), encoding="utf-8"
+    )
     years = dict(sorted(Counter(row["year"] for row in inventory).items()))
     print(f"Wrote {len(inventory)} paper metadata records to {args.output}")
     print(f"By year: {years}")
     print(f"Total extracted characters: {sum(row['character_count'] for row in inventory):,}")
     print(f"Total page-aware passages: {sum(row['passage_count'] for row in inventory):,}")
+    print(f"Wrote {len(inventory_passages)} locally filtered passages to {args.passages_output}")
 
 
 if __name__ == "__main__":
