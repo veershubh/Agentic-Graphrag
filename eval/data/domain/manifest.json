@@ -59,21 +59,36 @@
     "status": "acquisition snapshot only; paper relevance, rights, and domain questions still require review"
   },
   "question_draft": {
-    "path": "questions_draft_v0.6.jsonl",
-    "sha256": "462032cd1c44091ca0c5806c0ed931397a3816bd240656382f5199e5957bf696",
-    "bytes": 27568,
-    "count": 56,
-    "answerable": 54,
+    "path": "questions_draft_v0.7.jsonl",
+    "sha256": "4004fde3846e221f84685899b031492ac0f886d0eb397cc9440592e96aeec386",
+    "bytes": 32094,
+    "count": 66,
+    "answerable": 64,
     "unanswerable": 2,
-    "reviewed_verified": 56,
+    "reviewed_verified": 66,
     "hop_counts": {
-      "1": 24,
-      "2": 24,
-      "3": 6
+      "1": 31,
+      "2": 26,
+      "3": 7
     },
     "status": "draft; abstention probes verified but unanswerable share below final target"
   },
   "question_drafts": [
+    {
+      "path": "questions_draft_v0.7.jsonl",
+      "sha256": "4004fde3846e221f84685899b031492ac0f886d0eb397cc9440592e96aeec386",
+      "bytes": 32094,
+      "count": 66,
+      "answerable": 64,
+      "unanswerable": 2,
+      "reviewed_verified": 66,
+      "hop_counts": {
+        "1": 31,
+        "2": 26,
+        "3": 7
+      },
+      "status": "draft; abstention probes verified but unanswerable share below final target"
+    },
     {
       "path": "questions_draft_v0.6.jsonl",
       "sha256": "462032cd1c44091ca0c5806c0ed931397a3816bd240656382f5199e5957bf696",
@@ -87,7 +102,7 @@
         "2": 24,
         "3": 6
       },
-      "status": "draft; abstention probes verified but unanswerable share below final target"
+      "status": "superseded draft"
     },
     {
       "path": "questions_draft_v0.5.jsonl",
