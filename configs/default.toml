@@ -1,0 +1,22 @@
+[models]
+extraction = "gpt-4o-mini"
+planning = "gpt-4o-mini"
+answer = "gpt-4o"
+embedding = "text-embedding-3-small"
+temperature = 0.0
+
+[chunking]
+target_tokens = 500
+overlap_tokens = 75
+
+[retrieval]
+top_k = 5
+graph_hops = 2
+max_graph_nodes = 100
+max_graph_chunks = 30
+
+[paths]
+raw_data = "data/raw"
+processed_data = "data/processed"
+evaluation_data = "eval/data"
+
