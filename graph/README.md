@@ -15,8 +15,11 @@ To run the pilot after setting `OPENAI_API_KEY` and installing the optional API 
 python -m pip install -e ".[api]"
 python ingest/build_domain_corpus_inventory.py
 python graph/extract_domain_graph.py
+python graph/merge_graph_extractions.py
 ```
 
 The default selection covers 20 papers and at most 200 passages. The runner makes paid model calls for cache misses. No extraction calls have been run yet; cost and extraction quality therefore remain unmeasured. Add current input and output token rates under `[graph.extraction]` in `configs/default.toml` to enable a cost estimate in its summary.
 
-Entity resolution beyond normalized-name matching, Neo4j storage, extraction audits, and scaling beyond the pilot remain future work.
+The merger consolidates stable-name nodes, groups repeated relationships while retaining per-chunk evidence, and writes a normalized alias table. Alias collisions are emitted separately for later review rather than resolved automatically. The merger also has not been run because there are no extraction records yet.
+
+Embedding-based duplicate candidates, human/LLM adjudication, resolution audits, Neo4j storage, extraction audits, and scaling beyond the pilot remain future work.

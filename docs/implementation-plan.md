@@ -94,10 +94,10 @@ Build the test before the system.
 - [ ] Pilot on 20 documents, measure cost, extrapolate, then scale
 
 **Entity resolution**
-- [ ] Normalize names (case, punctuation, abbreviations)
+- [x] Normalize names by case and punctuation
 - [ ] Find candidate duplicates via embedding similarity
 - [ ] Adjudicate ambiguous pairs with an LLM
-- [ ] Maintain an alias table
+- [x] Maintain a conservative alias table; emit collisions for review
 - [ ] Hand-label 100 pairs; report resolution precision and recall
 
 **Storage and quality**
@@ -107,7 +107,7 @@ Build the test before the system.
 
 **Exit criterion:** graph loaded, with audit accuracy and extraction cost documented.
 
-**Progress (2026-09-28):** The constrained ontology and a deterministic 20-paper, year-balanced structured extraction runner are implemented. Extraction output is provenance-linked and cached by prompt/model/chunk/content hash. The paid pilot has not been run; Phase 3 remains in progress pending extraction cost and quality measurements, entity resolution, Neo4j loading, and audits.
+**Progress (2026-09-28):** The constrained ontology and deterministic 20-paper, year-balanced structured extraction runner are implemented. Extraction output is provenance-linked and cached by prompt/model/chunk/content hash. An offline consolidation step merges stable-name nodes, groups edges while retaining chunk evidence, and emits a conservative alias table plus unresolved collisions. The paid pilot has not been run; Phase 3 remains in progress pending extraction cost and quality measurements, embedding-based candidate generation, ambiguous-pair adjudication, Neo4j loading, and audits.
 
 ---
 
