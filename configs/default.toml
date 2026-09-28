@@ -14,6 +14,12 @@ top_k = 5
 graph_hops = 2
 max_graph_nodes = 100
 max_graph_chunks = 30
+bootstrap_replicates = 10000
+bootstrap_seed = 20260928
+
+[retrieval.bm25]
+k1 = 1.5
+b = 0.75
 
 [paths]
 raw_data = "data/raw"
