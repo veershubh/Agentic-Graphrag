@@ -59,21 +59,36 @@
     "status": "acquisition snapshot only; paper relevance, rights, and domain questions still require review"
   },
   "question_draft": {
-    "path": "questions_draft_v0.4.jsonl",
-    "sha256": "052090daf45e7a8f851f5a291920bc801c684a34c5aa7c497d849f833a7341f2",
-    "bytes": 18444,
-    "count": 38,
-    "answerable": 36,
+    "path": "questions_draft_v0.5.jsonl",
+    "sha256": "17291c89f024e4668068c4a306923bbd2bb1af478dc56f2a4a5ded62a03b6dfb",
+    "bytes": 22558,
+    "count": 46,
+    "answerable": 44,
     "unanswerable": 2,
-    "reviewed_verified": 38,
+    "reviewed_verified": 46,
     "hop_counts": {
-      "1": 18,
-      "2": 14,
-      "3": 4
+      "1": 20,
+      "2": 19,
+      "3": 5
     },
     "status": "draft; abstention probes verified but unanswerable share below final target"
   },
   "question_drafts": [
+    {
+      "path": "questions_draft_v0.5.jsonl",
+      "sha256": "17291c89f024e4668068c4a306923bbd2bb1af478dc56f2a4a5ded62a03b6dfb",
+      "bytes": 22558,
+      "count": 46,
+      "answerable": 44,
+      "unanswerable": 2,
+      "reviewed_verified": 46,
+      "hop_counts": {
+        "1": 20,
+        "2": 19,
+        "3": 5
+      },
+      "status": "draft; abstention probes verified but unanswerable share below final target"
+    },
     {
       "path": "questions_draft_v0.4.jsonl",
       "sha256": "052090daf45e7a8f851f5a291920bc801c684a34c5aa7c497d849f833a7341f2",
@@ -87,7 +102,7 @@
         "2": 14,
         "3": 4
       },
-      "status": "draft; abstention probes verified but unanswerable share below final target"
+      "status": "superseded draft"
     },
     {
       "path": "questions_draft_v0.3.jsonl",
