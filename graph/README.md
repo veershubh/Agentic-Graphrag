@@ -24,4 +24,6 @@ The merger consolidates stable-name nodes, groups repeated relationships while r
 
 `load_neo4j.py` imports the consolidated files in idempotent batches, creates uniqueness constraints, and links each edge's evidence to its source chunk and paper. Preview counts without connecting with `python graph/load_neo4j.py --dry-run`. To load, install `python -m pip install -e ".[neo4j]"`, set `NEO4J_URI`, `NEO4J_USERNAME`, and `NEO4J_PASSWORD` (optionally `NEO4J_DATABASE`), then run `python graph/load_neo4j.py`. The database loader has not been run; it does not clear existing data.
 
-Embedding-based duplicate candidates, human/LLM adjudication, resolution audits, extraction audits, and scaling beyond the pilot remain future work.
+`resolve_entity_candidates.py` uses the pinned local sentence-transformer model to rank same-kind name pairs by cosine similarity. Install `python -m pip install -e ".[retrieval]"` and run `python graph/resolve_entity_candidates.py` after consolidation. It writes a review queue with `UNREVIEWED` decisions; it never merges entities automatically. The candidate generator is implemented but has not been run because extraction output is not available yet.
+
+Human/LLM adjudication, resolution audits, extraction audits, and scaling beyond the pilot remain future work.

@@ -95,7 +95,7 @@ Build the test before the system.
 
 **Entity resolution**
 - [x] Normalize names by case and punctuation
-- [ ] Find candidate duplicates via embedding similarity
+- [x] Implement embedding-based duplicate candidate generation for review
 - [ ] Adjudicate ambiguous pairs with an LLM
 - [x] Maintain a conservative alias table; emit collisions for review
 - [ ] Hand-label 100 pairs; report resolution precision and recall
@@ -107,7 +107,7 @@ Build the test before the system.
 
 **Exit criterion:** graph loaded, with audit accuracy and extraction cost documented.
 
-**Progress (2026-09-28):** The constrained ontology and deterministic 20-paper, year-balanced structured extraction runner are implemented. Extraction output is provenance-linked and cached by prompt/model/chunk/content hash. Offline consolidation merges stable-name nodes, groups edges while retaining chunk evidence, and emits a conservative alias table plus unresolved collisions. An idempotent batched Neo4j loader is implemented, but it has not been connected to a database. The paid pilot has not been run; Phase 3 remains in progress pending extraction cost and quality measurements, embedding-based candidate generation, ambiguous-pair adjudication, Neo4j loading, and audits.
+**Progress (2026-09-28):** The constrained ontology and deterministic 20-paper, year-balanced structured extraction runner are implemented. Extraction output is provenance-linked and cached by prompt/model/chunk/content hash. Offline consolidation merges stable-name nodes, groups edges while retaining chunk evidence, and emits a conservative alias table plus unresolved collisions. An idempotent batched Neo4j loader and local embedding-based duplicate candidate review queue are implemented, but neither has been run because extraction output is not available. The paid pilot has not been run; Phase 3 remains in progress pending extraction cost and quality measurements, ambiguous-pair adjudication, Neo4j loading, and audits.
 
 ---
 
