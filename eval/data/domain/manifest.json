@@ -23,5 +23,14 @@
     "sha256": "e035f1bb270f76619a3744d0b4a72d0566d2bd969a93d16772f8e7774ed35ae7",
     "bytes": 272907,
     "count": 400
+  },
+  "acquisition_pilot": {
+    "attempted": 20,
+    "downloaded": 19,
+    "failed": 1,
+    "pdf_bytes": 77748729,
+    "extracted_characters": 1523554,
+    "extracted_pages": 364,
+    "failure_status": "HTTP 406"
   }
 }
