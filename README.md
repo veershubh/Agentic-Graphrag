@@ -4,7 +4,7 @@ An experimental multi-hop retrieval system that combines dense retrieval, keywor
 
 ## Current stage
 
-Phase 0 setup is in progress. The current smoke pipeline reads five local Markdown documents, normalizes their metadata, splits text into configurable chunks, and writes a deterministic JSON artifact. It does not call an LLM, create embeddings, or connect to Neo4j yet.
+Phase 0 setup is complete. Phase 1 data preparation is underway: a reproducible 300-question MuSiQue validation slice is committed, and 400 LLM-evaluation paper references are being reviewed for the domain corpus. The local smoke pipeline reads five fixture documents, normalizes metadata, splits text into configurable chunks, and writes a deterministic JSON artifact. Retrieval, embeddings, and Neo4j are not implemented yet.
 
 ## Quick start
 
@@ -23,5 +23,5 @@ The folders follow the implementation plan: `ingest/`, `extract/`, `graph/`, `re
 
 ## Evaluation status
 
-No benchmark results are reported yet. Evaluation questions and gold answers will be frozen before retrieval features are implemented, as described in `docs/implementation-plan.md`.
+No project benchmark results are reported yet. The public MuSiQue questions and candidate passage corpus are versioned in `eval/data/public/`. The domain paper references in `eval/data/domain/` still need full-text review, then questions and gold answers must be written and checked before retrieval features are implemented, as described in `docs/implementation-plan.md`.
 

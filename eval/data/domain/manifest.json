@@ -1,0 +1,27 @@
+{
+  "track": "domain",
+  "status": "paper candidates; full-text review and QA authoring remain",
+  "topic": "LLM evaluation and benchmarking",
+  "source": "arXiv public search",
+  "collected_on": "2026-09-28",
+  "search_strategy": {
+    "years": [2022, 2023, 2024, 2025, 2026],
+    "query_pairs": [
+      ["large language model", "evaluation"],
+      ["large language model", "benchmark"]
+    ],
+    "fields": "abstract",
+    "category_filter": "Computer Science including cross-lists",
+    "candidate_count": 750,
+    "selected_references": 400,
+    "selected_per_year": 80,
+    "selection": "Keep records whose title/abstract mention a language model and evaluation/benchmark terminology; rank title matches, terminology, evaluation artifacts, and cs.CL/cs.AI category signals. Selected entries remain pending full-text review."
+  },
+  "candidate_snapshot_sha256": "8fc6b151d41605b1dabc1fdb00dbb42a634b66071b7d00ba461bc392b190441b",
+  "references": {
+    "path": "papers_candidates.jsonl",
+    "sha256": "e035f1bb270f76619a3744d0b4a72d0566d2bd969a93d16772f8e7774ed35ae7",
+    "bytes": 272907,
+    "count": 400
+  }
+}
