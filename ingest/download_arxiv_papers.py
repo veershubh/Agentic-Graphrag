@@ -84,12 +84,21 @@ def main() -> None:
     parser.add_argument("--limit", type=int, default=20, help="Balanced pilot count; 0 downloads all references")
     parser.add_argument("--delay-seconds", type=float, default=3.1)
     parser.add_argument("--manifest", type=Path, default=Path("data/raw/paper_downloads.jsonl"))
+    parser.add_argument("--retry-failures", action="store_true", help="Retry only references marked failed in the existing manifest")
     args = parser.parse_args()
 
     references = choose_references(read_references(args.references), args.limit)
     args.paper_dir.mkdir(parents=True, exist_ok=True)
     args.manifest.parent.mkdir(parents=True, exist_ok=True)
-    results = []
+    existing_rows = read_references(args.manifest) if args.manifest.exists() else []
+    existing = {str(row["arxiv_id"]): row for row in existing_rows}
+    if args.retry_failures:
+        failed_ids = {identifier for identifier, row in existing.items() if row.get("status") == "failed"}
+        references = [row for row in references if str(row["arxiv_id"]) in failed_ids]
+        if not references:
+            print("No failed references found to retry")
+            return
+    attempted = []
     for index, reference in enumerate(references):
         paper_path = args.paper_dir / f"{reference['arxiv_id']}.pdf"
         if index and not paper_path.exists():
@@ -100,13 +109,14 @@ def main() -> None:
             result = {"arxiv_id": reference["arxiv_id"], "status": "failed", "error": str(exc)}
         result["title"] = reference["title"]
         result["year"] = reference["year"]
-        results.append(result)
-        args.manifest.write_text("".join(json.dumps(row, ensure_ascii=False) + "\n" for row in results), encoding="utf-8")
+        attempted.append(result)
+        existing[str(result["arxiv_id"])] = result
+        args.manifest.write_text("".join(json.dumps(row, ensure_ascii=False) + "\n" for row in existing.values()), encoding="utf-8")
         print(f"{index + 1}/{len(references)} {result['arxiv_id']} {result['status']}", flush=True)
-    total_bytes = sum(int(row.get("bytes", 0)) for row in results)
-    failed = sum(row["status"] == "failed" for row in results)
-    successful = len(results) - failed
-    print(f"Downloaded/present: {successful}; failed: {failed}; PDF bytes recorded: {total_bytes}")
+    total_bytes = sum(int(row.get("bytes", 0)) for row in attempted)
+    failed = sum(row["status"] == "failed" for row in attempted)
+    successful = len(attempted) - failed
+    print(f"Attempted: {len(attempted)}; downloaded/present: {successful}; failed: {failed}; PDF bytes recorded this run: {total_bytes}")
 
 
 if __name__ == "__main__":

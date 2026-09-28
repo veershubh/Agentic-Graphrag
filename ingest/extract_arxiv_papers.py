@@ -35,6 +35,10 @@ def main() -> None:
         import pymupdf
     except ImportError as exc:
         raise SystemExit('Install the PDF extraction extra with: python -m pip install -e ".[papers]"') from exc
+    # Malformed but recoverable PDFs can generate thousands of low-level warnings.
+    # Per-paper failures are captured below, so keep the console output actionable.
+    pymupdf.TOOLS.mupdf_display_errors(False)
+    pymupdf.TOOLS.mupdf_display_warnings(False)
 
     references = {
         str(row["arxiv_id"]): row

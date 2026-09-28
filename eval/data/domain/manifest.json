@@ -33,6 +33,19 @@
     "extracted_pages": 364,
     "failure_status": "HTTP 406"
   },
+  "full_acquisition_snapshot": {
+    "as_of": "2026-09-28",
+    "candidate_references": 400,
+    "pdfs_downloaded_or_present": 370,
+    "download_failures": 30,
+    "papers_with_extracted_records": 368,
+    "papers_with_nonempty_extracted_text": 350,
+    "empty_text_papers": 18,
+    "pdf_extraction_failures": 2,
+    "page_aware_passages": 11784,
+    "full_text_location": "local ignored data/raw and data/processed directories; not committed",
+    "status": "acquisition snapshot only; paper relevance, rights, and domain questions still require review"
+  },
   "question_draft": {
     "path": "questions_draft_v0.1.jsonl",
     "sha256": "851bea5efdb5bf5a01a63648001540427a84704f637b02f35728b1182a9e3b68",
