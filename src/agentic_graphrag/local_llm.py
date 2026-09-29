@@ -64,6 +64,7 @@ class LocalOllamaClient:
         schema: dict[str, Any],
         temperature: float = 0.0,
         max_output_tokens: int = 700,
+        think: bool = False,
     ) -> LocalResponse:
         if not model.strip() or max_output_tokens < 1:
             raise ValueError("model and max_output_tokens must be set")
@@ -74,6 +75,7 @@ class LocalOllamaClient:
                 for message in messages
             ],
             "format": schema,
+            "think": think,
             "stream": False,
             "keep_alive": self.keep_alive,
             "options": {"temperature": temperature, "num_predict": max_output_tokens},

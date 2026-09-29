@@ -66,6 +66,8 @@ def generate_one(client: Any, model: str, temperature: float, max_output_tokens:
     )
     usage = response.usage
     parsed = json.loads(response.output_text)
+    if parsed.get("abstained") or not str(parsed.get("answer", "")).strip():
+        parsed = {**parsed, "answer": "", "citation_ids": [], "abstained": True}
     return {
         **parsed,
         "input_tokens": int(usage.input_tokens),

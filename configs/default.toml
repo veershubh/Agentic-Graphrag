@@ -1,7 +1,7 @@
 [models]
 extraction = "qwen3:4b-instruct"
 planning = "qwen3:4b-instruct"
-answer = "qwen3:4b-instruct"
+answer = "qwen3:8b"
 embedding = "sentence-transformers/all-MiniLM-L6-v2"
 temperature = 0.0
 

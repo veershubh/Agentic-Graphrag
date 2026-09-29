@@ -6,8 +6,9 @@ After the domain graph files exist and Ollama is running locally:
 
 ```powershell
 ollama pull qwen3:4b-instruct
+ollama pull qwen3:8b
 python -m pip install -e ".[retrieval]"
 python agent/run_agent.py --question "Your research question"
 ```
 
-Planner and answer inference stay on the local Ollama server; no model API charges apply. The command builds or loads local domain passage embeddings. It has not been run. Its default limits are configured under `[agent]` in `configs/default.toml`; cap tool results or steps before large runs. Domain graph extraction and retrieval evaluation are still prerequisites for meaningful results.
+Planner and answer inference stay on the local Ollama server; planning defaults to Qwen3 4B and answering to Qwen3 8B, with no model API charges. The command builds or loads local domain passage embeddings. It has not been run end to end. Its default limits are configured under `[agent]` in `configs/default.toml`; cap tool results or steps before large runs. The graph retrieval diagnostic underperformed BM25, so graph-assisted answers need more graph coverage and quality work.

@@ -1,0 +1,1100 @@
+{
+  "retriever": "bm25_dense_rrf",
+  "model": "qwen3:8b",
+  "runtime": "local_ollama",
+  "estimated_model_api_cost_usd": 0.0,
+  "temperature": 0.0,
+  "offset": 0,
+  "requested_limit": 30,
+  "bootstrap": {
+    "replicates": 10000,
+    "seed": 20260928,
+    "unit": "question"
+  },
+  "overall": {
+    "question_count": 30,
+    "exact_match": 0.06666666666666667,
+    "token_f1": 0.1646518759018759,
+    "citation_validity_rate": 1.0,
+    "mean_valid_citation_fraction": 1.0,
+    "mean_gold_citation_precision": 0.48333333333333334,
+    "mean_gold_citation_recall": 0.26666666666666666,
+    "supporting_recall_at_k": 0.6333333333333333,
+    "mean_latency_seconds": 6.483046996667205,
+    "p50_latency_seconds": 5.604552599994349,
+    "p95_latency_seconds": 8.776143600000069,
+    "mean_input_tokens": 868.4333333333333,
+    "mean_output_tokens": 59.1,
+    "estimated_cost_usd": 0.0,
+    "mean_cost_usd": 0.0,
+    "exact_match_bootstrap_95_ci": [
+      0.0,
+      0.16666666666666666
+    ],
+    "token_f1_bootstrap_95_ci": [
+      0.07196248196248196,
+      0.2739880952380952
+    ],
+    "citation_valid_bootstrap_95_ci": [
+      1.0,
+      1.0
+    ],
+    "supporting_recall_at_k_bootstrap_95_ci": [
+      0.5333333333333333,
+      0.7333333333333333
+    ],
+    "gold_citation_precision_bootstrap_95_ci": [
+      0.3,
+      0.65
+    ],
+    "gold_citation_recall_bootstrap_95_ci": [
+      0.16666666666666666,
+      0.36666666666666664
+    ]
+  },
+  "by_hop": {
+    "2": {
+      "question_count": 30,
+      "exact_match": 0.06666666666666667,
+      "token_f1": 0.1646518759018759,
+      "citation_validity_rate": 1.0,
+      "mean_valid_citation_fraction": 1.0,
+      "mean_gold_citation_precision": 0.48333333333333334,
+      "mean_gold_citation_recall": 0.26666666666666666,
+      "supporting_recall_at_k": 0.6333333333333333,
+      "mean_latency_seconds": 6.483046996667205,
+      "p50_latency_seconds": 5.604552599994349,
+      "p95_latency_seconds": 8.776143600000069,
+      "mean_input_tokens": 868.4333333333333,
+      "mean_output_tokens": 59.1,
+      "estimated_cost_usd": 0.0,
+      "mean_cost_usd": 0.0,
+      "exact_match_bootstrap_95_ci": [
+        0.0,
+        0.16666666666666666
+      ],
+      "token_f1_bootstrap_95_ci": [
+        0.07131854256854256,
+        0.27301587301587305
+      ],
+      "citation_valid_bootstrap_95_ci": [
+        1.0,
+        1.0
+      ],
+      "supporting_recall_at_k_bootstrap_95_ci": [
+        0.5333333333333333,
+        0.7333333333333333
+      ],
+      "gold_citation_precision_bootstrap_95_ci": [
+        0.3,
+        0.6666666666666666
+      ],
+      "gold_citation_recall_bootstrap_95_ci": [
+        0.16666666666666666,
+        0.36666666666666664
+      ]
+    }
+  },
+  "inputs": {
+    "questions_sha256": "c68081c917a4028df71d498a189f2c283de2b8c37e8fc602d51cc3dbbb451e2c",
+    "passages_sha256": "431077adcf57c5686e2d1b7718646454525f8e542b22f8313f4f65bb0d3439e9",
+    "retrieval_results_sha256": "2e28d82920fe6914fc17ea0f2cbcf0800f53e44a13198f63b5ba04e285b7780a"
+  },
+  "records": [
+    {
+      "question_id": "2hop__107548_124896",
+      "hop_count": 2,
+      "prediction": "Francis Bacon",
+      "gold_answers": [
+        "Sir Nicholas Bacon",
+        "Nicholas Bacon"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.5,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_8afee6696d7fa3a9178e"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "musique_para_8afee6696d7fa3a9178e",
+        "musique_para_7a9663b9643bab52b778",
+        "musique_para_38bd900200a7627c0edf",
+        "musique_para_13aa78d9184e577ad9cc",
+        "musique_para_5048165dd19fa8252fc9"
+      ],
+      "input_tokens": 956,
+      "output_tokens": 46,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 5.813258100009989,
+      "response_id": "local_eaf2b3c11ce54872928b5b0a932cb01d",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__124933_653666",
+      "hop_count": 2,
+      "prediction": "Emma Hale Smith",
+      "gold_answers": [
+        "Lucy Mack Smith"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.3333333333333333,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_e75a5784031838b0eddd"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "musique_para_e75a5784031838b0eddd",
+        "musique_para_33e819822586ba2fe21a",
+        "musique_para_6461fe3b6613f97361f1",
+        "musique_para_febea0de4866972dabb5",
+        "musique_para_1cfdd54ea7bde203eea8"
+      ],
+      "input_tokens": 834,
+      "output_tokens": 46,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 4.037600399999064,
+      "response_id": "local_4f3c3727507b4d3481f5cea9b64af6d7",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__126306_396277",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "Doctor De Soto"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_0a008708ebabf05a05de",
+        "musique_para_6de4f9a9b02162701376",
+        "musique_para_6c5814f49ca436358faa",
+        "musique_para_53c54befdbbc33baf80d",
+        "musique_para_44f9aa85b7f64feb563d"
+      ],
+      "input_tokens": 701,
+      "output_tokens": 63,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 6.3508487999934005,
+      "response_id": "local_82796cafd871485da293fccac74a269d",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__128608_82341",
+      "hop_count": 2,
+      "prediction": "Northern Florida",
+      "gold_answers": [
+        "Northern Florida",
+        "in Northern Florida"
+      ],
+      "exact_match": 1.0,
+      "token_f1": 1.0,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_221f7227f2a5ebf2bc31"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "musique_para_805bc677ed3697254330",
+        "musique_para_221f7227f2a5ebf2bc31",
+        "musique_para_a655c0cf0ac6bfbe8db5",
+        "musique_para_1267578a5a511fcbc873",
+        "musique_para_1e4cd6b73139514c72a2"
+      ],
+      "input_tokens": 954,
+      "output_tokens": 46,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 5.057760000010603,
+      "response_id": "local_935f51d74afd417d8c97e24d88ba878a",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__130404_59180",
+      "hop_count": 2,
+      "prediction": "The song was written on May 21, 1979.",
+      "gold_answers": [
+        "May 21, 1979"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.6,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_bc03a1000e4981cff71e"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "musique_para_bc03a1000e4981cff71e",
+        "musique_para_be17474f59160ceb564b",
+        "musique_para_f3e46490a01da8caabc1",
+        "musique_para_2adbc26631604fc08ac5",
+        "musique_para_7d8af6b039f158fef252"
+      ],
+      "input_tokens": 902,
+      "output_tokens": 56,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 5.604552599994349,
+      "response_id": "local_ea1bc9b6976246ec9636d1c1dcf1d048",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__130984_55721",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "the Coast Range"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_bf1ef13d655e13808f52",
+        "musique_para_efc0f41c5c83dfb684e7",
+        "musique_para_90f201c368c665de4a3b",
+        "musique_para_7db20975c9b5182f2031",
+        "musique_para_101ddbc2747d1d0afaa3"
+      ],
+      "input_tokens": 768,
+      "output_tokens": 40,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 4.306329299986828,
+      "response_id": "local_72dbcaf1152e4e769f7b3f6717b7d4d4",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__132854_417697",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "ALTIMA",
+        "Nissan Altima"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_051cfe94e280e62ef07f",
+        "musique_para_b97bfc16d74c09f30397",
+        "musique_para_29549d3e9e7967421fb7",
+        "musique_para_598bae95f10c03307d90",
+        "musique_para_7fbb1d02efe3c4cd883e"
+      ],
+      "input_tokens": 906,
+      "output_tokens": 29,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 3.68868229999498,
+      "response_id": "local_c37f5ee85f1c4780bf916133be63fa48",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__135653_669373",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "Charles University"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_51860ea45046c29bb440",
+        "musique_para_d20eccec383abfbca30b",
+        "musique_para_d5ed0f237fb89be43d02",
+        "musique_para_dce64ba1a52c87132f55",
+        "musique_para_4120c29f2487fa0e1e76"
+      ],
+      "input_tokens": 912,
+      "output_tokens": 43,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 4.69175169999653,
+      "response_id": "local_90825ca1a0094ea59a795ce86398592c",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__135668_561444",
+      "hop_count": 2,
+      "prediction": "Chaya Mushka Schneersohn",
+      "gold_answers": [
+        "Dovber Schneuri"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_7e75beea62751584391a"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "musique_para_7e75beea62751584391a",
+        "musique_para_98f35d6835c1099423f0",
+        "musique_para_55037b4a7f4f0052ea87",
+        "musique_para_4e38f944b57c1966a33f",
+        "musique_para_30ce0969ede09207163f"
+      ],
+      "input_tokens": 992,
+      "output_tokens": 51,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 5.244583699997747,
+      "response_id": "local_5fada5b8a13343259dc89826ee099ea8",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__14078_49084",
+      "hop_count": 2,
+      "prediction": "Josh Dallas",
+      "gold_answers": [
+        "Liam Garrigan",
+        "Liam Thomas Garrigan"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_f3935bca6ae80d63417b"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_f3935bca6ae80d63417b",
+        "musique_para_59cc18320bcea3861cc7",
+        "musique_para_995e436afcc7412ce197",
+        "musique_para_7964b55c52e58b7e8665",
+        "musique_para_7e6ef473d5c6811fc057"
+      ],
+      "input_tokens": 717,
+      "output_tokens": 45,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 5.067961599997943,
+      "response_id": "local_97cd20a8359a4c21a3f009399002e6e8",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__151455_120171",
+      "hop_count": 2,
+      "prediction": "1985",
+      "gold_answers": [
+        "1986"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_0eb244b0b4273ea94edd"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "musique_para_0eb244b0b4273ea94edd",
+        "musique_para_ee7aedbb7dce2d0b7d13",
+        "musique_para_b1c7d6bda3c17f7060a7",
+        "musique_para_5abc4fa242705f531422",
+        "musique_para_fd7280eaaf65f2624dc0"
+      ],
+      "input_tokens": 923,
+      "output_tokens": 48,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 6.2369945000100415,
+      "response_id": "local_5817444331064300acd38ff8d79b45b0",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__15368_17873",
+      "hop_count": 2,
+      "prediction": "Buckingham Palace was seldom used, even neglected, after Queen Victoria's husband died in 1861, and the Queen preferred to live elsewhere whenever possible.",
+      "gold_answers": [
+        "palace",
+        "Palace",
+        "palace was seldom used, even neglected"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.42857142857142855,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_4df5dba061f2c062887c"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "musique_para_5b8f7ee6c9b3e22b98e7",
+        "musique_para_4457ea5f016e0c159e15",
+        "musique_para_cc66e57c8cb2d64adbbc",
+        "musique_para_4df5dba061f2c062887c",
+        "musique_para_2901c5be40d3f32586ff"
+      ],
+      "input_tokens": 903,
+      "output_tokens": 77,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 8.240832299998146,
+      "response_id": "local_ce3e861e94bc4ba6b05b53e8994d5557",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__156044_57816",
+      "hop_count": 2,
+      "prediction": "The law school at the university employing Bruce Nissen is ranked 100th in the United States.",
+      "gold_answers": [
+        "100"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_ecdf78c0823bdf689c3c"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "musique_para_111a1649e31f9f22f42d",
+        "musique_para_25d3b211694ec604a355",
+        "musique_para_2d5a92b7f0f893a64cf6",
+        "musique_para_ecdf78c0823bdf689c3c",
+        "musique_para_9b2c32d2a060b0f461a6"
+      ],
+      "input_tokens": 817,
+      "output_tokens": 62,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 6.529936300008558,
+      "response_id": "local_0dfdfd2e3cf14e4da71b67ed0a3f3f9c",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__156700_73244",
+      "hop_count": 2,
+      "prediction": "The origin of the river that Kraai River is a tributary of is in the mountains south of Lesotho.",
+      "gold_answers": [
+        "Thaba Putsoa"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_32b1d63b2f5683afe417"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "musique_para_32b1d63b2f5683afe417",
+        "musique_para_133e839dd2171d7b4e91",
+        "musique_para_bdea8283589e902b7c1d",
+        "musique_para_7f192c362c86a1df635c",
+        "musique_para_75351883eaa067a94666"
+      ],
+      "input_tokens": 750,
+      "output_tokens": 68,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 6.894018799997866,
+      "response_id": "local_b21ae8a978dc4476954a8cc83115e411",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__158010_58067",
+      "hop_count": 2,
+      "prediction": "C. Rajagopalachari",
+      "gold_answers": [
+        "A. P. J. Abdul Kalam",
+        "Abdul Kalam",
+        "Kalam",
+        "Avul Pakir Jainulabdeen Abdul Kalam",
+        "A.P.J. Abdul Kalam"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_d2ef02d45da2987e1f62"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_1a618ba964e8b27dd551",
+        "musique_para_5d605ab898855f91e350",
+        "musique_para_d2ef02d45da2987e1f62",
+        "musique_para_bb5f87caa81942580374",
+        "musique_para_79a696bdfe6721bba0be"
+      ],
+      "input_tokens": 1053,
+      "output_tokens": 50,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 5.717586900005699,
+      "response_id": "local_788fc19f6bfc4184879ca967c43a47b9",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__1667_40502",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "2 million"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_84ffa15524c1eff01405",
+        "musique_para_61aa35a11b31df3ac137",
+        "musique_para_bb8be6c2b12bb41af3d2",
+        "musique_para_ede7d2f96366dcbb6a2f",
+        "musique_para_4c60264369a7f64e0f21"
+      ],
+      "input_tokens": 998,
+      "output_tokens": 46,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 5.505888400002732,
+      "response_id": "local_f8159d13ee5a4d13bf4df463570640e7",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__176712_8311",
+      "hop_count": 2,
+      "prediction": "1216",
+      "gold_answers": [
+        "1216"
+      ],
+      "exact_match": 1.0,
+      "token_f1": 1.0,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_b4eb56b5388ab9a62e52",
+        "musique_para_06d86ab48507c45fd942"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 0.5,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "musique_para_eb65b7bd94aa53555983",
+        "musique_para_b4eb56b5388ab9a62e52",
+        "musique_para_e9a3b183ef010c7162cb",
+        "musique_para_06d86ab48507c45fd942",
+        "musique_para_05678f0a7cc88c2135b1"
+      ],
+      "input_tokens": 798,
+      "output_tokens": 70,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 6.732994200006942,
+      "response_id": "local_76ffe473cb5949e18a030dee592f6469",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__199513_13732",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "12–14 years old"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_2a3cd0bbc213e0d680b2",
+        "musique_para_4615c6ef4bfe9e0a6f76",
+        "musique_para_cda670363ac9ba6b829c",
+        "musique_para_ef1d4b47fe47a82941c8",
+        "musique_para_fa0b9688323ce18271ee"
+      ],
+      "input_tokens": 594,
+      "output_tokens": 157,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 20.63990300000296,
+      "response_id": "local_3dbcb157546140bd976fb3b470225d22",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__204146_850295",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "Sanjib Chandra Chattopadhyay",
+        "Sanjib Chandra"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_bb3fb74b269bdb734d65",
+        "musique_para_b21b0c150b63de12176a",
+        "musique_para_631e7373bae7124c2e2a",
+        "musique_para_309e4893337caabb9656",
+        "musique_para_40f06de9bc276c5d4563"
+      ],
+      "input_tokens": 810,
+      "output_tokens": 38,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 4.015889400005108,
+      "response_id": "local_8f46a866863645e38e14c895530ef144",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__207597_63853",
+      "hop_count": 2,
+      "prediction": "The source of the river that is the mouth of the Caledon River is Thaba Putsoa, located in the Maloti Mountains (Drakensberg), Lesotho.",
+      "gold_answers": [
+        "Thaba Putsoa"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.19999999999999998,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_2103ac973008600a8ccd"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "musique_para_2103ac973008600a8ccd",
+        "musique_para_037c637cfb61361d8bed",
+        "musique_para_febe9a10134ccbeed84f",
+        "musique_para_20e3ec3d14d7ac662dfa",
+        "musique_para_555a5d9af9ef4f03eba1"
+      ],
+      "input_tokens": 933,
+      "output_tokens": 78,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 8.776143600000069,
+      "response_id": "local_707297b70de241039c1d12f26d122cc6",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__223655_463572",
+      "hop_count": 2,
+      "prediction": "Jasmine Records",
+      "gold_answers": [
+        "MGM",
+        "MGM Records"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.5,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_666412c0d558b80fafcc"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "musique_para_666412c0d558b80fafcc",
+        "musique_para_7e873fa8da0d571c7267",
+        "musique_para_691d580d4335733135f7",
+        "musique_para_994f74ecd05933e1b1a6",
+        "musique_para_214efda3d0f99bd7e240"
+      ],
+      "input_tokens": 714,
+      "output_tokens": 47,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 5.541440699991654,
+      "response_id": "local_f65949ec89ae42268c2608b88c3c02ae",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__23297_23366",
+      "hop_count": 2,
+      "prediction": "The leader who broke the Molotov–Ribbentrop Pact by invading Bukovina first signed it to secure a non-aggression agreement with Nazi Germany, which allowed both sides to focus on other conflicts and avoid direct confrontation.",
+      "gold_answers": [
+        "Germany",
+        "de",
+        "GER",
+        "reinforce a public affection for Germany"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0625,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_4b814309a50c4f654e3a",
+        "musique_para_aab180b2cdac2cbc7df4"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_310a51e32837b5f09b6d",
+        "musique_para_c8848cc70711720b3200",
+        "musique_para_4b814309a50c4f654e3a",
+        "musique_para_a7df7971c1a8902181d9",
+        "musique_para_aab180b2cdac2cbc7df4"
+      ],
+      "input_tokens": 947,
+      "output_tokens": 112,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 10.818194100007531,
+      "response_id": "local_2273246c5cef49608b0986e0407bb3d1",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__242938_18803",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "FIN",
+        "fi",
+        "Finland",
+        "trying to find a potential buyer for all of its operations in Finland"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_0d9cae4976621ba46b65",
+        "musique_para_0a9e1b4c1953a6ae0921",
+        "musique_para_23ca264bcd641bbc395c",
+        "musique_para_c6f9616d2a795f52737b",
+        "musique_para_5e98f43cb4fc3de6588c"
+      ],
+      "input_tokens": 755,
+      "output_tokens": 52,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 5.129154099995503,
+      "response_id": "local_e938c7612f2e4fab852fac313dcdf147",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__243084_523417",
+      "hop_count": 2,
+      "prediction": "Seta Sōjirō is an instance of the anime \"Rurouni Kenshin\".",
+      "gold_answers": [
+        "OVA"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_c530b621cc2504b3a57d",
+        "musique_para_5a5002796aa707c6f257"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 1.0,
+      "retrieved_ids": [
+        "musique_para_c530b621cc2504b3a57d",
+        "musique_para_78e4ed72b4fe5472c7cf",
+        "musique_para_5a5002796aa707c6f257",
+        "musique_para_bf0297395f83ab3dba8f",
+        "musique_para_51133907feb00fa971e2"
+      ],
+      "input_tokens": 846,
+      "output_tokens": 89,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 8.72838369999954,
+      "response_id": "local_ff48c43ee0324d40af6498df42204921",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__24976_161105",
+      "hop_count": 2,
+      "prediction": "The person the organizers wanted to arrest survived impeachment by 72 votes.",
+      "gold_answers": [
+        "72"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.18181818181818182,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_81e79bd93e9d20bb040b"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "musique_para_cabdd21271463711cd22",
+        "musique_para_8cb607bc04827860a7f0",
+        "musique_para_81e79bd93e9d20bb040b",
+        "musique_para_617b2b98b1ee5de6dc2d",
+        "musique_para_fc06d9f7046a3e332ea1"
+      ],
+      "input_tokens": 1327,
+      "output_tokens": 63,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 7.320775200001663,
+      "response_id": "local_9af71ed9731346918b172e15c9cac325",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__263638_69048",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "Honorable Justice Abiodun Smith"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_228fa7a52511664f96ca",
+        "musique_para_8339a5a6ede512e4f030",
+        "musique_para_2a639711fda1a27a8767",
+        "musique_para_2e97d8a31d1e5a6f2ca2",
+        "musique_para_5d6a3294e762c605637a"
+      ],
+      "input_tokens": 670,
+      "output_tokens": 42,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 4.622160400002031,
+      "response_id": "local_755a227bf41a4debb4ef7beecc4bce7d",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__265989_531490",
+      "hop_count": 2,
+      "prediction": "Nina Companeez",
+      "gold_answers": [
+        "Jane Greer"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_56984e26796c2448d665"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_56984e26796c2448d665",
+        "musique_para_534574f18831eeaccc15",
+        "musique_para_0540bdf4e2a6b06c3c3e",
+        "musique_para_f793fc6ffd2cb6ba6d92",
+        "musique_para_9edad4d0a6b42bb1b0d1"
+      ],
+      "input_tokens": 720,
+      "output_tokens": 52,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 5.416934000008041,
+      "response_id": "local_cf53fc1c3dd14069bc44c373fe59977b",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__283298_22402",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "University of Zurich",
+        "nearly 25,000"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_b2b836f9bce3d9c78f75",
+        "musique_para_222f840ccb255e31d521",
+        "musique_para_83edc796f29c97b3c420",
+        "musique_para_74122127b20ba25262bb",
+        "musique_para_77482ffebf019352aeaf"
+      ],
+      "input_tokens": 1138,
+      "output_tokens": 64,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 7.432115500007058,
+      "response_id": "local_c3e9d3b79d1541098e738d977826d56c",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__29752_814677",
+      "hop_count": 2,
+      "prediction": "The ruler of the underworld in ancient Egypt is a part of the symbolism of green.",
+      "gold_answers": [
+        "ancient Egyptian religion"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.13333333333333333,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_863aeb4dfa9f44867f4b"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "musique_para_0de1528d0fbbc2343d49",
+        "musique_para_863aeb4dfa9f44867f4b",
+        "musique_para_a3502dc03531862b97aa",
+        "musique_para_0841876bc132721f6427",
+        "musique_para_214b6c4ae351ebde31f1"
+      ],
+      "input_tokens": 987,
+      "output_tokens": 58,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 6.3604923999955645,
+      "response_id": "local_487ea97ee5df4a7b81a63c4814653a8e",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__335418_279684",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "Orioles",
+        "Pirates",
+        "Baltimore Orioles",
+        "New York Mets",
+        "Mets",
+        "Pittsburgh Pirates"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_08f33167053fc5f8dacd",
+        "musique_para_064bb2bae0c82abc1d35",
+        "musique_para_022c05e76de4e12188f4",
+        "musique_para_78ba7c648c43783d9b48",
+        "musique_para_dd25babebc8ef6e9eb97"
+      ],
+      "input_tokens": 728,
+      "output_tokens": 35,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 3.9682438999880105,
+      "response_id": "local_1fb02563defa42b9ad6f1dc61b11cd99",
+      "model": "qwen3:8b"
+    }
+  ]
+}

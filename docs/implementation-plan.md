@@ -9,9 +9,9 @@
 | Corpus | 300-500 arXiv papers on one niche (e.g. LLM evaluation) |
 | Language | Python |
 | Graph + vectors | Neo4j (graph and native vector index in one store) |
-| LLM | Any API (cheap model for extraction/planning, stronger for final answers) |
+| LLM | Local Ollama models (Qwen3 4B for extraction/planning, Qwen3 8B for answers) |
 | Serving | FastAPI + Docker |
-| Observability | Langfuse (or LangSmith) |
+| Observability | Local run records with tokens and latency |
 | CI | GitHub Actions |
 | Agent | Plain Python state machine or LangGraph (check current versions before pinning) |
 
@@ -26,7 +26,7 @@ Question -> Planner (decompose, choose tools)
               |- keyword_search  (BM25)
            -> Rerank -> Answer with citations (or abstain)
 
-Every step traced (Langfuse) | cost/latency logged | eval suite gates CI
+Every step logged locally | API cost and latency logged | eval suite gates CI
 ```
 
 ---
@@ -79,7 +79,7 @@ Build the test before the system.
 
 **Exit criterion:** `make eval` outputs a baseline results table.
 
-**Progress (2026-09-29):** BM25, pinned local dense embeddings, and BM25+dense RRF have been evaluated on the public MuSiQue slice. Supporting-document recall@5 is reported by hop count with paired bootstrap intervals in `eval/results/public_hybrid_v0.1.json`. The first 30-question local Ollama answer run completed with zero model API charges, but the model abstained on all questions (EM/F1 0.0). This is a useful quality failure to investigate; calibrated faithfulness and a successful answer run remain incomplete.
+**Progress (2026-09-29):** BM25, pinned local dense embeddings, and BM25+dense RRF have been evaluated on the public MuSiQue slice. Supporting-document recall@5 is reported by hop count with paired bootstrap intervals in `eval/results/public_hybrid_v0.1.json`. On the same first 30 two-hop questions, local Qwen3 4B scored EM/F1 0.000/0.000 and Qwen3 8B scored 0.067/0.165, both at zero model API cost. Full records are in `eval/results/public_answer_qwen3_4b_v0.1.json` and `eval/results/public_answer_qwen3_8b_v0.1.json`. Answer quality remains inadequate; calibrated faithfulness and broader evaluation remain incomplete.
 
 ---
 

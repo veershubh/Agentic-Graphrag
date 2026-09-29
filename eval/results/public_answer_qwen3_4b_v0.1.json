@@ -1,0 +1,1059 @@
+{
+  "retriever": "bm25_dense_rrf",
+  "model": "qwen3:4b-instruct",
+  "runtime": "local_ollama",
+  "estimated_model_api_cost_usd": 0.0,
+  "temperature": 0.0,
+  "offset": 0,
+  "requested_limit": 30,
+  "bootstrap": {
+    "replicates": 10000,
+    "seed": 20260928,
+    "unit": "question"
+  },
+  "overall": {
+    "question_count": 30,
+    "exact_match": 0.0,
+    "token_f1": 0.0,
+    "citation_validity_rate": 1.0,
+    "mean_valid_citation_fraction": 1.0,
+    "mean_gold_citation_precision": 0.0,
+    "mean_gold_citation_recall": 0.0,
+    "supporting_recall_at_k": 0.6333333333333333,
+    "mean_latency_seconds": 1.8737955366659056,
+    "p50_latency_seconds": 1.4211061999958474,
+    "p95_latency_seconds": 1.6128888000093866,
+    "mean_input_tokens": 860.4333333333333,
+    "mean_output_tokens": 25.1,
+    "estimated_cost_usd": 0.0,
+    "mean_cost_usd": 0.0,
+    "exact_match_bootstrap_95_ci": [
+      0.0,
+      0.0
+    ],
+    "token_f1_bootstrap_95_ci": [
+      0.0,
+      0.0
+    ],
+    "citation_valid_bootstrap_95_ci": [
+      1.0,
+      1.0
+    ],
+    "supporting_recall_at_k_bootstrap_95_ci": [
+      0.5333333333333333,
+      0.7333333333333333
+    ],
+    "gold_citation_precision_bootstrap_95_ci": [
+      0.0,
+      0.0
+    ],
+    "gold_citation_recall_bootstrap_95_ci": [
+      0.0,
+      0.0
+    ]
+  },
+  "by_hop": {
+    "2": {
+      "question_count": 30,
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "citation_validity_rate": 1.0,
+      "mean_valid_citation_fraction": 1.0,
+      "mean_gold_citation_precision": 0.0,
+      "mean_gold_citation_recall": 0.0,
+      "supporting_recall_at_k": 0.6333333333333333,
+      "mean_latency_seconds": 1.8737955366659056,
+      "p50_latency_seconds": 1.4211061999958474,
+      "p95_latency_seconds": 1.6128888000093866,
+      "mean_input_tokens": 860.4333333333333,
+      "mean_output_tokens": 25.1,
+      "estimated_cost_usd": 0.0,
+      "mean_cost_usd": 0.0,
+      "exact_match_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "token_f1_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "citation_valid_bootstrap_95_ci": [
+        1.0,
+        1.0
+      ],
+      "supporting_recall_at_k_bootstrap_95_ci": [
+        0.5333333333333333,
+        0.7333333333333333
+      ],
+      "gold_citation_precision_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "gold_citation_recall_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "inputs": {
+    "questions_sha256": "c68081c917a4028df71d498a189f2c283de2b8c37e8fc602d51cc3dbbb451e2c",
+    "passages_sha256": "431077adcf57c5686e2d1b7718646454525f8e542b22f8313f4f65bb0d3439e9",
+    "retrieval_results_sha256": "2e28d82920fe6914fc17ea0f2cbcf0800f53e44a13198f63b5ba04e285b7780a"
+  },
+  "records": [
+    {
+      "question_id": "2hop__107548_124896",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "Sir Nicholas Bacon",
+        "Nicholas Bacon"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_8afee6696d7fa3a9178e",
+        "musique_para_7a9663b9643bab52b778",
+        "musique_para_38bd900200a7627c0edf",
+        "musique_para_13aa78d9184e577ad9cc",
+        "musique_para_5048165dd19fa8252fc9"
+      ],
+      "input_tokens": 948,
+      "output_tokens": 24,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 14.734424399997806,
+      "response_id": "local_dcf0840747504a04a3e3a31b2803f60c",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__124933_653666",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "Lucy Mack Smith"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_e75a5784031838b0eddd",
+        "musique_para_33e819822586ba2fe21a",
+        "musique_para_6461fe3b6613f97361f1",
+        "musique_para_febea0de4866972dabb5",
+        "musique_para_1cfdd54ea7bde203eea8"
+      ],
+      "input_tokens": 826,
+      "output_tokens": 22,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.3493166999978712,
+      "response_id": "local_a31d9cea77d44eaf9b0fccf9cd4fb35a",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__126306_396277",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "Doctor De Soto"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_0a008708ebabf05a05de",
+        "musique_para_6de4f9a9b02162701376",
+        "musique_para_6c5814f49ca436358faa",
+        "musique_para_53c54befdbbc33baf80d",
+        "musique_para_44f9aa85b7f64feb563d"
+      ],
+      "input_tokens": 693,
+      "output_tokens": 26,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.384415500011528,
+      "response_id": "local_7ff6c0aec68a487a81b82ac900b6b629",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__128608_82341",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "Northern Florida",
+        "in Northern Florida"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_805bc677ed3697254330",
+        "musique_para_221f7227f2a5ebf2bc31",
+        "musique_para_a655c0cf0ac6bfbe8db5",
+        "musique_para_1267578a5a511fcbc873",
+        "musique_para_1e4cd6b73139514c72a2"
+      ],
+      "input_tokens": 946,
+      "output_tokens": 25,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.5109453999903053,
+      "response_id": "local_3fd4a1c360a44b1d8cb0fd0a3df33ca3",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__130404_59180",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "May 21, 1979"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_bc03a1000e4981cff71e",
+        "musique_para_be17474f59160ceb564b",
+        "musique_para_f3e46490a01da8caabc1",
+        "musique_para_2adbc26631604fc08ac5",
+        "musique_para_7d8af6b039f158fef252"
+      ],
+      "input_tokens": 894,
+      "output_tokens": 26,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.4372788999899058,
+      "response_id": "local_04f7ca5f55f04764afdb6198cbeab1b8",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__130984_55721",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "the Coast Range"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_bf1ef13d655e13808f52",
+        "musique_para_efc0f41c5c83dfb684e7",
+        "musique_para_90f201c368c665de4a3b",
+        "musique_para_7db20975c9b5182f2031",
+        "musique_para_101ddbc2747d1d0afaa3"
+      ],
+      "input_tokens": 760,
+      "output_tokens": 21,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.2740857000026153,
+      "response_id": "local_f6af036b2c3f47678f896aa1fb61a53d",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__132854_417697",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "ALTIMA",
+        "Nissan Altima"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_051cfe94e280e62ef07f",
+        "musique_para_b97bfc16d74c09f30397",
+        "musique_para_29549d3e9e7967421fb7",
+        "musique_para_598bae95f10c03307d90",
+        "musique_para_7fbb1d02efe3c4cd883e"
+      ],
+      "input_tokens": 898,
+      "output_tokens": 26,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.4353202999918722,
+      "response_id": "local_87c8ac86967e45599de9dc554079339c",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__135653_669373",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "Charles University"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_51860ea45046c29bb440",
+        "musique_para_d20eccec383abfbca30b",
+        "musique_para_d5ed0f237fb89be43d02",
+        "musique_para_dce64ba1a52c87132f55",
+        "musique_para_4120c29f2487fa0e1e76"
+      ],
+      "input_tokens": 904,
+      "output_tokens": 26,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.4467233000032138,
+      "response_id": "local_bf672b313b134615b62a1962f0523a5c",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__135668_561444",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "Dovber Schneuri"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_7e75beea62751584391a",
+        "musique_para_98f35d6835c1099423f0",
+        "musique_para_55037b4a7f4f0052ea87",
+        "musique_para_4e38f944b57c1966a33f",
+        "musique_para_30ce0969ede09207163f"
+      ],
+      "input_tokens": 984,
+      "output_tokens": 25,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.496756499996991,
+      "response_id": "local_9b9d290241c840309a487e5edfbbd0ba",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__14078_49084",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "Liam Garrigan",
+        "Liam Thomas Garrigan"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_f3935bca6ae80d63417b",
+        "musique_para_59cc18320bcea3861cc7",
+        "musique_para_995e436afcc7412ce197",
+        "musique_para_7964b55c52e58b7e8665",
+        "musique_para_7e6ef473d5c6811fc057"
+      ],
+      "input_tokens": 709,
+      "output_tokens": 28,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.5298034000006737,
+      "response_id": "local_48e32e78df034829983051bb9ef496a4",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__151455_120171",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "1986"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_0eb244b0b4273ea94edd",
+        "musique_para_ee7aedbb7dce2d0b7d13",
+        "musique_para_b1c7d6bda3c17f7060a7",
+        "musique_para_5abc4fa242705f531422",
+        "musique_para_fd7280eaaf65f2624dc0"
+      ],
+      "input_tokens": 915,
+      "output_tokens": 25,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.3362151000037557,
+      "response_id": "local_accbd4900bbc4e82bd2fb8ae0ea7122c",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__15368_17873",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "palace",
+        "Palace",
+        "palace was seldom used, even neglected"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_5b8f7ee6c9b3e22b98e7",
+        "musique_para_4457ea5f016e0c159e15",
+        "musique_para_cc66e57c8cb2d64adbbc",
+        "musique_para_4df5dba061f2c062887c",
+        "musique_para_2901c5be40d3f32586ff"
+      ],
+      "input_tokens": 895,
+      "output_tokens": 25,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.4220172000059392,
+      "response_id": "local_fb92d889c3f34eddb947aeb36f8ff5b9",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__156044_57816",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "100"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_111a1649e31f9f22f42d",
+        "musique_para_25d3b211694ec604a355",
+        "musique_para_2d5a92b7f0f893a64cf6",
+        "musique_para_ecdf78c0823bdf689c3c",
+        "musique_para_9b2c32d2a060b0f461a6"
+      ],
+      "input_tokens": 809,
+      "output_tokens": 26,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.3997834999900078,
+      "response_id": "local_f2ec400013704909a34b330b9362ad1c",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__156700_73244",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "Thaba Putsoa"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_32b1d63b2f5683afe417",
+        "musique_para_133e839dd2171d7b4e91",
+        "musique_para_bdea8283589e902b7c1d",
+        "musique_para_7f192c362c86a1df635c",
+        "musique_para_75351883eaa067a94666"
+      ],
+      "input_tokens": 742,
+      "output_tokens": 25,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.334848200000124,
+      "response_id": "local_16593a214c8246b6a7493f998c8dff95",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__158010_58067",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "A. P. J. Abdul Kalam",
+        "Abdul Kalam",
+        "Kalam",
+        "Avul Pakir Jainulabdeen Abdul Kalam",
+        "A.P.J. Abdul Kalam"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_1a618ba964e8b27dd551",
+        "musique_para_5d605ab898855f91e350",
+        "musique_para_d2ef02d45da2987e1f62",
+        "musique_para_bb5f87caa81942580374",
+        "musique_para_79a696bdfe6721bba0be"
+      ],
+      "input_tokens": 1045,
+      "output_tokens": 23,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.5044900000066264,
+      "response_id": "local_ed6daa8668b24fecb55f8fabb7c40081",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__1667_40502",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "2 million"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_84ffa15524c1eff01405",
+        "musique_para_61aa35a11b31df3ac137",
+        "musique_para_bb8be6c2b12bb41af3d2",
+        "musique_para_ede7d2f96366dcbb6a2f",
+        "musique_para_4c60264369a7f64e0f21"
+      ],
+      "input_tokens": 990,
+      "output_tokens": 23,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.4621829999960028,
+      "response_id": "local_290f2cb75f9b444fbbf69b0481c8c103",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__176712_8311",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "1216"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_eb65b7bd94aa53555983",
+        "musique_para_b4eb56b5388ab9a62e52",
+        "musique_para_e9a3b183ef010c7162cb",
+        "musique_para_06d86ab48507c45fd942",
+        "musique_para_05678f0a7cc88c2135b1"
+      ],
+      "input_tokens": 790,
+      "output_tokens": 25,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.3458195000130218,
+      "response_id": "local_4b0b99883a69416587ef9f5f9a0aeb12",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__199513_13732",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "12–14 years old"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_2a3cd0bbc213e0d680b2",
+        "musique_para_4615c6ef4bfe9e0a6f76",
+        "musique_para_cda670363ac9ba6b829c",
+        "musique_para_ef1d4b47fe47a82941c8",
+        "musique_para_fa0b9688323ce18271ee"
+      ],
+      "input_tokens": 586,
+      "output_tokens": 26,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.3480050999933155,
+      "response_id": "local_ab0c27af93834291a3d996e85fde2c69",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__204146_850295",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "Sanjib Chandra Chattopadhyay",
+        "Sanjib Chandra"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_bb3fb74b269bdb734d65",
+        "musique_para_b21b0c150b63de12176a",
+        "musique_para_631e7373bae7124c2e2a",
+        "musique_para_309e4893337caabb9656",
+        "musique_para_40f06de9bc276c5d4563"
+      ],
+      "input_tokens": 802,
+      "output_tokens": 26,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.3252696999988984,
+      "response_id": "local_53813df9c45245809efe2cf01b38a3a8",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__207597_63853",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "Thaba Putsoa"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_2103ac973008600a8ccd",
+        "musique_para_037c637cfb61361d8bed",
+        "musique_para_febe9a10134ccbeed84f",
+        "musique_para_20e3ec3d14d7ac662dfa",
+        "musique_para_555a5d9af9ef4f03eba1"
+      ],
+      "input_tokens": 925,
+      "output_tokens": 21,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.3279299999994691,
+      "response_id": "local_7824bc7130244d38861a7b50f43e9e13",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__223655_463572",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "MGM",
+        "MGM Records"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_666412c0d558b80fafcc",
+        "musique_para_7e873fa8da0d571c7267",
+        "musique_para_691d580d4335733135f7",
+        "musique_para_994f74ecd05933e1b1a6",
+        "musique_para_214efda3d0f99bd7e240"
+      ],
+      "input_tokens": 706,
+      "output_tokens": 25,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.4211061999958474,
+      "response_id": "local_143cb1e675474e47a09e947deb36a9a1",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__23297_23366",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "Germany",
+        "de",
+        "GER",
+        "reinforce a public affection for Germany"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_310a51e32837b5f09b6d",
+        "musique_para_c8848cc70711720b3200",
+        "musique_para_4b814309a50c4f654e3a",
+        "musique_para_a7df7971c1a8902181d9",
+        "musique_para_aab180b2cdac2cbc7df4"
+      ],
+      "input_tokens": 939,
+      "output_tokens": 26,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.4118260000104783,
+      "response_id": "local_246b1893a5b749dc813ffe0ba1f473ef",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__242938_18803",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "FIN",
+        "fi",
+        "Finland",
+        "trying to find a potential buyer for all of its operations in Finland"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_0d9cae4976621ba46b65",
+        "musique_para_0a9e1b4c1953a6ae0921",
+        "musique_para_23ca264bcd641bbc395c",
+        "musique_para_c6f9616d2a795f52737b",
+        "musique_para_5e98f43cb4fc3de6588c"
+      ],
+      "input_tokens": 747,
+      "output_tokens": 23,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.32240649999585,
+      "response_id": "local_1d1fd01db8b04071a059aca53035166a",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__243084_523417",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "OVA"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_c530b621cc2504b3a57d",
+        "musique_para_78e4ed72b4fe5472c7cf",
+        "musique_para_5a5002796aa707c6f257",
+        "musique_para_bf0297395f83ab3dba8f",
+        "musique_para_51133907feb00fa971e2"
+      ],
+      "input_tokens": 838,
+      "output_tokens": 25,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.4921355999977095,
+      "response_id": "local_bd7cf9ec1a3649d4b5e258b51b552d22",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__24976_161105",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "72"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_cabdd21271463711cd22",
+        "musique_para_8cb607bc04827860a7f0",
+        "musique_para_81e79bd93e9d20bb040b",
+        "musique_para_617b2b98b1ee5de6dc2d",
+        "musique_para_fc06d9f7046a3e332ea1"
+      ],
+      "input_tokens": 1319,
+      "output_tokens": 25,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.6128888000093866,
+      "response_id": "local_3b2f96c44bd7486e8f31e21b1ce179fa",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__263638_69048",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "Honorable Justice Abiodun Smith"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_228fa7a52511664f96ca",
+        "musique_para_8339a5a6ede512e4f030",
+        "musique_para_2a639711fda1a27a8767",
+        "musique_para_2e97d8a31d1e5a6f2ca2",
+        "musique_para_5d6a3294e762c605637a"
+      ],
+      "input_tokens": 662,
+      "output_tokens": 26,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.3458128000056604,
+      "response_id": "local_f8e04f89842b438e85c02c71e53dc930",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__265989_531490",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "Jane Greer"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_56984e26796c2448d665",
+        "musique_para_534574f18831eeaccc15",
+        "musique_para_0540bdf4e2a6b06c3c3e",
+        "musique_para_f793fc6ffd2cb6ba6d92",
+        "musique_para_9edad4d0a6b42bb1b0d1"
+      ],
+      "input_tokens": 712,
+      "output_tokens": 29,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.5109476999932667,
+      "response_id": "local_c294ed9e5de74fb48c862398ecf3406e",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__283298_22402",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "University of Zurich",
+        "nearly 25,000"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_b2b836f9bce3d9c78f75",
+        "musique_para_222f840ccb255e31d521",
+        "musique_para_83edc796f29c97b3c420",
+        "musique_para_74122127b20ba25262bb",
+        "musique_para_77482ffebf019352aeaf"
+      ],
+      "input_tokens": 1130,
+      "output_tokens": 29,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.6964901999890571,
+      "response_id": "local_ee3b93a948ba4333878dcb419bda8cd5",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__29752_814677",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "ancient Egyptian religion"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_0de1528d0fbbc2343d49",
+        "musique_para_863aeb4dfa9f44867f4b",
+        "musique_para_a3502dc03531862b97aa",
+        "musique_para_0841876bc132721f6427",
+        "musique_para_214b6c4ae351ebde31f1"
+      ],
+      "input_tokens": 979,
+      "output_tokens": 25,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.6095583999995142,
+      "response_id": "local_13ce865b8ee34802830ec2d129c5604b",
+      "model": "qwen3:4b-instruct"
+    },
+    {
+      "question_id": "2hop__335418_279684",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "Orioles",
+        "Pirates",
+        "Baltimore Orioles",
+        "New York Mets",
+        "Mets",
+        "Pittsburgh Pirates"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_08f33167053fc5f8dacd",
+        "musique_para_064bb2bae0c82abc1d35",
+        "musique_para_022c05e76de4e12188f4",
+        "musique_para_78ba7c648c43783d9b48",
+        "musique_para_dd25babebc8ef6e9eb97"
+      ],
+      "input_tokens": 720,
+      "output_tokens": 26,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 1.385062499990454,
+      "response_id": "local_3760f99e094b4d3b805b87f97f444c0e",
+      "model": "qwen3:4b-instruct"
+    }
+  ]
+}

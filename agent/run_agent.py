@@ -243,6 +243,8 @@ def main() -> None:
         answer_latency = time.perf_counter() - started
         answer_response_id = answer_response.id
         final = parse_output(answer_response)
+        if final.get("abstained") or not str(final.get("answer", "")).strip():
+            final = {"answer": "", "citation_ids": [], "abstained": True}
         if answer_response.usage:
             answer_input_tokens = int(answer_response.usage.input_tokens)
             answer_output_tokens = int(answer_response.usage.output_tokens)
