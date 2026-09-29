@@ -189,6 +189,8 @@ Build the test before the system.
 
 **Progress (2026-09-29):** BM25 top-score threshold analysis found overlapping answerable/unanswerable score ranges. Rejecting all 11 negative probes in-sample retained only 45.9% of answerable questions; no confidence cutoff is enabled. Results are in `eval/results/domain_abstention_threshold_v0.1.json`.
 
+**Progress (2026-09-29):** A local FastAPI scaffold now wraps the CLI agent with health/readiness reporting, question length limits, a five-requests-per-minute cap, one concurrent run by default, and a request timeout. It only accepts a loopback Ollama endpoint and is documented to bind on `127.0.0.1`. The route has not been run in an installed FastAPI environment; Docker, the UI, auth/TLS, and public deployment remain open.
+
 **CI**
 - [ ] GitHub Actions runs a small cached eval (~30 questions) on each PR
 - [ ] Fail the build if F1 or faithfulness drops below threshold (leave a margin for LLM nondeterminism)
@@ -197,8 +199,8 @@ Build the test before the system.
 **Deployment**
 - [ ] FastAPI service in Docker
 - [ ] Simple UI showing the answer, citations, and the graph path used
-- [ ] Add rate limiting
-- [ ] Limit local request duration and concurrency so a public link can't overload the host machine
+- [x] Add rate limiting
+- [x] Limit local request duration and concurrency so a public link can't overload the host machine
 - [ ] Deploy to a public URL
 - [ ] Record a 2-minute demo video
 

@@ -14,6 +14,7 @@ dependencies = []
 papers = ["PyMuPDF>=1.24,<2"]
 retrieval = ["sentence-transformers>=3.0,<6"]
 neo4j = ["neo4j>=5,<7"]
+api = ["fastapi>=0.115,<1", "uvicorn[standard]>=0.30,<1"]
 
 [project.scripts]
 graphrag-smoke = "agentic_graphrag.pipeline:main"
