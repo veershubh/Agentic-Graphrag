@@ -1,0 +1,6074 @@
+{
+  "track": "domain",
+  "retrievers": {
+    "bm25": {
+      "supporting_recall_at_k": 0.44217687074829964,
+      "bootstrap_95_ci": [
+        0.36564625850340127,
+        0.5204081632653061
+      ],
+      "by_hop": {
+        "1": {
+          "questions": 38,
+          "supporting_recall_at_k": 0.7105263157894737,
+          "bootstrap_95_ci": [
+            0.5526315789473685,
+            0.8421052631578947
+          ]
+        },
+        "2": {
+          "questions": 30,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "bootstrap_95_ci": [
+            0.23333333333333334,
+            0.43333333333333335
+          ]
+        },
+        "3": {
+          "questions": 30,
+          "supporting_recall_at_k": 0.21111111111111105,
+          "bootstrap_95_ci": [
+            0.15555555555555553,
+            0.26666666666666655
+          ]
+        }
+      },
+      "records": [
+        {
+          "question_id": "domain-0001",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_5e39df5d9f9f3e8841c372f6",
+              "score": 34.08341649728008
+            },
+            {
+              "id": "passage_5e5ecae84a7517badeee8067",
+              "score": 32.91945647835404
+            },
+            {
+              "id": "passage_7c0b1d9f92f2a407dc578830",
+              "score": 32.029040443249194
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0002",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_5e5ecae84a7517badeee8067",
+              "score": 35.178346563125245
+            },
+            {
+              "id": "passage_b21ff60c2d5b62fd06f695d9",
+              "score": 31.78203567520594
+            },
+            {
+              "id": "passage_db768eea2222a1e9d2b3c916",
+              "score": 29.65981029638536
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0003",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_f3269dd858f7059f4e3e2d27",
+              "score": 24.365412255675288
+            },
+            {
+              "id": "passage_3e9c7422878113b6c60099da",
+              "score": 21.72395311949435
+            },
+            {
+              "id": "passage_fc3369889bb506b875a53fe2",
+              "score": 21.56172648346454
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0004",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_47c49349ec1fce92291248fe",
+              "score": 24.215862447506915
+            },
+            {
+              "id": "passage_876a1eb9097a78d6532ba2ed",
+              "score": 22.408740261156936
+            },
+            {
+              "id": "passage_fc3369889bb506b875a53fe2",
+              "score": 22.14464751695177
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0005",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_99805e86844e59604a27c026",
+              "score": 41.826813892587275
+            },
+            {
+              "id": "passage_901302deee995072e5f474c9",
+              "score": 37.75058407354522
+            },
+            {
+              "id": "passage_32399e5f2cd5ffb75b797824",
+              "score": 35.02259346596377
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0006",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_0a941534607e49ee1477b5f2",
+              "score": 28.73884789882329
+            },
+            {
+              "id": "passage_e7e541a211bb5ccd947245c0",
+              "score": 28.34036058147187
+            },
+            {
+              "id": "passage_42718b2ff0ffd40181894258",
+              "score": 28.254773885913604
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0007",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_42718b2ff0ffd40181894258",
+              "score": 30.06219993004195
+            },
+            {
+              "id": "passage_0a941534607e49ee1477b5f2",
+              "score": 27.781562195244003
+            },
+            {
+              "id": "passage_fd271a75e59eb0181788a1b3",
+              "score": 26.126734977316364
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0008",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_0b13baece7cf89f752742801",
+              "score": 18.738405841860043
+            },
+            {
+              "id": "passage_586ad7400a3d08e7b17165bb",
+              "score": 17.158539101095442
+            },
+            {
+              "id": "passage_70c9c6e0a66f07fa9d59cd39",
+              "score": 16.900635134582572
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0011",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_4e3c64a57901e7df48d56757",
+              "score": 24.408773111302565
+            },
+            {
+              "id": "passage_34092eedd2b2a19f0844fdf6",
+              "score": 23.837491881354108
+            },
+            {
+              "id": "passage_3ec9ccbb7f6b87628fb73607",
+              "score": 23.501260173672357
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0012",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_5916a5defa96c5fc94e89c03",
+              "score": 26.550826502110624
+            },
+            {
+              "id": "passage_451f2b4e0b486b19ef6f6f55",
+              "score": 26.16525627876772
+            },
+            {
+              "id": "passage_2c202e52403cc6737ffb6cba",
+              "score": 25.31775527694246
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0013",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_15144b7a00df8b2e17371b3d",
+              "score": 17.236111372905203
+            },
+            {
+              "id": "passage_70c9c6e0a66f07fa9d59cd39",
+              "score": 16.830956533947937
+            },
+            {
+              "id": "passage_a72b61ed3fcf2ad285941f5c",
+              "score": 16.75082592313406
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0014",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_b14ef6b73f42ec100cc8bf5e",
+              "score": 25.832162977716997
+            },
+            {
+              "id": "passage_b193618fdd0e52c1b0b4d1fb",
+              "score": 20.35647539399927
+            },
+            {
+              "id": "passage_3e574defc4ac2dec1d039e5b",
+              "score": 19.408359897284967
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0015",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_5b6e6592e046eda5219c11ea",
+              "score": 36.89912697057226
+            },
+            {
+              "id": "passage_1147c13e1601281f409cb244",
+              "score": 34.78141732769096
+            },
+            {
+              "id": "passage_7cb2198c2f995d9406a131f4",
+              "score": 33.69291595313131
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0016",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_b348130caeb6513dcef6e63a",
+              "score": 41.74093979444488
+            },
+            {
+              "id": "passage_64b7f287e96078213dc0a3fd",
+              "score": 35.84962407165507
+            },
+            {
+              "id": "passage_47c49349ec1fce92291248fe",
+              "score": 35.52804007732576
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0017",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_bf7ad740a8086f8a1c70aa9a",
+              "score": 40.264323386276445
+            },
+            {
+              "id": "passage_67afb127388c06257828d38f",
+              "score": 31.57615462795246
+            },
+            {
+              "id": "passage_a81170c4ad9dd2e002b15f24",
+              "score": 29.6801823885005
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0018",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_abc4f12e6eff2dfb2a6ba21f",
+              "score": 26.799020081799668
+            },
+            {
+              "id": "passage_3d84f620327840552586527b",
+              "score": 26.329482393920575
+            },
+            {
+              "id": "passage_a9611d5ee13832fe2a36580c",
+              "score": 24.711990539671653
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0019",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_3f1b0ae37ae11a878cbb2eef",
+              "score": 31.794759534827428
+            },
+            {
+              "id": "passage_41ca1f4c4cdc3d59c854ad21",
+              "score": 30.202894297082878
+            },
+            {
+              "id": "passage_05bbe27de197cfbf905c2234",
+              "score": 28.84839325676711
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0020",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_9a80d52211c916d914dc0b9d",
+              "score": 33.66387849257395
+            },
+            {
+              "id": "passage_e2edba72c61edc3eca52ea88",
+              "score": 32.21224785213321
+            },
+            {
+              "id": "passage_02cd40945ee7175138f20b2f",
+              "score": 30.783575375082133
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0021",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_947c81fcab30cc653a36622c",
+              "score": 62.94791783357942
+            },
+            {
+              "id": "passage_3a4130fa3add074cd5d1591b",
+              "score": 55.20382426001866
+            },
+            {
+              "id": "passage_58eea16ff7fc3c8b52b2964d",
+              "score": 53.72122765516734
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0022",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_947c81fcab30cc653a36622c",
+              "score": 38.30906170169187
+            },
+            {
+              "id": "passage_58211a433727b4155cc98e02",
+              "score": 36.877213170327245
+            },
+            {
+              "id": "passage_74a59674d297a243a5367af2",
+              "score": 33.71394052749775
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0023",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_947c81fcab30cc653a36622c",
+              "score": 48.26449877581819
+            },
+            {
+              "id": "passage_147b1c8743db3d1276e89587",
+              "score": 47.71065588155149
+            },
+            {
+              "id": "passage_58211a433727b4155cc98e02",
+              "score": 43.85751909308564
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0024",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_f04e1410fd6c96b6120bb1aa",
+              "score": 45.609873924169534
+            },
+            {
+              "id": "passage_fbd1ef3800330c22fb81407a",
+              "score": 38.04673737133737
+            },
+            {
+              "id": "passage_d70b971d2379b72b9d69d81a",
+              "score": 36.3009433349905
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0025",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_947c81fcab30cc653a36622c",
+              "score": 42.82979554061192
+            },
+            {
+              "id": "passage_981694805edc6f5946517a85",
+              "score": 41.85948568298713
+            },
+            {
+              "id": "passage_58211a433727b4155cc98e02",
+              "score": 40.95950388606091
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0026",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_71a1da7e31ca5c22347621dd",
+              "score": 34.41454881772278
+            },
+            {
+              "id": "passage_24789266c7a8b076e8156dc9",
+              "score": 31.52428416802688
+            },
+            {
+              "id": "passage_d5f7a229b20a1fdf61c9f29a",
+              "score": 30.078143130590277
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0027",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_e2d94b986c2cae9169a3e06c",
+              "score": 38.75188457966744
+            },
+            {
+              "id": "passage_ba210542611b70a51516c43a",
+              "score": 38.1917069843064
+            },
+            {
+              "id": "passage_46b6f8d791f269747d3268d9",
+              "score": 37.752933869063384
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0028",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_06b0ef61d87742dccbaef0f0",
+              "score": 52.18013283541789
+            },
+            {
+              "id": "passage_682baa5ad73f16b015ef014f",
+              "score": 51.21179700633222
+            },
+            {
+              "id": "passage_005870576ea81be964d92f4c",
+              "score": 49.505867856754044
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0029",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_7520d3bb87456b78f900f705",
+              "score": 33.38227331189701
+            },
+            {
+              "id": "passage_47c49349ec1fce92291248fe",
+              "score": 32.305974021802875
+            },
+            {
+              "id": "passage_003b48aa4be3d4c4932d4b22",
+              "score": 32.27960553932298
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0030",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_41ca1f4c4cdc3d59c854ad21",
+              "score": 41.60740343506433
+            },
+            {
+              "id": "passage_a9611d5ee13832fe2a36580c",
+              "score": 39.84352237845169
+            },
+            {
+              "id": "passage_05bbe27de197cfbf905c2234",
+              "score": 39.089918473962044
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0031",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_cefbcde4b1afcfebf47539b4",
+              "score": 50.22359079468863
+            },
+            {
+              "id": "passage_99d13f3e7ae03e5770f018db",
+              "score": 44.865894071036465
+            },
+            {
+              "id": "passage_e2edba72c61edc3eca52ea88",
+              "score": 42.7311704620554
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0032",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_ebe97f30810c92b52b3e7154",
+              "score": 45.735801733851076
+            },
+            {
+              "id": "passage_142e7d7e1075d35f4dc4b28e",
+              "score": 44.87218307764879
+            },
+            {
+              "id": "passage_682baa5ad73f16b015ef014f",
+              "score": 40.45781794314254
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0033",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_abc4f12e6eff2dfb2a6ba21f",
+              "score": 37.27299587684365
+            },
+            {
+              "id": "passage_47c49349ec1fce92291248fe",
+              "score": 34.52935108792825
+            },
+            {
+              "id": "passage_22288179b90212c78b13b973",
+              "score": 32.94736686188811
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0034",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_713554762813acf39475f110",
+              "score": 39.87028496025672
+            },
+            {
+              "id": "passage_dc169ca6e5e2cd4d17a6a745",
+              "score": 37.4976205955253
+            },
+            {
+              "id": "passage_6f4265ba280818284086b96e",
+              "score": 34.942626987870995
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0035",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_f04e1410fd6c96b6120bb1aa",
+              "score": 35.195532811969855
+            },
+            {
+              "id": "passage_c6c4185740d53f99c985ed44",
+              "score": 33.56830918431317
+            },
+            {
+              "id": "passage_a3290a257cf2576652c0b74f",
+              "score": 32.217402026434655
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0036",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_bc064db8ea06272ce5bdf0a3",
+              "score": 55.146455068978646
+            },
+            {
+              "id": "passage_234890708d864e98bfed0f49",
+              "score": 47.55342808863561
+            },
+            {
+              "id": "passage_a6f8e9d06ab2d62a1692febc",
+              "score": 46.84833370557479
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0037",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_47c49349ec1fce92291248fe",
+              "score": 43.074648426437804
+            },
+            {
+              "id": "passage_4dba048d1893f70b398b2d73",
+              "score": 41.308793006817446
+            },
+            {
+              "id": "passage_b348130caeb6513dcef6e63a",
+              "score": 40.66577307536175
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0038",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_64b7f287e96078213dc0a3fd",
+              "score": 32.641089788753774
+            },
+            {
+              "id": "passage_b348130caeb6513dcef6e63a",
+              "score": 32.48363196180479
+            },
+            {
+              "id": "passage_003b48aa4be3d4c4932d4b22",
+              "score": 30.055908986922823
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0039",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_20a9ab46f6bd4a7be67823d7",
+              "score": 42.275848277617214
+            },
+            {
+              "id": "passage_e9d39d33a13a79266fd94e96",
+              "score": 39.74526105779315
+            },
+            {
+              "id": "passage_9aa610b388876589ed54f51d",
+              "score": 35.39395742319484
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0040",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_4cfb15e20cd49f213a6ad46c",
+              "score": 43.60003083587582
+            },
+            {
+              "id": "passage_25f1d524c6b9f62d1e55be20",
+              "score": 42.999433039770324
+            },
+            {
+              "id": "passage_27a0dff918752dcfa8822170",
+              "score": 40.82179464496991
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0041",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_5916a5defa96c5fc94e89c03",
+              "score": 61.709348776031185
+            },
+            {
+              "id": "passage_729ae3475e21ed2fd9747ede",
+              "score": 51.42264204991294
+            },
+            {
+              "id": "passage_451f2b4e0b486b19ef6f6f55",
+              "score": 49.23504981286675
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0042",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_914de8d119e5b4743b13df07",
+              "score": 37.67469180392567
+            },
+            {
+              "id": "passage_03129b1fafaf58ccf1d11daf",
+              "score": 34.35780316381013
+            },
+            {
+              "id": "passage_a63cb60c22559dc6985898c8",
+              "score": 34.07877804011922
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0043",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_21ee302ef16daaf0c8af954b",
+              "score": 59.022651018951905
+            },
+            {
+              "id": "passage_3bc9e6f5e0867a0b83319b28",
+              "score": 48.88835526321961
+            },
+            {
+              "id": "passage_f27565ebc00f21ba50308689",
+              "score": 48.56834392627773
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0044",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_6289c555b7ec67ac9b0c84fc",
+              "score": 43.1544879280169
+            },
+            {
+              "id": "passage_914de8d119e5b4743b13df07",
+              "score": 42.22554656822071
+            },
+            {
+              "id": "passage_0a7a0c5a75c0e008fecf7752",
+              "score": 40.75037922774887
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0045",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_451f2b4e0b486b19ef6f6f55",
+              "score": 40.764472519789464
+            },
+            {
+              "id": "passage_5916a5defa96c5fc94e89c03",
+              "score": 37.22919166296775
+            },
+            {
+              "id": "passage_60b87f93ca1e702e00afa239",
+              "score": 36.46171677433671
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0046",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_e9d39d33a13a79266fd94e96",
+              "score": 41.20600932907943
+            },
+            {
+              "id": "passage_20a9ab46f6bd4a7be67823d7",
+              "score": 35.10633714601447
+            },
+            {
+              "id": "passage_9aa610b388876589ed54f51d",
+              "score": 32.96422257511711
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0047",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_899d00b71e00442c9487c8c1",
+              "score": 41.16456952660027
+            },
+            {
+              "id": "passage_9dfa53573f67e108c8429ef4",
+              "score": 39.30484897004564
+            },
+            {
+              "id": "passage_be5da4db7660bc8609e20502",
+              "score": 39.15555180852516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0048",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_1fe34b92559c628ac444f5cb",
+              "score": 28.45210157137436
+            },
+            {
+              "id": "passage_ba8e10520468270354fbbf03",
+              "score": 27.21164983365758
+            },
+            {
+              "id": "passage_c8be2cd24a37b4e9f3085d9d",
+              "score": 26.899795862024373
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0049",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_7d0936b1683ba81dcf8ffbe1",
+              "score": 30.60273737822778
+            },
+            {
+              "id": "passage_d98b164583e7d9458563a895",
+              "score": 30.008934020123554
+            },
+            {
+              "id": "passage_84f4ce4a0be0e52297e28db4",
+              "score": 27.46612296444262
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0050",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_7fbbcf91bc74da06e036c404",
+              "score": 48.21680450448531
+            },
+            {
+              "id": "passage_0466e290f92d34eb34ab6ed6",
+              "score": 41.601342646337265
+            },
+            {
+              "id": "passage_4452356f606fde5d98d15dcd",
+              "score": 40.567325200759115
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0051",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_9dfa53573f67e108c8429ef4",
+              "score": 44.078725680773786
+            },
+            {
+              "id": "passage_cefbcde4b1afcfebf47539b4",
+              "score": 39.587698914816386
+            },
+            {
+              "id": "passage_bbe393a2879d3065904102cf",
+              "score": 39.43299823374058
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0052",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_6735ae6d96dba91e67ebc7be",
+              "score": 50.73666840327964
+            },
+            {
+              "id": "passage_77f457741335c5a6d687c99e",
+              "score": 48.98347487204421
+            },
+            {
+              "id": "passage_9c3ac58385d19eff0fcd9ad9",
+              "score": 40.63176315662555
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0053",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_ee95f5549ea04cc643850905",
+              "score": 38.37782118668937
+            },
+            {
+              "id": "passage_9a7702f8125d059debd40267",
+              "score": 34.10587330348923
+            },
+            {
+              "id": "passage_f09b358377d4eede10f8a400",
+              "score": 33.71074685548958
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0054",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_e9d39d33a13a79266fd94e96",
+              "score": 34.73418981716443
+            },
+            {
+              "id": "passage_eb166a4cfc3f628c2bad7bcc",
+              "score": 32.223989414381876
+            },
+            {
+              "id": "passage_9274fd9fdbe36acb191fe452",
+              "score": 31.857698139753076
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0055",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_de6c581e7df46aff1691100e",
+              "score": 38.436775711149316
+            },
+            {
+              "id": "passage_91fe96d8aa208929dc0a7895",
+              "score": 36.52630625899852
+            },
+            {
+              "id": "passage_a554f74f526a96b090ea4ce2",
+              "score": 36.01229084150502
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0056",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_84f4ce4a0be0e52297e28db4",
+              "score": 42.37231843890263
+            },
+            {
+              "id": "passage_0f9c099df1e81c29dc46020f",
+              "score": 37.78437565357157
+            },
+            {
+              "id": "passage_7d0936b1683ba81dcf8ffbe1",
+              "score": 37.47669867390451
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0057",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_4d41f2965bb6fcc608fd86e2",
+              "score": 31.94883578932516
+            },
+            {
+              "id": "passage_2d84d1a04fe85e909d4d65b0",
+              "score": 31.605636158838582
+            },
+            {
+              "id": "passage_2e8fbf431f7f6ed90680b1c1",
+              "score": 29.575819676252685
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0058",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_da7faad46eb5584c9550acd2",
+              "score": 35.345521635998395
+            },
+            {
+              "id": "passage_57eb123a0a3f812411ac638c",
+              "score": 34.47275834029401
+            },
+            {
+              "id": "passage_81e763f6254d0fb831ab7e5e",
+              "score": 31.840930233467294
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0059",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_129670468967dc62e6fafc65",
+              "score": 28.78470902698635
+            },
+            {
+              "id": "passage_4db3917511a8a4b723481abf",
+              "score": 27.321019136295092
+            },
+            {
+              "id": "passage_fb455df0ea7aafe6d2b65c4e",
+              "score": 27.228921598771855
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0060",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_6e49c61e3177381232cc2737",
+              "score": 32.87995352532283
+            },
+            {
+              "id": "passage_6014ffb5abd684e8ab5df255",
+              "score": 28.412805962913907
+            },
+            {
+              "id": "passage_255e65415007f2ccd9a40db1",
+              "score": 26.92034270951048
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0061",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_20d4493e2bf24409e64a2f50",
+              "score": 46.698837647498785
+            },
+            {
+              "id": "passage_cb29a541bea974d7f6dd8a80",
+              "score": 46.5247079058184
+            },
+            {
+              "id": "passage_b7a0cd8e289ecd2951e2dc02",
+              "score": 43.96394127713582
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0062",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_cceee0d0267c7ae6b6ba8419",
+              "score": 35.26233133863267
+            },
+            {
+              "id": "passage_44e1ffcadbba6c2d0e0ddc2a",
+              "score": 26.37693434063773
+            },
+            {
+              "id": "passage_f0e60f9539ad228c2ddd5b9d",
+              "score": 21.505238367240207
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0063",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_2950d44a504e062fa182b0bf",
+              "score": 33.33102297605885
+            },
+            {
+              "id": "passage_dd558cd127c7344097eb324b",
+              "score": 28.333688792861242
+            },
+            {
+              "id": "passage_001d8b4ca279dfcd7dd6723d",
+              "score": 27.78939092714571
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0064",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_fc3ef572e5c87aa1a44b164d",
+              "score": 44.32775528276073
+            },
+            {
+              "id": "passage_2d84d1a04fe85e909d4d65b0",
+              "score": 43.44198620054093
+            },
+            {
+              "id": "passage_4d41f2965bb6fcc608fd86e2",
+              "score": 42.63474951628215
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0065",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_7eb1c37c15d08cda6e450ddb",
+              "score": 40.57935686064781
+            },
+            {
+              "id": "passage_2ae2f61e0d9c650760918260",
+              "score": 40.19336090497527
+            },
+            {
+              "id": "passage_7d7427814f8015991c8d9b8f",
+              "score": 38.52989623507607
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0066",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_cb29a541bea974d7f6dd8a80",
+              "score": 43.487613336915366
+            },
+            {
+              "id": "passage_20d4493e2bf24409e64a2f50",
+              "score": 41.443378986241584
+            },
+            {
+              "id": "passage_b7a0cd8e289ecd2951e2dc02",
+              "score": 41.07419437779296
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0067",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_3191ca1281e17d186a38c0d7",
+              "score": 38.50760076478294
+            },
+            {
+              "id": "passage_c38c4f842f88244f7d00aa79",
+              "score": 36.62074467512704
+            },
+            {
+              "id": "passage_ac7a41733615c9a26f4eede5",
+              "score": 35.4926585667295
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0068",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_dc45c256b481d679f3ee3cba",
+              "score": 38.059829389149655
+            },
+            {
+              "id": "passage_ac51da47239bed88bf6014eb",
+              "score": 37.93544601924572
+            },
+            {
+              "id": "passage_be2573922dd991b279108eb0",
+              "score": 37.62613891557872
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0069",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_bbfb58fa5fc021796963dbc3",
+              "score": 68.0706029819774
+            },
+            {
+              "id": "passage_dcc8becce3519aa3fe0ca0dc",
+              "score": 67.38737158149571
+            },
+            {
+              "id": "passage_4dc118db6d8452e292009ce3",
+              "score": 67.1000363421948
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0070",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_cde2763af29ddc6f82c427d5",
+              "score": 32.81326049379169
+            },
+            {
+              "id": "passage_973e50325ede4eef09e8ff28",
+              "score": 26.513152550658948
+            },
+            {
+              "id": "passage_65023e3aa145882f71efce61",
+              "score": 26.231425846211543
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0071",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_0eac6c108f8ea64875ea38c1",
+              "score": 34.583732423356764
+            },
+            {
+              "id": "passage_5566e4da0c0c729276d1ed9c",
+              "score": 33.20003230766662
+            },
+            {
+              "id": "passage_a8299cafe2f5b302f9e87e33",
+              "score": 33.05789948559323
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0072",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_034f52ee6a75210edbeebd02",
+              "score": 47.636204339820544
+            },
+            {
+              "id": "passage_5aabe53cc03a315df97b64ea",
+              "score": 42.60344598865239
+            },
+            {
+              "id": "passage_3cdfa6f548b5543c7b3ed552",
+              "score": 40.876139063885304
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0073",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_c4bb1a0ae0a32656d70508d4",
+              "score": 42.87647087461941
+            },
+            {
+              "id": "passage_0507d4b7587663193b32573c",
+              "score": 36.03076760664427
+            },
+            {
+              "id": "passage_041512e69aea52ca9a2e8269",
+              "score": 31.017461269602627
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0074",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_3191ca1281e17d186a38c0d7",
+              "score": 49.839319030355156
+            },
+            {
+              "id": "passage_876a1eb9097a78d6532ba2ed",
+              "score": 40.52423739457064
+            },
+            {
+              "id": "passage_47c49349ec1fce92291248fe",
+              "score": 40.14641014406103
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0075",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_eaa33bb9659a923a00285d01",
+              "score": 55.10264556801516
+            },
+            {
+              "id": "passage_90e0eddf1d49ce025fe34ce6",
+              "score": 50.07931828701812
+            },
+            {
+              "id": "passage_fbb505831e1ec326f52e5388",
+              "score": 49.221119989541194
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0076",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_ac51da47239bed88bf6014eb",
+              "score": 30.0810601279412
+            },
+            {
+              "id": "passage_0eac6c108f8ea64875ea38c1",
+              "score": 30.073462648779675
+            },
+            {
+              "id": "passage_5566e4da0c0c729276d1ed9c",
+              "score": 29.683814133762052
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0077",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_5916a5defa96c5fc94e89c03",
+              "score": 42.006310657457426
+            },
+            {
+              "id": "passage_b689321dd791d1b0a830930f",
+              "score": 41.034717740944615
+            },
+            {
+              "id": "passage_451f2b4e0b486b19ef6f6f55",
+              "score": 40.57060324759349
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0078",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_cceee0d0267c7ae6b6ba8419",
+              "score": 38.34849419313569
+            },
+            {
+              "id": "passage_5b1b905d5f800d8853f4b1ed",
+              "score": 31.697360905003197
+            },
+            {
+              "id": "passage_f0e60f9539ad228c2ddd5b9d",
+              "score": 30.457913141113284
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0079",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_0507d4b7587663193b32573c",
+              "score": 38.48978979649476
+            },
+            {
+              "id": "passage_c4bb1a0ae0a32656d70508d4",
+              "score": 36.99368239088
+            },
+            {
+              "id": "passage_041512e69aea52ca9a2e8269",
+              "score": 36.07473626191066
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0080",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_589ce7f10d4bd4bf5751486e",
+              "score": 33.935422869577366
+            },
+            {
+              "id": "passage_e591ac9d2acc80cae75fad84",
+              "score": 33.198164749858094
+            },
+            {
+              "id": "passage_cefbcde4b1afcfebf47539b4",
+              "score": 29.51946275724843
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0081",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_44a5ecf77edbb874b1110c9d",
+              "score": 45.71347386230536
+            },
+            {
+              "id": "passage_24789266c7a8b076e8156dc9",
+              "score": 45.11005396396438
+            },
+            {
+              "id": "passage_682baa5ad73f16b015ef014f",
+              "score": 42.92114870373259
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0082",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_bbfb58fa5fc021796963dbc3",
+              "score": 62.348308978345884
+            },
+            {
+              "id": "passage_dcc8becce3519aa3fe0ca0dc",
+              "score": 60.30733914539277
+            },
+            {
+              "id": "passage_4dc118db6d8452e292009ce3",
+              "score": 58.1521151363531
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0083",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_a7812846a57a44e502936b7f",
+              "score": 29.63420526974284
+            },
+            {
+              "id": "passage_41ca1f4c4cdc3d59c854ad21",
+              "score": 29.399350499648463
+            },
+            {
+              "id": "passage_3429ea1b975641a5b66de9a2",
+              "score": 28.40817245893019
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0084",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_9a4160946bc90b9bcf3ea14d",
+              "score": 42.17920831466391
+            },
+            {
+              "id": "passage_289e65a6ba113fc7eb61bcfc",
+              "score": 36.56707183211684
+            },
+            {
+              "id": "passage_cb29a541bea974d7f6dd8a80",
+              "score": 36.21084363558913
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0085",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_3ec9ccbb7f6b87628fb73607",
+              "score": 40.11006718848374
+            },
+            {
+              "id": "passage_cbadebb7e6a85d4c3a76d878",
+              "score": 36.56330881794619
+            },
+            {
+              "id": "passage_b154a549bd821cf0f1a5646b",
+              "score": 36.33252208313792
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0086",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_451f2b4e0b486b19ef6f6f55",
+              "score": 34.88205685662487
+            },
+            {
+              "id": "passage_a659e22fdc6ee6cdf79ce3fc",
+              "score": 31.211042178794315
+            },
+            {
+              "id": "passage_371e25b04a110ba350cc98c0",
+              "score": 30.867655680722834
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0087",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_3bc9e6f5e0867a0b83319b28",
+              "score": 48.64873777915485
+            },
+            {
+              "id": "passage_21ee302ef16daaf0c8af954b",
+              "score": 45.27205103806485
+            },
+            {
+              "id": "passage_e9d39d33a13a79266fd94e96",
+              "score": 42.14647049685977
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0088",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_57eb123a0a3f812411ac638c",
+              "score": 39.02908971187102
+            },
+            {
+              "id": "passage_551922e3df85c41cab20e0d9",
+              "score": 37.36467573239732
+            },
+            {
+              "id": "passage_35b63ac2f03a89e44403697e",
+              "score": 37.27744031261072
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0089",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_ebe97f30810c92b52b3e7154",
+              "score": 46.107938216591776
+            },
+            {
+              "id": "passage_142e7d7e1075d35f4dc4b28e",
+              "score": 43.49101662190523
+            },
+            {
+              "id": "passage_590bdc5a872a9187ea060a7a",
+              "score": 41.51796129343859
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0090",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_03129b1fafaf58ccf1d11daf",
+              "score": 37.67052024167803
+            },
+            {
+              "id": "passage_d5f7a229b20a1fdf61c9f29a",
+              "score": 36.441533157464576
+            },
+            {
+              "id": "passage_6289c555b7ec67ac9b0c84fc",
+              "score": 36.18194061934106
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0091",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_4dc118db6d8452e292009ce3",
+              "score": 55.44723185389223
+            },
+            {
+              "id": "passage_dcc8becce3519aa3fe0ca0dc",
+              "score": 54.62049672888339
+            },
+            {
+              "id": "passage_876d96dc5660348687033706",
+              "score": 51.59492843676874
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0092",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_7678eb793c50cd83184ac24d",
+              "score": 33.64676730708595
+            },
+            {
+              "id": "passage_5d06f0095481411268dc1477",
+              "score": 32.4219589348215
+            },
+            {
+              "id": "passage_129670468967dc62e6fafc65",
+              "score": 30.50871832482764
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0093",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_a554f74f526a96b090ea4ce2",
+              "score": 36.1040144398183
+            },
+            {
+              "id": "passage_417170ad0c697af42fca9e2c",
+              "score": 34.861991806138896
+            },
+            {
+              "id": "passage_3c963d2a03adcb2c41ea420b",
+              "score": 31.646519113860514
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0094",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_0eac6c108f8ea64875ea38c1",
+              "score": 36.737073780920234
+            },
+            {
+              "id": "passage_dd9fbe551567c50a7c66204e",
+              "score": 31.983198596570265
+            },
+            {
+              "id": "passage_a7812846a57a44e502936b7f",
+              "score": 31.270552062779682
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0095",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_8679c00530fc5e3e147f654a",
+              "score": 31.26993454833606
+            },
+            {
+              "id": "passage_42718b2ff0ffd40181894258",
+              "score": 30.1667418155267
+            },
+            {
+              "id": "passage_cd89e31ed326afaca1375c3e",
+              "score": 29.31108239999826
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0096",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_44a5ecf77edbb874b1110c9d",
+              "score": 33.67694309047571
+            },
+            {
+              "id": "passage_cde2763af29ddc6f82c427d5",
+              "score": 32.34313011288999
+            },
+            {
+              "id": "passage_682baa5ad73f16b015ef014f",
+              "score": 32.31128310420607
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0097",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_2950d44a504e062fa182b0bf",
+              "score": 24.707335063717075
+            },
+            {
+              "id": "passage_dd558cd127c7344097eb324b",
+              "score": 23.779133343862668
+            },
+            {
+              "id": "passage_a15f52a1aa33caee4a493d91",
+              "score": 23.40035842511374
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0098",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_041512e69aea52ca9a2e8269",
+              "score": 33.87292727330794
+            },
+            {
+              "id": "passage_0507d4b7587663193b32573c",
+              "score": 28.36743884616398
+            },
+            {
+              "id": "passage_23b43708a72203691425c789",
+              "score": 28.15629076345611
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0099",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_5916a5defa96c5fc94e89c03",
+              "score": 50.229306254195926
+            },
+            {
+              "id": "passage_44b45bd05c488b890ff6da61",
+              "score": 44.05496351568993
+            },
+            {
+              "id": "passage_96e6c4647ed4eb49bbe56f69",
+              "score": 42.05502957674014
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0100",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_0cb21633a24fa74defebff69",
+              "score": 43.92970191061389
+            },
+            {
+              "id": "passage_ceab8780d98b20deb1c7161b",
+              "score": 41.57088328985785
+            },
+            {
+              "id": "passage_915b1ae537d67b482fab5011",
+              "score": 37.425326349241466
+            }
+          ]
+        }
+      ]
+    },
+    "graph": {
+      "supporting_recall_at_k": 0.01870748299319728,
+      "bootstrap_95_ci": [
+        0.0,
+        0.04591836734693878
+      ],
+      "by_hop": {
+        "1": {
+          "questions": 38,
+          "supporting_recall_at_k": 0.02631578947368421,
+          "bootstrap_95_ci": [
+            0.0,
+            0.07894736842105263
+          ]
+        },
+        "2": {
+          "questions": 30,
+          "supporting_recall_at_k": 0.016666666666666666,
+          "bootstrap_95_ci": [
+            0.0,
+            0.05
+          ]
+        },
+        "3": {
+          "questions": 30,
+          "supporting_recall_at_k": 0.01111111111111111,
+          "bootstrap_95_ci": [
+            0.0,
+            0.03333333333333333
+          ]
+        }
+      },
+      "records": [
+        {
+          "question_id": "domain-0001",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_006597e91cbf8fe410ce6e5c",
+              "score": 12.114978808066578
+            },
+            {
+              "id": "passage_01c7206236faec6f1bdff2b4",
+              "score": 12.114978808066578
+            },
+            {
+              "id": "passage_4c7a3318f1144118f20588f9",
+              "score": 12.114978808066578
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0002",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_23c75636976d67e77bcc3fa6",
+              "score": 7.435361607416204
+            },
+            {
+              "id": "passage_59596bcf7e9ded06baf1c33c",
+              "score": 7.435361607416204
+            },
+            {
+              "id": "passage_7520d3bb87456b78f900f705",
+              "score": 7.435361607416204
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0003",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_a804957ab133de5c3297612a",
+              "score": 9.953780714805632
+            },
+            {
+              "id": "passage_b154a549bd821cf0f1a5646b",
+              "score": 9.953780714805632
+            },
+            {
+              "id": "passage_64fb8d0d583d94f075d2c612",
+              "score": 9.34588664930149
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0004",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_64fb8d0d583d94f075d2c612",
+              "score": 9.34588664930149
+            },
+            {
+              "id": "passage_1bff15ff77f13b5cdbf70923",
+              "score": 8.159906397018645
+            },
+            {
+              "id": "passage_83ade830b88a1ea3460ee680",
+              "score": 7.1054715764534455
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0005",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_7754cabfe797ffc3a761ea25",
+              "score": 13.593642634434097
+            },
+            {
+              "id": "passage_27141bd31cda39e40cabc438",
+              "score": 10.668928918600049
+            },
+            {
+              "id": "passage_3fbcbe4b7eb8066759501f93",
+              "score": 10.630852798262433
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0006",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_277a27918c88f4a506c24990",
+              "score": 12.730422800540538
+            },
+            {
+              "id": "passage_4825fe70b3957eb535792e58",
+              "score": 12.730422800540538
+            },
+            {
+              "id": "passage_600746b3a621fbf012a79067",
+              "score": 12.730422800540538
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0007",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_7aafbac056c161381db85bb2",
+              "score": 8.236302828650025
+            },
+            {
+              "id": "passage_ac8b8e1e1e3cef464998561e",
+              "score": 7.3373718810533735
+            },
+            {
+              "id": "passage_24bd923c5938423552740b50",
+              "score": 7.301602437723721
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0008",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_3fbcbe4b7eb8066759501f93",
+              "score": 16.120500171419767
+            },
+            {
+              "id": "passage_71a1da7e31ca5c22347621dd",
+              "score": 16.120500171419767
+            },
+            {
+              "id": "passage_b154a549bd821cf0f1a5646b",
+              "score": 16.120500171419767
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0011",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_15113f31609271bab722f58b",
+              "score": 7.418686586591548
+            },
+            {
+              "id": "passage_3996e15f740c2d93358d54be",
+              "score": 7.077372028895034
+            },
+            {
+              "id": "passage_2547fbf9afb1159fd1197e1d",
+              "score": 7.009134471168263
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0012",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_277a27918c88f4a506c24990",
+              "score": 8.481374438531518
+            },
+            {
+              "id": "passage_4825fe70b3957eb535792e58",
+              "score": 8.481374438531518
+            },
+            {
+              "id": "passage_600746b3a621fbf012a79067",
+              "score": 8.481374438531518
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0013",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_277a27918c88f4a506c24990",
+              "score": 13.919955499680809
+            },
+            {
+              "id": "passage_4825fe70b3957eb535792e58",
+              "score": 13.919955499680809
+            },
+            {
+              "id": "passage_600746b3a621fbf012a79067",
+              "score": 13.919955499680809
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0014",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_2c5b699821a81210e019a617",
+              "score": 9.01970764635022
+            },
+            {
+              "id": "passage_6094f60bcde77071d0add221",
+              "score": 6.740892796165745
+            },
+            {
+              "id": "passage_2e52ccca380dc3c2da6a778b",
+              "score": 6.584502712871262
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0015",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_277a27918c88f4a506c24990",
+              "score": 12.730422800540538
+            },
+            {
+              "id": "passage_4825fe70b3957eb535792e58",
+              "score": 12.730422800540538
+            },
+            {
+              "id": "passage_600746b3a621fbf012a79067",
+              "score": 12.730422800540538
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0016",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_64b7f287e96078213dc0a3fd",
+              "score": 16.20202113055971
+            },
+            {
+              "id": "passage_768486e34912c00bd99d1208",
+              "score": 16.20202113055971
+            },
+            {
+              "id": "passage_993bfbaa8dacd0c4eaebffd0",
+              "score": 16.20202113055971
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0017",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_4c7c401c2456d5d78502f525",
+              "score": 9.88971074101733
+            },
+            {
+              "id": "passage_2c5b699821a81210e019a617",
+              "score": 8.76314970094706
+            },
+            {
+              "id": "passage_6db6e538816a386beb952788",
+              "score": 7.811218448080247
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0018",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_15113f31609271bab722f58b",
+              "score": 8.452132356117547
+            },
+            {
+              "id": "passage_23ae1c4fc0ae175752f94f69",
+              "score": 8.452132356117547
+            },
+            {
+              "id": "passage_4c7c401c2456d5d78502f525",
+              "score": 8.452132356117547
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0019",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_3996e15f740c2d93358d54be",
+              "score": 7.1592697869591735
+            },
+            {
+              "id": "passage_3f5c64451bd7166d62e8d89e",
+              "score": 7.1592697869591735
+            },
+            {
+              "id": "passage_4db31a8359ecc37f8472a6c7",
+              "score": 7.1592697869591735
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0020",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_87928c63ad9025a1461e8d5e",
+              "score": 13.379312824803527
+            },
+            {
+              "id": "passage_34d6c2bba7d0d54daa9f3519",
+              "score": 11.081401013205772
+            },
+            {
+              "id": "passage_66b641de66f1b289e2e67915",
+              "score": 11.081401013205772
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0021",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_ad7fb4cc813f192452e4d3f2",
+              "score": 11.575182822336117
+            },
+            {
+              "id": "passage_277a27918c88f4a506c24990",
+              "score": 10.909609196345084
+            },
+            {
+              "id": "passage_4825fe70b3957eb535792e58",
+              "score": 10.909609196345084
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0022",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_ad7fb4cc813f192452e4d3f2",
+              "score": 11.575182822336117
+            },
+            {
+              "id": "passage_1f6bb5e89cf5fd4f4634f7fd",
+              "score": 10.084258964826693
+            },
+            {
+              "id": "passage_2c22660f30e5af74833e9ec1",
+              "score": 10.084258964826693
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0023",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_1f6bb5e89cf5fd4f4634f7fd",
+              "score": 13.890947064076869
+            },
+            {
+              "id": "passage_2c22660f30e5af74833e9ec1",
+              "score": 13.890947064076869
+            },
+            {
+              "id": "passage_8ec384afc4a34a818ec6ce17",
+              "score": 13.890947064076869
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0024",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_8ec384afc4a34a818ec6ce17",
+              "score": 15.56712866134356
+            },
+            {
+              "id": "passage_3963c45fccc0bd3166d8b0bc",
+              "score": 13.968639955799846
+            },
+            {
+              "id": "passage_87928c63ad9025a1461e8d5e",
+              "score": 10.952952919869329
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0025",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_bbc47b087503637b912d5664",
+              "score": 12.146443809148204
+            },
+            {
+              "id": "passage_bec4aea33976bc1a0526e431",
+              "score": 12.146443809148204
+            },
+            {
+              "id": "passage_5337fa26d4963a9ac5cbb1e6",
+              "score": 8.856608240758447
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0026",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_0ddcc90a9ad606ec01a8d176",
+              "score": 24.618238865926255
+            },
+            {
+              "id": "passage_1d40f8506ea0d4c5f4363a51",
+              "score": 24.618238865926255
+            },
+            {
+              "id": "passage_24789266c7a8b076e8156dc9",
+              "score": 24.618238865926255
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0027",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_0ddcc90a9ad606ec01a8d176",
+              "score": 16.282418109794854
+            },
+            {
+              "id": "passage_1d40f8506ea0d4c5f4363a51",
+              "score": 16.282418109794854
+            },
+            {
+              "id": "passage_24789266c7a8b076e8156dc9",
+              "score": 16.282418109794854
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0028",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_9e9fdc5511d20e0310db6dc7",
+              "score": 15.289529681265353
+            },
+            {
+              "id": "passage_bd586441c703fb90aedef59c",
+              "score": 13.539886152195052
+            },
+            {
+              "id": "passage_87928c63ad9025a1461e8d5e",
+              "score": 13.525132704121857
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0029",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_003b48aa4be3d4c4932d4b22",
+              "score": 11.410431461997899
+            },
+            {
+              "id": "passage_072a598cfa316ce75911344c",
+              "score": 11.410431461997899
+            },
+            {
+              "id": "passage_24f6c33ab67995c958b01909",
+              "score": 11.410431461997899
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0030",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_859348766b6c026248e595fa",
+              "score": 9.25136104362135
+            },
+            {
+              "id": "passage_f4ead1006a3ec5cd2e7f97b8",
+              "score": 7.463770850242032
+            },
+            {
+              "id": "passage_3996e15f740c2d93358d54be",
+              "score": 7.077372028895034
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0031",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_59596bcf7e9ded06baf1c33c",
+              "score": 13.496331033064305
+            },
+            {
+              "id": "passage_7520d3bb87456b78f900f705",
+              "score": 13.496331033064305
+            },
+            {
+              "id": "passage_87928c63ad9025a1461e8d5e",
+              "score": 13.379312824803527
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0032",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_0ddcc90a9ad606ec01a8d176",
+              "score": 19.00700718404538
+            },
+            {
+              "id": "passage_1d40f8506ea0d4c5f4363a51",
+              "score": 19.00700718404538
+            },
+            {
+              "id": "passage_24789266c7a8b076e8156dc9",
+              "score": 19.00700718404538
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0033",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_7aafbac056c161381db85bb2",
+              "score": 10.246949432876626
+            },
+            {
+              "id": "passage_bec4aea33976bc1a0526e431",
+              "score": 10.143373770731912
+            },
+            {
+              "id": "passage_072a598cfa316ce75911344c",
+              "score": 9.678981985079307
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0034",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_23c75636976d67e77bcc3fa6",
+              "score": 9.551051605540694
+            },
+            {
+              "id": "passage_2547fbf9afb1159fd1197e1d",
+              "score": 9.551051605540694
+            },
+            {
+              "id": "passage_280ec3d2a9849407c26ec121",
+              "score": 9.551051605540694
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0035",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_0ddcc90a9ad606ec01a8d176",
+              "score": 12.404847519944315
+            },
+            {
+              "id": "passage_1d40f8506ea0d4c5f4363a51",
+              "score": 12.404847519944315
+            },
+            {
+              "id": "passage_24789266c7a8b076e8156dc9",
+              "score": 12.404847519944315
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0036",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_0ddcc90a9ad606ec01a8d176",
+              "score": 16.96675515546005
+            },
+            {
+              "id": "passage_1d40f8506ea0d4c5f4363a51",
+              "score": 16.96675515546005
+            },
+            {
+              "id": "passage_24789266c7a8b076e8156dc9",
+              "score": 16.96675515546005
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0037",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_91a6f79356a53b9225efdd65",
+              "score": 14.620902361552195
+            },
+            {
+              "id": "passage_072a598cfa316ce75911344c",
+              "score": 9.678981985079307
+            },
+            {
+              "id": "passage_24f6c33ab67995c958b01909",
+              "score": 9.678981985079307
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0038",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_072a598cfa316ce75911344c",
+              "score": 9.678981985079307
+            },
+            {
+              "id": "passage_24f6c33ab67995c958b01909",
+              "score": 9.678981985079307
+            },
+            {
+              "id": "passage_47c49349ec1fce92291248fe",
+              "score": 9.678981985079307
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0039",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_c8ff4bb27f3fd34d3978f33f",
+              "score": 12.80867180246974
+            },
+            {
+              "id": "passage_27141bd31cda39e40cabc438",
+              "score": 10.668928918600049
+            },
+            {
+              "id": "passage_3fbcbe4b7eb8066759501f93",
+              "score": 10.630852798262433
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0040",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_3996e15f740c2d93358d54be",
+              "score": 8.42017513786626
+            },
+            {
+              "id": "passage_3f5c64451bd7166d62e8d89e",
+              "score": 8.42017513786626
+            },
+            {
+              "id": "passage_4db31a8359ecc37f8472a6c7",
+              "score": 8.42017513786626
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0041",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_4aa74aeff932aeef20b4ead7",
+              "score": 15.008191959966373
+            },
+            {
+              "id": "passage_718ed086b1c0f96f28803716",
+              "score": 14.594211815994363
+            },
+            {
+              "id": "passage_664ef5e344b208897c1eb92a",
+              "score": 14.463276720240342
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0042",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_6db6e538816a386beb952788",
+              "score": 13.932811343748213
+            },
+            {
+              "id": "passage_54cf4effa0b5c85dc9314d31",
+              "score": 10.844013251814788
+            },
+            {
+              "id": "passage_5850439b3c0c93b10a60e57e",
+              "score": 10.844013251814788
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0043",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_bd586441c703fb90aedef59c",
+              "score": 11.468133970173154
+            },
+            {
+              "id": "passage_575a4a755d9dc8f30de276dd",
+              "score": 11.183550745179655
+            },
+            {
+              "id": "passage_277a27918c88f4a506c24990",
+              "score": 9.333698855273807
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0044",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_ce75000d9b8eed7768e38125",
+              "score": 14.612418120312533
+            },
+            {
+              "id": "passage_24f6c33ab67995c958b01909",
+              "score": 14.117664124806351
+            },
+            {
+              "id": "passage_2c5b699821a81210e019a617",
+              "score": 14.117664124806351
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0045",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_4db31a8359ecc37f8472a6c7",
+              "score": 10.510722706636257
+            },
+            {
+              "id": "passage_1bff15ff77f13b5cdbf70923",
+              "score": 10.143373770731912
+            },
+            {
+              "id": "passage_4aa74aeff932aeef20b4ead7",
+              "score": 9.420936594427824
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0046",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_c8ff4bb27f3fd34d3978f33f",
+              "score": 12.80867180246974
+            },
+            {
+              "id": "passage_e72c2bc868bbce2817e53aa8",
+              "score": 11.674150737436966
+            },
+            {
+              "id": "passage_a804957ab133de5c3297612a",
+              "score": 9.953780714805632
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0047",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_54cf4effa0b5c85dc9314d31",
+              "score": 10.844013251814788
+            },
+            {
+              "id": "passage_5850439b3c0c93b10a60e57e",
+              "score": 10.844013251814788
+            },
+            {
+              "id": "passage_8ec384afc4a34a818ec6ce17",
+              "score": 8.982625948472297
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0048",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_4c7c401c2456d5d78502f525",
+              "score": 9.88971074101733
+            },
+            {
+              "id": "passage_5c9fd328a5e9be333334adfc",
+              "score": 8.982625948472297
+            },
+            {
+              "id": "passage_f5f410dd5d1f56ecbd9fadf9",
+              "score": 8.820595311239655
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0049",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_24f6c33ab67995c958b01909",
+              "score": 9.34588664930149
+            },
+            {
+              "id": "passage_23c75636976d67e77bcc3fa6",
+              "score": 6.60502885819726
+            },
+            {
+              "id": "passage_2547fbf9afb1159fd1197e1d",
+              "score": 6.60502885819726
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0050",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_c54092cc4462818b2e98d93a",
+              "score": 8.159906397018645
+            },
+            {
+              "id": "passage_993bfbaa8dacd0c4eaebffd0",
+              "score": 8.13872842710844
+            },
+            {
+              "id": "passage_27141bd31cda39e40cabc438",
+              "score": 7.630762914515278
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0051",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_3963c45fccc0bd3166d8b0bc",
+              "score": 13.968639955799846
+            },
+            {
+              "id": "passage_59596bcf7e9ded06baf1c33c",
+              "score": 13.496331033064305
+            },
+            {
+              "id": "passage_7520d3bb87456b78f900f705",
+              "score": 13.496331033064305
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0052",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_a804957ab133de5c3297612a",
+              "score": 16.748166113334868
+            },
+            {
+              "id": "passage_b154a549bd821cf0f1a5646b",
+              "score": 16.748166113334868
+            },
+            {
+              "id": "passage_15113f31609271bab722f58b",
+              "score": 14.72566540835644
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0053",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_15113f31609271bab722f58b",
+              "score": 10.175187295896894
+            },
+            {
+              "id": "passage_fe84447be085285e51694046",
+              "score": 9.917865972386096
+            },
+            {
+              "id": "passage_4db31a8359ecc37f8472a6c7",
+              "score": 9.444041646435235
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0054",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_c8ff4bb27f3fd34d3978f33f",
+              "score": 12.80867180246974
+            },
+            {
+              "id": "passage_27141bd31cda39e40cabc438",
+              "score": 7.435361607416204
+            },
+            {
+              "id": "passage_372f115e0f1eb6023f25697e",
+              "score": 7.435361607416204
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0055",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_fe84447be085285e51694046",
+              "score": 11.575182822336117
+            },
+            {
+              "id": "passage_83ade830b88a1ea3460ee680",
+              "score": 8.820595311239655
+            },
+            {
+              "id": "passage_787195e1d594872b2b4b5cc0",
+              "score": 8.2852775788926
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0056",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_24f6c33ab67995c958b01909",
+              "score": 9.34588664930149
+            },
+            {
+              "id": "passage_8ec384afc4a34a818ec6ce17",
+              "score": 8.820595311239655
+            },
+            {
+              "id": "passage_5337fa26d4963a9ac5cbb1e6",
+              "score": 8.209101494511279
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0057",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_859348766b6c026248e595fa",
+              "score": 9.25136104362135
+            },
+            {
+              "id": "passage_91a6f79356a53b9225efdd65",
+              "score": 8.86806564905428
+            },
+            {
+              "id": "passage_f4ead1006a3ec5cd2e7f97b8",
+              "score": 7.463770850242032
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0058",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_00f8bfa5d279eef701ba4c45",
+              "score": 15.72869781623342
+            },
+            {
+              "id": "passage_369b8042a71b5e5f2e6c9011",
+              "score": 15.72869781623342
+            },
+            {
+              "id": "passage_6d7d901f93c87125f205f7fb",
+              "score": 15.72869781623342
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0059",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_87928c63ad9025a1461e8d5e",
+              "score": 13.525132704121857
+            },
+            {
+              "id": "passage_f4ead1006a3ec5cd2e7f97b8",
+              "score": 13.394728082195567
+            },
+            {
+              "id": "passage_6094f60bcde77071d0add221",
+              "score": 11.368530857960408
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0060",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_1bff15ff77f13b5cdbf70923",
+              "score": 8.159906397018645
+            },
+            {
+              "id": "passage_83ade830b88a1ea3460ee680",
+              "score": 7.1054715764534455
+            },
+            {
+              "id": "passage_15113f31609271bab722f58b",
+              "score": 6.46584400260112
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0061",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_3963c45fccc0bd3166d8b0bc",
+              "score": 13.706498512266045
+            },
+            {
+              "id": "passage_16ec3d630bf872fc0a0b9617",
+              "score": 8.886475906792766
+            },
+            {
+              "id": "passage_3a636c091f2b544bed82c694",
+              "score": 8.886475906792766
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0062",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_87928c63ad9025a1461e8d5e",
+              "score": 8.393850745053477
+            },
+            {
+              "id": "passage_277a27918c88f4a506c24990",
+              "score": 7.421904944748292
+            },
+            {
+              "id": "passage_4825fe70b3957eb535792e58",
+              "score": 7.421904944748292
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0063",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_8ec384afc4a34a818ec6ce17",
+              "score": 7.811218448080247
+            },
+            {
+              "id": "passage_3996e15f740c2d93358d54be",
+              "score": 7.1592697869591735
+            },
+            {
+              "id": "passage_3f5c64451bd7166d62e8d89e",
+              "score": 7.1592697869591735
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0064",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_859348766b6c026248e595fa",
+              "score": 9.25136104362135
+            },
+            {
+              "id": "passage_91a6f79356a53b9225efdd65",
+              "score": 8.86806564905428
+            },
+            {
+              "id": "passage_5e1e776523f65f04c1af3cbd",
+              "score": 7.630762914515278
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0065",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_7aafbac056c161381db85bb2",
+              "score": 10.246949432876626
+            },
+            {
+              "id": "passage_24f6c33ab67995c958b01909",
+              "score": 8.820595311239655
+            },
+            {
+              "id": "passage_f5f410dd5d1f56ecbd9fadf9",
+              "score": 8.820595311239655
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0066",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_3963c45fccc0bd3166d8b0bc",
+              "score": 13.706498512266045
+            },
+            {
+              "id": "passage_26ee853aa376e8641490dd99",
+              "score": 10.132432506472139
+            },
+            {
+              "id": "passage_4571b69353fc5679423b0184",
+              "score": 10.132432506472139
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0067",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_bd586441c703fb90aedef59c",
+              "score": 9.34588664930149
+            },
+            {
+              "id": "passage_787195e1d594872b2b4b5cc0",
+              "score": 8.778689235596136
+            },
+            {
+              "id": "passage_0b9dec88299720f283d4476c",
+              "score": 7.85416807384915
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0068",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_91a6f79356a53b9225efdd65",
+              "score": 8.86806564905428
+            },
+            {
+              "id": "passage_0b9dec88299720f283d4476c",
+              "score": 8.428250035945704
+            },
+            {
+              "id": "passage_ce75000d9b8eed7768e38125",
+              "score": 8.114968383980525
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0069",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_4dcb4928237cd732ff831c92",
+              "score": 9.648224614089642
+            },
+            {
+              "id": "passage_277a27918c88f4a506c24990",
+              "score": 9.54148517174931
+            },
+            {
+              "id": "passage_4825fe70b3957eb535792e58",
+              "score": 9.54148517174931
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0070",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_e72c2bc868bbce2817e53aa8",
+              "score": 8.13872842710844
+            },
+            {
+              "id": "passage_64b7f287e96078213dc0a3fd",
+              "score": 6.963448901479086
+            },
+            {
+              "id": "passage_8ec384afc4a34a818ec6ce17",
+              "score": 6.963448901479086
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0071",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_f4ead1006a3ec5cd2e7f97b8",
+              "score": 7.463770850242032
+            },
+            {
+              "id": "passage_ac8b8e1e1e3cef464998561e",
+              "score": 6.7625663520609285
+            },
+            {
+              "id": "passage_3eea906d1223df68e33900fc",
+              "score": 6.686972843123491
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0072",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_35750867d65dc61530fdd0ed",
+              "score": 7.811218448080247
+            },
+            {
+              "id": "passage_59596bcf7e9ded06baf1c33c",
+              "score": 6.0609694256481
+            },
+            {
+              "id": "passage_7520d3bb87456b78f900f705",
+              "score": 6.0609694256481
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0073",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_bd586441c703fb90aedef59c",
+              "score": 9.34588664930149
+            },
+            {
+              "id": "passage_91a6f79356a53b9225efdd65",
+              "score": 8.86806564905428
+            },
+            {
+              "id": "passage_787195e1d594872b2b4b5cc0",
+              "score": 8.778689235596136
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0074",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_003b48aa4be3d4c4932d4b22",
+              "score": 10.501861858525542
+            },
+            {
+              "id": "passage_072a598cfa316ce75911344c",
+              "score": 10.501861858525542
+            },
+            {
+              "id": "passage_24f6c33ab67995c958b01909",
+              "score": 10.501861858525542
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0075",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_71a1da7e31ca5c22347621dd",
+              "score": 9.678981985079307
+            },
+            {
+              "id": "passage_0b9dec88299720f283d4476c",
+              "score": 8.428250035945704
+            },
+            {
+              "id": "passage_1bff15ff77f13b5cdbf70923",
+              "score": 8.159906397018645
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0076",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_9e9fdc5511d20e0310db6dc7",
+              "score": 15.289529681265353
+            },
+            {
+              "id": "passage_f4ead1006a3ec5cd2e7f97b8",
+              "score": 14.419154289565823
+            },
+            {
+              "id": "passage_bd586441c703fb90aedef59c",
+              "score": 13.539886152195052
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0077",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_87928c63ad9025a1461e8d5e",
+              "score": 13.94135480448865
+            },
+            {
+              "id": "passage_b154a549bd821cf0f1a5646b",
+              "score": 12.942182599424953
+            },
+            {
+              "id": "passage_59596bcf7e9ded06baf1c33c",
+              "score": 10.171608377959654
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0078",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_6094f60bcde77071d0add221",
+              "score": 10.52314171827452
+            },
+            {
+              "id": "passage_3996e15f740c2d93358d54be",
+              "score": 10.37562119637526
+            },
+            {
+              "id": "passage_5c9fd328a5e9be333334adfc",
+              "score": 8.982625948472297
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0079",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_5c9fd328a5e9be333334adfc",
+              "score": 8.982625948472297
+            },
+            {
+              "id": "passage_23c75636976d67e77bcc3fa6",
+              "score": 7.103166228602394
+            },
+            {
+              "id": "passage_2547fbf9afb1159fd1197e1d",
+              "score": 7.103166228602394
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0080",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_4db31a8359ecc37f8472a6c7",
+              "score": 10.510722706636257
+            },
+            {
+              "id": "passage_4aa74aeff932aeef20b4ead7",
+              "score": 9.420936594427824
+            },
+            {
+              "id": "passage_2f852451d6fc8817aac99e5d",
+              "score": 8.982625948472297
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0081",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_0ddcc90a9ad606ec01a8d176",
+              "score": 21.848500244254925
+            },
+            {
+              "id": "passage_1d40f8506ea0d4c5f4363a51",
+              "score": 21.848500244254925
+            },
+            {
+              "id": "passage_24789266c7a8b076e8156dc9",
+              "score": 21.848500244254925
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0082",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_072a598cfa316ce75911344c",
+              "score": 9.678981985079307
+            },
+            {
+              "id": "passage_24f6c33ab67995c958b01909",
+              "score": 9.678981985079307
+            },
+            {
+              "id": "passage_47c49349ec1fce92291248fe",
+              "score": 9.678981985079307
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0083",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_2269f9b13266d0228530efd4",
+              "score": 9.34588664930149
+            },
+            {
+              "id": "passage_37d8fef962f61897e6a82991",
+              "score": 9.34588664930149
+            },
+            {
+              "id": "passage_cdcff715e540d6df1b60b7ab",
+              "score": 9.34588664930149
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0084",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_c14f40ca0ad047438c72fec4",
+              "score": 11.469639556323017
+            },
+            {
+              "id": "passage_5c9fd328a5e9be333334adfc",
+              "score": 8.982625948472297
+            },
+            {
+              "id": "passage_1bff15ff77f13b5cdbf70923",
+              "score": 8.159906397018645
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0085",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_a804957ab133de5c3297612a",
+              "score": 16.748166113334868
+            },
+            {
+              "id": "passage_b154a549bd821cf0f1a5646b",
+              "score": 16.748166113334868
+            },
+            {
+              "id": "passage_15113f31609271bab722f58b",
+              "score": 14.72566540835644
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0086",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_e72c2bc868bbce2817e53aa8",
+              "score": 10.762540982581719
+            },
+            {
+              "id": "passage_003b48aa4be3d4c4932d4b22",
+              "score": 10.369679031098752
+            },
+            {
+              "id": "passage_072a598cfa316ce75911344c",
+              "score": 10.369679031098752
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0087",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_ce75000d9b8eed7768e38125",
+              "score": 8.114968383980525
+            },
+            {
+              "id": "passage_27141bd31cda39e40cabc438",
+              "score": 7.435361607416204
+            },
+            {
+              "id": "passage_372f115e0f1eb6023f25697e",
+              "score": 7.435361607416204
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0088",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_4db31a8359ecc37f8472a6c7",
+              "score": 12.60271833226037
+            },
+            {
+              "id": "passage_006597e91cbf8fe410ce6e5c",
+              "score": 8.820595311239655
+            },
+            {
+              "id": "passage_993bfbaa8dacd0c4eaebffd0",
+              "score": 8.13872842710844
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0089",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_71a1da7e31ca5c22347621dd",
+              "score": 9.678981985079307
+            },
+            {
+              "id": "passage_3f5c64451bd7166d62e8d89e",
+              "score": 8.276398545987798
+            },
+            {
+              "id": "passage_1bff15ff77f13b5cdbf70923",
+              "score": 8.159906397018645
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0090",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_87928c63ad9025a1461e8d5e",
+              "score": 13.379312824803527
+            },
+            {
+              "id": "passage_34d6c2bba7d0d54daa9f3519",
+              "score": 11.081401013205772
+            },
+            {
+              "id": "passage_66b641de66f1b289e2e67915",
+              "score": 11.081401013205772
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0091",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_5c9fd328a5e9be333334adfc",
+              "score": 12.046283290065197
+            },
+            {
+              "id": "passage_4dcb4928237cd732ff831c92",
+              "score": 9.648224614089642
+            },
+            {
+              "id": "passage_91a6f79356a53b9225efdd65",
+              "score": 8.86806564905428
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0092",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_6094f60bcde77071d0add221",
+              "score": 11.368530857960408
+            },
+            {
+              "id": "passage_2f5d7bce6461ba8963500f86",
+              "score": 9.197490158161411
+            },
+            {
+              "id": "passage_5e1e776523f65f04c1af3cbd",
+              "score": 7.630762914515278
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0093",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_83ade830b88a1ea3460ee680",
+              "score": 8.820595311239655
+            },
+            {
+              "id": "passage_16ec3d630bf872fc0a0b9617",
+              "score": 8.749552438342972
+            },
+            {
+              "id": "passage_3a636c091f2b544bed82c694",
+              "score": 8.749552438342972
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0094",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_bec4aea33976bc1a0526e431",
+              "score": 10.143373770731912
+            },
+            {
+              "id": "passage_ac8b8e1e1e3cef464998561e",
+              "score": 10.026257832647538
+            },
+            {
+              "id": "passage_24bd923c5938423552740b50",
+              "score": 9.547016503239428
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0095",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_7aafbac056c161381db85bb2",
+              "score": 13.204040081929149
+            },
+            {
+              "id": "passage_e72c2bc868bbce2817e53aa8",
+              "score": 9.75826925989498
+            },
+            {
+              "id": "passage_87928c63ad9025a1461e8d5e",
+              "score": 8.746499982420879
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0096",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_0ddcc90a9ad606ec01a8d176",
+              "score": 16.282418109794854
+            },
+            {
+              "id": "passage_1d40f8506ea0d4c5f4363a51",
+              "score": 16.282418109794854
+            },
+            {
+              "id": "passage_24789266c7a8b076e8156dc9",
+              "score": 16.282418109794854
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0097",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_2269f9b13266d0228530efd4",
+              "score": 9.34588664930149
+            },
+            {
+              "id": "passage_37d8fef962f61897e6a82991",
+              "score": 9.34588664930149
+            },
+            {
+              "id": "passage_cdcff715e540d6df1b60b7ab",
+              "score": 9.34588664930149
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0098",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_5c9fd328a5e9be333334adfc",
+              "score": 8.982625948472297
+            },
+            {
+              "id": "passage_0ddcc90a9ad606ec01a8d176",
+              "score": 7.523102431149438
+            },
+            {
+              "id": "passage_1d40f8506ea0d4c5f4363a51",
+              "score": 7.523102431149438
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0099",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_24bd923c5938423552740b50",
+              "score": 12.217908956772686
+            },
+            {
+              "id": "passage_83ade830b88a1ea3460ee680",
+              "score": 10.96333016465028
+            },
+            {
+              "id": "passage_54cf4effa0b5c85dc9314d31",
+              "score": 10.844013251814788
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0100",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_5337fa26d4963a9ac5cbb1e6",
+              "score": 19.18785109449626
+            },
+            {
+              "id": "passage_b154a549bd821cf0f1a5646b",
+              "score": 9.75147604758176
+            },
+            {
+              "id": "passage_71a1da7e31ca5c22347621dd",
+              "score": 9.678981985079307
+            }
+          ]
+        }
+      ]
+    },
+    "bm25_graph_rrf": {
+      "supporting_recall_at_k": 0.31292517006802706,
+      "bootstrap_95_ci": [
+        0.23809523809523808,
+        0.39115646258503406
+      ],
+      "by_hop": {
+        "1": {
+          "questions": 38,
+          "supporting_recall_at_k": 0.47368421052631576,
+          "bootstrap_95_ci": [
+            0.3157894736842105,
+            0.631578947368421
+          ]
+        },
+        "2": {
+          "questions": 30,
+          "supporting_recall_at_k": 0.26666666666666666,
+          "bootstrap_95_ci": [
+            0.16666666666666666,
+            0.36666666666666664
+          ]
+        },
+        "3": {
+          "questions": 30,
+          "supporting_recall_at_k": 0.15555555555555553,
+          "bootstrap_95_ci": [
+            0.1,
+            0.21111111111111105
+          ]
+        }
+      },
+      "records": [
+        {
+          "question_id": "domain-0001",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_5e39df5d9f9f3e8841c372f6",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_006597e91cbf8fe410ce6e5c",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_5e5ecae84a7517badeee8067",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0002",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_bad3ffc46a1215f22cdccc53",
+              "score": 0.02388888888888889
+            },
+            {
+              "id": "passage_5e5ecae84a7517badeee8067",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_23c75636976d67e77bcc3fa6",
+              "score": 0.01639344262295082
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0003",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_f3269dd858f7059f4e3e2d27",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_a804957ab133de5c3297612a",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_3e9c7422878113b6c60099da",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0004",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_47c49349ec1fce92291248fe",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_64fb8d0d583d94f075d2c612",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_876a1eb9097a78d6532ba2ed",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0005",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_7520d3bb87456b78f900f705",
+              "score": 0.02287199480181936
+            },
+            {
+              "id": "passage_99805e86844e59604a27c026",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_7754cabfe797ffc3a761ea25",
+              "score": 0.01639344262295082
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0006",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_277a27918c88f4a506c24990",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_0a941534607e49ee1477b5f2",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_4825fe70b3957eb535792e58",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0007",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_42718b2ff0ffd40181894258",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_7aafbac056c161381db85bb2",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_0a941534607e49ee1477b5f2",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0008",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_3fbcbe4b7eb8066759501f93",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_0b13baece7cf89f752742801",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_71a1da7e31ca5c22347621dd",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0011",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_4e3c64a57901e7df48d56757",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_15113f31609271bab722f58b",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_34092eedd2b2a19f0844fdf6",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0012",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_5916a5defa96c5fc94e89c03",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_277a27918c88f4a506c24990",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_451f2b4e0b486b19ef6f6f55",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0013",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_277a27918c88f4a506c24990",
+              "score": 0.030886196246139225
+            },
+            {
+              "id": "passage_4825fe70b3957eb535792e58",
+              "score": 0.030017921146953404
+            },
+            {
+              "id": "passage_7d3801f0a4731549be9c2318",
+              "score": 0.029083245521601686
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0014",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_b14ef6b73f42ec100cc8bf5e",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_2c5b699821a81210e019a617",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_6094f60bcde77071d0add221",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0015",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_5b6e6592e046eda5219c11ea",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_277a27918c88f4a506c24990",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_1147c13e1601281f409cb244",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0016",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_64b7f287e96078213dc0a3fd",
+              "score": 0.03252247488101534
+            },
+            {
+              "id": "passage_b348130caeb6513dcef6e63a",
+              "score": 0.032018442622950824
+            },
+            {
+              "id": "passage_47c49349ec1fce92291248fe",
+              "score": 0.03057889822595705
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0017",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_4c7c401c2456d5d78502f525",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_bf7ad740a8086f8a1c70aa9a",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_67afb127388c06257828d38f",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0018",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_787195e1d594872b2b4b5cc0",
+              "score": 0.025124843945068663
+            },
+            {
+              "id": "passage_15113f31609271bab722f58b",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_abc4f12e6eff2dfb2a6ba21f",
+              "score": 0.01639344262295082
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0019",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_3996e15f740c2d93358d54be",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_3f1b0ae37ae11a878cbb2eef",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_3f5c64451bd7166d62e8d89e",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0020",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_9a80d52211c916d914dc0b9d",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_87928c63ad9025a1461e8d5e",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_e2edba72c61edc3eca52ea88",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0021",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_947c81fcab30cc653a36622c",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_ad7fb4cc813f192452e4d3f2",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_3a4130fa3add074cd5d1591b",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0022",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_947c81fcab30cc653a36622c",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_ad7fb4cc813f192452e4d3f2",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_58211a433727b4155cc98e02",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0023",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_26ee853aa376e8641490dd99",
+              "score": 0.023809523809523808
+            },
+            {
+              "id": "passage_947c81fcab30cc653a36622c",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_1f6bb5e89cf5fd4f4634f7fd",
+              "score": 0.01639344262295082
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0024",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_1a14310f84260a68cc6173b7",
+              "score": 0.02667140825035562
+            },
+            {
+              "id": "passage_3963c45fccc0bd3166d8b0bc",
+              "score": 0.025219941348973606
+            },
+            {
+              "id": "passage_f04e1410fd6c96b6120bb1aa",
+              "score": 0.01639344262295082
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0025",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_a804957ab133de5c3297612a",
+              "score": 0.024099685060933865
+            },
+            {
+              "id": "passage_947c81fcab30cc653a36622c",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_bbc47b087503637b912d5664",
+              "score": 0.01639344262295082
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0026",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_24789266c7a8b076e8156dc9",
+              "score": 0.03200204813108039
+            },
+            {
+              "id": "passage_71a1da7e31ca5c22347621dd",
+              "score": 0.030886196246139225
+            },
+            {
+              "id": "passage_0ddcc90a9ad606ec01a8d176",
+              "score": 0.02844163539403516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0027",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_24789266c7a8b076e8156dc9",
+              "score": 0.02886002886002886
+            },
+            {
+              "id": "passage_71a1da7e31ca5c22347621dd",
+              "score": 0.02803921568627451
+            },
+            {
+              "id": "passage_fe84447be085285e51694046",
+              "score": 0.028006267136701922
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0028",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_06b0ef61d87742dccbaef0f0",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_9e9fdc5511d20e0310db6dc7",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_682baa5ad73f16b015ef014f",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0029",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_003b48aa4be3d4c4932d4b22",
+              "score": 0.032266458495966696
+            },
+            {
+              "id": "passage_47c49349ec1fce92291248fe",
+              "score": 0.031754032258064516
+            },
+            {
+              "id": "passage_7520d3bb87456b78f900f705",
+              "score": 0.031544957774465976
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0030",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_859348766b6c026248e595fa",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_41ca1f4c4cdc3d59c854ad21",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_a9611d5ee13832fe2a36580c",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0031",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_cefbcde4b1afcfebf47539b4",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_59596bcf7e9ded06baf1c33c",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_7520d3bb87456b78f900f705",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0032",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_24789266c7a8b076e8156dc9",
+              "score": 0.028373015873015873
+            },
+            {
+              "id": "passage_71a1da7e31ca5c22347621dd",
+              "score": 0.02819138376017471
+            },
+            {
+              "id": "passage_fe84447be085285e51694046",
+              "score": 0.023994452149791956
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0033",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_47c49349ec1fce92291248fe",
+              "score": 0.0315136476426799
+            },
+            {
+              "id": "passage_b348130caeb6513dcef6e63a",
+              "score": 0.029631255487269532
+            },
+            {
+              "id": "passage_7520d3bb87456b78f900f705",
+              "score": 0.02712049508554787
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0034",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_713554762813acf39475f110",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_23c75636976d67e77bcc3fa6",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_dc169ca6e5e2cd4d17a6a745",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0035",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_f04e1410fd6c96b6120bb1aa",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_0ddcc90a9ad606ec01a8d176",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_c6c4185740d53f99c985ed44",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0036",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_24789266c7a8b076e8156dc9",
+              "score": 0.03057889822595705
+            },
+            {
+              "id": "passage_0ddcc90a9ad606ec01a8d176",
+              "score": 0.0287391216352965
+            },
+            {
+              "id": "passage_2c5b699821a81210e019a617",
+              "score": 0.02728937728937729
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0037",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_47c49349ec1fce92291248fe",
+              "score": 0.032018442622950824
+            },
+            {
+              "id": "passage_b348130caeb6513dcef6e63a",
+              "score": 0.030798389007344232
+            },
+            {
+              "id": "passage_64b7f287e96078213dc0a3fd",
+              "score": 0.03076923076923077
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0038",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_64b7f287e96078213dc0a3fd",
+              "score": 0.032018442622950824
+            },
+            {
+              "id": "passage_b348130caeb6513dcef6e63a",
+              "score": 0.03128054740957967
+            },
+            {
+              "id": "passage_003b48aa4be3d4c4932d4b22",
+              "score": 0.029206349206349208
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0039",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_20a9ab46f6bd4a7be67823d7",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_c8ff4bb27f3fd34d3978f33f",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_e9d39d33a13a79266fd94e96",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0040",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_4cfb15e20cd49f213a6ad46c",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_3996e15f740c2d93358d54be",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_25f1d524c6b9f62d1e55be20",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0041",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_ac8b8e1e1e3cef464998561e",
+              "score": 0.025122549019607844
+            },
+            {
+              "id": "passage_9f28bb0f2d02de181b0e1a26",
+              "score": 0.023138297872340424
+            },
+            {
+              "id": "passage_5916a5defa96c5fc94e89c03",
+              "score": 0.01639344262295082
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0042",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_914de8d119e5b4743b13df07",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_6db6e538816a386beb952788",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_54cf4effa0b5c85dc9314d31",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0043",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_21ee302ef16daaf0c8af954b",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_bd586441c703fb90aedef59c",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_3bc9e6f5e0867a0b83319b28",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0044",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_6289c555b7ec67ac9b0c84fc",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_ce75000d9b8eed7768e38125",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_24f6c33ab67995c958b01909",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0045",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_451f2b4e0b486b19ef6f6f55",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_4db31a8359ecc37f8472a6c7",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_5916a5defa96c5fc94e89c03",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0046",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_e9d39d33a13a79266fd94e96",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_c8ff4bb27f3fd34d3978f33f",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_20a9ab46f6bd4a7be67823d7",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0047",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_899d00b71e00442c9487c8c1",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_54cf4effa0b5c85dc9314d31",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_9dfa53573f67e108c8429ef4",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0048",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_4c7c401c2456d5d78502f525",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_1fe34b92559c628ac444f5cb",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_ba8e10520468270354fbbf03",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0049",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_47c49349ec1fce92291248fe",
+              "score": 0.0238230289279637
+            },
+            {
+              "id": "passage_24f6c33ab67995c958b01909",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_7d0936b1683ba81dcf8ffbe1",
+              "score": 0.01639344262295082
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0050",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_7fbbcf91bc74da06e036c404",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_c54092cc4462818b2e98d93a",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_0466e290f92d34eb34ab6ed6",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0051",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_a804957ab133de5c3297612a",
+              "score": 0.02844551282051282
+            },
+            {
+              "id": "passage_9dfa53573f67e108c8429ef4",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_3963c45fccc0bd3166d8b0bc",
+              "score": 0.01639344262295082
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0052",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_b154a549bd821cf0f1a5646b",
+              "score": 0.0304147465437788
+            },
+            {
+              "id": "passage_a804957ab133de5c3297612a",
+              "score": 0.028021349599695006
+            },
+            {
+              "id": "passage_6735ae6d96dba91e67ebc7be",
+              "score": 0.01639344262295082
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0053",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_15113f31609271bab722f58b",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_ee95f5549ea04cc643850905",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_9a7702f8125d059debd40267",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0054",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_e9d39d33a13a79266fd94e96",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_c8ff4bb27f3fd34d3978f33f",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_eb166a4cfc3f628c2bad7bcc",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0055",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_de6c581e7df46aff1691100e",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_fe84447be085285e51694046",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_91fe96d8aa208929dc0a7895",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0056",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_24f6c33ab67995c958b01909",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_84f4ce4a0be0e52297e28db4",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_0f9c099df1e81c29dc46020f",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0057",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_4d41f2965bb6fcc608fd86e2",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_859348766b6c026248e595fa",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_2d84d1a04fe85e909d4d65b0",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0058",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_da7faad46eb5584c9550acd2",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_00f8bfa5d279eef701ba4c45",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_57eb123a0a3f812411ac638c",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0059",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_129670468967dc62e6fafc65",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_87928c63ad9025a1461e8d5e",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_4db3917511a8a4b723481abf",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0060",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_a5ccbf8ff34807a1f11f624c",
+              "score": 0.020622895622895623
+            },
+            {
+              "id": "passage_6e49c61e3177381232cc2737",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_1bff15ff77f13b5cdbf70923",
+              "score": 0.01639344262295082
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0061",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_20d4493e2bf24409e64a2f50",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_3963c45fccc0bd3166d8b0bc",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_16ec3d630bf872fc0a0b9617",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0062",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_9f1033d9ed5bd95d9f0b14e7",
+              "score": 0.022809278350515466
+            },
+            {
+              "id": "passage_cceee0d0267c7ae6b6ba8419",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_87928c63ad9025a1461e8d5e",
+              "score": 0.01639344262295082
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0063",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_8ec384afc4a34a818ec6ce17",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_2950d44a504e062fa182b0bf",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_3996e15f740c2d93358d54be",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0064",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_fc3ef572e5c87aa1a44b164d",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_859348766b6c026248e595fa",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_2d84d1a04fe85e909d4d65b0",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0065",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_7eb1c37c15d08cda6e450ddb",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_7aafbac056c161381db85bb2",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_24f6c33ab67995c958b01909",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0066",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_cb29a541bea974d7f6dd8a80",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_3963c45fccc0bd3166d8b0bc",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_20d4493e2bf24409e64a2f50",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0067",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_3191ca1281e17d186a38c0d7",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_bd586441c703fb90aedef59c",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_c38c4f842f88244f7d00aa79",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0068",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_91a6f79356a53b9225efdd65",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_dc45c256b481d679f3ee3cba",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_ac51da47239bed88bf6014eb",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0069",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_4dcb4928237cd732ff831c92",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_bbfb58fa5fc021796963dbc3",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_277a27918c88f4a506c24990",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0070",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_b348130caeb6513dcef6e63a",
+              "score": 0.024687641125997292
+            },
+            {
+              "id": "passage_47c49349ec1fce92291248fe",
+              "score": 0.024489795918367346
+            },
+            {
+              "id": "passage_e72c2bc868bbce2817e53aa8",
+              "score": 0.01639344262295082
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0071",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 1.0,
+          "retrieved": [
+            {
+              "id": "passage_0eac6c108f8ea64875ea38c1",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_f4ead1006a3ec5cd2e7f97b8",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_5566e4da0c0c729276d1ed9c",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0072",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_034f52ee6a75210edbeebd02",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_35750867d65dc61530fdd0ed",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_59596bcf7e9ded06baf1c33c",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0073",
+          "hop_count": 1,
+          "support_count": 1,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_ecaff46012062484f49d42e8",
+              "score": 0.023684210526315787
+            },
+            {
+              "id": "passage_c4bb1a0ae0a32656d70508d4",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_bd586441c703fb90aedef59c",
+              "score": 0.01639344262295082
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0074",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.5,
+          "retrieved": [
+            {
+              "id": "passage_003b48aa4be3d4c4932d4b22",
+              "score": 0.03177805800756621
+            },
+            {
+              "id": "passage_47c49349ec1fce92291248fe",
+              "score": 0.03149801587301587
+            },
+            {
+              "id": "passage_64b7f287e96078213dc0a3fd",
+              "score": 0.030536130536130537
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0075",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_0b9dec88299720f283d4476c",
+              "score": 0.027118043247075507
+            },
+            {
+              "id": "passage_71a1da7e31ca5c22347621dd",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_eaa33bb9659a923a00285d01",
+              "score": 0.01639344262295082
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0076",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_ac51da47239bed88bf6014eb",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_9e9fdc5511d20e0310db6dc7",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_0eac6c108f8ea64875ea38c1",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0077",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_5916a5defa96c5fc94e89c03",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_87928c63ad9025a1461e8d5e",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_b689321dd791d1b0a830930f",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0078",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_6094f60bcde77071d0add221",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_cceee0d0267c7ae6b6ba8419",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_3996e15f740c2d93358d54be",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0079",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_2547fbf9afb1159fd1197e1d",
+              "score": 0.025306978137166813
+            },
+            {
+              "id": "passage_5c9fd328a5e9be333334adfc",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_0507d4b7587663193b32573c",
+              "score": 0.01639344262295082
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0080",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_589ce7f10d4bd4bf5751486e",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_4db31a8359ecc37f8472a6c7",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_e591ac9d2acc80cae75fad84",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0081",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_24789266c7a8b076e8156dc9",
+              "score": 0.03200204813108039
+            },
+            {
+              "id": "passage_0ddcc90a9ad606ec01a8d176",
+              "score": 0.031544957774465976
+            },
+            {
+              "id": "passage_71a1da7e31ca5c22347621dd",
+              "score": 0.027479766610201392
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0082",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_b348130caeb6513dcef6e63a",
+              "score": 0.028484848484848488
+            },
+            {
+              "id": "passage_47c49349ec1fce92291248fe",
+              "score": 0.02792120864410021
+            },
+            {
+              "id": "passage_64b7f287e96078213dc0a3fd",
+              "score": 0.027119252873563218
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0083",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_a7812846a57a44e502936b7f",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_2269f9b13266d0228530efd4",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_41ca1f4c4cdc3d59c854ad21",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0084",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_9a4160946bc90b9bcf3ea14d",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_c14f40ca0ad047438c72fec4",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_289e65a6ba113fc7eb61bcfc",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0085",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_b154a549bd821cf0f1a5646b",
+              "score": 0.03200204813108039
+            },
+            {
+              "id": "passage_a804957ab133de5c3297612a",
+              "score": 0.027629397679130595
+            },
+            {
+              "id": "passage_3ec9ccbb7f6b87628fb73607",
+              "score": 0.01639344262295082
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0086",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_003b48aa4be3d4c4932d4b22",
+              "score": 0.02803379416282642
+            },
+            {
+              "id": "passage_451f2b4e0b486b19ef6f6f55",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_e72c2bc868bbce2817e53aa8",
+              "score": 0.01639344262295082
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0087",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_3bc9e6f5e0867a0b83319b28",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_ce75000d9b8eed7768e38125",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_27141bd31cda39e40cabc438",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0088",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_4db31a8359ecc37f8472a6c7",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_57eb123a0a3f812411ac638c",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_006597e91cbf8fe410ce6e5c",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0089",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_ebe97f30810c92b52b3e7154",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_71a1da7e31ca5c22347621dd",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_142e7d7e1075d35f4dc4b28e",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0090",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_03129b1fafaf58ccf1d11daf",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_87928c63ad9025a1461e8d5e",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_d5f7a229b20a1fdf61c9f29a",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0091",
+          "hop_count": 2,
+          "support_count": 2,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_4dc118db6d8452e292009ce3",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_5c9fd328a5e9be333334adfc",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_4dcb4928237cd732ff831c92",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0092",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_6094f60bcde77071d0add221",
+              "score": 0.025567754549556326
+            },
+            {
+              "id": "passage_7678eb793c50cd83184ac24d",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_5d06f0095481411268dc1477",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0093",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_a554f74f526a96b090ea4ce2",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_83ade830b88a1ea3460ee680",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_417170ad0c697af42fca9e2c",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0094",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_0eac6c108f8ea64875ea38c1",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_bec4aea33976bc1a0526e431",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_dd9fbe551567c50a7c66204e",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0095",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_8679c00530fc5e3e147f654a",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_7aafbac056c161381db85bb2",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_e72c2bc868bbce2817e53aa8",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0096",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_24789266c7a8b076e8156dc9",
+              "score": 0.026984126984126985
+            },
+            {
+              "id": "passage_71a1da7e31ca5c22347621dd",
+              "score": 0.02606951871657754
+            },
+            {
+              "id": "passage_fe84447be085285e51694046",
+              "score": 0.02501906941266209
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0097",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_2950d44a504e062fa182b0bf",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_2269f9b13266d0228530efd4",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_dd558cd127c7344097eb324b",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0098",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_5c9fd328a5e9be333334adfc",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_041512e69aea52ca9a2e8269",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_0ddcc90a9ad606ec01a8d176",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0099",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.3333333333333333,
+          "retrieved": [
+            {
+              "id": "passage_5916a5defa96c5fc94e89c03",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_24bd923c5938423552740b50",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_44b45bd05c488b890ff6da61",
+              "score": 0.016129032258064516
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0100",
+          "hop_count": 3,
+          "support_count": 3,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_0cb21633a24fa74defebff69",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_5337fa26d4963a9ac5cbb1e6",
+              "score": 0.01639344262295082
+            },
+            {
+              "id": "passage_b154a549bd821cf0f1a5646b",
+              "score": 0.016129032258064516
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "settings": {
+    "top_k": 3,
+    "candidate_k": 50,
+    "graph_hops": 2,
+    "max_graph_nodes": 100,
+    "max_graph_chunks": 30,
+    "entity_seed_method": "BM25 over entity names and aliases",
+    "rrf_k": 60,
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 20260928
+  },
+  "question_count": 98,
+  "unanswerable_question_count_excluded": 11,
+  "passage_count": 10878,
+  "node_count": 994,
+  "edge_count": 581,
+  "inputs": {
+    "questions_sha256": "944f354db3fbb0e30733b2ecb075743fb38746ad16597b18fc0a24c04df2e540",
+    "passages_sha256": "f1dc38723f73caec90374b3e54009d860f36360986b83fb25e99720124a398f1",
+    "nodes_sha256": "6ae0d117a648495c3d86e6470ca4d3c5135ae6325fed96164d9bb31f991b1394",
+    "edges_sha256": "7be19529a398627cc690bbdd41009ccf6d9411724a2e2bfbb3fa8deffbb3cdee"
+  },
+  "paired_comparisons": {
+    "graph_minus_bm25": {
+      "mean_recall_delta": -0.42346938775510234,
+      "paired_bootstrap_95_ci": [
+        -0.5034013605442177,
+        -0.3452380952380953
+      ],
+      "by_hop": {
+        "1": {
+          "mean_recall_delta": -0.6842105263157895,
+          "paired_bootstrap_95_ci": [
+            -0.8157894736842105,
+            -0.5263157894736842
+          ]
+        },
+        "2": {
+          "mean_recall_delta": -0.31666666666666665,
+          "paired_bootstrap_95_ci": [
+            -0.4166666666666667,
+            -0.21666666666666667
+          ]
+        },
+        "3": {
+          "mean_recall_delta": -0.19999999999999993,
+          "paired_bootstrap_95_ci": [
+            -0.2555555555555554,
+            -0.14444444444444443
+          ]
+        }
+      }
+    },
+    "bm25_graph_rrf_minus_bm25": {
+      "mean_recall_delta": -0.1292517006802721,
+      "paired_bootstrap_95_ci": [
+        -0.19387755102040813,
+        -0.06802721088435375
+      ],
+      "by_hop": {
+        "1": {
+          "mean_recall_delta": -0.23684210526315788,
+          "paired_bootstrap_95_ci": [
+            -0.3684210526315789,
+            -0.10526315789473684
+          ]
+        },
+        "2": {
+          "mean_recall_delta": -0.06666666666666667,
+          "paired_bootstrap_95_ci": [
+            -0.15,
+            0.0
+          ]
+        },
+        "3": {
+          "mean_recall_delta": -0.05555555555555555,
+          "paired_bootstrap_95_ci": [
+            -0.11111111111111112,
+            0.011111111111111106
+          ]
+        }
+      }
+    }
+  }
+}

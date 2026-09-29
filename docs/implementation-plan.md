@@ -137,13 +137,13 @@ Build the test before the system.
 
 ## Phase 5: Ablations and Analysis (Week 6)
 
-- [ ] Run all variants:
-  - [ ] Vector-only
-  - [ ] BM25 + vector
-  - [ ] Graph-only
+- [x] Run initial variants:
+  - [x] Vector-only
+  - [x] BM25 + vector
+  - [x] Graph-only
   - [ ] Fixed hybrid
   - [ ] Agentic
-- [ ] Vary hop depth (1 vs 2) and top-k
+- [x] Vary hop depth (1 vs 2) and top-k
 - [ ] Produce tables and charts split by hop count
 - [ ] Categorize 30-50 wrong answers by cause:
   - extraction miss
@@ -152,6 +152,8 @@ Build the test before the system.
   - expansion noise
   - generation error
 - [ ] Document where GraphRAG does NOT help (negative results are strong interview material)
+
+**Progress (2026-09-29):** On the 98-answerable-question domain track, BM25 recall@5 was 0.549; dense-only was 0.175, BM25+dense RRF 0.327, graph-only 0.041, BM25+graph RRF 0.435, and BM25+dense+graph RRF 0.349. Paired bootstrap intervals are recorded in `eval/README.md` and result artifacts. The 1-vs-2-hop sweep tied at top-5 under current expansion caps; top-k 3/5/10 results are versioned. All measured additions underperformed BM25 on this provisional domain dataset, so these runs document negative results rather than a gain. Agentic and broader fixed hybrid ablations remain open.
 
 **Exit criterion:** a results section you can defend line by line.
 

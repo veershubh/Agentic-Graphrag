@@ -22,6 +22,30 @@ Once graph extraction and consolidation have produced local node and edge files,
 
 The expanded graph (197 passages from 20 balanced papers) was evaluated against the 98 answerable questions in the domain set. Supporting-document recall@5 was 0.041 for graph-only (95% CI 0.014–0.073), 0.435 for BM25+graph RRF (0.361–0.514), and 0.549 for BM25 (0.474–0.622). The hybrid was below BM25, with a paired recall difference of -0.114 (95% CI -0.179 to -0.054). This is a diagnostic from an unaudited graph with 726 of 1,362 candidate triples rejected by validation; it does not support a claim that graph retrieval helps. Full per-question results and input hashes are in `results/domain_graph_v0.1.json`. The corpus covers only 20 papers from a provisional 325-paper inventory.
 
+## Domain retrieval ablations
+
+The same 98 answerable questions were used for BM25, local dense, hybrid, and graph comparisons. Dense vectors reused the exact 10,878-passage cache from the agent pilot (`sentence-transformers/all-MiniLM-L6-v2`, pinned revision). Every number is supporting-document recall@5; intervals and paired comparisons are in the machine-readable artifacts.
+
+| Variant | Recall@5 | Paired difference vs BM25 (95% CI) |
+|---|---:|---:|
+| BM25 | 0.549 | — |
+| Dense | 0.175 | -0.374 (-0.457 to -0.291) |
+| BM25 + dense RRF | 0.327 | -0.223 (-0.294 to -0.151) |
+| Graph only | 0.041 | -0.509 (-0.587 to -0.430) |
+| BM25 + graph RRF | 0.435 | -0.114 (-0.179 to -0.054) |
+| BM25 + dense + graph RRF | 0.349 | -0.201 (-0.276 to -0.128) |
+
+The expanded graph does not improve recall on this question set, and adding dense rankings or both dense and graph rankings also lowers recall. These are negative retrieval results for this provisional domain corpus, not a universal comparison of the methods. Full results: `results/domain_dense_v0.1.json` and `results/domain_graph_dense_v0.1.json`.
+
+The graph-depth/top-k sweep changes one setting at a time. At top-5, graph depth 1 and 2 gave the same measured recalls with the current seed, node, and chunk limits. Lowering the cutoff to 3 lowers absolute recall for all variants; increasing it to 10 raises recall, while BM25+graph remains below BM25. See `results/domain_graph_hops1_k5_v0.1.json`, `results/domain_graph_hops2_k3_v0.1.json`, and `results/domain_graph_hops2_k10_v0.1.json`.
+
+| Graph hops | Top-k | BM25 | Graph only | BM25 + graph RRF |
+|---:|---:|---:|---:|---:|
+| 1 | 5 | 0.549 | 0.041 | 0.435 |
+| 2 | 5 | 0.549 | 0.041 | 0.435 |
+| 2 | 3 | 0.442 | 0.019 | 0.313 |
+| 2 | 10 | 0.713 | 0.071 | 0.575 |
+
 `.github/workflows/retrieval-eval.yml` runs the dependency-free public BM25 evaluation on retrieval-related pull requests, nightly, or manually. It enforces conservative overall and per-hop recall floors. This gate covers retrieval only; it does not evaluate generated answers, faithfulness, graph retrieval, or agent behavior.
 
 ## Public BM25 retrieval baseline

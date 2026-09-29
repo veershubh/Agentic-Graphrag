@@ -32,4 +32,6 @@ The merger consolidates stable-name nodes, groups repeated relationships while r
 
 The graph retrieval diagnostic is versioned in `eval/results/domain_graph_v0.1.json`. On the frozen 98-answerable-question domain track, graph-only supporting recall@5 was 0.041 (95% CI 0.014–0.073); BM25+graph RRF was 0.435 (0.361–0.514), below the BM25 baseline of 0.549 (0.474–0.622). This evaluation uses the expanded 197-passage graph, but it remains a small, unaudited subset of the 325-paper provisional corpus; the results do not support deploying graph expansion yet.
 
+The one-hop vs two-hop and top-k sweep is recorded in `eval/README.md`. At top-5, increasing from one hop to two produced the same recall with current expansion caps. BM25+graph recall remained below BM25 at top-3, top-5, and top-10. The same-domain dense comparison also found lower recall than BM25 for dense-only and for both dense+BM25 and dense+BM25+graph fusion.
+
 The 50-row extraction audit worksheet and 307-pair entity candidate queue are prepared, but human labels are pending. The Neo4j loader dry run processed the 994-node, 581-edge dataset in nine batches; no database connection or write was made. Human/LLM adjudication, resolution audits, extraction audits, actual Neo4j loading, and scaling beyond the pilot remain future work.

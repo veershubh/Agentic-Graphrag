@@ -29,6 +29,8 @@ def main() -> None:
     parser.add_argument("--output", type=Path, default=Path("eval/results/domain_graph_v0.1.json"))
     parser.add_argument("--embedding-cache", type=Path, default=Path("data/processed/domain_graph_dense_cache.npz"))
     parser.add_argument("--include-dense", action="store_true", help="Add local dense passage retrieval; this can be slow on CPU")
+    parser.add_argument("--top-k", type=int, help="Override the configured result cutoff")
+    parser.add_argument("--graph-hops", type=int, help="Override graph expansion depth")
     args = parser.parse_args()
 
     config = tomllib.loads(args.config.read_text(encoding="utf-8"))
@@ -44,7 +46,10 @@ def main() -> None:
     passages = read_jsonl(args.passages)
     nodes = read_jsonl(args.nodes)
     edges = read_jsonl(args.edges)
-    top_k = int(retrieval_config["top_k"])
+    top_k = args.top_k if args.top_k is not None else int(retrieval_config["top_k"])
+    graph_hops = args.graph_hops if args.graph_hops is not None else int(retrieval_config.get("graph_hops", 2))
+    if top_k < 1 or graph_hops < 1:
+        raise SystemExit("top-k and graph hops must be positive integers")
     candidate_k = int(dense_config.get("candidate_k", 50))
     bootstrap_replicates = int(retrieval_config.get("bootstrap_replicates", 10000))
     bootstrap_seed = int(retrieval_config.get("bootstrap_seed", 20260928))
@@ -65,7 +70,7 @@ def main() -> None:
     graph_rankings = [
         graph.expand(
             question["question"],
-            hops=int(retrieval_config.get("graph_hops", 2)),
+            hops=graph_hops,
             max_nodes=int(retrieval_config.get("max_graph_nodes", 100)),
             max_chunks=int(retrieval_config.get("max_graph_chunks", 30)),
             seed_limit=candidate_k,
@@ -83,7 +88,7 @@ def main() -> None:
     settings: dict[str, Any] = {
         "top_k": top_k,
         "candidate_k": candidate_k,
-        "graph_hops": int(retrieval_config.get("graph_hops", 2)),
+        "graph_hops": graph_hops,
         "max_graph_nodes": int(retrieval_config.get("max_graph_nodes", 100)),
         "max_graph_chunks": int(retrieval_config.get("max_graph_chunks", 30)),
         "entity_seed_method": "BM25 over entity names and aliases",
