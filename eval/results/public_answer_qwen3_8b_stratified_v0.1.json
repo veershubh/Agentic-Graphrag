@@ -1,0 +1,1191 @@
+{
+  "retriever": "bm25_dense_rrf",
+  "model": "qwen3:8b",
+  "runtime": "local_ollama",
+  "estimated_model_api_cost_usd": 0.0,
+  "sample_design": {
+    "type": "stratified_by_hop",
+    "questions_per_hop": 10,
+    "source_record_index_ranges": {
+      "2": [
+        0,
+        10
+      ],
+      "3": [
+        100,
+        110
+      ],
+      "4": [
+        200,
+        210
+      ]
+    }
+  },
+  "bootstrap": {
+    "replicates": 10000,
+    "seed": 20260928,
+    "unit": "question"
+  },
+  "overall": {
+    "question_count": 30,
+    "exact_match": 0.1,
+    "token_f1": 0.21635543200760593,
+    "citation_validity_rate": 1.0,
+    "mean_valid_citation_fraction": 1.0,
+    "mean_gold_citation_precision": 0.4666666666666667,
+    "mean_gold_citation_recall": 0.20277777777777778,
+    "supporting_recall_at_k": 0.5249999999999999,
+    "mean_latency_seconds": 8.449944226666897,
+    "p50_latency_seconds": 6.176992099994095,
+    "p95_latency_seconds": 15.95419619999302,
+    "mean_input_tokens": 922.5333333333333,
+    "mean_output_tokens": 69.6,
+    "estimated_cost_usd": 0.0,
+    "mean_cost_usd": 0.0,
+    "exact_match_bootstrap_95_ci": [
+      0.0,
+      0.23333333333333334
+    ],
+    "token_f1_bootstrap_95_ci": [
+      0.11180997746215136,
+      0.3351037851037851
+    ],
+    "citation_valid_bootstrap_95_ci": [
+      1.0,
+      1.0
+    ],
+    "supporting_recall_at_k_bootstrap_95_ci": [
+      0.43888888888888894,
+      0.6138888888888889
+    ],
+    "gold_citation_precision_bootstrap_95_ci": [
+      0.2888888888888889,
+      0.6444444444444445
+    ],
+    "gold_citation_recall_bootstrap_95_ci": [
+      0.12222222222222223,
+      0.2861111111111111
+    ]
+  },
+  "by_hop": {
+    "2": {
+      "question_count": 10,
+      "exact_match": 0.1,
+      "token_f1": 0.24333333333333332,
+      "citation_validity_rate": 1.0,
+      "mean_valid_citation_fraction": 1.0,
+      "mean_gold_citation_precision": 0.5,
+      "mean_gold_citation_recall": 0.25,
+      "supporting_recall_at_k": 0.7,
+      "mean_latency_seconds": 6.90879729000153,
+      "p50_latency_seconds": 4.980846600010409,
+      "p95_latency_seconds": 6.058440300010261,
+      "mean_input_tokens": 864.2,
+      "mean_output_tokens": 46.6,
+      "estimated_cost_usd": 0.0,
+      "mean_cost_usd": 0.0,
+      "exact_match_bootstrap_95_ci": [
+        0.0,
+        0.3
+      ],
+      "token_f1_bootstrap_95_ci": [
+        0.05,
+        0.4699999999999999
+      ],
+      "citation_valid_bootstrap_95_ci": [
+        1.0,
+        1.0
+      ],
+      "supporting_recall_at_k_bootstrap_95_ci": [
+        0.55,
+        0.85
+      ],
+      "gold_citation_precision_bootstrap_95_ci": [
+        0.2,
+        0.8
+      ],
+      "gold_citation_recall_bootstrap_95_ci": [
+        0.1,
+        0.4
+      ]
+    },
+    "3": {
+      "question_count": 10,
+      "exact_match": 0.1,
+      "token_f1": 0.16144724840377014,
+      "citation_validity_rate": 1.0,
+      "mean_valid_citation_fraction": 1.0,
+      "mean_gold_citation_precision": 0.4666666666666666,
+      "mean_gold_citation_recall": 0.23333333333333334,
+      "supporting_recall_at_k": 0.5,
+      "mean_latency_seconds": 10.30489345999813,
+      "p50_latency_seconds": 9.69378419998975,
+      "p95_latency_seconds": 12.997139500002959,
+      "mean_input_tokens": 1016.5,
+      "mean_output_tokens": 86.4,
+      "estimated_cost_usd": 0.0,
+      "mean_cost_usd": 0.0,
+      "exact_match_bootstrap_95_ci": [
+        0.0,
+        0.3
+      ],
+      "token_f1_bootstrap_95_ci": [
+        0.033566433566433566,
+        0.3622377622377623
+      ],
+      "citation_valid_bootstrap_95_ci": [
+        1.0,
+        1.0
+      ],
+      "supporting_recall_at_k_bootstrap_95_ci": [
+        0.3666666666666666,
+        0.6333333333333334
+      ],
+      "gold_citation_precision_bootstrap_95_ci": [
+        0.16666666666666666,
+        0.7666666666666667
+      ],
+      "gold_citation_recall_bootstrap_95_ci": [
+        0.06666666666666667,
+        0.4
+      ]
+    },
+    "4": {
+      "question_count": 10,
+      "exact_match": 0.1,
+      "token_f1": 0.24428571428571427,
+      "citation_validity_rate": 1.0,
+      "mean_valid_citation_fraction": 1.0,
+      "mean_gold_citation_precision": 0.4333333333333333,
+      "mean_gold_citation_recall": 0.125,
+      "supporting_recall_at_k": 0.375,
+      "mean_latency_seconds": 8.136141930001031,
+      "p50_latency_seconds": 6.176992099994095,
+      "p95_latency_seconds": 14.632174900005339,
+      "mean_input_tokens": 886.9,
+      "mean_output_tokens": 75.8,
+      "estimated_cost_usd": 0.0,
+      "mean_cost_usd": 0.0,
+      "exact_match_bootstrap_95_ci": [
+        0.0,
+        0.3
+      ],
+      "token_f1_bootstrap_95_ci": [
+        0.0642857142857143,
+        0.4585714285714285
+      ],
+      "citation_valid_bootstrap_95_ci": [
+        1.0,
+        1.0
+      ],
+      "supporting_recall_at_k_bootstrap_95_ci": [
+        0.3,
+        0.45
+      ],
+      "gold_citation_precision_bootstrap_95_ci": [
+        0.13333333333333333,
+        0.7333333333333333
+      ],
+      "gold_citation_recall_bootstrap_95_ci": [
+        0.05,
+        0.2
+      ]
+    }
+  },
+  "inputs": {
+    "questions_sha256": "c68081c917a4028df71d498a189f2c283de2b8c37e8fc602d51cc3dbbb451e2c",
+    "passages_sha256": "431077adcf57c5686e2d1b7718646454525f8e542b22f8313f4f65bb0d3439e9",
+    "retrieval_results_sha256": "2e28d82920fe6914fc17ea0f2cbcf0800f53e44a13198f63b5ba04e285b7780a"
+  },
+  "records": [
+    {
+      "question_id": "2hop__107548_124896",
+      "hop_count": 2,
+      "prediction": "Francis Bacon",
+      "gold_answers": [
+        "Sir Nicholas Bacon",
+        "Nicholas Bacon"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.5,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_8afee6696d7fa3a9178e"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "musique_para_8afee6696d7fa3a9178e",
+        "musique_para_7a9663b9643bab52b778",
+        "musique_para_38bd900200a7627c0edf",
+        "musique_para_13aa78d9184e577ad9cc",
+        "musique_para_5048165dd19fa8252fc9"
+      ],
+      "input_tokens": 956,
+      "output_tokens": 47,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 25.163229100013268,
+      "response_id": "local_511c4eafb32c44589ce0f21258c5d7d9",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__124933_653666",
+      "hop_count": 2,
+      "prediction": "Emma Hale Smith",
+      "gold_answers": [
+        "Lucy Mack Smith"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.3333333333333333,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_e75a5784031838b0eddd"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "musique_para_e75a5784031838b0eddd",
+        "musique_para_33e819822586ba2fe21a",
+        "musique_para_6461fe3b6613f97361f1",
+        "musique_para_febea0de4866972dabb5",
+        "musique_para_1cfdd54ea7bde203eea8"
+      ],
+      "input_tokens": 834,
+      "output_tokens": 46,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 4.980846600010409,
+      "response_id": "local_ac2aa51f969f4c97bcbfaea461e586c6",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__126306_396277",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "Doctor De Soto"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_0a008708ebabf05a05de",
+        "musique_para_6de4f9a9b02162701376",
+        "musique_para_6c5814f49ca436358faa",
+        "musique_para_53c54befdbbc33baf80d",
+        "musique_para_44f9aa85b7f64feb563d"
+      ],
+      "input_tokens": 701,
+      "output_tokens": 63,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 6.058440300010261,
+      "response_id": "local_e9e18176997946e291ff4124bfd80cfe",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__128608_82341",
+      "hop_count": 2,
+      "prediction": "Northern Florida",
+      "gold_answers": [
+        "Northern Florida",
+        "in Northern Florida"
+      ],
+      "exact_match": 1.0,
+      "token_f1": 1.0,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_221f7227f2a5ebf2bc31"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "musique_para_805bc677ed3697254330",
+        "musique_para_221f7227f2a5ebf2bc31",
+        "musique_para_a655c0cf0ac6bfbe8db5",
+        "musique_para_1267578a5a511fcbc873",
+        "musique_para_1e4cd6b73139514c72a2"
+      ],
+      "input_tokens": 954,
+      "output_tokens": 46,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 5.1639976000005845,
+      "response_id": "local_9b910871291e41f5a3890bff073346f5",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__130404_59180",
+      "hop_count": 2,
+      "prediction": "The song was written on May 21, 1979.",
+      "gold_answers": [
+        "May 21, 1979"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.6,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_bc03a1000e4981cff71e"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "musique_para_bc03a1000e4981cff71e",
+        "musique_para_be17474f59160ceb564b",
+        "musique_para_f3e46490a01da8caabc1",
+        "musique_para_2adbc26631604fc08ac5",
+        "musique_para_7d8af6b039f158fef252"
+      ],
+      "input_tokens": 902,
+      "output_tokens": 56,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 5.439332599999034,
+      "response_id": "local_68d63d4d28074de7b1d2b40fe5da438f",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__130984_55721",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "the Coast Range"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_bf1ef13d655e13808f52",
+        "musique_para_efc0f41c5c83dfb684e7",
+        "musique_para_90f201c368c665de4a3b",
+        "musique_para_7db20975c9b5182f2031",
+        "musique_para_101ddbc2747d1d0afaa3"
+      ],
+      "input_tokens": 768,
+      "output_tokens": 40,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 3.9418609000131255,
+      "response_id": "local_1b5fef354bf2450db6f38574eeeedd18",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__132854_417697",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "ALTIMA",
+        "Nissan Altima"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_051cfe94e280e62ef07f",
+        "musique_para_b97bfc16d74c09f30397",
+        "musique_para_29549d3e9e7967421fb7",
+        "musique_para_598bae95f10c03307d90",
+        "musique_para_7fbb1d02efe3c4cd883e"
+      ],
+      "input_tokens": 906,
+      "output_tokens": 29,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 3.306850899985875,
+      "response_id": "local_72cdeaf22309456db811c0c834ca46ec",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__135653_669373",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "Charles University"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_51860ea45046c29bb440",
+        "musique_para_d20eccec383abfbca30b",
+        "musique_para_d5ed0f237fb89be43d02",
+        "musique_para_dce64ba1a52c87132f55",
+        "musique_para_4120c29f2487fa0e1e76"
+      ],
+      "input_tokens": 912,
+      "output_tokens": 43,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 4.850898799995775,
+      "response_id": "local_2ba8cf5ffadf49918e4a9f46927375d9",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__135668_561444",
+      "hop_count": 2,
+      "prediction": "Chaya Mushka Schneersohn",
+      "gold_answers": [
+        "Dovber Schneuri"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_7e75beea62751584391a"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "musique_para_7e75beea62751584391a",
+        "musique_para_98f35d6835c1099423f0",
+        "musique_para_55037b4a7f4f0052ea87",
+        "musique_para_4e38f944b57c1966a33f",
+        "musique_para_30ce0969ede09207163f"
+      ],
+      "input_tokens": 992,
+      "output_tokens": 51,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 5.501380199988489,
+      "response_id": "local_a283ff9ee16a4bac8e817981779e4aa0",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "2hop__14078_49084",
+      "hop_count": 2,
+      "prediction": "Josh Dallas",
+      "gold_answers": [
+        "Liam Garrigan",
+        "Liam Thomas Garrigan"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_f3935bca6ae80d63417b"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_f3935bca6ae80d63417b",
+        "musique_para_59cc18320bcea3861cc7",
+        "musique_para_995e436afcc7412ce197",
+        "musique_para_7964b55c52e58b7e8665",
+        "musique_para_7e6ef473d5c6811fc057"
+      ],
+      "input_tokens": 717,
+      "output_tokens": 45,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 4.6811358999984805,
+      "response_id": "local_a1086b27b14543c7830128acc5913a5f",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "3hop1__103751_24918_24991",
+      "hop_count": 3,
+      "prediction": "The Soviet flag was lowered for the last time, and the Russian tricolor was raised in its place, symbolically marking the end of the Soviet Union.",
+      "gold_answers": [
+        "USSR",
+        "Soviet Union",
+        "SU",
+        "the Soviet Union",
+        "Soviet flag"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.17391304347826084,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_e1790e7f58ea9e42d14a"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.6666666666666666,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.3333333333333333,
+      "retrieved_ids": [
+        "musique_para_5f240e5a19dd1d69f140",
+        "musique_para_e1790e7f58ea9e42d14a",
+        "musique_para_eaae1f28ecfcb3d1b0ea",
+        "musique_para_f044ad7914ab20b5a543",
+        "musique_para_310a51e32837b5f09b6d"
+      ],
+      "input_tokens": 1028,
+      "output_tokens": 74,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 7.839127900006133,
+      "response_id": "local_c86ecde45ed946d2a20bcb9b0c736cdb",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "3hop1__106042_64399_53006",
+      "hop_count": 3,
+      "prediction": "The great mosque constructed at the site of the old temple in the city originating Christianity in Rome, Egypt, Judea and the country for Vasilopita is the Sultan Ahmed Mosque.",
+      "gold_answers": [
+        "Al-Aqsa Mosque",
+        "Al - Aqsa Mosque"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.07692307692307693,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_4072771e36a6abd84d7b"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.3333333333333333,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_a50f8597091350ed3ca3",
+        "musique_para_ec52bc2431cc944773eb",
+        "musique_para_4072771e36a6abd84d7b",
+        "musique_para_a854971dd58161decc94",
+        "musique_para_d0c06e481bc319f00c9d"
+      ],
+      "input_tokens": 1059,
+      "output_tokens": 79,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 7.535274399997434,
+      "response_id": "local_a0017939cc354b14bc9d11f5fbdf3c1a",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "3hop1__106042_64399_62676",
+      "hop_count": 3,
+      "prediction": "The city became the capital of the Hebrews in 970 BCE.",
+      "gold_answers": [
+        "c. 1000 BCE"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.18181818181818182,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_c7a5ce06cd32a0dadc41",
+        "musique_para_07e663d7c292a87b3ff0",
+        "musique_para_4e244c930ad6d5dde62b"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_c7a5ce06cd32a0dadc41",
+        "musique_para_7f17849fdd50d596ca50",
+        "musique_para_a0bcc6de872708ca58db",
+        "musique_para_07e663d7c292a87b3ff0",
+        "musique_para_4e244c930ad6d5dde62b"
+      ],
+      "input_tokens": 1236,
+      "output_tokens": 103,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 10.454213299992261,
+      "response_id": "local_2d1d1688ae9b483da6a9f5b60f6f312a",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "3hop1__108833_720914_41132",
+      "hop_count": 3,
+      "prediction": "The plague occurred in Venice 22 times between 1361 and 1528.",
+      "gold_answers": [
+        "22"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.18181818181818182,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_91fb754f7a836d4ddef5"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.6666666666666666,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.3333333333333333,
+      "retrieved_ids": [
+        "musique_para_be1c057f55ec45717835",
+        "musique_para_91fb754f7a836d4ddef5",
+        "musique_para_38dfa564176302b0590f",
+        "musique_para_f0a9ff53fe18b7370cb5",
+        "musique_para_2f04b541af9f9447df67"
+      ],
+      "input_tokens": 1105,
+      "output_tokens": 63,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 12.541907499995432,
+      "response_id": "local_56ef53b5d9884013a6d96a4b6a10b738",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "3hop1__109113_720914_41132",
+      "hop_count": 3,
+      "prediction": "",
+      "gold_answers": [
+        "22"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.6666666666666666,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_5e6886174690da0bf9e5",
+        "musique_para_91fb754f7a836d4ddef5",
+        "musique_para_38dfa564176302b0590f",
+        "musique_para_f0a9ff53fe18b7370cb5",
+        "musique_para_2f04b541af9f9447df67"
+      ],
+      "input_tokens": 1101,
+      "output_tokens": 46,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 9.69378419998975,
+      "response_id": "local_c7fff85411e845df92fa33ae7c1466a3",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "3hop1__127837_157828_239539",
+      "hop_count": 3,
+      "prediction": "The headquarters of the Radio Television of the country that has a co-official language in the language that Kuhinjica is in is in Serbia.",
+      "gold_answers": [
+        "Pristina"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_7d8105464c5d4aaec72e",
+        "musique_para_8edd346b0f7f859d5c0e"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.6666666666666666,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.6666666666666666,
+      "retrieved_ids": [
+        "musique_para_8edd346b0f7f859d5c0e",
+        "musique_para_1b8f9995609b925d8c87",
+        "musique_para_7d8105464c5d4aaec72e",
+        "musique_para_ce47b35dac0dc71c9903",
+        "musique_para_ead31bb074b972c2a888"
+      ],
+      "input_tokens": 1092,
+      "output_tokens": 97,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 11.06015109999862,
+      "response_id": "local_04e65ebcb2ca4005bf9e76c34706ad67",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "3hop1__135659_87694_124169",
+      "hop_count": 3,
+      "prediction": "",
+      "gold_answers": [
+        "1952"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.3333333333333333,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_a561e616d94b21759302",
+        "musique_para_a3e11b28e7340dcf0759",
+        "musique_para_c3fe91470f89d6c13f37",
+        "musique_para_f8d2a7fa460a0d444efa",
+        "musique_para_8d272da39525ec8daea6"
+      ],
+      "input_tokens": 677,
+      "output_tokens": 61,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 5.724660399995628,
+      "response_id": "local_bdc359457b434b2e9090b23effed8268",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "3hop1__140994_2053_52946",
+      "hop_count": 3,
+      "prediction": "Celebrity Big Brother is coming to CBS, which is the other major broadcaster based in NY along with ABC and the network which broadcasted Hello, Larry (which is NBC).",
+      "gold_answers": [
+        "February 7, 2018"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_bcd13ca7cb5a86999884",
+        "musique_para_1376ab582a287f106191",
+        "musique_para_778e19b7e296dfffb2ea"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.6666666666666666,
+      "gold_citation_precision": 0.6666666666666666,
+      "gold_citation_recall": 0.6666666666666666,
+      "retrieved_ids": [
+        "musique_para_778e19b7e296dfffb2ea",
+        "musique_para_1376ab582a287f106191",
+        "musique_para_0bde9f43c5f37f06cfbd",
+        "musique_para_bcd13ca7cb5a86999884",
+        "musique_para_76005d54caf0eacda28f"
+      ],
+      "input_tokens": 854,
+      "output_tokens": 123,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 12.997139500002959,
+      "response_id": "local_0f6256af5e764631a1f79217ffd1ff89",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "3hop1__142044_538202_84283",
+      "hop_count": 3,
+      "prediction": "",
+      "gold_answers": [
+        "Warner Music",
+        "Warner Music Group"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.3333333333333333,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_0b46b70d3067ae6b3995",
+        "musique_para_5f644acb307f3319f8b4",
+        "musique_para_f88210f024a3bd5ad55c",
+        "musique_para_6f033e8841e50e5f96a2",
+        "musique_para_02222a2ef8fb2b2d75c6"
+      ],
+      "input_tokens": 851,
+      "output_tokens": 171,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 18.573848500003805,
+      "response_id": "local_b1592cc90c414890b2d3d35cfeb8cac5",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "3hop1__145194_160545_34751",
+      "hop_count": 3,
+      "prediction": "1941",
+      "gold_answers": [
+        "1941"
+      ],
+      "exact_match": 1.0,
+      "token_f1": 1.0,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_aa6d7d1f65f3b53ea981"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.6666666666666666,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.3333333333333333,
+      "retrieved_ids": [
+        "musique_para_484d9fd55f9fa161963c",
+        "musique_para_9d4a61f0c457af32ec81",
+        "musique_para_1265532916c25154729c",
+        "musique_para_aa6d7d1f65f3b53ea981",
+        "musique_para_5dce05a063b67c1194a1"
+      ],
+      "input_tokens": 1162,
+      "output_tokens": 47,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 6.6288277999992715,
+      "response_id": "local_7d094cb70df0436981c4a409bd6e0460",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "4hop1__105401_17130_70784_79935",
+      "hop_count": 4,
+      "prediction": "",
+      "gold_answers": [
+        "1930"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.25,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_59ad282dfdbe384292bf",
+        "musique_para_243c393810fa6f28bb58",
+        "musique_para_b4c0df7d79b6eab7b1f4",
+        "musique_para_a5cab0bf9acc5c9e7e37",
+        "musique_para_6421666ff3e70d66f425"
+      ],
+      "input_tokens": 1134,
+      "output_tokens": 150,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 15.95419619999302,
+      "response_id": "local_c0f7ac2338a745e783e2e3ee816fd60e",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "4hop1__115977_582428_157828_162309",
+      "hop_count": 4,
+      "prediction": "The country first attended the Olympics games as an independent team in 1994.",
+      "gold_answers": [
+        "2016"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_0ec385ad8f8bb02d0d84"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_0ec385ad8f8bb02d0d84",
+        "musique_para_d62bf9f792b266078b84",
+        "musique_para_e5aa67a9cb3b7c999bd3",
+        "musique_para_aed3e7b7cf9cbe356055",
+        "musique_para_0b058a6d656f2f496817"
+      ],
+      "input_tokens": 862,
+      "output_tokens": 59,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 6.176992099994095,
+      "response_id": "local_6d1a16e6df8c4ad3b229777d482f3f3e",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "4hop1__129721_32392_823060_610794",
+      "hop_count": 4,
+      "prediction": "Aiken County",
+      "gold_answers": [
+        "Richland County, South Carolina",
+        "Richland County"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.5,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_02299c0eabe5ff850a6d"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.25,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.25,
+      "retrieved_ids": [
+        "musique_para_02299c0eabe5ff850a6d",
+        "musique_para_3c7b55909cbb62dc6932",
+        "musique_para_352e84c20b2ebef2b1c9",
+        "musique_para_efe9846536e21964ee60",
+        "musique_para_2e144275bc4634cfcd56"
+      ],
+      "input_tokens": 685,
+      "output_tokens": 45,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 4.810692099999869,
+      "response_id": "local_a560fa0a01a04898948518358927f290",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "4hop1__130404_59747_211319_557671",
+      "hop_count": 4,
+      "prediction": "Wayne County",
+      "gold_answers": [
+        "Presque Isle County"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.4,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_da0dfcf1a7fa7bbf6ef8"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.25,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_da0dfcf1a7fa7bbf6ef8",
+        "musique_para_67894b21fc2d0bbd23df",
+        "musique_para_6687445c78710ffe626b",
+        "musique_para_be17474f59160ceb564b",
+        "musique_para_78a7b97672774597e460"
+      ],
+      "input_tokens": 1039,
+      "output_tokens": 42,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 5.254676700002165,
+      "response_id": "local_66b108be69f44688be99aac3e0822114",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "4hop1__145087_32392_823060_610794",
+      "hop_count": 4,
+      "prediction": "Randolph County, Illinois",
+      "gold_answers": [
+        "Richland County, South Carolina",
+        "Richland County"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.4,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_5736df5b330f78ffbd34",
+        "musique_para_796fdad88b39b6d38b65",
+        "musique_para_c088b60c2f8f56cc6498"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.25,
+      "gold_citation_precision": 0.3333333333333333,
+      "gold_citation_recall": 0.25,
+      "retrieved_ids": [
+        "musique_para_796fdad88b39b6d38b65",
+        "musique_para_3c7b55909cbb62dc6932",
+        "musique_para_dd2b04fc68a885507938",
+        "musique_para_5736df5b330f78ffbd34",
+        "musique_para_c088b60c2f8f56cc6498"
+      ],
+      "input_tokens": 634,
+      "output_tokens": 95,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 9.218224700001883,
+      "response_id": "local_aafdf97d57de44dbbb8fe22ecaff1604",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "4hop1__151650_5274_458768_33632",
+      "hop_count": 4,
+      "prediction": "May 4",
+      "gold_answers": [
+        "May 4"
+      ],
+      "exact_match": 1.0,
+      "token_f1": 1.0,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_c1cb18e21135e9348819"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.25,
+      "retrieved_ids": [
+        "musique_para_130499a3056b377f56b9",
+        "musique_para_c1cb18e21135e9348819",
+        "musique_para_ae9f71bf1cad06e44bea",
+        "musique_para_867f6531e761f4b90ab8",
+        "musique_para_73ad596a3f8884238fef"
+      ],
+      "input_tokens": 1020,
+      "output_tokens": 46,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 5.85865229999763,
+      "response_id": "local_2807e4f3a7db4cafac73933daf76593f",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "4hop1__151650_5274_458768_33633",
+      "hop_count": 4,
+      "prediction": "",
+      "gold_answers": [
+        "August 3, 1769"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.25,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_130499a3056b377f56b9",
+        "musique_para_7dbfb4fae94eeffda37e",
+        "musique_para_1dcc3bd3b0b3dd8be8ab",
+        "musique_para_649a08379e46a321af7f",
+        "musique_para_0b28739e4d7f596f237c"
+      ],
+      "input_tokens": 852,
+      "output_tokens": 61,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 6.7818243999936385,
+      "response_id": "local_dd64ab2a87f544319510b45ceeeee8c5",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "4hop1__151650_5274_458768_33637",
+      "hop_count": 4,
+      "prediction": "2",
+      "gold_answers": [
+        "two"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_020990590bbc6bec72f5"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.25,
+      "retrieved_ids": [
+        "musique_para_130499a3056b377f56b9",
+        "musique_para_020990590bbc6bec72f5",
+        "musique_para_45fb8bfa5a16d4b0cc46",
+        "musique_para_fac50bdfc8b737506f98",
+        "musique_para_4d9295ad35340c63ec9c"
+      ],
+      "input_tokens": 918,
+      "output_tokens": 44,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 5.660131200012984,
+      "response_id": "local_9e6190c46c864e02a05b1d911aeab74d",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "4hop1__151650_5274_458768_33677",
+      "hop_count": 4,
+      "prediction": "The most recent Bicycle Friendly Community Award given to Santa Monica was in 2013.",
+      "gold_answers": [
+        "2013"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.14285714285714288,
+      "abstained": false,
+      "citation_ids": [
+        "musique_para_1361a73b93f8a886d7d4"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 0.25,
+      "retrieved_ids": [
+        "musique_para_130499a3056b377f56b9",
+        "musique_para_1361a73b93f8a886d7d4",
+        "musique_para_e6a2e93421f788cf4d7a",
+        "musique_para_5ca7efb31c7cc6903cf2",
+        "musique_para_ae9f71bf1cad06e44bea"
+      ],
+      "input_tokens": 858,
+      "output_tokens": 64,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 7.013854700009688,
+      "response_id": "local_3538f3ca415b4c31b593ce334085f914",
+      "model": "qwen3:8b"
+    },
+    {
+      "question_id": "4hop1__151903_5274_458768_33677",
+      "hop_count": 4,
+      "prediction": "",
+      "gold_answers": [
+        "2013"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "musique_para_93fb26c4e7754a346f46",
+        "musique_para_7dbfb4fae94eeffda37e",
+        "musique_para_0b28739e4d7f596f237c",
+        "musique_para_ca71e65436e86e9d11b3",
+        "musique_para_e41ad5917b5d0e469743"
+      ],
+      "input_tokens": 867,
+      "output_tokens": 152,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 14.632174900005339,
+      "response_id": "local_2d7a38edfeee44a0a7c530bc0d3f2f9d",
+      "model": "qwen3:8b"
+    }
+  ]
+}

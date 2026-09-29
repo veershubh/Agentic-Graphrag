@@ -79,7 +79,7 @@ Build the test before the system.
 
 **Exit criterion:** `make eval` outputs a baseline results table.
 
-**Progress (2026-09-29):** BM25, pinned local dense embeddings, and BM25+dense RRF have been evaluated on the public MuSiQue slice. Supporting-document recall@5 is reported by hop count with paired bootstrap intervals in `eval/results/public_hybrid_v0.1.json`. On the same first 30 two-hop questions, local Qwen3 4B scored EM/F1 0.000/0.000 and Qwen3 8B scored 0.067/0.165, both at zero model API cost. Full records are in `eval/results/public_answer_qwen3_4b_v0.1.json` and `eval/results/public_answer_qwen3_8b_v0.1.json`. Answer quality remains inadequate; calibrated faithfulness and broader evaluation remain incomplete.
+**Progress (2026-09-29):** BM25, pinned local dense embeddings, and BM25+dense RRF have been evaluated on the public MuSiQue slice. Supporting-document recall@5 is reported by hop count with paired bootstrap intervals in `eval/results/public_hybrid_v0.1.json`. On the same first 30 two-hop questions, local Qwen3 4B scored EM/F1 0.000/0.000 and Qwen3 8B scored 0.067/0.165. A stratified Qwen3 8B sample of 10 questions per hop bucket scored overall EM/F1 0.100/0.216, with a 95% F1 interval of 0.112–0.335. All used local inference at zero model API cost. Full records are in the `eval/results/public_answer_qwen3_*.json` files. Answer quality remains inadequate; calibrated faithfulness and broader evaluation remain incomplete.
 
 ---
 

@@ -4,7 +4,17 @@
 
 ## Initial local answer run
 
-The same first 30 two-hop questions were run with two local models over identical BM25+dense RRF passages. Qwen3 4B abstained on all 30 (EM 0.000, F1 0.000, mean latency 1.87s). Qwen3 8B abstained on 11, answered 19, and achieved EM 0.067 and mean F1 0.165 (mean latency 6.48s, p95 8.78s). Abstentions are normalized to empty answers and citation lists; the resulting citation-validity rate was 1.00. Both runs had $0.00 model API cost. Qwen3 8B is now the answer default, while extraction/planning stay on 4B. This is a small early sample, and answer quality remains poor; the 8B model also has higher local memory and latency needs. Full records are in `results/public_answer_qwen3_4b_v0.1.json` and `results/public_answer_qwen3_8b_v0.1.json`.
+The same first 30 two-hop questions were run with two local models over identical BM25+dense RRF passages. Qwen3 4B abstained on all 30 (EM 0.000, F1 0.000, mean latency 1.87s). Qwen3 8B abstained on 11, answered 19, and achieved EM 0.067 and mean F1 0.165 (mean latency 6.48s, p95 8.78s). Abstentions are normalized to empty answers and citation lists; the resulting citation-validity rate was 1.00. Both runs had $0.00 model API cost. Qwen3 8B is now the answer default, while extraction/planning stay on 4B. Full matched-sample records are in `results/public_answer_qwen3_4b_v0.1.json` and `results/public_answer_qwen3_8b_v0.1.json`.
+
+A second Qwen3 8B run used 10 questions from each hop bucket, with identical BM25+dense RRF retrieval. It achieved overall EM 0.100, F1 0.216, and mean latency 8.45s; the 95% question-bootstrap interval for F1 is 0.112–0.335. This confirms some correct answers but remains low quality on a small sample.
+
+| Hops | Questions | EM | Token F1 | Supporting recall@5 | Mean latency |
+|---:|---:|---:|---:|---:|---:|
+| 2 | 10 | 0.100 | 0.243 | 0.700 | 6.91s |
+| 3 | 10 | 0.100 | 0.161 | 0.500 | 10.30s |
+| 4 | 10 | 0.100 | 0.244 | 0.375 | 8.14s |
+
+The stratified sample and per-question outputs are in `results/public_answer_qwen3_8b_stratified_v0.1.json`; it uses source record offsets 0, 100, and 200, not a random sample. The larger model has higher local memory and latency needs. All runs have zero model API cost.
 
 Once graph extraction and consolidation have produced local node and edge files, `python eval/run_graph_eval.py` compares graph-only and BM25+graph RRF on the frozen domain questions. Add `--include-dense` to also compare dense-only and BM25+dense+graph RRF; dense domain encoding may be slow on CPU. The runner reports hop-stratified supporting recall, bootstrap intervals, paired comparisons, and input hashes. It has been run on the initial 20-passage local graph pilot; see the result below and the caveat in `../graph/README.md`.
 
