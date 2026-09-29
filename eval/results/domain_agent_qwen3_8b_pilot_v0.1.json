@@ -1,0 +1,313 @@
+{
+  "track": "domain",
+  "runtime": "local_ollama",
+  "models": {
+    "planner": "qwen3:4b-instruct",
+    "answer": "qwen3:8b"
+  },
+  "per_hop_sample_size": 1,
+  "requested_question_count": 3,
+  "failed_question_ids": [],
+  "selection": "first answerable items in each hop bucket, preserving frozen file order",
+  "agent_limits": {
+    "max_steps": 5,
+    "tool_top_k": 5,
+    "context_chars_per_passage": 700,
+    "planner_max_output_tokens": 450,
+    "dense_cache_path": "data/processed/domain_agent_dense_cache.npz"
+  },
+  "estimated_model_api_cost_usd": 0.0,
+  "overall": {
+    "question_count": 3,
+    "exact_match": 0.0,
+    "token_f1": 0.22175710594315243,
+    "citation_validity_rate": 1.0,
+    "mean_valid_citation_fraction": 1.0,
+    "mean_gold_citation_precision": 0.16666666666666666,
+    "mean_gold_citation_recall": 0.16666666666666666,
+    "supporting_recall_at_k": 0.6666666666666666,
+    "mean_latency_seconds": 77.36637236666866,
+    "p50_latency_seconds": 74.50262140000996,
+    "p95_latency_seconds": 74.50262140000996,
+    "mean_input_tokens": 5558.0,
+    "mean_output_tokens": 333.3333333333333,
+    "estimated_cost_usd": 0.0,
+    "mean_cost_usd": 0.0,
+    "exact_match_bootstrap_95_ci": [
+      0.0,
+      0.0
+    ],
+    "token_f1_bootstrap_95_ci": [
+      0.08,
+      0.4186046511627907
+    ],
+    "citation_valid_bootstrap_95_ci": [
+      1.0,
+      1.0
+    ],
+    "supporting_recall_at_k_bootstrap_95_ci": [
+      0.0,
+      1.0
+    ],
+    "gold_citation_precision_bootstrap_95_ci": [
+      0.0,
+      0.5
+    ],
+    "gold_citation_recall_bootstrap_95_ci": [
+      0.0,
+      0.5
+    ]
+  },
+  "by_hop": {
+    "1": {
+      "question_count": 1,
+      "exact_match": 0.0,
+      "token_f1": 0.16666666666666669,
+      "citation_validity_rate": 1.0,
+      "mean_valid_citation_fraction": 1.0,
+      "mean_gold_citation_precision": 0.0,
+      "mean_gold_citation_recall": 0.0,
+      "supporting_recall_at_k": 1.0,
+      "mean_latency_seconds": 74.16119250000338,
+      "p50_latency_seconds": 74.16119250000338,
+      "p95_latency_seconds": 74.16119250000338,
+      "mean_input_tokens": 5210.0,
+      "mean_output_tokens": 252.0,
+      "estimated_cost_usd": 0.0,
+      "mean_cost_usd": 0.0,
+      "exact_match_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "token_f1_bootstrap_95_ci": [
+        0.16666666666666669,
+        0.16666666666666669
+      ],
+      "citation_valid_bootstrap_95_ci": [
+        1.0,
+        1.0
+      ],
+      "supporting_recall_at_k_bootstrap_95_ci": [
+        1.0,
+        1.0
+      ],
+      "gold_citation_precision_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "gold_citation_recall_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ]
+    },
+    "2": {
+      "question_count": 1,
+      "exact_match": 0.0,
+      "token_f1": 0.41860465116279066,
+      "citation_validity_rate": 1.0,
+      "mean_valid_citation_fraction": 1.0,
+      "mean_gold_citation_precision": 0.5,
+      "mean_gold_citation_recall": 0.5,
+      "supporting_recall_at_k": 1.0,
+      "mean_latency_seconds": 83.43530319999263,
+      "p50_latency_seconds": 83.43530319999263,
+      "p95_latency_seconds": 83.43530319999263,
+      "mean_input_tokens": 6290.0,
+      "mean_output_tokens": 462.0,
+      "estimated_cost_usd": 0.0,
+      "mean_cost_usd": 0.0,
+      "exact_match_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "token_f1_bootstrap_95_ci": [
+        0.41860465116279066,
+        0.41860465116279066
+      ],
+      "citation_valid_bootstrap_95_ci": [
+        1.0,
+        1.0
+      ],
+      "supporting_recall_at_k_bootstrap_95_ci": [
+        1.0,
+        1.0
+      ],
+      "gold_citation_precision_bootstrap_95_ci": [
+        0.5,
+        0.5
+      ],
+      "gold_citation_recall_bootstrap_95_ci": [
+        0.5,
+        0.5
+      ]
+    },
+    "3": {
+      "question_count": 1,
+      "exact_match": 0.0,
+      "token_f1": 0.08,
+      "citation_validity_rate": 1.0,
+      "mean_valid_citation_fraction": 1.0,
+      "mean_gold_citation_precision": 0.0,
+      "mean_gold_citation_recall": 0.0,
+      "supporting_recall_at_k": 0.0,
+      "mean_latency_seconds": 74.50262140000996,
+      "p50_latency_seconds": 74.50262140000996,
+      "p95_latency_seconds": 74.50262140000996,
+      "mean_input_tokens": 5174.0,
+      "mean_output_tokens": 286.0,
+      "estimated_cost_usd": 0.0,
+      "mean_cost_usd": 0.0,
+      "exact_match_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "token_f1_bootstrap_95_ci": [
+        0.08,
+        0.08
+      ],
+      "citation_valid_bootstrap_95_ci": [
+        1.0,
+        1.0
+      ],
+      "supporting_recall_at_k_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "gold_citation_precision_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "gold_citation_recall_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "inputs": {
+    "questions_sha256": "944f354db3fbb0e30733b2ecb075743fb38746ad16597b18fc0a24c04df2e540",
+    "sampled_questions_sha256": "2a68aba375b1ac988735d0e44400b15cf79ffbfd39dcb722b1c82bcf5099f03a",
+    "passages_sha256": "f1dc38723f73caec90374b3e54009d860f36360986b83fb25e99720124a398f1",
+    "nodes_sha256": "6ae0d117a648495c3d86e6470ca4d3c5135ae6325fed96164d9bb31f991b1394",
+    "edges_sha256": "7be19529a398627cc690bbdd41009ccf6d9411724a2e2bfbb3fa8deffbb3cdee",
+    "config_sha256": "ba1de791473ae6084ea6f3454557b9ffa8ae547abfa70867f4981daa275c758d"
+  },
+  "records": [
+    {
+      "question_id": "domain-0001",
+      "hop_count": 1,
+      "prediction": "The authors used human ratings as the gold standard for evaluating attribution.",
+      "gold_answers": [
+        "Human annotations"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.16666666666666669,
+      "abstained": false,
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "supporting_recall_at_k": 1.0,
+      "retrieved_ids": [
+        "passage_5e39df5d9f9f3e8841c372f6",
+        "passage_5e5ecae84a7517badeee8067",
+        "passage_7c0b1d9f92f2a407dc578830",
+        "passage_ed38151fb520ddb27881d44d",
+        "passage_b21ff60c2d5b62fd06f695d9"
+      ],
+      "citation_ids": [
+        "passage_5e39df5d9f9f3e8841c372f6",
+        "passage_7c0b1d9f92f2a407dc578830"
+      ],
+      "step_count": 2,
+      "stop_reason": "planner_finished",
+      "total_latency_seconds": 74.16119250000338,
+      "latency_seconds": 74.16119250000338,
+      "planner_latency_seconds": 11.681043300006422,
+      "tool_latency_seconds": 0.5360661000013351,
+      "answer_latency_seconds": 23.524184800000512,
+      "input_tokens": 5210,
+      "output_tokens": 252,
+      "estimated_cost_usd": 0.0
+    },
+    {
+      "question_id": "domain-0021",
+      "hop_count": 2,
+      "prediction": "The Visconde authors identify the language model as the main bottleneck in their multi-document QA pipeline. The five retriever-augmented language-model configurations evaluated in the separate Blame Game study are kNN-LM, REALM, DPR + FiD, Contriever + ATLAS, and Contriever + Flan-T5.",
+      "gold_answers": [
+        "Retrieval; kNN-LM, REALM, DPR + FiD, Contriever + ATLAS, and Contriever + Flan-T5"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.41860465116279066,
+      "abstained": false,
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "gold_citation_precision": 0.5,
+      "gold_citation_recall": 0.5,
+      "supporting_recall_at_k": 1.0,
+      "retrieved_ids": [
+        "passage_58211a433727b4155cc98e02",
+        "passage_947c81fcab30cc653a36622c",
+        "passage_6d116e3d109f6d58edbca044",
+        "passage_f0a6751547424453f5e0c8c8",
+        "passage_147b1c8743db3d1276e89587",
+        "passage_526bf800608495f66e101374",
+        "passage_de185df9be7b38c5de4996f9",
+        "passage_55f2708f53012a395ad8c83a",
+        "passage_3a4130fa3add074cd5d1591b",
+        "passage_06e06b3e6f23fc00389420b0"
+      ],
+      "citation_ids": [
+        "passage_3a4130fa3add074cd5d1591b",
+        "passage_de185df9be7b38c5de4996f9"
+      ],
+      "step_count": 3,
+      "stop_reason": "planner_finished",
+      "total_latency_seconds": 83.43530319999263,
+      "latency_seconds": 83.43530319999263,
+      "planner_latency_seconds": 15.100741800008109,
+      "tool_latency_seconds": 0.5986677000037162,
+      "answer_latency_seconds": 29.168447900010506,
+      "input_tokens": 6290,
+      "output_tokens": 462,
+      "estimated_cost_usd": 0.0
+    },
+    {
+      "question_id": "domain-0023",
+      "hop_count": 3,
+      "prediction": "The suite that could score the resulting step-by-step reasoning is FinMMDocR. Two properties its automatic scores measure are numerical reasoning and multi-step computation.",
+      "gold_answers": [
+        "ROSCOE; semantic consistency and logicality",
+        "ROSCOE; logicality and factuality"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.08,
+      "abstained": false,
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "supporting_recall_at_k": 0.0,
+      "retrieved_ids": [
+        "passage_78f05bcb5df9e23ac4cbdf6a",
+        "passage_147b1c8743db3d1276e89587",
+        "passage_dcf6fef4b131e5b641f5d411",
+        "passage_49de292c4d5c9388cacfe697",
+        "passage_57c531d89d02e88003dda769"
+      ],
+      "citation_ids": [
+        "passage_57c531d89d02e88003dda769",
+        "passage_dcf6fef4b131e5b641f5d411"
+      ],
+      "step_count": 2,
+      "stop_reason": "repeated_tool_query",
+      "total_latency_seconds": 74.50262140000996,
+      "latency_seconds": 74.50262140000996,
+      "planner_latency_seconds": 11.333419100017636,
+      "tool_latency_seconds": 0.5043365000019548,
+      "answer_latency_seconds": 24.648029699994368,
+      "input_tokens": 5174,
+      "output_tokens": 286,
+      "estimated_cost_usd": 0.0
+    }
+  ]
+}

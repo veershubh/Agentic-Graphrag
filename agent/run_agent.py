@@ -71,7 +71,7 @@ def main() -> None:
     agent_config = config.get("agent", {})
     max_steps = int(agent_config.get("max_steps", 5))
     tool_top_k = int(agent_config.get("tool_top_k", 5))
-    context_chars = int(agent_config.get("context_chars_per_passage", 1200))
+    context_chars = int(agent_config.get("context_chars_per_passage", 700))
     if not 1 <= max_steps <= 10 or tool_top_k < 1 or context_chars < 100:
         raise SystemExit("Agent limits are invalid (max_steps must be 1-10; result limits must be positive)")
 
@@ -124,7 +124,7 @@ def main() -> None:
             for identifier, row in sorted(
                 retrieved.items(),
                 key=lambda item: (-item[1]["last_seen_step"], item[1]["last_seen_rank"], item[0]),
-            )[:tool_top_k]
+            )[: min(tool_top_k, 3)]
         ]
         started = time.perf_counter()
         plan_response = client.structured_chat(
@@ -150,7 +150,15 @@ def main() -> None:
                             "question": args.question,
                             "step": step_number,
                             "step_budget": max_steps,
-                            "prior_steps": history,
+                            "prior_steps": [
+                                {
+                                    "step": item["step"],
+                                    "tool": item["tool"],
+                                    "query": item["query"],
+                                    "result_ids": item.get("result_ids", []),
+                                }
+                                for item in history[-3:]
+                            ],
                             "retrieved_evidence": evidence_for_planner,
                             "available_tools": ["keyword", "vector", "graph"],
                         },
@@ -250,7 +258,7 @@ def main() -> None:
                     item[1]["last_seen_rank"],
                     item[0],
                 ),
-            )[: tool_top_k * 2]
+            )[: min(tool_top_k * 2, 5)]
         ]
         started = time.perf_counter()
         answer_response = client.structured_chat(

@@ -122,14 +122,16 @@ Build the test before the system.
 - [ ] Cap expansion (max nodes and max chunks) so context doesn't flood
 
 **Agentic pipeline**
-- [ ] Planner decomposes the question into sub-questions
-- [ ] Planner picks a tool per sub-question (vector, graph, keyword)
-- [ ] Set a step budget (e.g. 5 steps) and a stop condition
-- [ ] Add an explicit "insufficient evidence" exit
-- [ ] Require citations in the answer
-- [ ] Verify every cited chunk was actually retrieved
+- [x] Planner decomposes the question into sub-questions
+- [x] Planner picks a tool per sub-question (vector, graph, keyword)
+- [x] Set a step budget (e.g. 5 steps) and a stop condition
+- [x] Add an explicit "insufficient evidence" exit
+- [x] Require citations in the answer
+- [x] Verify every cited chunk was actually retrieved
 
 **Progress (2026-09-29):** A bounded single-query controller is implemented with keyword/vector/graph tool routing, a configurable step budget, early finish and insufficient-evidence behavior, citation validation, and local token/latency reporting. One verified domain query completed locally in 94 seconds with a warm embedding cache; it returned a relevant answer with valid citations. Building the 10,878-passage embedding cache took about 14 minutes once. A short planner query fell back to the user question, and final context prioritizes recent search results after the first run exposed irrelevant-context contamination. This is a wiring check, not an accuracy result; broader agent evaluation remains.
+
+**Progress (2026-09-29):** A three-question, one-per-hop agent pilot now runs through the answer metric harness. Token F1 was 0.222 versus 0.315 for BM25 answers on the same questions; supporting recall was 0.667 versus 0.611, while mean latency rose from 14.4s to 77.4s. This tiny pilot does not show an agent quality improvement. Planner evidence and history are capped to avoid exceeding Ollama's 4,096-token context; a three-hop question that previously hit the limit completed after the cap.
 
 **Exit criterion:** both retrievers run through the same eval harness.
 
@@ -142,7 +144,7 @@ Build the test before the system.
   - [x] BM25 + vector
   - [x] Graph-only
   - [ ] Fixed hybrid
-  - [ ] Agentic
+  - [x] Agentic (three-question wiring pilot; not a full ablation)
 - [x] Vary hop depth (1 vs 2) and top-k
 - [ ] Produce tables and charts split by hop count
 - [ ] Categorize 30-50 wrong answers by cause:
@@ -151,9 +153,9 @@ Build the test before the system.
   - bad decomposition
   - expansion noise
   - generation error
-- [ ] Document where GraphRAG does NOT help (negative results are strong interview material)
+- [x] Document where GraphRAG does NOT help (negative results are strong interview material)
 
-**Progress (2026-09-29):** On the 98-answerable-question domain track, BM25 recall@5 was 0.549; dense-only was 0.175, BM25+dense RRF 0.327, graph-only 0.041, BM25+graph RRF 0.435, and BM25+dense+graph RRF 0.349. Paired bootstrap intervals are recorded in `eval/README.md` and result artifacts. The 1-vs-2-hop sweep tied at top-5 under current expansion caps; top-k 3/5/10 results are versioned. All measured additions underperformed BM25 on this provisional domain dataset, so these runs document negative results rather than a gain. Agentic and broader fixed hybrid ablations remain open.
+**Progress (2026-09-29):** On the 98-answerable-question domain track, BM25 recall@5 was 0.549; dense-only was 0.175, BM25+dense RRF 0.327, graph-only 0.041, BM25+graph RRF 0.435, and BM25+dense+graph RRF 0.349. Paired bootstrap intervals are recorded in `eval/README.md` and result artifacts. The 1-vs-2-hop sweep tied at top-5 under current expansion caps; top-k 3/5/10 results are versioned. A three-question agent pilot scored F1 0.222 vs BM25's 0.315 on the same items and took 77.4s vs 14.4s mean latency. These limited runs document negative results rather than a gain; larger fixed-hybrid and agent ablations remain open.
 
 **Exit criterion:** a results section you can defend line by line.
 

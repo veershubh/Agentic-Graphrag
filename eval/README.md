@@ -114,3 +114,14 @@ Reproduce the answer run with locally ingested domain passages using:
 ```powershell
 python eval/run_answer_eval.py --questions eval/data/domain/questions_answer_eval_stratified_v0.1.jsonl --passages data/processed/domain_inventory_passages_v1.0.jsonl --retrieval-results eval/results/domain_inventory_bm25_v0.1.json --retriever bm25 --output data/processed/domain_answer_eval_stratified_v0.1.json --limit 0
 ```
+
+## Agentic retrieval pilot
+
+The bounded agent was evaluated on one frozen answerable question per hop bucket (questions `domain-0001`, `domain-0021`, and `domain-0023`). Token F1 was 0.222, exact match 0.000, valid citations 1.000, and supporting recall@5 0.667. Mean end-to-end latency was 77.4s, compared with 14.4s for BM25 answer generation on those same questions; local model API cost was $0.00 for both. The sample is too small for a quality conclusion, and the agent did not improve answer F1 over BM25 on these three examples.
+
+| System | Questions | Exact match | Token F1 | Valid citations | Supporting recall@5 | Mean latency |
+|---|---:|---:|---:|---:|---:|---:|
+| BM25 + Qwen3 8B answerer | 3 | 0.000 | 0.315 | 1.000 | 0.611 | 14.4s |
+| Planner + keyword/vector/graph tools + Qwen3 8B | 3 | 0.000 | 0.222 | 1.000 | 0.667 | 77.4s |
+
+The selected questions, answer metrics, step counts, stop reasons, retrieval IDs, and input hashes are in `data/domain/questions_agent_eval_pilot_v0.1.jsonl` and `results/domain_agent_qwen3_8b_pilot_v0.1.json`. Reproduce it with `python eval/run_agent_eval.py --per-hop 1 --output data/processed/domain_agent_eval_pilot.json`. This command requires local domain passages, graph files, the embedding cache/model, and Ollama.

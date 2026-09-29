@@ -50,7 +50,7 @@ summary_path = "data/processed/domain_graph_pilot_summary.json"
 [agent]
 max_steps = 5
 tool_top_k = 5
-context_chars_per_passage = 1200
+context_chars_per_passage = 700
 planner_max_output_tokens = 450
 dense_cache_path = "data/processed/domain_agent_dense_cache.npz"
 
