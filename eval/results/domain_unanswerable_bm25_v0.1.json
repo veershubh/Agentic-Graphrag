@@ -1,0 +1,348 @@
+{
+  "track": "domain",
+  "retrievers": {
+    "bm25": {
+      "supporting_recall_at_k": 0.0,
+      "bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "by_hop": {
+        "1": {
+          "questions": 11,
+          "supporting_recall_at_k": 0.0,
+          "bootstrap_95_ci": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "records": [
+        {
+          "question_id": "domain-0009",
+          "hop_count": 1,
+          "support_count": 0,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_f388a16819bd1443ce2acda6",
+              "score": 18.98363643358448
+            },
+            {
+              "id": "passage_7cb6cfb642d198c1991aaca3",
+              "score": 17.553904243309038
+            },
+            {
+              "id": "passage_b75b8962fb6798364f80d80d",
+              "score": 16.658128611500196
+            },
+            {
+              "id": "passage_8679c00530fc5e3e147f654a",
+              "score": 16.18555127925837
+            },
+            {
+              "id": "passage_f40565616540680cc8ccc2c4",
+              "score": 15.370601417138593
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0010",
+          "hop_count": 1,
+          "support_count": 0,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_5e5ecae84a7517badeee8067",
+              "score": 25.775449059953036
+            },
+            {
+              "id": "passage_517df97ea91bf85481ba91d9",
+              "score": 25.197452949733854
+            },
+            {
+              "id": "passage_5e39df5d9f9f3e8841c372f6",
+              "score": 24.535266049799517
+            },
+            {
+              "id": "passage_b21ff60c2d5b62fd06f695d9",
+              "score": 24.314247711477407
+            },
+            {
+              "id": "passage_39237b92d3c4b7167e30c760",
+              "score": 23.695745145340332
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0101",
+          "hop_count": 1,
+          "support_count": 0,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_f4ead1006a3ec5cd2e7f97b8",
+              "score": 22.2196880817572
+            },
+            {
+              "id": "passage_dc45c256b481d679f3ee3cba",
+              "score": 21.5780512502568
+            },
+            {
+              "id": "passage_ac51da47239bed88bf6014eb",
+              "score": 21.174544603126957
+            },
+            {
+              "id": "passage_b75b8962fb6798364f80d80d",
+              "score": 21.06188978733396
+            },
+            {
+              "id": "passage_3191ca1281e17d186a38c0d7",
+              "score": 20.78817175665073
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0102",
+          "hop_count": 1,
+          "support_count": 0,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_dc45c256b481d679f3ee3cba",
+              "score": 36.98609621468354
+            },
+            {
+              "id": "passage_ac51da47239bed88bf6014eb",
+              "score": 36.796843318763614
+            },
+            {
+              "id": "passage_42126a79db42090b77e7b8d7",
+              "score": 32.18928961188038
+            },
+            {
+              "id": "passage_eaa33bb9659a923a00285d01",
+              "score": 28.558170709511554
+            },
+            {
+              "id": "passage_a54d6139bb37d903d3d050c9",
+              "score": 28.347873165694764
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0103",
+          "hop_count": 1,
+          "support_count": 0,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_a8299cafe2f5b302f9e87e33",
+              "score": 39.70650353914567
+            },
+            {
+              "id": "passage_0eac6c108f8ea64875ea38c1",
+              "score": 35.06762046028669
+            },
+            {
+              "id": "passage_5566e4da0c0c729276d1ed9c",
+              "score": 32.95591514479714
+            },
+            {
+              "id": "passage_95dfd4ccf2f6a3ac3b5abc58",
+              "score": 32.13120363172048
+            },
+            {
+              "id": "passage_9a9c38c73ff0d8085ddb5e1d",
+              "score": 29.135982316218065
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0104",
+          "hop_count": 1,
+          "support_count": 0,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_febdbae12316ec85fcdfbe2e",
+              "score": 19.71207334530694
+            },
+            {
+              "id": "passage_d91c40ea2e15f5c8c69c0081",
+              "score": 17.657306329860425
+            },
+            {
+              "id": "passage_c0d3ff928960c035b4669aec",
+              "score": 15.0622418978568
+            },
+            {
+              "id": "passage_794cd1adb42eeaa4a1c0515f",
+              "score": 14.534453567900488
+            },
+            {
+              "id": "passage_2f60558f0cfc2384712fd92c",
+              "score": 14.51707077398964
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0105",
+          "hop_count": 1,
+          "support_count": 0,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_9d8c7277dc8e092f81fd0c1c",
+              "score": 24.305854757136338
+            },
+            {
+              "id": "passage_1bb0799e1c408a2919bab30f",
+              "score": 21.57265503843718
+            },
+            {
+              "id": "passage_095f4c942e667482140be7a2",
+              "score": 20.286747974478185
+            },
+            {
+              "id": "passage_041512e69aea52ca9a2e8269",
+              "score": 20.12327424677117
+            },
+            {
+              "id": "passage_0507d4b7587663193b32573c",
+              "score": 19.817502950886237
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0106",
+          "hop_count": 1,
+          "support_count": 0,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_4452356f606fde5d98d15dcd",
+              "score": 32.75563742687146
+            },
+            {
+              "id": "passage_b75777c6d862225bd425ef2f",
+              "score": 32.22319442780344
+            },
+            {
+              "id": "passage_7fbbcf91bc74da06e036c404",
+              "score": 27.72125166733863
+            },
+            {
+              "id": "passage_0466e290f92d34eb34ab6ed6",
+              "score": 26.053242629878586
+            },
+            {
+              "id": "passage_3d34408449ad43d98b4508ec",
+              "score": 25.613007565860563
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0107",
+          "hop_count": 1,
+          "support_count": 0,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_ac7a41733615c9a26f4eede5",
+              "score": 29.577124616287616
+            },
+            {
+              "id": "passage_915b1ae537d67b482fab5011",
+              "score": 29.03041782529264
+            },
+            {
+              "id": "passage_3191ca1281e17d186a38c0d7",
+              "score": 29.008339664208645
+            },
+            {
+              "id": "passage_a48b1d527179241135869866",
+              "score": 28.52637849865609
+            },
+            {
+              "id": "passage_9be157723366ef7a2abf5c96",
+              "score": 28.14994081137005
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0108",
+          "hop_count": 1,
+          "support_count": 0,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_3191ca1281e17d186a38c0d7",
+              "score": 35.29666168626502
+            },
+            {
+              "id": "passage_915b1ae537d67b482fab5011",
+              "score": 35.07823375466741
+            },
+            {
+              "id": "passage_138e6c134d3e5742fdab7736",
+              "score": 32.591842447275496
+            },
+            {
+              "id": "passage_a48b1d527179241135869866",
+              "score": 31.17458288971054
+            },
+            {
+              "id": "passage_1d90844b2292a9138ed0f142",
+              "score": 30.86608261902476
+            }
+          ]
+        },
+        {
+          "question_id": "domain-0109",
+          "hop_count": 1,
+          "support_count": 0,
+          "supporting_recall_at_k": 0.0,
+          "retrieved": [
+            {
+              "id": "passage_90e0eddf1d49ce025fe34ce6",
+              "score": 39.548870570900455
+            },
+            {
+              "id": "passage_a54d6139bb37d903d3d050c9",
+              "score": 39.15260046220397
+            },
+            {
+              "id": "passage_fbb505831e1ec326f52e5388",
+              "score": 37.15058786739536
+            },
+            {
+              "id": "passage_eaa33bb9659a923a00285d01",
+              "score": 35.81309670858425
+            },
+            {
+              "id": "passage_ac51da47239bed88bf6014eb",
+              "score": 35.22246421467621
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "settings": {
+    "top_k": 5,
+    "candidate_k": 50,
+    "bm25_k1": 1.5,
+    "bm25_b": 0.75,
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 20260928
+  },
+  "question_count": 11,
+  "unanswerable_question_count_excluded": 0,
+  "unanswerable_questions_included": 11,
+  "passage_count": 10878,
+  "inputs": {
+    "questions_sha256": "536c16a255df90fa6530bd93ee8caa5d2704232c68b40ef70aa4e023d4d70c3a",
+    "passages_sha256": "f1dc38723f73caec90374b3e54009d860f36360986b83fb25e99720124a398f1"
+  }
+}

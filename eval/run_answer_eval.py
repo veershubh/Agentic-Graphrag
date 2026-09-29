@@ -42,6 +42,35 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def abstention_metrics(records: list[dict[str, Any]]) -> dict[str, Any]:
+    unanswerable = [record for record in records if not record["is_answerable"]]
+    generated_unanswerable = [record for record in unanswerable if not record.get("generation_error")]
+    answerable = [record for record in records if record["is_answerable"]]
+    return {
+        "question_count": len(records),
+        "abstention_accuracy": (
+            sum(record["abstention_correct"] for record in records) / len(records) if records else 0.0
+        ),
+        "unanswerable_count": len(unanswerable),
+        "unanswerable_abstention_rate": (
+            sum(record["abstained"] for record in unanswerable) / len(unanswerable) if unanswerable else None
+        ),
+        "model_only_unanswerable_abstention_rate": (
+            sum(record["abstained"] for record in generated_unanswerable) / len(generated_unanswerable)
+            if generated_unanswerable
+            else None
+        ),
+        "unanswerable_answer_rate": (
+            sum(not record["abstained"] for record in unanswerable) / len(unanswerable) if unanswerable else None
+        ),
+        "generation_failure_count": sum(bool(record.get("generation_error")) for record in records),
+        "answerable_count": len(answerable),
+        "answerable_response_rate": (
+            sum(not record["abstained"] for record in answerable) / len(answerable) if answerable else None
+        ),
+    }
+
+
 def generate_one(client: Any, model: str, temperature: float, max_output_tokens: int, question: str, passages: list[dict[str, Any]]) -> dict[str, Any]:
     context = [
         {"passage_id": passage["id"], "title": passage.get("title", ""), "text": passage.get("text", "")}
@@ -79,7 +108,6 @@ def generate_one(client: Any, model: str, temperature: float, max_output_tokens:
                 generation_error = f"incomplete_json:{response.done_reason}"
     assert response is not None and parsed is not None
     usage = response.usage
-    parsed = json.loads(response.output_text)
     if parsed.get("abstained") or not str(parsed.get("answer", "")).strip():
         parsed = {**parsed, "answer": "", "citation_ids": [], "abstained": True}
     return {
@@ -164,6 +192,8 @@ def main() -> None:
             "exact_match": exact_match(prediction["answer"], golds),
             "token_f1": token_f1(prediction["answer"], golds),
             "abstained": bool(prediction["abstained"]),
+            "is_answerable": bool(question.get("is_answerable", True)),
+            "abstention_correct": bool(prediction["abstained"]) == (not bool(question.get("is_answerable", True))),
             **citations,
             "supporting_recall_at_k": len(supports.intersection(retrieved_ids)) / len(supports) if supports else 0.0,
             "gold_citation_precision": len(cited.intersection(supports)) / len(cited) if cited else 0.0,
@@ -195,8 +225,12 @@ def main() -> None:
         "requested_limit": args.limit,
         "bootstrap": {"replicates": bootstrap_replicates, "seed": bootstrap_seed, "unit": "question"},
         "overall": summarize_metrics(results, bootstrap_replicates, bootstrap_seed),
+        "abstention": abstention_metrics(results),
         "by_hop": {
-            hop: summarize_metrics(values, bootstrap_replicates, bootstrap_seed + int(hop))
+            hop: {
+                **summarize_metrics(values, bootstrap_replicates, bootstrap_seed + int(hop)),
+                "abstention": abstention_metrics(values),
+            }
             for hop, values in sorted(groups.items(), key=lambda item: int(item[0]))
         },
         "inputs": {

@@ -125,3 +125,14 @@ The bounded agent was evaluated on one frozen answerable question per hop bucket
 | Planner + keyword/vector/graph tools + Qwen3 8B | 3 | 0.000 | 0.222 | 1.000 | 0.667 | 77.4s |
 
 The selected questions, answer metrics, step counts, stop reasons, retrieval IDs, and input hashes are in `data/domain/questions_agent_eval_pilot_v0.1.jsonl` and `results/domain_agent_qwen3_8b_pilot_v0.1.json`. Reproduce it with `python eval/run_agent_eval.py --per-hop 1 --output data/processed/domain_agent_eval_pilot.json`. This command requires local domain passages, graph files, the embedding cache/model, and Ollama.
+
+## Unanswerable abstention probe
+
+Qwen3 8B with top-five BM25 passages was run against all 11 verified unanswerable questions. The end-to-end system abstained on 7/11 (63.6%) and produced answers on 4/11 (36.4%). Two malformed, truncated model responses were converted to safe abstentions after retries; excluding those failures, the answerer itself abstained on 5/9 (55.6%). Thus citation-format validation alone does not prevent unsupported answers, and abstention is not reliable yet. Citation validity was 1.000, which only means emitted IDs were among the retrieved passages; it does not mean those passages support a claim. The deterministic questions, retrievals, outputs, failure flags, and hashes are in `data/domain/questions_unanswerable_v1.0.jsonl`, `results/domain_unanswerable_bm25_v0.1.json`, and `results/domain_unanswerable_qwen3_8b_v0.1.json`. Model API cost was $0.00; the longest response including retries took about 161s.
+
+Reproduce the two stages with:
+
+```powershell
+python eval/run_hybrid_eval.py --questions eval/data/domain/questions_unanswerable_v1.0.jsonl --passages data/processed/domain_inventory_passages_v1.0.jsonl --output eval/results/domain_unanswerable_bm25_v0.1.json --bm25-only --include-unanswerable
+python eval/run_answer_eval.py --questions eval/data/domain/questions_unanswerable_v1.0.jsonl --passages data/processed/domain_inventory_passages_v1.0.jsonl --retrieval-results eval/results/domain_unanswerable_bm25_v0.1.json --retriever bm25 --output data/processed/domain_unanswerable_answer_eval_v0.1.json --limit 0
+```

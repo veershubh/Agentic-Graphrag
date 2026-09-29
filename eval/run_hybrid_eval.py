@@ -119,13 +119,16 @@ def main() -> None:
     parser.add_argument("--output", type=Path, default=Path("eval/results/public_hybrid_v0.1.json"))
     parser.add_argument("--embedding-cache", type=Path, help="Override the configured local passage-vector cache path")
     parser.add_argument("--bm25-only", action="store_true", help="Run lexical retrieval without loading the embedding model")
+    parser.add_argument("--include-unanswerable", action="store_true", help="Retain unanswerable probes for abstention evaluation")
     args = parser.parse_args()
 
     config = tomllib.loads(args.config.read_text(encoding="utf-8"))
     retrieval_config = config["retrieval"]
     dense_config = retrieval_config["dense"]
     all_questions = read_jsonl(args.questions)
-    questions = [question for question in all_questions if question.get("is_answerable", True)]
+    questions = all_questions if args.include_unanswerable else [
+        question for question in all_questions if question.get("is_answerable", True)
+    ]
     if not questions:
         raise SystemExit("No answerable questions in the selected input")
     track = "domain" if any("supporting_passage_ids" in question for question in questions) else "public"
@@ -194,6 +197,7 @@ def main() -> None:
         "settings": settings,
         "question_count": len(questions),
         "unanswerable_question_count_excluded": len(all_questions) - len(questions),
+        "unanswerable_questions_included": sum(not question.get("is_answerable", True) for question in questions),
         "passage_count": len(passages),
         "inputs": {"questions_sha256": sha256(args.questions), "passages_sha256": sha256(args.passages)},
     }

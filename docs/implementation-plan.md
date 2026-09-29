@@ -174,7 +174,7 @@ Build the test before the system.
 
 **Guardrails**
 - [ ] Plant prompt-injection text in a few documents; verify the system ignores it
-- [ ] Test abstention on the unanswerable set
+- [x] Test abstention on the unanswerable set
 - [ ] Enforce citation checks
 
 **Exit criterion:** a documented traced failure, plus measured local resource use.
@@ -184,6 +184,8 @@ Build the test before the system.
 ## Phase 7: CI and Deployment (Weeks 7-8)
 
 **Progress (2026-09-29):** A GitHub Actions workflow now runs the full public BM25 retrieval evaluation for relevant pull requests, nightly, or manually, then enforces conservative overall and hop-specific recall floors. This is a retrieval-only gate; the planned cached answer/faithfulness evaluation and graph/agent checks remain pending.
+
+**Progress (2026-09-29):** The local Qwen3 8B answerer was evaluated on all 11 frozen unanswerable domain probes with BM25 evidence. It abstained end-to-end on 7/11; two of those were fail-closed truncated outputs, and the model itself abstained on 5/9 successfully generated responses. Four unsupported answers show abstention remains unreliable. The run and error flags are versioned in `eval/results/domain_unanswerable_qwen3_8b_v0.1.json`.
 
 **CI**
 - [ ] GitHub Actions runs a small cached eval (~30 questions) on each PR
