@@ -191,7 +191,8 @@ def main() -> None:
                 ]
             response = None
             extraction = None
-            for output_budget in (max_output_tokens, max_output_tokens * 2):
+            output_budgets = (max_output_tokens, max_output_tokens * 2, max_output_tokens * 4, max_output_tokens * 8)
+            for output_budget in output_budgets:
                 response = client.structured_chat(
                     model=model,
                     temperature=temperature,
@@ -203,7 +204,7 @@ def main() -> None:
                     extraction = json.loads(response.output_text)
                     break
                 except json.JSONDecodeError:
-                    if output_budget == max_output_tokens * 2:
+                    if output_budget == output_budgets[-1]:
                         raise RuntimeError(
                             f"Local model returned incomplete JSON for passage {passage['id']} "
                             f"after retries (done_reason={response.done_reason})"

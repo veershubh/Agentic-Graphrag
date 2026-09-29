@@ -91,7 +91,7 @@ Build the test before the system.
   - Relations: PROPOSES, EVALUATES_ON, USES, OUTPERFORMS, CITES
 - [x] Implement per-chunk triple extraction with structured JSON output (cheaper model)
 - [x] Implement extraction caching by prompt, model, chunk ID, and content hash
-- [ ] Pilot on 20 documents, measure cost, extrapolate, then scale
+- [x] Pilot on 20 documents, measure cost, extrapolate, then scale
 
 **Entity resolution**
 - [x] Normalize names by case and punctuation
@@ -107,13 +107,13 @@ Build the test before the system.
 
 **Exit criterion:** graph loaded, with audit accuracy and extraction cost documented.
 
-**Progress (2026-09-29):** The balanced local pilot processed one passage from each of 20 papers using Ollama/Qwen3 4B. It took 255 seconds of model time, with zero model API charges, and produced 175 entity records; 87 of 145 candidate triples passed ontology checks and 58 were rejected. Consolidation produced 173 nodes, 87 edges, and 19 unresolved alias collisions. Local embedding candidate generation produced 12 pairs, and a 50-edge audit worksheet is ready for human labels. This confirms the free local inference path works, but the rejection rate and unaudited extractions are not suitable for scaling yet. Neo4j loading, human audits, and candidate adjudication remain incomplete.
+**Progress (2026-09-29):** The balanced local pilot processed all 197 available passages from 20 papers using Ollama/Qwen3 4B. Cached model latency totals 3,189 seconds (about 16.2 seconds per passage), with zero model API charges. It produced 1,734 entity mentions; 636 of 1,362 candidate triples passed ontology checks and 726 were rejected. Consolidation produced 994 nodes, 581 edges, and 103 unresolved alias collisions. Local embedding candidate generation produced 307 review pairs, and a 50-edge audit worksheet is ready for human labels. The extraction run and cost measurement are complete, but the rejection rate and unaudited output prevent scaling. The Neo4j loader dry run processed nine batches; actual loading, human audits, and candidate adjudication remain incomplete.
 
 ---
 
 ## Phase 4: Hybrid and Agentic Retrieval (Weeks 4-5)
 
-**Progress (2026-09-29):** A bounded in-memory graph expansion index, fixed BM25+graph RRF retriever, and domain graph retrieval evaluation command are implemented, with optional dense passage rankings and external entity seeds. The initial 20-passage graph evaluated at 0.071 graph-only supporting recall@5; BM25+graph RRF scored 0.457 versus 0.549 for BM25. This small, unaudited graph underperformed the baseline; improve extraction coverage and quality before relying on graph expansion.
+**Progress (2026-09-29):** A bounded in-memory graph expansion index, fixed BM25+graph RRF retriever, and domain graph retrieval evaluation command are implemented, with optional dense passage rankings and external entity seeds. The expanded 197-passage graph evaluated at 0.041 graph-only supporting recall@5; BM25+graph RRF scored 0.435 versus 0.549 for BM25 (paired difference -0.114, 95% CI -0.179 to -0.054). Even with more extraction coverage, this unaudited graph underperformed the baseline; improve extraction and entity resolution quality before relying on graph expansion.
 
 **Fixed hybrid pipeline**
 - [ ] Vector search finds seed entities and chunks
