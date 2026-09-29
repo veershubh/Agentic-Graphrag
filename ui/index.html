@@ -116,7 +116,7 @@
         const answerState = document.querySelector("#answer-state");
         answerState.textContent = payload.abstained ? "Abstained" : "Answer generated";
         answerState.className = payload.abstained ? "state abstained" : "state";
-        document.querySelector("#meta").textContent = `${payload.latency_seconds.toFixed(1)}s · stop: ${payload.stop_reason} · citation IDs verified against retrieved passages: ${payload.citation_valid ? "yes" : "no"}`;
+        document.querySelector("#meta").textContent = `${payload.latency_seconds.toFixed(1)}s · ${payload.input_tokens} input / ${payload.output_tokens} output tokens · stop: ${payload.stop_reason} · citation IDs verified against retrieved passages: ${payload.citation_valid ? "yes" : "no"} · request ${payload.request_id}`;
 
         const citations = document.querySelector("#citations");
         citations.replaceChildren();

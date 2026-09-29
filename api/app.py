@@ -12,6 +12,7 @@ import urllib.error
 import urllib.request
 import uuid
 from collections import deque
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
@@ -44,8 +45,10 @@ OLLAMA_TAGS_URL = OLLAMA_BASE_URL.rstrip("/") + "/api/tags"
 app = FastAPI(title="Local Agentic GraphRAG", version="0.1.0")
 request_slots = asyncio.Semaphore(MAX_CONCURRENCY)
 rate_lock = asyncio.Lock()
+trace_lock = asyncio.Lock()
 request_timestamps: deque[float] = deque()
 UI_PATH = REPOSITORY_ROOT / "ui" / "index.html"
+TRACE_PATH = REPOSITORY_ROOT / "data" / "processed" / "api_traces.jsonl"
 
 
 class AskRequest(BaseModel):
@@ -66,6 +69,7 @@ class AgentStep(BaseModel):
 
 
 class AskResponse(BaseModel):
+    request_id: str
     answer: str
     abstained: bool
     citation_valid: bool
@@ -73,6 +77,8 @@ class AskResponse(BaseModel):
     steps: list[AgentStep]
     stop_reason: str
     latency_seconds: float
+    input_tokens: int
+    output_tokens: int
     estimated_model_api_cost_usd: float
 
 
@@ -117,6 +123,18 @@ async def apply_rate_limit() -> None:
         request_timestamps.append(now)
 
 
+async def append_trace(record: dict[str, Any]) -> None:
+    line = json.dumps(record, ensure_ascii=False) + "\n"
+    async with trace_lock:
+        await asyncio.to_thread(_append_trace_line, line)
+
+
+def _append_trace_line(line: str) -> None:
+    TRACE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with TRACE_PATH.open("a", encoding="utf-8") as stream:
+        stream.write(line)
+
+
 @app.get("/healthz")
 async def health() -> dict[str, Any]:
     return local_resources_ready()
@@ -138,7 +156,8 @@ async def ask(payload: AskRequest) -> AskResponse:
 
     run_directory = REPOSITORY_ROOT / "data" / "processed" / "api_runs"
     run_directory.mkdir(parents=True, exist_ok=True)
-    output_path = run_directory / f"{uuid.uuid4().hex}.json"
+    request_id = uuid.uuid4().hex
+    output_path = run_directory / f"{request_id}.json"
     command = [
         sys.executable,
         str(REPOSITORY_ROOT / "agent" / "run_agent.py"),
@@ -182,6 +201,30 @@ async def ask(payload: AskRequest) -> AskResponse:
     finally:
         output_path.unlink(missing_ok=True)
 
+    usage = result.get("usage", {})
+    input_tokens = int(usage.get("planner_input_tokens", 0)) + int(usage.get("answer_input_tokens", 0))
+    output_tokens = int(usage.get("planner_output_tokens", 0)) + int(usage.get("answer_output_tokens", 0))
+    steps = result.get("steps", [])
+    await append_trace(
+        {
+            "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+            "request_id": request_id,
+            "models": result.get("models", {}),
+            "step_count": len(steps),
+            "tools": [str(item.get("tool", "")) for item in steps],
+            "stop_reason": result.get("stop_reason", "unknown"),
+            "abstained": bool(result.get("abstained", True)),
+            "citation_valid": bool(result.get("citation_valid", False)),
+            "input_tokens": input_tokens,
+            "output_tokens": output_tokens,
+            "planner_latency_seconds": float(usage.get("planner_latency_seconds", 0.0)),
+            "tool_latency_seconds": float(usage.get("tool_latency_seconds", 0.0)),
+            "answer_latency_seconds": float(usage.get("answer_latency_seconds", 0.0)),
+            "total_latency_seconds": float(usage.get("total_latency_seconds", 0.0)),
+            "estimated_model_api_cost_usd": 0.0,
+        }
+    )
+
     passage_titles = {
         str(item["id"]): str(item.get("title", "")) for item in result.get("retrieved", [])
     }
@@ -200,6 +243,7 @@ async def ask(payload: AskRequest) -> AskResponse:
         for item in result.get("steps", [])
     ]
     return AskResponse(
+        request_id=request_id,
         answer=str(result.get("answer", "")),
         abstained=bool(result.get("abstained", True)),
         citation_valid=bool(result.get("citation_valid", False)),
@@ -207,5 +251,7 @@ async def ask(payload: AskRequest) -> AskResponse:
         steps=steps,
         stop_reason=str(result.get("stop_reason", "unknown")),
         latency_seconds=float(time.perf_counter() - started),
+        input_tokens=input_tokens,
+        output_tokens=output_tokens,
         estimated_model_api_cost_usd=0.0,
     )

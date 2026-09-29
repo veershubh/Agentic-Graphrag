@@ -193,6 +193,8 @@ Build the test before the system.
 
 **Progress (2026-09-29):** A same-origin static UI is served from `/` and presents answers/abstentions, citations, and the planner's search-tool path. It uses browser text nodes for model output and makes no third-party asset requests. It has not yet been browser-verified or packaged in Docker.
 
+**Progress (2026-09-29):** The API appends a local metadata-only trace for each completed request, including model/token counts, tool names, latency, stop reason, citation validity, and zero API cost without storing question or answer text.
+
 **CI**
 - [ ] GitHub Actions runs a small cached eval (~30 questions) on each PR
 - [ ] Fail the build if F1 or faithfulness drops below threshold (leave a margin for LLM nondeterminism)
