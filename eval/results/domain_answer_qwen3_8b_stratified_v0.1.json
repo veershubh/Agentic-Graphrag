@@ -1,0 +1,1240 @@
+{
+  "retriever": "bm25",
+  "model": "qwen3:8b",
+  "runtime": "local_ollama",
+  "estimated_model_api_cost_usd": 0.0,
+  "temperature": 0.0,
+  "offset": 0,
+  "requested_limit": 0,
+  "bootstrap": {
+    "replicates": 10000,
+    "seed": 20260928,
+    "unit": "question"
+  },
+  "overall": {
+    "question_count": 30,
+    "exact_match": 0.0,
+    "token_f1": 0.28683491242009856,
+    "citation_validity_rate": 0.9333333333333333,
+    "mean_valid_citation_fraction": 0.9666666666666667,
+    "mean_gold_citation_precision": 0.2372222222222222,
+    "mean_gold_citation_recall": 0.2888888888888889,
+    "supporting_recall_at_k": 0.5555555555555555,
+    "mean_latency_seconds": 17.382351496665798,
+    "p50_latency_seconds": 13.28917590000492,
+    "p95_latency_seconds": 22.69397089999984,
+    "mean_input_tokens": 3422.5,
+    "mean_output_tokens": 127.0,
+    "estimated_cost_usd": 0.0,
+    "mean_cost_usd": 0.0,
+    "exact_match_bootstrap_95_ci": [
+      0.0,
+      0.0
+    ],
+    "token_f1_bootstrap_95_ci": [
+      0.20729979730974757,
+      0.37097467238912674
+    ],
+    "citation_valid_bootstrap_95_ci": [
+      0.8333333333333334,
+      1.0
+    ],
+    "supporting_recall_at_k_bootstrap_95_ci": [
+      0.4333333333333334,
+      0.6722222222222223
+    ],
+    "gold_citation_precision_bootstrap_95_ci": [
+      0.14444444444444443,
+      0.3361111111111111
+    ],
+    "gold_citation_recall_bootstrap_95_ci": [
+      0.1722222222222222,
+      0.4111111111111111
+    ]
+  },
+  "by_hop": {
+    "1": {
+      "question_count": 10,
+      "exact_match": 0.0,
+      "token_f1": 0.3433333333333334,
+      "citation_validity_rate": 1.0,
+      "mean_valid_citation_fraction": 1.0,
+      "mean_gold_citation_precision": 0.18333333333333332,
+      "mean_gold_citation_recall": 0.3,
+      "supporting_recall_at_k": 0.8,
+      "mean_latency_seconds": 9.606101749996014,
+      "p50_latency_seconds": 9.869990999999573,
+      "p95_latency_seconds": 10.993656299993745,
+      "mean_input_tokens": 3266.6,
+      "mean_output_tokens": 76.6,
+      "estimated_cost_usd": 0.0,
+      "mean_cost_usd": 0.0,
+      "exact_match_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "token_f1_bootstrap_95_ci": [
+        0.2011904761904762,
+        0.4876190476190477
+      ],
+      "citation_valid_bootstrap_95_ci": [
+        1.0,
+        1.0
+      ],
+      "supporting_recall_at_k_bootstrap_95_ci": [
+        0.5,
+        1.0
+      ],
+      "gold_citation_precision_bootstrap_95_ci": [
+        0.0,
+        0.4
+      ],
+      "gold_citation_recall_bootstrap_95_ci": [
+        0.0,
+        0.6
+      ]
+    },
+    "2": {
+      "question_count": 10,
+      "exact_match": 0.0,
+      "token_f1": 0.38362424630422326,
+      "citation_validity_rate": 0.8,
+      "mean_valid_citation_fraction": 0.9,
+      "mean_gold_citation_precision": 0.34500000000000003,
+      "mean_gold_citation_recall": 0.4,
+      "supporting_recall_at_k": 0.5,
+      "mean_latency_seconds": 15.292148120002821,
+      "p50_latency_seconds": 13.531023700008518,
+      "p95_latency_seconds": 20.76701630000025,
+      "mean_input_tokens": 3472.4,
+      "mean_output_tokens": 128.7,
+      "estimated_cost_usd": 0.0,
+      "mean_cost_usd": 0.0,
+      "exact_match_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "token_f1_bootstrap_95_ci": [
+        0.25092039800995025,
+        0.5127235772357723
+      ],
+      "citation_valid_bootstrap_95_ci": [
+        0.5,
+        1.0
+      ],
+      "supporting_recall_at_k_bootstrap_95_ci": [
+        0.35,
+        0.65
+      ],
+      "gold_citation_precision_bootstrap_95_ci": [
+        0.215,
+        0.47000000000000003
+      ],
+      "gold_citation_recall_bootstrap_95_ci": [
+        0.25,
+        0.5
+      ]
+    },
+    "3": {
+      "question_count": 10,
+      "exact_match": 0.0,
+      "token_f1": 0.133547157622739,
+      "citation_validity_rate": 1.0,
+      "mean_valid_citation_fraction": 1.0,
+      "mean_gold_citation_precision": 0.18333333333333332,
+      "mean_gold_citation_recall": 0.16666666666666666,
+      "supporting_recall_at_k": 0.3666666666666667,
+      "mean_latency_seconds": 27.248804619998555,
+      "p50_latency_seconds": 15.817084800000885,
+      "p95_latency_seconds": 22.69397089999984,
+      "mean_input_tokens": 3528.5,
+      "mean_output_tokens": 175.7,
+      "estimated_cost_usd": 0.0,
+      "mean_cost_usd": 0.0,
+      "exact_match_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "token_f1_bootstrap_95_ci": [
+        0.04952380952380952,
+        0.2266944444444444
+      ],
+      "citation_valid_bootstrap_95_ci": [
+        1.0,
+        1.0
+      ],
+      "supporting_recall_at_k_bootstrap_95_ci": [
+        0.26666666666666666,
+        0.4666666666666667
+      ],
+      "gold_citation_precision_bootstrap_95_ci": [
+        0.03333333333333333,
+        0.35
+      ],
+      "gold_citation_recall_bootstrap_95_ci": [
+        0.03333333333333333,
+        0.30000000000000004
+      ]
+    }
+  },
+  "inputs": {
+    "questions_sha256": "67bbad4af3b05cbdc5416149be8e36ff278670f8455adbd965c22f3596eab2ec",
+    "passages_sha256": "f1dc38723f73caec90374b3e54009d860f36360986b83fb25e99720124a398f1",
+    "retrieval_results_sha256": "43cfff6dbe8d2bf42f1456881912aa275f717b02c4ebdd71b84c86cc5ff46f98"
+  },
+  "records": [
+    {
+      "question_id": "domain-0001",
+      "hop_count": 1,
+      "prediction": "The authors used human annotations as the gold standard for evaluating attribution in the Attributed QA study.",
+      "gold_answers": [
+        "Human annotations"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.25,
+      "abstained": false,
+      "citation_ids": [
+        "passage_7c0b1d9f92f2a407dc578830"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "passage_5e39df5d9f9f3e8841c372f6",
+        "passage_5e5ecae84a7517badeee8067",
+        "passage_7c0b1d9f92f2a407dc578830",
+        "passage_ed38151fb520ddb27881d44d",
+        "passage_b21ff60c2d5b62fd06f695d9"
+      ],
+      "input_tokens": 4006,
+      "output_tokens": 66,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 9.869990999999573,
+      "response_id": "local_71fe92662b8c492db420b015e012ae22",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0002",
+      "hop_count": 1,
+      "prediction": "The Attributed QA authors released the system responses and their human and automatic ratings at https://github.com/google-research-datasets/Attributed-QA.",
+      "gold_answers": [
+        "https://github.com/google-research-datasets/Attributed-QA",
+        "google-research-datasets/Attributed-QA"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.13333333333333333,
+      "abstained": false,
+      "citation_ids": [
+        "passage_b21ff60c2d5b62fd06f695d9"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 1.0,
+      "gold_citation_recall": 1.0,
+      "retrieved_ids": [
+        "passage_5e5ecae84a7517badeee8067",
+        "passage_b21ff60c2d5b62fd06f695d9",
+        "passage_db768eea2222a1e9d2b3c916",
+        "passage_d8a29f78a0bf75caea255637",
+        "passage_d64dc94888602d17e060ff9a"
+      ],
+      "input_tokens": 3864,
+      "output_tokens": 76,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 10.674108799998066,
+      "response_id": "local_573364109da94e27b08fe62db34aeb9a",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0003",
+      "hop_count": 1,
+      "prediction": "The Self-Evaluation study used TRUTHFULQA and TL;DR datasets.",
+      "gold_answers": [
+        "TruthfulQA and TL;DR",
+        "TRUTHFULQA and TL;DR"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.6,
+      "abstained": false,
+      "citation_ids": [
+        "passage_3b0aeee8207a4388c8763c84",
+        "passage_3b0aeee8207a4388c8763c84"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "passage_f3269dd858f7059f4e3e2d27",
+        "passage_3e9c7422878113b6c60099da",
+        "passage_fc3369889bb506b875a53fe2",
+        "passage_3b0aeee8207a4388c8763c84",
+        "passage_e0fc8668702cb5e84b49514d"
+      ],
+      "input_tokens": 3477,
+      "output_tokens": 88,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 10.93509030000132,
+      "response_id": "local_ea9b243fcea44b129a1c7e60279d56d5",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0004",
+      "hop_count": 1,
+      "prediction": "The Self-Evaluation authors used self-consistency and models’ self-evaluation ability. Passage_3b0aeee8207a4388c8763c84",
+      "gold_answers": [
+        "Multi-way comparison and point-wise evaluation",
+        "A multi-way comparison or a point-wise evaluation"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.14285714285714285,
+      "abstained": false,
+      "citation_ids": [
+        "passage_3b0aeee8207a4388c8763c84"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "passage_47c49349ec1fce92291248fe",
+        "passage_876a1eb9097a78d6532ba2ed",
+        "passage_fc3369889bb506b875a53fe2",
+        "passage_f388a16819bd1443ce2acda6",
+        "passage_3b0aeee8207a4388c8763c84"
+      ],
+      "input_tokens": 3599,
+      "output_tokens": 87,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 10.993656299993745,
+      "response_id": "local_c0614a8815594ea2b2f8e2452c137724",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0005",
+      "hop_count": 1,
+      "prediction": "The psychological-safety study used SD-3 and BFI for personality tests.",
+      "gold_answers": [
+        "Short Dark Triad (SD-3) and Big Five Inventory (BFI)",
+        "SD-3 and BFI"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.5,
+      "abstained": false,
+      "citation_ids": [
+        "passage_99805e86844e59604a27c026",
+        "passage_32399e5f2cd5ffb75b797824"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 0.5,
+      "gold_citation_recall": 1.0,
+      "retrieved_ids": [
+        "passage_99805e86844e59604a27c026",
+        "passage_901302deee995072e5f474c9",
+        "passage_32399e5f2cd5ffb75b797824",
+        "passage_352e16b18b64bbeae16e2745",
+        "passage_962a1fcdbc9b4faabd29e3c5"
+      ],
+      "input_tokens": 3089,
+      "output_tokens": 89,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 10.13120789999084,
+      "response_id": "local_6401b966d1ae4ad5865e32bf4472f943",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0006",
+      "hop_count": 1,
+      "prediction": "The full name of the ORQA benchmark is Operations Research Question Answering.",
+      "gold_answers": [
+        "Operations Research Question Answering"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.5714285714285715,
+      "abstained": false,
+      "citation_ids": [
+        "passage_0a941534607e49ee1477b5f2",
+        "passage_e7e541a211bb5ccd947245c0",
+        "passage_42718b2ff0ffd40181894258"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 0.3333333333333333,
+      "gold_citation_recall": 1.0,
+      "retrieved_ids": [
+        "passage_0a941534607e49ee1477b5f2",
+        "passage_e7e541a211bb5ccd947245c0",
+        "passage_42718b2ff0ffd40181894258",
+        "passage_331c14e339f71f19d65fa8b6",
+        "passage_a7faf4cea405a0574c0537cb"
+      ],
+      "input_tokens": 2638,
+      "output_tokens": 112,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 11.637908099990455,
+      "response_id": "local_5e0720cc9f4d41dfbd30791aa351fc13",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0007",
+      "hop_count": 1,
+      "prediction": "ORQA's optimization problems require multi-step reasoning to build mathematical models.",
+      "gold_answers": [
+        "Multi-step reasoning to build mathematical models",
+        "Building mathematical models through multi-step reasoning"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.7499999999999999,
+      "abstained": false,
+      "citation_ids": [
+        "passage_fd271a75e59eb0181788a1b3"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "passage_42718b2ff0ffd40181894258",
+        "passage_0a941534607e49ee1477b5f2",
+        "passage_fd271a75e59eb0181788a1b3",
+        "passage_8679c00530fc5e3e147f654a",
+        "passage_cd89e31ed326afaca1375c3e"
+      ],
+      "input_tokens": 3695,
+      "output_tokens": 58,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 8.564460299996426,
+      "response_id": "local_091f37f553e6413c8ab05ca360b81a84",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0008",
+      "hop_count": 1,
+      "prediction": "The next new moon will occur on June 30.",
+      "gold_answers": [
+        "Reasoning through compositional structured outputs",
+        "Compositional structured-output reasoning"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": false,
+      "citation_ids": [
+        "passage_0732c3caa1fff36a8c1b3fdc"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "passage_0b13baece7cf89f752742801",
+        "passage_586ad7400a3d08e7b17165bb",
+        "passage_70c9c6e0a66f07fa9d59cd39",
+        "passage_5f89d1b40b869258726ad5d2",
+        "passage_0732c3caa1fff36a8c1b3fdc"
+      ],
+      "input_tokens": 2050,
+      "output_tokens": 59,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 6.528096399997594,
+      "response_id": "local_605cc72b6dc843ce966a69d7f4ff3c23",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0011",
+      "hop_count": 1,
+      "prediction": "HELM uses scenarios and metrics as the two broad categories. These categories define the design space for language model evaluation.",
+      "gold_answers": [
+        "Scenarios and metrics",
+        "Scenarios (use cases) and metrics (desiderata)"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.2857142857142857,
+      "abstained": false,
+      "citation_ids": [
+        "passage_4e3c64a57901e7df48d56757"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "passage_4e3c64a57901e7df48d56757",
+        "passage_34092eedd2b2a19f0844fdf6",
+        "passage_3ec9ccbb7f6b87628fb73607",
+        "passage_2bd2df2171300715afd877ba",
+        "passage_348eb6e4e5bd9b175701c893"
+      ],
+      "input_tokens": 3421,
+      "output_tokens": 70,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 8.982638599991333,
+      "response_id": "local_d00f4ffecfcb4919a6176921f2ea6c99",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0012",
+      "hop_count": 1,
+      "prediction": "The KLEJ benchmark preceded the LEPISZCZE benchmark for Polish language understanding.",
+      "gold_answers": [
+        "KLEJ"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.19999999999999998,
+      "abstained": false,
+      "citation_ids": [
+        "passage_2c202e52403cc6737ffb6cba"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "passage_5916a5defa96c5fc94e89c03",
+        "passage_451f2b4e0b486b19ef6f6f55",
+        "passage_2c202e52403cc6737ffb6cba",
+        "passage_81d3383336f4c9cf4748fd31",
+        "passage_764c5c258dadb3b1607920d5"
+      ],
+      "input_tokens": 2827,
+      "output_tokens": 61,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 7.743859800000791,
+      "response_id": "local_d6ce460ec0d64a45b31c476761dcc0d2",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0021",
+      "hop_count": 2,
+      "prediction": "The Visconde authors identify the retriever as the main bottleneck. The Blame Game study evaluated kNN-LM, REALM, DPR + FiD, Contriever + ATLAS, and Contriever + Flan-T5.",
+      "gold_answers": [
+        "Retrieval; kNN-LM, REALM, DPR + FiD, Contriever + ATLAS, and Contriever + Flan-T5"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.6,
+      "abstained": false,
+      "citation_ids": [
+        "passage_947c81fcab30cc653a36622c",
+        "passage_3a4130fa3add074cd5d1591b",
+        "passage_58eea16ff7fc3c8b52b2964d",
+        "passage_de185df9be7b38c5de4996f9",
+        "passage_526bf800608495f66e101374"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.2,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "passage_947c81fcab30cc653a36622c",
+        "passage_3a4130fa3add074cd5d1591b",
+        "passage_58eea16ff7fc3c8b52b2964d",
+        "passage_de185df9be7b38c5de4996f9",
+        "passage_526bf800608495f66e101374"
+      ],
+      "input_tokens": 3906,
+      "output_tokens": 195,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 23.303574600009597,
+      "response_id": "local_c2291b550202487494e3ea01271f1966",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0022",
+      "hop_count": 2,
+      "prediction": "Visconde identifies retrievers as the main bottleneck. The other study reports retrieval systems fail to provide necessary evidence.",
+      "gold_answers": [
+        "Retrieval is the bottleneck; the retriever's simple similarity metric is insufficient to retrieve all statements needed for reasoning"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.25,
+      "abstained": false,
+      "citation_ids": [
+        "passage_58211a433727b4155cc98e02",
+        "passage_7607af76b6f0b64ed69e6a2f"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.5,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "passage_947c81fcab30cc653a36622c",
+        "passage_58211a433727b4155cc98e02",
+        "passage_74a59674d297a243a5367af2",
+        "passage_7607af76b6f0b64ed69e6a2f",
+        "passage_d1b3afec4213655c9c7bcaa6"
+      ],
+      "input_tokens": 2855,
+      "output_tokens": 96,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 10.834703900007298,
+      "response_id": "local_e99466b5aa4b43e88536cb4d049b2935",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0024",
+      "hop_count": 2,
+      "prediction": "ROSCOE reports 5 human-annotated and 6 programmatically perturbed datasets. RoSE collected 22k summary-level annotations. ",
+      "gold_answers": [
+        "Five human-annotated and six programmatically perturbed datasets; 22,000 summary-level annotations"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.5833333333333334,
+      "abstained": false,
+      "citation_ids": [
+        "passage_f04e1410fd6c96b6120bb1aa",
+        "passage_bfd1ef3800330c22fb81407a"
+      ],
+      "citation_valid": false,
+      "valid_citation_fraction": 0.5,
+      "unsupported_citation_ids": [
+        "passage_bfd1ef3800330c22fb81407a"
+      ],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.5,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "passage_f04e1410fd6c96b6120bb1aa",
+        "passage_fbd1ef3800330c22fb81407a",
+        "passage_d70b971d2379b72b9d69d81a",
+        "passage_e591ac9d2acc80cae75fad84",
+        "passage_589ce7f10d4bd4bf5751486e"
+      ],
+      "input_tokens": 3621,
+      "output_tokens": 100,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 12.5536534999992,
+      "response_id": "local_7e024619d0884264b58a4dd6e867aa54",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0026",
+      "hop_count": 2,
+      "prediction": "AgentCoder supports programmer and test designer agents. T-Eval assesses PLAN, REASON, RETRIEVE, UNDERSTAND, INSTRUCT, and REVIEW.",
+      "gold_answers": [
+        "A test designer and a test executor; instruction following, planning, reasoning, retrieval, understanding, and review"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.3448275862068966,
+      "abstained": false,
+      "citation_ids": [
+        "passage_d5f7a229b20a1fdf61c9f29a",
+        "passage_71a1da7e31ca5c22347621dd"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.5,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "passage_71a1da7e31ca5c22347621dd",
+        "passage_24789266c7a8b076e8156dc9",
+        "passage_d5f7a229b20a1fdf61c9f29a",
+        "passage_7122579a94741e7a437787ce",
+        "passage_bdea985bcccce143361fc719"
+      ],
+      "input_tokens": 3852,
+      "output_tokens": 105,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 13.28917590000492,
+      "response_id": "local_70d82fd36c3e428888d2fc40204da3a9",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0027",
+      "hop_count": 2,
+      "prediction": "The malicious instructions in the text are highlighted in red and are as follows: **'promote fake antivirus software'**. These instructions are embedded within the external content and are designed to prompt the LLM to generate harmful or misleading responses. The text describes an **indirect prompt injection attack**, where an attacker injects malicious instructions into external content, which are then executed by an LLM-integrated application. This type of attack can lead to the LLM producing harmful outputs, such as promoting fake antivirus software, which poses a significant security threat to LLM-based systems. The text also introduces a benchmark called **BIPIA** to evaluate and defend against such attacks, and proposes two defense mechanisms: **boundary awareness** and **explicit reminder** to prevent LLMs from executing malicious instructions embedded in external content.",
+      "gold_answers": [
+        "Failure to distinguish informational context from actionable instructions, and failure to avoid executing instructions embedded in external content; review"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.16417910447761194,
+      "abstained": false,
+      "citation_ids": [
+        "passage_0a6f8e9d06ab2d62a1692febc",
+        "passage_bac20e08dcbc9cfe7aacce49"
+      ],
+      "citation_valid": false,
+      "valid_citation_fraction": 0.5,
+      "unsupported_citation_ids": [
+        "passage_0a6f8e9d06ab2d62a1692febc"
+      ],
+      "supporting_recall_at_k": 0.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "passage_e2d94b986c2cae9169a3e06c",
+        "passage_ba210542611b70a51516c43a",
+        "passage_46b6f8d791f269747d3268d9",
+        "passage_a6f8e9d06ab2d62a1692febc",
+        "passage_bac20e08dcbc9cfe7aacce49"
+      ],
+      "input_tokens": 2050,
+      "output_tokens": 236,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 20.76701630000025,
+      "response_id": "local_d9e2626494634b30a4492cb2682a8ec3",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0028",
+      "hop_count": 2,
+      "prediction": "UniKGQA's modules are semantic matching (SM) and matching information propagation (MIP). PokeMQA's conflict signal responder is the scope detector. ",
+      "gold_answers": [
+        "A PLM-based semantic matching module and a matching-information propagation module; a detached trainable scope detector"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.4,
+      "abstained": false,
+      "citation_ids": [
+        "passage_06b0ef61d87742dccbaef0f0",
+        "passage_682baa5ad73f16b015ef014f",
+        "passage_005870576ea81be964d92f4c",
+        "passage_44a5ecf77edbb874b1110c9d"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.25,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "passage_06b0ef61d87742dccbaef0f0",
+        "passage_682baa5ad73f16b015ef014f",
+        "passage_005870576ea81be964d92f4c",
+        "passage_142e7d7e1075d35f4dc4b28e",
+        "passage_44a5ecf77edbb874b1110c9d"
+      ],
+      "input_tokens": 3377,
+      "output_tokens": 154,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 18.678309800001443,
+      "response_id": "local_573f0a7119b04444866f09956e393336",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0029",
+      "hop_count": 2,
+      "prediction": "LatestEval uses recent texts from arXiv, BBC, and GitHub to reduce contamination. mFACE reports dataset coverage, language diversity, and factuality signals.",
+      "gold_answers": [
+        "LatestEval uses texts published within a recent time window; mFACE evaluates XLSum across 45 languages using a multilingual NLI model's factual-consistency signal"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.24390243902439024,
+      "abstained": false,
+      "citation_ids": [
+        "passage_47c49349ec1fce92291248fe",
+        "passage_64b7f287e96078213dc0a3fd"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.5,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "passage_7520d3bb87456b78f900f705",
+        "passage_47c49349ec1fce92291248fe",
+        "passage_003b48aa4be3d4c4932d4b22",
+        "passage_64b7f287e96078213dc0a3fd",
+        "passage_b348130caeb6513dcef6e63a"
+      ],
+      "input_tokens": 3778,
+      "output_tokens": 102,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 13.531023700008518,
+      "response_id": "local_d503dbb4cd6b463b9bd9c5c686a7f7ea",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0030",
+      "hop_count": 2,
+      "prediction": "MedHallBench uses two kinds of evidence: expert-validated medical case scenarios and medical databases. The MEDEC benchmark contains 3,848 clinical texts.",
+      "gold_answers": [
+        "Expert-validated medical case scenarios and established medical databases; 3,848 clinical texts"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.6666666666666666,
+      "abstained": false,
+      "citation_ids": [
+        "passage_a9611d5ee13832fe2a36580c",
+        "passage_41ca1f4c4cdc3d59c854ad21"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 1.0,
+      "gold_citation_precision": 0.5,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "passage_41ca1f4c4cdc3d59c854ad21",
+        "passage_a9611d5ee13832fe2a36580c",
+        "passage_05bbe27de197cfbf905c2234",
+        "passage_3f1b0ae37ae11a878cbb2eef",
+        "passage_b8ffada104e7d7dd27abb4f0"
+      ],
+      "input_tokens": 3750,
+      "output_tokens": 103,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 13.5741912000085,
+      "response_id": "local_250d4a1c2d3a419fa4f2118501f52cc1",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0031",
+      "hop_count": 2,
+      "prediction": "M-MAD's framework is called Multidimensional Multi-Agent Debate. RoSE introduces Atomic Content Units (ACUs) as fine-grained semantic units.",
+      "gold_answers": [
+        "Multidimensional Multi-Agent Debate; Atomic Content Units (ACUs)"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.5833333333333334,
+      "abstained": false,
+      "citation_ids": [
+        "passage_99d13f3e7ae03e5770f018db",
+        "passage_cefbcde4b1afcfebf47539b4"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.5,
+      "gold_citation_recall": 0.5,
+      "retrieved_ids": [
+        "passage_cefbcde4b1afcfebf47539b4",
+        "passage_99d13f3e7ae03e5770f018db",
+        "passage_e2edba72c61edc3eca52ea88",
+        "passage_d70b971d2379b72b9d69d81a",
+        "passage_9a80d52211c916d914dc0b9d"
+      ],
+      "input_tokens": 3459,
+      "output_tokens": 98,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 13.577639299997827,
+      "response_id": "local_1f9ce94ac67349699c8b13977f4f3ebf",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0033",
+      "hop_count": 2,
+      "prediction": "",
+      "gold_answers": [
+        "Benchmark data contamination; expert-validated medical case scenarios and established medical databases"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.5,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "passage_abc4f12e6eff2dfb2a6ba21f",
+        "passage_47c49349ec1fce92291248fe",
+        "passage_22288179b90212c78b13b973",
+        "passage_a9611d5ee13832fe2a36580c",
+        "passage_003b48aa4be3d4c4932d4b22"
+      ],
+      "input_tokens": 4076,
+      "output_tokens": 98,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 12.812192999990657,
+      "response_id": "local_790fd3468b2f446e81ea76c1fd7acd4d",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0023",
+      "hop_count": 3,
+      "prediction": "The suite could be the StrategyQA dataset. Its automatic scores measure SARI for decomposition and recall for evidence retrieval.",
+      "gold_answers": [
+        "ROSCOE; semantic consistency and logicality",
+        "ROSCOE; logicality and factuality"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.09523809523809523,
+      "abstained": false,
+      "citation_ids": [
+        "passage_5d5587fc05f9168c7c349f56"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.3333333333333333,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "passage_947c81fcab30cc653a36622c",
+        "passage_147b1c8743db3d1276e89587",
+        "passage_58211a433727b4155cc98e02",
+        "passage_5d5587fc05f9168c7c349f56",
+        "passage_74a59674d297a243a5367af2"
+      ],
+      "input_tokens": 3106,
+      "output_tokens": 69,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 10.008717799995793,
+      "response_id": "local_1d2205cf7cc04c5dafd557b1beecb3ba",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0025",
+      "hop_count": 3,
+      "prediction": "Retrievers are the bottleneck. ROSCOE scores logical consistency and factual accuracy. RoSE proposes a protocol with detailed guidelines and adjudication.",
+      "gold_answers": [
+        "Retrieval; semantic consistency and logicality; Atomic Content Units (ACUs)"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.14814814814814814,
+      "abstained": false,
+      "citation_ids": [
+        "passage_58211a433727b4155cc98e02",
+        "passage_fbd1ef3800330c22fb81407a",
+        "passage_cefbcde4b1afcfebf47539b4"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.6666666666666666,
+      "gold_citation_precision": 0.6666666666666666,
+      "gold_citation_recall": 0.6666666666666666,
+      "retrieved_ids": [
+        "passage_947c81fcab30cc653a36622c",
+        "passage_981694805edc6f5946517a85",
+        "passage_58211a433727b4155cc98e02",
+        "passage_fbd1ef3800330c22fb81407a",
+        "passage_cefbcde4b1afcfebf47539b4"
+      ],
+      "input_tokens": 3590,
+      "output_tokens": 121,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 15.29692090000026,
+      "response_id": "local_a21d21d11bfd459d9cdf44baa4137aaa",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0032",
+      "hop_count": 3,
+      "prediction": "UniKGQA's module is matching information propagation. PokeMQA uses a programmable scope detector. T-Eval's capability is task-specific metrics selection. ",
+      "gold_answers": [
+        "The matching-information propagation module; the detached trainable scope detector; planning"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.31999999999999995,
+      "abstained": false,
+      "citation_ids": [
+        "passage_ebe97f30810c92b52b3e7154",
+        "passage_682baa5ad73f16b015ef014f",
+        "passage_cf1045c0370fe62ec2e0dfc7"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.3333333333333333,
+      "gold_citation_precision": 0.3333333333333333,
+      "gold_citation_recall": 0.3333333333333333,
+      "retrieved_ids": [
+        "passage_ebe97f30810c92b52b3e7154",
+        "passage_142e7d7e1075d35f4dc4b28e",
+        "passage_682baa5ad73f16b015ef014f",
+        "passage_44a5ecf77edbb874b1110c9d",
+        "passage_cf1045c0370fe62ec2e0dfc7"
+      ],
+      "input_tokens": 3689,
+      "output_tokens": 128,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 17.31344790000003,
+      "response_id": "local_92e9cc7ee0ff4e7a867264f6034fae1f",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0038",
+      "hop_count": 3,
+      "prediction": "LatestEval addresses data contamination risk. Attributed QA uses gold standard for evaluation. ROSCOE measures reasoning consistency and logical inference.",
+      "gold_answers": [
+        "Data contamination; human annotations; semantic consistency and logicality",
+        "Data contamination; human annotations; logicality and factuality"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.2962962962962963,
+      "abstained": false,
+      "citation_ids": [
+        "passage_64b7f287e96078213dc0a3fd",
+        "passage_981694805edc6f5946517a85",
+        "passage_a3290a257cf2576652c0b74f"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.3333333333333333,
+      "gold_citation_precision": 0.3333333333333333,
+      "gold_citation_recall": 0.3333333333333333,
+      "retrieved_ids": [
+        "passage_64b7f287e96078213dc0a3fd",
+        "passage_b348130caeb6513dcef6e63a",
+        "passage_003b48aa4be3d4c4932d4b22",
+        "passage_981694805edc6f5946517a85",
+        "passage_a3290a257cf2576652c0b74f"
+      ],
+      "input_tokens": 3743,
+      "output_tokens": 127,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 16.237100099999225,
+      "response_id": "local_e26497821b5b41918fe02e5953d3e7df",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0046",
+      "hop_count": 3,
+      "prediction": "GLUE-X is a benchmark designed to evaluate the out-of-distribution (OOD) generalization capabilities of natural language understanding (NLU) models. It extends the GLUE benchmark by introducing OOD test sets from different domains while maintaining the same prediction labels as the original tasks. The key components of GLUE-X include:\n\n1. **Tasks**: GLUE-X includes eight tasks, such as Sentiment Analysis (SST-2), Natural Language Inference (MNLI, QNLI), Textual Entailment (RTE), Paraphrase (MRPC, QQP), Textual Similarity (STS-B), and Linguistic Acceptability (CoLA).\n\n2. **Datasets**: GLUE-X uses in-domain training data and evaluation metrics from GLUE. For OOD testing, it adopts datasets from different domains, such as IMDB, Yelp, Amazon, Flipkart, Grammar Test, SICK, and others. These datasets are carefully curated to ensure they share the same label types as the training data.\n\n3. **OOD Test Sets**: GLUE-X includes 15 OOD datasets, including both publicly available and newly collected/reconstructed datasets. Examples include IMDB, Yelp, Amazon, Flipkart for sentiment analysis; Grammar Test for linguistic acceptability; SICK for textual similarity; and MNLI-Mismatched, SNLI, and SICK for natural language inference.\n\n4. **Performance Evaluation**: The performance of models like GPT-3, GPT-3.5, and ELECTRA-large is evaluated on GLUE-X using in-context learning. The results show that while these models perform well on in-domain (ID) tasks, their performance drops significantly on OOD tasks, indicating room for improvement in OOD robustness. GPT-3.5 shows slightly better OOD performance than GPT-3, but both lag behind human performance (around 80.14%).\n\n5. **Key Findings**: The overall performance of ID and OOD tests shows a linear correlation for most models, but this correlation is not consistent across all tasks. For example, tasks like MRPC and QQP show weak linear correlation with OOD accuracy, while tasks like STSB and QNLI show stronger correlation. Additionally, the OOD performance of GPT-3 and GPT-3.5 is still far behind human performance, highlighting the need for further improvements in OOD robustness for large language models (LLMs).",
+      "gold_answers": [
+        "UCM (Understand-Confuse-Misunderstand); 15 datasets; multiple-choice questions"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.013289036544850497,
+      "abstained": false,
+      "citation_ids": [
+        "passage_eb166a4cfc3f628c2bad7bcc",
+        "passage_b66893c511583de03b965b52"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.3333333333333333,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "passage_e9d39d33a13a79266fd94e96",
+        "passage_20a9ab46f6bd4a7be67823d7",
+        "passage_9aa610b388876589ed54f51d",
+        "passage_eb166a4cfc3f628c2bad7bcc",
+        "passage_b66893c511583de03b965b52"
+      ],
+      "input_tokens": 2050,
+      "output_tokens": 586,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 127.5449435999908,
+      "response_id": "local_471656c75c3b4806b789f12a4c3bdb95",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0055",
+      "hop_count": 3,
+      "prediction": "",
+      "gold_answers": [
+        "Triadic-Tone Integration; a multilingual natural-language-inference (NLI) signal; Atomic Content Units (ACUs)"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.6666666666666666,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "passage_de6c581e7df46aff1691100e",
+        "passage_91fe96d8aa208929dc0a7895",
+        "passage_a554f74f526a96b090ea4ce2",
+        "passage_7fbbcf91bc74da06e036c404",
+        "passage_6a3764fed433ab649dfd4983"
+      ],
+      "input_tokens": 4060,
+      "output_tokens": 186,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 22.69397089999984,
+      "response_id": "local_47793d014c244686a76cbb7ddbffca1a",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0066",
+      "hop_count": 3,
+      "prediction": "CodeSmellEval's metric is code smells; DeepCRCEval's prompt dataset size is 1,000 snippets; 10% of benchmark comments are high quality for automation. (passage_cb29a541bea974d7f6dd8a80, passage_20d4493e2bf24409e64a2f50)",
+      "gold_answers": [
+        "Propensity Smelly Score (PSC); 7,072 prompts; less than 10%"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0625,
+      "abstained": false,
+      "citation_ids": [
+        "passage_cb29a541bea974d7f6dd8a80",
+        "passage_20d4493e2bf24409e64a2f50"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.3333333333333333,
+      "gold_citation_precision": 0.5,
+      "gold_citation_recall": 0.3333333333333333,
+      "retrieved_ids": [
+        "passage_cb29a541bea974d7f6dd8a80",
+        "passage_20d4493e2bf24409e64a2f50",
+        "passage_b7a0cd8e289ecd2951e2dc02",
+        "passage_5ffc836f456ce78831bdd63c",
+        "passage_f1aa989cdadbece76c9aacd7"
+      ],
+      "input_tokens": 3137,
+      "output_tokens": 163,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 17.7356174000015,
+      "response_id": "local_d8fe25f24dc446f0b958fceec8800bbf",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0076",
+      "hop_count": 3,
+      "prediction": "",
+      "gold_answers": [
+        "New knowledge (10,479 pairs) and long-tail knowledge (17,887 pairs); 11 property graphs with 7.8 million entities; calibration error and entropy"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.3333333333333333,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "passage_ac51da47239bed88bf6014eb",
+        "passage_0eac6c108f8ea64875ea38c1",
+        "passage_5566e4da0c0c729276d1ed9c",
+        "passage_90e0eddf1d49ce025fe34ce6",
+        "passage_82fcecb85a5d98a257afcfdc"
+      ],
+      "input_tokens": 4071,
+      "output_tokens": 126,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 14.89531839999836,
+      "response_id": "local_46a6b66936644818882135a176e5c7ab",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0077",
+      "hop_count": 3,
+      "prediction": "",
+      "gold_answers": [
+        "Polish, 13 experiments; ThaiExam for Thai-language knowledge; 15 OOD datasets"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "abstained": true,
+      "citation_ids": [],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.3333333333333333,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "passage_5916a5defa96c5fc94e89c03",
+        "passage_b689321dd791d1b0a830930f",
+        "passage_451f2b4e0b486b19ef6f6f55",
+        "passage_729ae3475e21ed2fd9747ede",
+        "passage_9aa610b388876589ed54f51d"
+      ],
+      "input_tokens": 4061,
+      "output_tokens": 124,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 14.944924399998854,
+      "response_id": "local_b9f53752d33c4fceadb9ca47c1d12335",
+      "model": "qwen3:8b",
+      "generation_error": null
+    },
+    {
+      "question_id": "domain-0078",
+      "hop_count": 3,
+      "prediction": "The two specialist test agents are test designer and test executor. The prompt dataset size is 142k. The code-smell metric is PSC.",
+      "gold_answers": [
+        "A test designer and a test executor; 7,072 prompts; Propensity Smelly Score (PSC)"
+      ],
+      "exact_match": 0.0,
+      "token_f1": 0.39999999999999997,
+      "abstained": false,
+      "citation_ids": [
+        "passage_f0e60f9539ad228c2ddd5b9d",
+        "passage_03129b1fafaf58ccf1d11daf",
+        "passage_5b1b905d5f800d8853f4b1ed"
+      ],
+      "citation_valid": true,
+      "valid_citation_fraction": 1.0,
+      "unsupported_citation_ids": [],
+      "supporting_recall_at_k": 0.0,
+      "gold_citation_precision": 0.0,
+      "gold_citation_recall": 0.0,
+      "retrieved_ids": [
+        "passage_cceee0d0267c7ae6b6ba8419",
+        "passage_5b1b905d5f800d8853f4b1ed",
+        "passage_f0e60f9539ad228c2ddd5b9d",
+        "passage_03129b1fafaf58ccf1d11daf",
+        "passage_6289c555b7ec67ac9b0c84fc"
+      ],
+      "input_tokens": 3778,
+      "output_tokens": 127,
+      "estimated_cost_usd": 0.0,
+      "latency_seconds": 15.817084800000885,
+      "response_id": "local_297f8df3f26e41eab3778a56e4f0170d",
+      "model": "qwen3:8b",
+      "generation_error": null
+    }
+  ]
+}

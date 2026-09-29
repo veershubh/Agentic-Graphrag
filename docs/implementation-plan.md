@@ -68,18 +68,18 @@ Build the test before the system.
 - [ ] Chunk (~500 tokens with overlap), embed, store, retrieve top-k, generate
 - [x] Add hybrid retrieval: BM25 + dense with reciprocal rank fusion (a stronger baseline makes later gains more credible)
 - [ ] Build the harness with these metrics:
-  - [ ] Exact match and F1
+  - [x] Exact match and F1
   - [x] Supporting-document recall@k
   - [ ] Faithfulness (LLM judge, calibrated against ~50 human-labeled answers)
-  - [ ] Cost per query
-  - [ ] Latency (p50 / p95)
-- [ ] Split every metric by hop count
-- [ ] Add bootstrap confidence intervals
+  - [x] Cost per query
+  - [x] Latency (p50 / p95)
+- [x] Split reported metrics by hop count
+- [x] Add bootstrap confidence intervals
 - [ ] Make one command produce a results table
 
 **Exit criterion:** `make eval` outputs a baseline results table.
 
-**Progress (2026-09-29):** BM25, pinned local dense embeddings, and BM25+dense RRF have been evaluated on the public MuSiQue slice. Supporting-document recall@5 is reported by hop count with paired bootstrap intervals in `eval/results/public_hybrid_v0.1.json`. On the same first 30 two-hop questions, local Qwen3 4B scored EM/F1 0.000/0.000 and Qwen3 8B scored 0.067/0.165. A stratified Qwen3 8B sample of 10 questions per hop bucket scored overall EM/F1 0.100/0.216, with a 95% F1 interval of 0.112–0.335. All used local inference at zero model API cost. Full records are in the `eval/results/public_answer_qwen3_*.json` files. Answer quality remains inadequate; calibrated faithfulness and broader evaluation remain incomplete.
+**Progress (2026-09-29):** BM25, pinned local dense embeddings, and BM25+dense RRF have been evaluated on the public MuSiQue slice. Supporting-document recall@5 is reported by hop count with paired bootstrap intervals in `eval/results/public_hybrid_v0.1.json`. On the same first 30 two-hop questions, local Qwen3 4B scored EM/F1 0.000/0.000 and Qwen3 8B scored 0.067/0.165. A stratified Qwen3 8B sample of 10 questions per hop bucket scored overall EM/F1 0.100/0.216, with a 95% F1 interval of 0.112–0.335. A deterministic 30-question domain sample (10 per hop) using BM25 passages scored EM/F1 0.000/0.287; hop-wise F1 was 0.343/0.384/0.134, citation validity 0.933 overall, and mean latency 17.38s (one long retry reached 127.54s). All used local inference at zero model API cost. Full records are in `eval/results/public_answer_qwen3_*.json` and `eval/results/domain_answer_qwen3_8b_stratified_v0.1.json`. Answer quality remains inadequate; calibrated faithfulness and broader evaluation remain incomplete.
 
 ---
 

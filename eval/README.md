@@ -95,4 +95,22 @@ The versioned run artifact contains question IDs, retrieved passage IDs, scores,
 
 ## Answer generation evaluator
 
-`python eval/run_answer_eval.py` uses the selected retriever's top-5 passages and local Ollama inference to generate citation-backed answers. It defaults to 30 questions; pass `--limit 0` to run the full remaining set, or use `--offset` for a bounded slice. Start Ollama and pull `qwen3:4b-instruct` first. The script measures exact match, token F1, citation validity, supporting recall, latency, and token usage, with zero model API charges. It writes progress after each question to ignored `data/processed/`; no generated answer metrics are included in this repository yet. Because the local model is smaller than the model originally configured for the answer stage, report its identity with results and audit answer quality before drawing broader conclusions.
+`python eval/run_answer_eval.py` uses the selected retriever's top-5 passages and local Ollama inference to generate citation-backed answers. It defaults to 30 questions; pass `--limit 0` to run the full selected set, or use `--offset` for a bounded slice. Start Ollama and pull the configured answer model (`qwen3:8b`). The script measures exact match, token F1, citation validity, supporting recall, latency, and token usage, with zero model API charges. It writes progress after each question to ignored `data/processed/`; a bounded domain sample is reported below. Because the local model is smaller than the model originally configured for the answer stage, report its identity with results and audit answer quality before drawing broader conclusions.
+
+## Domain local answer sample
+
+The domain answer evaluator uses Qwen3 8B with local Ollama and the top-five BM25 passages. The deterministic sample is the first ten answerable items from each hop bucket in `data/domain/questions_answer_eval_stratified_v0.1.jsonl`; it is not a random sample. Overall EM was 0.000 and token F1 was 0.287 (95% bootstrap CI 0.207–0.371). Citation validity was 0.933, but gold citation precision/recall averaged 0.237/0.289. BM25's retrieved supporting-document recall on these 30 items was 0.556. Mean latency was 17.38s, p95 was 22.69s, and mean API cost was $0.00; one structured-output retry took 127.54s. Four questions were answered with abstentions. These metrics show weak exact-answer quality despite some token overlap and high within-retrieval citation validity.
+
+| Hops | Questions | EM | Token F1 (95% CI) | Citation validity | Supporting recall@5 | Mean latency |
+|---:|---:|---:|---:|---:|---:|---:|
+| 1 | 10 | 0.000 | 0.343 (0.230–0.593) | 1.000 | 0.800 | 9.61s |
+| 2 | 10 | 0.000 | 0.384 (0.238–0.497) | 0.800 | 0.500 | 15.29s |
+| 3 | 10 | 0.000 | 0.134 (0.037–0.198) | 1.000 | 0.367 | 27.25s |
+
+The stratified questions, per-question answers, scores, citation IDs, and checksums are versioned in `data/domain/questions_answer_eval_stratified_v0.1.jsonl` and `results/domain_answer_qwen3_8b_stratified_v0.1.json`. Faithfulness has not been evaluated by a calibrated judge.
+
+Reproduce the answer run with locally ingested domain passages using:
+
+```powershell
+python eval/run_answer_eval.py --questions eval/data/domain/questions_answer_eval_stratified_v0.1.jsonl --passages data/processed/domain_inventory_passages_v1.0.jsonl --retrieval-results eval/results/domain_inventory_bm25_v0.1.json --retriever bm25 --output data/processed/domain_answer_eval_stratified_v0.1.json --limit 0
+```
