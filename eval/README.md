@@ -130,6 +130,8 @@ The selected questions, answer metrics, step counts, stop reasons, retrieval IDs
 
 Qwen3 8B with top-five BM25 passages was run against all 11 verified unanswerable questions. The end-to-end system abstained on 7/11 (63.6%) and produced answers on 4/11 (36.4%). Two malformed, truncated model responses were converted to safe abstentions after retries; excluding those failures, the answerer itself abstained on 5/9 (55.6%). Thus citation-format validation alone does not prevent unsupported answers, and abstention is not reliable yet. Citation validity was 1.000, which only means emitted IDs were among the retrieved passages; it does not mean those passages support a claim. The deterministic questions, retrievals, outputs, failure flags, and hashes are in `data/domain/questions_unanswerable_v1.0.jsonl`, `results/domain_unanswerable_bm25_v0.1.json`, and `results/domain_unanswerable_qwen3_8b_v0.1.json`. Model API cost was $0.00; the longest response including retries took about 161s.
 
+We checked whether BM25's highest passage score could serve as a simple answerability cutoff. Answerable top scores ranged 17.24–68.07 and unanswerable scores ranged 18.98–39.71 (AUC 0.786). A threshold high enough to reject all 11 unanswerable probes retained only 45.9% of answerable questions. This exploratory in-sample result does not support deploying a score cutoff; it would block more than half of answerable queries and still needs independent validation. Reproduce with `python eval/analyze_retrieval_abstention.py`; detailed sweep is in `results/domain_abstention_threshold_v0.1.json`.
+
 Reproduce the two stages with:
 
 ```powershell

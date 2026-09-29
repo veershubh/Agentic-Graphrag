@@ -187,6 +187,8 @@ Build the test before the system.
 
 **Progress (2026-09-29):** The local Qwen3 8B answerer was evaluated on all 11 frozen unanswerable domain probes with BM25 evidence. It abstained end-to-end on 7/11; two of those were fail-closed truncated outputs, and the model itself abstained on 5/9 successfully generated responses. Four unsupported answers show abstention remains unreliable. The run and error flags are versioned in `eval/results/domain_unanswerable_qwen3_8b_v0.1.json`.
 
+**Progress (2026-09-29):** BM25 top-score threshold analysis found overlapping answerable/unanswerable score ranges. Rejecting all 11 negative probes in-sample retained only 45.9% of answerable questions; no confidence cutoff is enabled. Results are in `eval/results/domain_abstention_threshold_v0.1.json`.
+
 **CI**
 - [ ] GitHub Actions runs a small cached eval (~30 questions) on each PR
 - [ ] Fail the build if F1 or faithfulness drops below threshold (leave a margin for LLM nondeterminism)
