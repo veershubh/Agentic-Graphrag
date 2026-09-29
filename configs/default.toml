@@ -1,15 +1,18 @@
 [models]
-extraction = "gpt-4o-mini"
-planning = "gpt-4o-mini"
-answer = "gpt-4o"
-embedding = "text-embedding-3-small"
+extraction = "qwen3:4b-instruct"
+planning = "qwen3:4b-instruct"
+answer = "qwen3:4b-instruct"
+embedding = "sentence-transformers/all-MiniLM-L6-v2"
 temperature = 0.0
+
+[local_llm]
+base_url = "http://127.0.0.1:11434"
+timeout_seconds = 900
+keep_alive = "10m"
 
 [generation]
 max_output_tokens = 256
-# Add current per-million-token rates to enable cost estimates for API runs.
-# input_usd_per_million = 0.0
-# output_usd_per_million = 0.0
+# Answer generation uses local Ollama inference; model API charges are zero.
 
 [chunking]
 target_tokens = 500
@@ -43,9 +46,6 @@ max_output_tokens = 700
 cache_path = "data/processed/graph_extraction_cache.jsonl"
 output_path = "data/processed/domain_graph_pilot.jsonl"
 summary_path = "data/processed/domain_graph_pilot_summary.json"
-# Add current per-million-token rates to enable extraction cost estimates.
-# input_usd_per_million = 0.0
-# output_usd_per_million = 0.0
 
 [agent]
 max_steps = 5
@@ -53,11 +53,6 @@ tool_top_k = 5
 context_chars_per_passage = 1200
 planner_max_output_tokens = 450
 dense_cache_path = "data/processed/domain_agent_dense_cache.npz"
-# Add current per-million-token rates to enable estimated agent call costs.
-# planner_input_usd_per_million = 0.0
-# planner_output_usd_per_million = 0.0
-# answer_input_usd_per_million = 0.0
-# answer_output_usd_per_million = 0.0
 
 [paths]
 raw_data = "data/raw"

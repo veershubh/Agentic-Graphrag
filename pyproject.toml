@@ -13,7 +13,6 @@ dependencies = []
 [project.optional-dependencies]
 papers = ["PyMuPDF>=1.24,<2"]
 retrieval = ["sentence-transformers>=3.0,<6"]
-api = ["openai>=1.68,<3"]
 neo4j = ["neo4j>=5,<7"]
 
 [project.scripts]

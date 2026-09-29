@@ -79,7 +79,7 @@ Build the test before the system.
 
 **Exit criterion:** `make eval` outputs a baseline results table.
 
-**Progress (2026-09-28):** BM25, pinned local dense embeddings, and BM25+dense RRF have been evaluated on the public MuSiQue slice. Supporting-document recall@5 is reported by hop count with paired bootstrap intervals in `eval/results/public_hybrid_v0.1.json`. A citation-constrained OpenAI Responses API evaluator now supports EM/F1, citation validation, token usage, latency, and optional cost estimates, but has not been run. Phase 2 remains in progress until answer metrics, calibrated faithfulness, cost/latency results, and a complete harness are reported.
+**Progress (2026-09-29):** BM25, pinned local dense embeddings, and BM25+dense RRF have been evaluated on the public MuSiQue slice. Supporting-document recall@5 is reported by hop count with paired bootstrap intervals in `eval/results/public_hybrid_v0.1.json`. The first 30-question local Ollama answer run completed with zero model API charges, but the model abstained on all questions (EM/F1 0.0). This is a useful quality failure to investigate; calibrated faithfulness and a successful answer run remain incomplete.
 
 ---
 
@@ -107,13 +107,13 @@ Build the test before the system.
 
 **Exit criterion:** graph loaded, with audit accuracy and extraction cost documented.
 
-**Progress (2026-09-29):** The constrained ontology and deterministic 20-paper, year-balanced structured extraction runner are implemented. Extraction output is provenance-linked and cached by prompt/model/chunk/content hash. Offline consolidation merges stable-name nodes, groups edges while retaining chunk evidence, and emits a conservative alias table plus unresolved collisions. An idempotent batched Neo4j loader, local embedding-based duplicate candidate review queue, and deterministic evidence-backed triple audit worksheet are implemented, but none have been run because extraction output is not available. The paid pilot has not been run; Phase 3 remains in progress pending extraction cost and quality measurements, ambiguous-pair adjudication, Neo4j loading, and audits.
+**Progress (2026-09-29):** The balanced local pilot processed one passage from each of 20 papers using Ollama/Qwen3 4B. It took 255 seconds of model time, with zero model API charges, and produced 175 entity records; 87 of 145 candidate triples passed ontology checks and 58 were rejected. Consolidation produced 173 nodes, 87 edges, and 19 unresolved alias collisions. Local embedding candidate generation produced 12 pairs, and a 50-edge audit worksheet is ready for human labels. This confirms the free local inference path works, but the rejection rate and unaudited extractions are not suitable for scaling yet. Neo4j loading, human audits, and candidate adjudication remain incomplete.
 
 ---
 
 ## Phase 4: Hybrid and Agentic Retrieval (Weeks 4-5)
 
-**Progress (2026-09-29):** A bounded in-memory graph expansion index, fixed BM25+graph RRF retriever, and domain graph retrieval evaluation command are implemented, with optional dense passage rankings and external entity seeds. They have not been run end to end; Phase 4 remains pending graph extractions and retrieval evaluation.
+**Progress (2026-09-29):** A bounded in-memory graph expansion index, fixed BM25+graph RRF retriever, and domain graph retrieval evaluation command are implemented, with optional dense passage rankings and external entity seeds. The initial 20-passage graph evaluated at 0.071 graph-only supporting recall@5; BM25+graph RRF scored 0.457 versus 0.549 for BM25. This small, unaudited graph underperformed the baseline; improve extraction coverage and quality before relying on graph expansion.
 
 **Fixed hybrid pipeline**
 - [ ] Vector search finds seed entities and chunks
@@ -129,7 +129,7 @@ Build the test before the system.
 - [ ] Require citations in the answer
 - [ ] Verify every cited chunk was actually retrieved
 
-**Progress (2026-09-29):** A bounded single-query controller is implemented with keyword/vector/graph tool routing, a configurable step budget, early finish and insufficient-evidence behavior, citation validation, and local token/latency reporting. It has not been run; API usage and domain graph files are still pending.
+**Progress (2026-09-29):** A bounded single-query controller is implemented with keyword/vector/graph tool routing, a configurable step budget, early finish and insufficient-evidence behavior, citation validation, and local token/latency reporting. The agent has not been run end to end; local Ollama replaces hosted model calls, and answer quality and latency still need evaluation.
 
 **Exit criterion:** both retrievers run through the same eval harness.
 
@@ -157,23 +157,23 @@ Build the test before the system.
 
 ---
 
-## Phase 6: Observability, Cost, Guardrails (Weeks 6-7)
+## Phase 6: Observability, Local Runtime, Guardrails (Weeks 6-7)
 
 **Tracing**
-- [ ] Trace every LLM and tool call in Langfuse, with tokens and cost per query
+- [ ] Trace every LLM and tool call locally, with tokens, latency, and zero model API cost per query
 - [ ] Document one failure from symptom to root cause using a trace
 
-**Cost control**
-- [ ] Route cheap models to extraction and planning; stronger model to final answer
-- [ ] Add caching
-- [ ] Measure savings against an all-strong-model run
+**Local runtime controls**
+- [x] Run extraction, planning, and answer generation through loopback Ollama
+- [x] Cache extraction results by prompt, model, and input content
+- [ ] Measure local memory, latency, and power use; hosted model API spend is zero
 
 **Guardrails**
 - [ ] Plant prompt-injection text in a few documents; verify the system ignores it
 - [ ] Test abstention on the unanswerable set
 - [ ] Enforce citation checks
 
-**Exit criterion:** a documented traced failure, plus measured cost savings.
+**Exit criterion:** a documented traced failure, plus measured local resource use.
 
 ---
 
@@ -190,7 +190,7 @@ Build the test before the system.
 - [ ] FastAPI service in Docker
 - [ ] Simple UI showing the answer, citations, and the graph path used
 - [ ] Add rate limiting
-- [ ] Add a hard daily spend cap on the API key so a public link can't burn your budget
+- [ ] Limit local request duration and concurrency so a public link can't overload the host machine
 - [ ] Deploy to a public URL
 - [ ] Record a 2-minute demo video
 
