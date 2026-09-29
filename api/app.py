@@ -17,6 +17,7 @@ from typing import Any
 from urllib.parse import urlparse
 
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
@@ -44,6 +45,7 @@ app = FastAPI(title="Local Agentic GraphRAG", version="0.1.0")
 request_slots = asyncio.Semaphore(MAX_CONCURRENCY)
 rate_lock = asyncio.Lock()
 request_timestamps: deque[float] = deque()
+UI_PATH = REPOSITORY_ROOT / "ui" / "index.html"
 
 
 class AskRequest(BaseModel):
@@ -118,6 +120,13 @@ async def apply_rate_limit() -> None:
 @app.get("/healthz")
 async def health() -> dict[str, Any]:
     return local_resources_ready()
+
+
+@app.get("/", include_in_schema=False)
+async def index() -> FileResponse:
+    if not UI_PATH.is_file():
+        raise HTTPException(status_code=404, detail="Local UI file is missing")
+    return FileResponse(UI_PATH, media_type="text/html")
 
 
 @app.post("/ask", response_model=AskResponse)

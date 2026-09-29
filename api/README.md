@@ -13,7 +13,7 @@ ollama pull qwen3:8b
 uvicorn api.app:app --host 127.0.0.1 --port 8000
 ```
 
-Check local readiness and ask a question:
+Open <http://127.0.0.1:8000/> for the local interface. Check readiness and ask a question directly through the API:
 
 ```powershell
 Invoke-RestMethod http://127.0.0.1:8000/healthz

@@ -191,6 +191,8 @@ Build the test before the system.
 
 **Progress (2026-09-29):** A local FastAPI scaffold now wraps the CLI agent with health/readiness reporting, question length limits, a five-requests-per-minute cap, one concurrent run by default, and a request timeout. It only accepts a loopback Ollama endpoint and is documented to bind on `127.0.0.1`. The route has not been run in an installed FastAPI environment; Docker, the UI, auth/TLS, and public deployment remain open.
 
+**Progress (2026-09-29):** A same-origin static UI is served from `/` and presents answers/abstentions, citations, and the planner's search-tool path. It uses browser text nodes for model output and makes no third-party asset requests. It has not yet been browser-verified or packaged in Docker.
+
 **CI**
 - [ ] GitHub Actions runs a small cached eval (~30 questions) on each PR
 - [ ] Fail the build if F1 or faithfulness drops below threshold (leave a margin for LLM nondeterminism)
@@ -198,7 +200,7 @@ Build the test before the system.
 
 **Deployment**
 - [ ] FastAPI service in Docker
-- [ ] Simple UI showing the answer, citations, and the graph path used
+- [x] Simple local UI showing the answer, citations, and agent search path
 - [x] Add rate limiting
 - [x] Limit local request duration and concurrency so a public link can't overload the host machine
 - [ ] Deploy to a public URL

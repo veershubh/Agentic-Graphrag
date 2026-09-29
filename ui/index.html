@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Local Research Assistant</title>
+  <style>
+    :root { font-family: "Segoe UI", system-ui, sans-serif; color: #172126; background: #f3f6f5; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; }
+    main { width: min(880px, calc(100% - 32px)); margin: 48px auto; }
+    header { margin-bottom: 24px; }
+    h1 { margin: 0 0 8px; font-size: clamp(1.7rem, 4vw, 2.25rem); letter-spacing: -.035em; }
+    p { line-height: 1.55; }
+    .subtle { color: #536168; }
+    .local-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border: 1px solid #b5d8c8; border-radius: 999px; background: #e8f5ee; color: #245a3e; font-size: .84rem; }
+    .local-badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #31845a; }
+    form, .panel { background: white; border: 1px solid #dbe3e0; border-radius: 14px; box-shadow: 0 8px 28px #1721260b; }
+    form { padding: 20px; }
+    label { display: block; margin-bottom: 8px; font-weight: 650; }
+    textarea { display: block; width: 100%; min-height: 120px; resize: vertical; padding: 12px; border: 1px solid #b9c6c1; border-radius: 9px; font: inherit; line-height: 1.5; }
+    textarea:focus, button:focus-visible { outline: 3px solid #8bc4a7; outline-offset: 2px; }
+    .form-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 14px; }
+    button { border: 0; border-radius: 9px; padding: 11px 17px; background: #176e48; color: white; font: inherit; font-weight: 650; cursor: pointer; }
+    button:hover { background: #105b3a; }
+    button:disabled { opacity: .58; cursor: wait; }
+    #status { min-height: 1.5em; color: #536168; }
+    .panel { margin-top: 18px; padding: 20px; }
+    .panel[hidden] { display: none; }
+    .result-heading { display: flex; justify-content: space-between; align-items: start; gap: 16px; }
+    h2 { margin: 0 0 12px; font-size: 1.15rem; }
+    h3 { margin: 22px 0 8px; font-size: .98rem; }
+    .answer { white-space: pre-wrap; overflow-wrap: anywhere; }
+    .state { flex: none; padding: 5px 9px; border-radius: 999px; background: #e8f5ee; color: #245a3e; font-size: .8rem; font-weight: 650; }
+    .state.abstained { background: #fff4dc; color: #73530f; }
+    ul { padding-left: 20px; }
+    li { margin: 8px 0; line-height: 1.45; overflow-wrap: anywhere; }
+    code { font-size: .82rem; }
+    details { margin-top: 12px; }
+    summary { cursor: pointer; font-weight: 620; }
+    .step { padding: 10px 0; border-bottom: 1px solid #e9eeec; }
+    .step:last-child { border-bottom: 0; }
+    .meta { color: #536168; font-size: .88rem; }
+    .error { color: #9b2525 !important; }
+    @media (max-width: 560px) { main { margin: 24px auto; } form, .panel { padding: 16px; } .form-footer { align-items: stretch; flex-direction: column; } button { width: 100%; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <span class="local-badge">Runs on this computer</span>
+      <h1>Ask about the research corpus</h1>
+      <p class="subtle">The local agent searches paper passages and the research graph. Answers may abstain when evidence is missing; check the cited passages.</p>
+    </header>
+
+    <form id="question-form">
+      <label for="question">Your research question</label>
+      <textarea id="question" name="question" minlength="5" maxlength="1000" required placeholder="Ask a question that may need more than one paper…"></textarea>
+      <div class="form-footer">
+        <span class="subtle">Local inference · no model API charges · requests can take a minute or more</span>
+        <button id="submit" type="submit">Search and answer</button>
+      </div>
+    </form>
+    <p id="status" role="status" aria-live="polite"></p>
+
+    <section id="result" class="panel" aria-labelledby="result-title" hidden>
+      <div class="result-heading">
+        <div>
+          <h2 id="result-title">Answer</h2>
+          <div id="answer" class="answer"></div>
+        </div>
+        <span id="answer-state" class="state"></span>
+      </div>
+      <p id="meta" class="meta"></p>
+      <h3>Citations</h3>
+      <ul id="citations"></ul>
+      <details>
+        <summary>Search path</summary>
+        <div id="steps"></div>
+      </details>
+    </section>
+  </main>
+
+  <script>
+    const form = document.querySelector("#question-form");
+    const question = document.querySelector("#question");
+    const submit = document.querySelector("#submit");
+    const status = document.querySelector("#status");
+    const result = document.querySelector("#result");
+
+    function addText(parent, tag, text, className) {
+      const element = document.createElement(tag);
+      element.textContent = text;
+      if (className) element.className = className;
+      parent.append(element);
+      return element;
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+      submit.disabled = true;
+      status.className = "";
+      status.textContent = "Searching local passages and graph…";
+      result.hidden = true;
+      try {
+        const response = await fetch("/ask", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question: question.value.trim() }),
+        });
+        const payload = await response.json();
+        if (!response.ok) throw new Error(payload.detail || `Request failed (${response.status})`);
+        document.querySelector("#answer").textContent = payload.answer || "The agent abstained because it did not return a supported answer.";
+        const answerState = document.querySelector("#answer-state");
+        answerState.textContent = payload.abstained ? "Abstained" : "Answer generated";
+        answerState.className = payload.abstained ? "state abstained" : "state";
+        document.querySelector("#meta").textContent = `${payload.latency_seconds.toFixed(1)}s · stop: ${payload.stop_reason} · citation IDs verified against retrieved passages: ${payload.citation_valid ? "yes" : "no"}`;
+
+        const citations = document.querySelector("#citations");
+        citations.replaceChildren();
+        if (payload.citations.length) {
+          for (const citation of payload.citations) {
+            addText(citations, "li", `${citation.title || "Untitled paper"} — ${citation.passage_id}`);
+          }
+        } else {
+          addText(citations, "li", "No passages were cited.");
+        }
+
+        const steps = document.querySelector("#steps");
+        steps.replaceChildren();
+        if (payload.steps.length) {
+          payload.steps.forEach((step) => {
+            const row = addText(steps, "div", `Step ${step.step} · ${step.action} · ${step.tool} · ${step.query}`, "step");
+            addText(row, "div", `${step.result_ids.length} passage result(s)`, "meta");
+          });
+        } else {
+          addText(steps, "p", "No search steps were recorded.", "meta");
+        }
+        result.hidden = false;
+        status.textContent = "Done.";
+      } catch (error) {
+        status.textContent = error.message || "The local API could not complete the request.";
+        status.className = "error";
+      } finally {
+        submit.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
