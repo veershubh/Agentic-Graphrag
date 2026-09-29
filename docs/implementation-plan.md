@@ -129,7 +129,7 @@ Build the test before the system.
 - [ ] Require citations in the answer
 - [ ] Verify every cited chunk was actually retrieved
 
-**Progress (2026-09-29):** A bounded single-query controller is implemented with keyword/vector/graph tool routing, a configurable step budget, early finish and insufficient-evidence behavior, citation validation, and local token/latency reporting. The agent has not been run end to end; local Ollama replaces hosted model calls, and answer quality and latency still need evaluation.
+**Progress (2026-09-29):** A bounded single-query controller is implemented with keyword/vector/graph tool routing, a configurable step budget, early finish and insufficient-evidence behavior, citation validation, and local token/latency reporting. One verified domain query completed locally in 94 seconds with a warm embedding cache; it returned a relevant answer with valid citations. Building the 10,878-passage embedding cache took about 14 minutes once. A short planner query fell back to the user question, and final context prioritizes recent search results after the first run exposed irrelevant-context contamination. This is a wiring check, not an accuracy result; broader agent evaluation remains.
 
 **Exit criterion:** both retrievers run through the same eval harness.
 
