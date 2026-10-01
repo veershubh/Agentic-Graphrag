@@ -1,6 +1,6 @@
 # Evaluation
 
-`eval/data/public/` contains the frozen 300-question MuSiQue slice, its candidate passages, and source manifest. `eval/data/domain/` contains a frozen 109-question set and provisional metadata inventory; full-text paper relevance and rights review remain open. `python eval/run_retrieval_eval.py` runs the BM25 retrieval-only baseline. `python eval/run_hybrid_eval.py` compares BM25, dense, and BM25+dense RRF retrieval on the same public slice. The answer evaluator uses local Ollama; its first 30-question run is recorded below. Faithfulness judging and graph-assisted answer variants remain future work. Keep the public and domain tracks independent.
+`eval/data/public/` contains the frozen 300-question MuSiQue slice, its candidate passages, and source manifest. `eval/data/domain/` contains a frozen 109-question set and provisional metadata inventory; full-text paper relevance and rights review remain open. `python eval/run_retrieval_eval.py` runs the BM25 retrieval-only baseline. `python eval/run_hybrid_eval.py` compares BM25, dense, and BM25+dense RRF retrieval on the same public slice. The answer evaluator uses local Ollama and accepts ranking keys saved by either the hybrid or graph evaluator, including fixed graph hybrid variants. Faithfulness judging remains future work. Keep the public and domain tracks independent.
 
 Build a combined Markdown snapshot from the checked-in artifacts with `python eval/build_results_report.py`; it writes `eval/results-summary.md` and does not run retrieval or call a model. The report intentionally labels the provisional domain and three-question agent pilot so small or unaudited samples are not mistaken for final results.
 
@@ -98,6 +98,14 @@ The versioned run artifact contains question IDs, retrieved passage IDs, scores,
 ## Answer generation evaluator
 
 `python eval/run_answer_eval.py` uses the selected retriever's top-5 passages and local Ollama inference to generate citation-backed answers. It defaults to 30 questions; pass `--limit 0` to run the full selected set, or use `--offset` for a bounded slice. Start Ollama and pull the configured answer model (`qwen3:8b`). The script measures exact match, token F1, citation validity, supporting recall, latency, and token usage, with zero model API charges. It writes progress after each question to ignored `data/processed/`; a bounded domain sample is reported below. Because the local model is smaller than the model originally configured for the answer stage, report its identity with results and audit answer quality before drawing broader conclusions.
+
+Run the answer evaluator on the fixed-hybrid domain rankings and the same 30-question stratified sample used by the BM25 answer baseline with:
+
+```powershell
+python eval/run_answer_eval.py --questions eval/data/domain/questions_answer_eval_stratified_v0.1.jsonl --passages data/processed/domain_inventory_passages_v1.0.jsonl --retrieval-results eval/results/domain_graph_dense_entity_seed_v0.1.json --retriever bm25_dense_entity_graph_rrf --output data/processed/domain_fixed_hybrid_answer_eval_v0.1.json --limit 0
+```
+
+On the completed sample, fixed-hybrid token F1 was 0.289 (95% bootstrap CI 0.219–0.361), versus 0.287 (0.207–0.371) for the BM25 answer baseline. The paired difference was +0.002 (95% CI -0.074 to +0.080); this small sample provides no evidence of an answer-quality improvement. Supporting recall on those same 30 questions was 0.244 for fixed hybrid versus 0.556 for BM25. The fixed-hybrid answer-generation time averaged 16.1s; retrieval was precomputed. The versioned run is `results/domain_fixed_hybrid_answer_qwen3_8b_v0.1.json`, and the paired comparison is in `results-summary.md`.
 
 ## Domain local answer sample
 

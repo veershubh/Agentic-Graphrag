@@ -139,6 +139,8 @@ Build the test before the system.
 
 **Progress (2026-10-01):** The fixed hybrid now also retrieves graph seed entities from dense vectors over entity names and aliases, expands those entities under configured node/chunk caps, and fuses linked chunks with BM25 and dense passage rankings. On the same 98 answerable questions, dense-seeded graph-only recall@5 was 0.024; BM25+dense+graph with dense entity seeds scored 0.340, versus 0.349 for the BM25-seeded graph variant and 0.549 for BM25. This completes the bounded fixed-hybrid retrieval path but shows no improvement on this unaudited pilot. Results and cache metadata are in `eval/results/domain_graph_dense_entity_seed_v0.1.json`.
 
+**Progress (2026-10-01):** The fixed hybrid now also runs through the same answer metrics on the identical 30-question stratified domain sample as the BM25 answer baseline. Fixed hybrid token F1 was 0.289 (95% CI 0.219–0.361) versus 0.287 (0.207–0.371) for BM25; paired F1 difference was +0.002 (95% CI -0.074 to +0.080), so the sample does not show an answer-quality improvement. Its supporting recall on this sample was 0.244 versus 0.556 for BM25. Mean answer-generation latency was 16.1s; retrieval was precomputed. The machine-readable answer run is in `eval/results/domain_fixed_hybrid_answer_qwen3_8b_v0.1.json`.
+
 ---
 
 ## Phase 5: Ablations and Analysis (Week 6)

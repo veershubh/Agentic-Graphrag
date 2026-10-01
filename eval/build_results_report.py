@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import random
 from pathlib import Path
 from typing import Any
 
@@ -83,7 +84,8 @@ def markdown_table(columns: list[str], rows: list[list[str]]) -> str:
 def answer_rows(result: dict[str, Any], label: str) -> tuple[list[str], list[list[str]]]:
     overall = result.get("overall", {})
     hops = sorted(result.get("by_hop", {}), key=int)
-    columns = ["Run", "Questions", *(f"{hop}-hop F1" for hop in hops), "EM", "F1 (95% CI)", "Citation valid", "Mean latency", "API cost"]
+    columns = ["Run", "Questions", *(f"{hop}-hop F1" for hop in hops), "EM", "F1 (95% CI)", "Citation valid", "Mean latency (scope)", "API cost"]
+    latency_scope = "end-to-end" if "agent pilot" in label.casefold() else "answer only"
     row = [
         label,
         str(overall.get("question_count", result.get("requested_question_count", "—"))),
@@ -91,10 +93,41 @@ def answer_rows(result: dict[str, Any], label: str) -> tuple[list[str], list[lis
         metric(overall.get("exact_match")),
         f"{metric(overall.get('token_f1'))} ({interval(overall.get('token_f1_bootstrap_95_ci'))})",
         metric(overall.get("citation_validity_rate")),
-        f"{metric(overall.get('mean_latency_seconds'), 1)}s",
+        f"{metric(overall.get('mean_latency_seconds'), 1)}s {latency_scope}",
         f"${metric(result.get('estimated_model_api_cost_usd', overall.get('estimated_cost_usd', 0.0)), 2)}",
     ]
     return columns, [row]
+
+
+def paired_f1_differences(baseline: dict[str, Any], candidate: dict[str, Any]) -> list[tuple[str, int, float, list[float]]]:
+    baseline_records = {str(row["question_id"]): row for row in baseline.get("records", [])}
+    candidate_records = {str(row["question_id"]): row for row in candidate.get("records", [])}
+    if not baseline_records or baseline_records.keys() != candidate_records.keys():
+        raise SystemExit("Paired answer comparison requires the same non-empty question IDs in both runs")
+    differences_by_hop: dict[str, list[float]] = {}
+    for question_id, baseline_record in baseline_records.items():
+        candidate_record = candidate_records[question_id]
+        if str(baseline_record["hop_count"]) != str(candidate_record["hop_count"]):
+            raise SystemExit(f"Hop-count mismatch for paired question {question_id}")
+        hop = str(baseline_record["hop_count"])
+        differences_by_hop.setdefault(hop, []).append(
+            float(candidate_record["token_f1"]) - float(baseline_record["token_f1"])
+        )
+
+    def interval(values: list[float], seed: int) -> list[float]:
+        rng = random.Random(seed)
+        samples = sorted(
+            sum(rng.choices(values, k=len(values))) / len(values)
+            for _ in range(10000)
+        )
+        return [samples[249], samples[9749]]
+
+    output = []
+    all_differences = [difference for rows in differences_by_hop.values() for difference in rows]
+    output.append(("Overall", len(all_differences), sum(all_differences) / len(all_differences), interval(all_differences, 20261001)))
+    for hop, values in sorted(differences_by_hop.items(), key=lambda item: int(item[0])):
+        output.append((f"{hop}-hop", len(values), sum(values) / len(values), interval(values, 20261001 + int(hop))))
+    return output
 
 
 def main() -> None:
@@ -132,6 +165,7 @@ def main() -> None:
     answer_specs = [
         ("public_answer_qwen3_8b_stratified_v0.1.json", "Public Qwen3 8B, stratified 30"),
         ("domain_answer_qwen3_8b_stratified_v0.1.json", "Domain Qwen3 8B, stratified 30"),
+        ("domain_fixed_hybrid_answer_qwen3_8b_v0.1.json", "Domain fixed hybrid Qwen3 8B, stratified 30"),
         ("domain_agent_qwen3_8b_pilot_v0.1.json", "Domain agent pilot, 3 total"),
     ]
     answer_table: list[list[str]] = []
@@ -142,6 +176,23 @@ def main() -> None:
         answer_columns = columns
         answer_table.extend(rows)
     sections.extend([markdown_table(answer_columns or [], answer_table), "", "The agent result is a three-question wiring pilot and is not directly comparable as a quality estimate. Faithfulness has not been calibrated against human labels.", ""])
+
+    baseline_answer = read_result("domain_answer_qwen3_8b_stratified_v0.1.json")
+    fixed_hybrid_answer = read_result("domain_fixed_hybrid_answer_qwen3_8b_v0.1.json")
+    differences = paired_f1_differences(baseline_answer, fixed_hybrid_answer)
+    sections.extend(
+        [
+            "## Paired fixed-hybrid answer difference versus BM25",
+            "",
+            "Token F1 difference on identical question IDs; positive values favor the fixed hybrid. Confidence intervals use 10,000 paired question-bootstrap resamples.",
+            "",
+            markdown_table(
+                ["Bucket", "Questions", "F1 difference", "95% CI"],
+                [[label, str(count), metric(delta), interval(ci)] for label, count, delta, ci in differences],
+            ),
+            "",
+        ]
+    )
 
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text("\n".join(sections), encoding="utf-8")

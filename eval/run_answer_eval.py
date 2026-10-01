@@ -125,7 +125,21 @@ def main() -> None:
     parser.add_argument("--questions", type=Path, default=Path("eval/data/public/musique_v1.0_300.jsonl"))
     parser.add_argument("--passages", type=Path, default=Path("eval/data/public/musique_v1.0_corpus.jsonl"))
     parser.add_argument("--retrieval-results", type=Path, default=Path("eval/results/public_hybrid_v0.1.json"))
-    parser.add_argument("--retriever", choices=("bm25", "dense", "bm25_dense_rrf"), default="bm25_dense_rrf")
+    parser.add_argument(
+        "--retriever",
+        choices=(
+            "bm25",
+            "dense",
+            "bm25_dense_rrf",
+            "graph",
+            "bm25_graph_rrf",
+            "bm25_dense_graph_rrf",
+            "dense_entity_graph",
+            "bm25_dense_entity_graph_rrf",
+        ),
+        default="bm25_dense_rrf",
+        help="Ranking key from the retrieval result artifact; includes lexical- and dense-seeded graph variants",
+    )
     parser.add_argument("--config", type=Path, default=Path("configs/default.toml"))
     parser.add_argument("--output", type=Path, default=Path("data/processed/public_answer_eval.json"))
     parser.add_argument("--limit", type=int, default=30, help="Maximum questions to run; use 0 for all remaining questions")

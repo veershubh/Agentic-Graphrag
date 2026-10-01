@@ -33,10 +33,22 @@ This provisional domain corpus has not completed relevance/rights review; the gr
 
 ## Answer generation
 
-| Run | Questions | 1-hop F1 | 2-hop F1 | 3-hop F1 | EM | F1 (95% CI) | Citation valid | Mean latency | API cost |
+| Run | Questions | 1-hop F1 | 2-hop F1 | 3-hop F1 | EM | F1 (95% CI) | Citation valid | Mean latency (scope) | API cost |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Public Qwen3 8B, stratified 30 | 30 | 0.243 | 0.161 | 0.244 | 0.100 | 0.216 (0.112–0.335) | 1.000 | 8.4s | $0.00 |
-| Domain Qwen3 8B, stratified 30 | 30 | 0.343 | 0.384 | 0.134 | 0.000 | 0.287 (0.207–0.371) | 0.933 | 17.4s | $0.00 |
-| Domain agent pilot, 3 total | 3 | 0.167 | 0.419 | 0.080 | 0.000 | 0.222 (0.080–0.419) | 1.000 | 77.4s | $0.00 |
+| Public Qwen3 8B, stratified 30 | 30 | 0.243 | 0.161 | 0.244 | 0.100 | 0.216 (0.112–0.335) | 1.000 | 8.4s answer only | $0.00 |
+| Domain Qwen3 8B, stratified 30 | 30 | 0.343 | 0.384 | 0.134 | 0.000 | 0.287 (0.207–0.371) | 0.933 | 17.4s answer only | $0.00 |
+| Domain fixed hybrid Qwen3 8B, stratified 30 | 30 | 0.346 | 0.350 | 0.169 | 0.000 | 0.289 (0.219–0.361) | 0.967 | 16.1s answer only | $0.00 |
+| Domain agent pilot, 3 total | 3 | 0.167 | 0.419 | 0.080 | 0.000 | 0.222 (0.080–0.419) | 1.000 | 77.4s end-to-end | $0.00 |
 
 The agent result is a three-question wiring pilot and is not directly comparable as a quality estimate. Faithfulness has not been calibrated against human labels.
+
+## Paired fixed-hybrid answer difference versus BM25
+
+Token F1 difference on identical question IDs; positive values favor the fixed hybrid. Confidence intervals use 10,000 paired question-bootstrap resamples.
+
+| Bucket | Questions | F1 difference | 95% CI |
+| --- | ---: | ---: | ---: |
+| Overall | 30 | 0.002 | -0.074–0.080 |
+| 1-hop | 10 | 0.003 | -0.142–0.150 |
+| 2-hop | 10 | -0.033 | -0.169–0.095 |
+| 3-hop | 10 | 0.036 | -0.081–0.165 |
