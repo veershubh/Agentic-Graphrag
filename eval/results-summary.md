@@ -24,8 +24,10 @@ Public BM25-only artifact (same frozen 300-question track):
 | graph | 98 | 0.026 | 0.067 | 0.033 | 0.041 | 0.014–0.073 |
 | bm25_graph_rrf | 98 | 0.632 | 0.400 | 0.222 | 0.435 | 0.361–0.514 |
 | dense | 98 | 0.316 | 0.117 | 0.056 | 0.175 | 0.111–0.247 |
-| bm25_dense_graph_rrf | 98 | 0.579 | 0.250 | 0.156 | 0.349 | 0.270–0.430 |
 | bm25_dense_rrf | 98 | 0.579 | 0.200 | 0.133 | 0.327 | 0.250–0.405 |
+| bm25_dense_graph_rrf | 98 | 0.579 | 0.250 | 0.156 | 0.349 | 0.270–0.430 |
+| dense_entity_graph | 98 | 0.026 | 0.033 | 0.011 | 0.024 | 0.003–0.053 |
+| bm25_dense_entity_graph_rrf | 98 | 0.579 | 0.233 | 0.144 | 0.340 | 0.262–0.422 |
 
 This provisional domain corpus has not completed relevance/rights review; the graph has not passed manual quality audits.
 

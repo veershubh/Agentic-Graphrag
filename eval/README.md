@@ -18,7 +18,7 @@ A second Qwen3 8B run used 10 questions from each hop bucket, with identical BM2
 
 The stratified sample and per-question outputs are in `results/public_answer_qwen3_8b_stratified_v0.1.json`; it uses source record offsets 0, 100, and 200, not a random sample. The larger model has higher local memory and latency needs. All runs have zero model API cost.
 
-Once graph extraction and consolidation have produced local node and edge files, `python eval/run_graph_eval.py` compares graph-only and BM25+graph RRF on the frozen domain questions. Add `--include-dense` to also compare dense-only and BM25+dense+graph RRF; dense domain encoding may be slow on CPU. The runner reports hop-stratified supporting recall, bootstrap intervals, paired comparisons, and input hashes. It has been run on the expanded 197-passage local graph pilot; see the result below and the caveat in `../graph/README.md`.
+Once graph extraction and consolidation have produced local node and edge files, `python eval/run_graph_eval.py` compares graph-only and BM25+graph RRF on the frozen domain questions. Add `--include-dense` to compare dense-only, BM25+dense, and both lexical- and dense-entity-seeded graph expansion variants. Dense passage and entity vectors run locally; first-time encoding may be slow on CPU. The runner reports hop-stratified supporting recall, bootstrap intervals, paired comparisons, and input hashes. Results on the expanded 197-passage graph pilot include `results/domain_graph_dense_entity_seed_v0.1.json`; see the caveat in `../graph/README.md`.
 
 ## Initial local graph pilot
 

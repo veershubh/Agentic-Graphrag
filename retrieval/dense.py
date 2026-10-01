@@ -27,12 +27,17 @@ class DenseRetriever:
         cache_path: Path,
         batch_size: int = 64,
         cpu_threads: int = 4,
+        encoder: Any | None = None,
     ):
         try:
-            from sentence_transformers import SentenceTransformer
             import torch
         except ImportError as error:
             raise RuntimeError('Install the optional dependencies with: python -m pip install -e ".[retrieval]"') from error
+        if encoder is None:
+            try:
+                from sentence_transformers import SentenceTransformer
+            except ImportError as error:
+                raise RuntimeError('Install the optional dependencies with: python -m pip install -e ".[retrieval]"') from error
         if cpu_threads < 1:
             raise ValueError("cpu_threads must be at least 1")
         torch.set_num_threads(cpu_threads)
@@ -41,7 +46,7 @@ class DenseRetriever:
         self.model_name = model_name
         self.revision = revision
         self.cache_path = cache_path
-        self.model = SentenceTransformer(model_name, revision=revision, device="cpu")
+        self.model = encoder or SentenceTransformer(model_name, revision=revision, device="cpu")
         self.embeddings, self.cache_hit = self._load_or_encode(batch_size)
 
     def _load_or_encode(self, batch_size: int) -> tuple[np.ndarray, bool]:

@@ -118,10 +118,10 @@ Build the test before the system.
 **Progress (2026-09-29):** A bounded in-memory graph expansion index, fixed BM25+graph RRF retriever, and domain graph retrieval evaluation command are implemented, with optional dense passage rankings and external entity seeds. The expanded 197-passage graph evaluated at 0.041 graph-only supporting recall@5; BM25+graph RRF scored 0.435 versus 0.549 for BM25 (paired difference -0.114, 95% CI -0.179 to -0.054). Even with more extraction coverage, this unaudited graph underperformed the baseline; improve extraction and entity resolution quality before relying on graph expansion.
 
 **Fixed hybrid pipeline**
-- [ ] Vector search finds seed entities and chunks
-- [ ] Expand 1-2 hops in the graph
-- [ ] Collect linked chunks, then rerank
-- [ ] Cap expansion (max nodes and max chunks) so context doesn't flood
+- [x] Vector search finds seed entities and chunks
+- [x] Expand 1-2 hops in the graph
+- [x] Collect linked chunks, then rerank
+- [x] Cap expansion (max nodes and max chunks) so context doesn't flood
 
 **Agentic pipeline**
 - [x] Planner decomposes the question into sub-questions
@@ -137,6 +137,8 @@ Build the test before the system.
 
 **Exit criterion:** both retrievers run through the same eval harness.
 
+**Progress (2026-10-01):** The fixed hybrid now also retrieves graph seed entities from dense vectors over entity names and aliases, expands those entities under configured node/chunk caps, and fuses linked chunks with BM25 and dense passage rankings. On the same 98 answerable questions, dense-seeded graph-only recall@5 was 0.024; BM25+dense+graph with dense entity seeds scored 0.340, versus 0.349 for the BM25-seeded graph variant and 0.549 for BM25. This completes the bounded fixed-hybrid retrieval path but shows no improvement on this unaudited pilot. Results and cache metadata are in `eval/results/domain_graph_dense_entity_seed_v0.1.json`.
+
 ---
 
 ## Phase 5: Ablations and Analysis (Week 6)
@@ -145,7 +147,7 @@ Build the test before the system.
   - [x] Vector-only
   - [x] BM25 + vector
   - [x] Graph-only
-  - [ ] Fixed hybrid
+  - [x] Fixed hybrid
   - [x] Agentic (three-question wiring pilot; not a full ablation)
 - [x] Vary hop depth (1 vs 2) and top-k
 - [ ] Produce tables and charts split by hop count
@@ -157,7 +159,7 @@ Build the test before the system.
   - generation error
 - [x] Document where GraphRAG does NOT help (negative results are strong interview material)
 
-**Progress (2026-09-29):** On the 98-answerable-question domain track, BM25 recall@5 was 0.549; dense-only was 0.175, BM25+dense RRF 0.327, graph-only 0.041, BM25+graph RRF 0.435, and BM25+dense+graph RRF 0.349. Paired bootstrap intervals are recorded in `eval/README.md` and result artifacts. The 1-vs-2-hop sweep tied at top-5 under current expansion caps; top-k 3/5/10 results are versioned. A three-question agent pilot scored F1 0.222 vs BM25's 0.315 on the same items and took 77.4s vs 14.4s mean latency. These limited runs document negative results rather than a gain; larger fixed-hybrid and agent ablations remain open.
+**Progress (2026-09-29):** On the 98-answerable-question domain track, BM25 recall@5 was 0.549; dense-only was 0.175, BM25+dense RRF 0.327, graph-only 0.041, BM25+graph RRF 0.435, and BM25+dense+graph RRF 0.349. Paired bootstrap intervals are recorded in `eval/README.md` and result artifacts. The 1-vs-2-hop sweep tied at top-5 under current expansion caps; top-k 3/5/10 results are versioned. A three-question agent pilot scored F1 0.222 vs BM25's 0.315 on the same items and took 77.4s vs 14.4s mean latency. These limited runs document negative results rather than a gain; answer-level fixed-hybrid and broader agent ablations remain open.
 
 **Exit criterion:** a results section you can defend line by line.
 

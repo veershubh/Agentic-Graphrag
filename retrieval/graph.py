@@ -47,6 +47,7 @@ class GraphIndex:
             }
             for identifier, node in sorted(self.nodes.items())
         ]
+        self.entity_documents = entity_documents
         self.entity_bm25 = BM25(entity_documents, k1=entity_k1, b=entity_b)
         self.entity_ids = [str(document["id"]) for document in self.entity_bm25.documents]
 

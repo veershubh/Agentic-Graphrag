@@ -23,6 +23,7 @@ top_k = 5
 graph_hops = 2
 max_graph_nodes = 100
 max_graph_chunks = 30
+entity_seed_k = 10
 bootstrap_replicates = 10000
 bootstrap_seed = 20260928
 
@@ -58,4 +59,3 @@ dense_cache_path = "data/processed/domain_agent_dense_cache.npz"
 raw_data = "data/raw"
 processed_data = "data/processed"
 evaluation_data = "eval/data"
-

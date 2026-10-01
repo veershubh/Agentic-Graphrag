@@ -1,4 +1,4 @@
-"""Evaluate graph-only and fixed graph hybrid retrieval on the frozen domain track."""
+"""Evaluate lexical- and dense-seeded graph retrieval on the frozen domain track."""
 
 from __future__ import annotations
 
@@ -28,7 +28,17 @@ def main() -> None:
     parser.add_argument("--config", type=Path, default=Path("configs/default.toml"))
     parser.add_argument("--output", type=Path, default=Path("eval/results/domain_graph_v0.1.json"))
     parser.add_argument("--embedding-cache", type=Path, default=Path("data/processed/domain_graph_dense_cache.npz"))
-    parser.add_argument("--include-dense", action="store_true", help="Add local dense passage retrieval; this can be slow on CPU")
+    parser.add_argument(
+        "--entity-embedding-cache",
+        type=Path,
+        default=Path("data/processed/domain_graph_entity_dense_cache.npz"),
+        help="Local vector cache for entity names and aliases used to seed graph expansion",
+    )
+    parser.add_argument(
+        "--include-dense",
+        action="store_true",
+        help="Add local dense passage retrieval and dense entity seeds for graph expansion; can be slow on CPU",
+    )
     parser.add_argument("--top-k", type=int, help="Override the configured result cutoff")
     parser.add_argument("--graph-hops", type=int, help="Override graph expansion depth")
     args = parser.parse_args()
@@ -115,10 +125,54 @@ def main() -> None:
             top_k=candidate_k,
             batch_size=int(dense_config.get("batch_size", 64)),
         )
+        entity_cache_path = args.entity_embedding_cache
+        if not entity_cache_path.is_absolute():
+            entity_cache_path = REPOSITORY_ROOT / entity_cache_path
+        entity_dense = DenseRetriever(
+            graph.entity_documents,
+            model_name=dense_config["model"],
+            revision=dense_config["revision"],
+            cache_path=entity_cache_path,
+            batch_size=int(dense_config.get("batch_size", 64)),
+            cpu_threads=int(dense_config.get("cpu_threads", 4)),
+            encoder=dense.model,
+        )
+        entity_seed_k = int(retrieval_config.get("entity_seed_k", 10))
+        dense_entity_rankings = entity_dense.search_many(
+            [question["question"] for question in questions],
+            top_k=entity_seed_k,
+            batch_size=int(dense_config.get("batch_size", 64)),
+        )
+        dense_entity_seeds = [
+            [str(graph.entity_documents[index]["id"]) for index, _score in ranking]
+            for ranking in dense_entity_rankings
+        ]
+        dense_seeded_graph_rankings = [
+            graph.expand(
+                question["question"],
+                hops=graph_hops,
+                max_nodes=int(retrieval_config.get("max_graph_nodes", 100)),
+                max_chunks=int(retrieval_config.get("max_graph_chunks", 30)),
+                seed_limit=entity_seed_k,
+                seed_entity_ids=seed_ids,
+            )
+            for question, seed_ids in zip(questions, dense_entity_seeds, strict=True)
+        ]
         rankings["dense"] = dense_rankings
+        rankings["bm25_dense_rrf"] = [
+            reciprocal_rank_fusion(sparse, dense_rank, rrf_k=rrf_k)
+            for sparse, dense_rank in zip(lexical, dense_rankings, strict=True)
+        ]
         rankings["bm25_dense_graph_rrf"] = [
             reciprocal_rank_fusion(sparse, dense_rank, graph_rank, rrf_k=rrf_k)
             for sparse, dense_rank, graph_rank in zip(lexical, dense_rankings, graph_rankings, strict=True)
+        ]
+        rankings["dense_entity_graph"] = dense_seeded_graph_rankings
+        rankings["bm25_dense_entity_graph_rrf"] = [
+            reciprocal_rank_fusion(sparse, dense_rank, graph_rank, rrf_k=rrf_k)
+            for sparse, dense_rank, graph_rank in zip(
+                lexical, dense_rankings, dense_seeded_graph_rankings, strict=True
+            )
         ]
         settings.update(
             {
@@ -128,6 +182,12 @@ def main() -> None:
                 "embedding_cpu_threads": int(dense_config.get("cpu_threads", 4)),
                 "embedding_cache_hit": dense.cache_hit,
                 "embedding_cache_path": str(cache_path),
+                "entity_seed_method": "local dense retrieval over entity names and aliases",
+                "entity_seed_k": entity_seed_k,
+                "entity_embedding_model": dense_config["model"],
+                "entity_embedding_revision": dense_config["revision"],
+                "entity_embedding_cache_hit": entity_dense.cache_hit,
+                "entity_embedding_cache_path": str(entity_cache_path),
             }
         )
 

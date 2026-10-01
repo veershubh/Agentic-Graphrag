@@ -104,7 +104,7 @@ def main() -> None:
     output = args.output if args.output.is_absolute() else ROOT / args.output
 
     public = read_result("public_hybrid_v0.1.json")
-    domain = read_result("domain_graph_dense_v0.1.json")
+    domain = read_result("domain_graph_dense_entity_seed_v0.1.json")
     domain_dense = read_result("domain_dense_v0.1.json")
     public_legacy_bm25 = read_result("public_bm25_v0.1.json")
 
