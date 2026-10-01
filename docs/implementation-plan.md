@@ -217,13 +217,15 @@ Build the test before the system.
 ## Phase 8: Packaging (Week 8)
 
 **README structure**
-- [ ] Problem statement
-- [ ] Results table (by hop count, with confidence intervals)
-- [ ] Architecture diagram
-- [ ] How to reproduce
+- [x] Problem statement
+- [x] Results table (by hop count, with confidence intervals)
+- [x] Architecture diagram
+- [x] How to reproduce
 - [ ] Failure gallery (5-10 real misses and why)
-- [ ] Cost and latency
-- [ ] Limitations
+- [x] Cost and latency
+- [x] Limitations
+
+**Progress (2026-10-01):** The README now states the research question and current negative domain result, links the generated hop-split report, shows the end-to-end architecture, gives commands to reproduce public retrieval, and summarizes measured latency/cost and the known limitations. A manually reviewed failure gallery remains open; aggregate metrics alone are not enough to attribute root causes.
 
 **Extras**
 - [ ] Write a short blog post on what you learned, including negative results
