@@ -2,6 +2,8 @@
 
 `eval/data/public/` contains the frozen 300-question MuSiQue slice, its candidate passages, and source manifest. `eval/data/domain/` contains a frozen 109-question set and provisional metadata inventory; full-text paper relevance and rights review remain open. `python eval/run_retrieval_eval.py` runs the BM25 retrieval-only baseline. `python eval/run_hybrid_eval.py` compares BM25, dense, and BM25+dense RRF retrieval on the same public slice. The answer evaluator uses local Ollama; its first 30-question run is recorded below. Faithfulness judging and graph-assisted answer variants remain future work. Keep the public and domain tracks independent.
 
+Build a combined Markdown snapshot from the checked-in artifacts with `python eval/build_results_report.py`; it writes `eval/results-summary.md` and does not run retrieval or call a model. The report intentionally labels the provisional domain and three-question agent pilot so small or unaudited samples are not mistaken for final results.
+
 ## Initial local answer run
 
 The same first 30 two-hop questions were run with two local models over identical BM25+dense RRF passages. Qwen3 4B abstained on all 30 (EM 0.000, F1 0.000, mean latency 1.87s). Qwen3 8B abstained on 11, answered 19, and achieved EM 0.067 and mean F1 0.165 (mean latency 6.48s, p95 8.78s). Abstentions are normalized to empty answers and citation lists; the resulting citation-validity rate was 1.00. Both runs had $0.00 model API cost. Qwen3 8B is now the answer default, while extraction/planning stay on 4B. Full matched-sample records are in `results/public_answer_qwen3_4b_v0.1.json` and `results/public_answer_qwen3_8b_v0.1.json`.
