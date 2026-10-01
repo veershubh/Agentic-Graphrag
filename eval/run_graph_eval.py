@@ -61,6 +61,7 @@ def main() -> None:
     if top_k < 1 or graph_hops < 1:
         raise SystemExit("top-k and graph hops must be positive integers")
     candidate_k = int(dense_config.get("candidate_k", 50))
+    graph_seed_k = int(retrieval_config.get("entity_seed_k", 10))
     bootstrap_replicates = int(retrieval_config.get("bootstrap_replicates", 10000))
     bootstrap_seed = int(retrieval_config.get("bootstrap_seed", 20260928))
     rrf_k = int(dense_config.get("rrf_k", 60))
@@ -83,7 +84,7 @@ def main() -> None:
             hops=graph_hops,
             max_nodes=int(retrieval_config.get("max_graph_nodes", 100)),
             max_chunks=int(retrieval_config.get("max_graph_chunks", 30)),
-            seed_limit=candidate_k,
+            seed_limit=graph_seed_k,
         )
         for question in questions
     ]
@@ -99,6 +100,7 @@ def main() -> None:
         "top_k": top_k,
         "candidate_k": candidate_k,
         "graph_hops": graph_hops,
+        "graph_seed_k": graph_seed_k,
         "max_graph_nodes": int(retrieval_config.get("max_graph_nodes", 100)),
         "max_graph_chunks": int(retrieval_config.get("max_graph_chunks", 30)),
         "entity_seed_method": "BM25 over entity names and aliases",
