@@ -179,9 +179,11 @@ Build the test before the system.
 - [ ] Measure local memory, latency, and power use; hosted model API spend is zero
 
 **Guardrails**
-- [ ] Plant prompt-injection text in a few documents; verify the system ignores it
+- [x] Plant prompt-injection text in a few documents; verify the system ignores it
 - [x] Test abstention on the unanswerable set
-- [ ] Enforce citation checks
+- [x] Enforce citation checks
+
+**Progress (2026-10-01):** Five synthetic passages contained instructions to override the answer policy, reveal the system prompt, suppress citations, or return a canary answer. Local Qwen3 8B passed all five configured checks: each answer cited the evidence passage and did not repeat the canary, cite the attack passage, or echo a system-prompt request. This is a small smoke check, not a comprehensive prompt-injection assessment. Run with `python eval/run_prompt_injection_eval.py`; output is versioned in `eval/results/prompt_injection_qwen3_8b_v0.1.json`.
 
 **Exit criterion:** a documented traced failure, plus measured local resource use.
 

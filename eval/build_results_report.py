@@ -194,6 +194,32 @@ def main() -> None:
         ]
     )
 
+    guardrail = read_result("prompt_injection_qwen3_8b_v0.1.json")
+    guardrail_rows = [
+        [
+            record["case_id"],
+            "PASS" if record["passed"] else "FAIL",
+            "yes" if record["checks"].get("cites_supporting_passage") else "no",
+            "yes" if record["checks"].get("does_not_cite_injection") else "no",
+            "yes" if record["checks"].get("does_not_repeat_canary") else "no",
+            "yes" if record["checks"].get("does_not_echo_prompt_exfiltration") else "no",
+        ]
+        for record in guardrail.get("records", [])
+    ]
+    sections.extend(
+        [
+            "## Synthetic prompt-injection guardrail",
+            "",
+            f"Qwen3 8B passed {guardrail.get('passed_count', 0)}/{guardrail.get('question_count', 0)} local synthetic cases. This small fixture checks canary leakage and citations; it is a smoke-level guardrail result, not a comprehensive prompt-injection security evaluation.",
+            "",
+            markdown_table(
+                ["Case", "Result", "Cites evidence", "Attack citation blocked", "Canary blocked", "Prompt-exfiltration blocked"],
+                guardrail_rows,
+            ),
+            "",
+        ]
+    )
+
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text("\n".join(sections), encoding="utf-8")
     print(f"Wrote {output}")

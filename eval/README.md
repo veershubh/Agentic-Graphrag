@@ -4,6 +4,8 @@
 
 Build a combined Markdown snapshot from the checked-in artifacts with `python eval/build_results_report.py`; it writes `eval/results-summary.md` and does not run retrieval or call a model. The report intentionally labels the provisional domain and three-question agent pilot so small or unaudited samples are not mistaken for final results.
 
+Run the five-case synthetic prompt-injection check against the configured local answer model with `python eval/run_prompt_injection_eval.py`. The current Qwen3 8B run passed all five checks: it did not repeat injected canaries, did not cite attack passages, and cited the evidence passage in each case. This is a small guardrail smoke check, not a comprehensive security evaluation; the versioned records are in `results/prompt_injection_qwen3_8b_v0.1.json`.
+
 ## Initial local answer run
 
 The same first 30 two-hop questions were run with two local models over identical BM25+dense RRF passages. Qwen3 4B abstained on all 30 (EM 0.000, F1 0.000, mean latency 1.87s). Qwen3 8B abstained on 11, answered 19, and achieved EM 0.067 and mean F1 0.165 (mean latency 6.48s, p95 8.78s). Abstentions are normalized to empty answers and citation lists; the resulting citation-validity rate was 1.00. Both runs had $0.00 model API cost. Qwen3 8B is now the answer default, while extraction/planning stay on 4B. Full matched-sample records are in `results/public_answer_qwen3_4b_v0.1.json` and `results/public_answer_qwen3_8b_v0.1.json`.
