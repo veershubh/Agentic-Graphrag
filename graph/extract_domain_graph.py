@@ -95,6 +95,11 @@ def main() -> None:
     parser.add_argument("--output", type=Path)
     parser.add_argument("--summary-output", type=Path)
     parser.add_argument("--papers-per-year", type=int, help="Four papers per year gives the default balanced 20-paper pilot")
+    parser.add_argument(
+        "--all-papers",
+        action="store_true",
+        help="Extract passages from every paper in the inventory instead of the balanced pilot",
+    )
     parser.add_argument("--max-passages-per-paper", type=int)
     parser.add_argument("--seed", type=int, default=20260928)
     args = parser.parse_args()
@@ -120,7 +125,14 @@ def main() -> None:
     if papers_per_year < 1 or max_passages_per_paper < 1:
         raise SystemExit("Pilot paper and passage limits must be positive")
 
-    selected_papers = select_pilot_papers(read_jsonl(args.inventory), papers_per_year, args.seed)
+    inventory = read_jsonl(args.inventory)
+    if args.all_papers and args.papers_per_year is not None:
+        parser.error("--all-papers cannot be combined with --papers-per-year")
+    selected_papers = (
+        sorted(inventory, key=lambda paper: (int(paper["year"]), str(paper["arxiv_id"])))
+        if args.all_papers
+        else select_pilot_papers(inventory, papers_per_year, args.seed)
+    )
     paper_by_id = {str(paper["arxiv_id"]): paper for paper in selected_papers}
     passage_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for passage in read_jsonl(args.passages):
@@ -297,7 +309,10 @@ def main() -> None:
         "runtime": "local_ollama",
         "model": model,
         "prompt_version": PROMPT_VERSION,
-        "papers_per_year": papers_per_year,
+        "selection_mode": "all_inventory_papers" if args.all_papers else "balanced_year_pilot",
+        "all_papers": args.all_papers,
+        "selected_paper_count": len(selected_papers),
+        "papers_per_year": None if args.all_papers else papers_per_year,
         "pilot_paper_count": len(selected_papers),
         "passage_limit_per_paper": max_passages_per_paper,
         "passage_count": len(selected_passages),
