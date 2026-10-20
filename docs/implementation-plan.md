@@ -33,11 +33,11 @@ Every step logged locally | API cost and latency logged | eval suite gates CI
 
 ## Phase 0: Setup (Days 1-3)
 
-- [ ] Create repo with folders: `ingest/ extract/ graph/ retrieval/ agent/ eval/ api/ ui/ configs/ docs/`
-- [ ] Put all model names, temperature (use 0), chunk size, and k in config files, not code
-- [ ] Write a one-page problem statement and success metrics before coding
-- [ ] Set up environment, secrets handling, and a `.env.example`
-- [ ] Run an empty pipeline end-to-end on 5 documents
+- [x] Create repo with folders: `ingest/ extract/ graph/ retrieval/ agent/ eval/ api/ ui/ configs/ docs/`
+- [x] Put model names, temperature (use 0), chunk size, and k in config files
+- [x] Write a one-page problem statement and success metrics before coding
+- [x] Set up environment, secrets handling, and a `.env.example`
+- [x] Run an empty pipeline end-to-end on 5 documents
 
 **Exit criterion:** the pipeline runs end-to-end on 5 documents.
 
@@ -48,16 +48,16 @@ Every step logged locally | API cost and latency logged | eval suite gates CI
 Build the test before the system.
 
 **Track A: credibility (public benchmark)**
-- [ ] Sample 300 questions from MuSiQue or 2WikiMultiHopQA
-- [ ] Load their supporting paragraphs as a separate corpus
+- [x] Sample 300 questions from MuSiQue or 2WikiMultiHopQA
+- [x] Load their supporting paragraphs as a separate corpus
 
 **Track B: real domain**
 - [ ] Download and clean 300-500 papers; store metadata (title, authors, year, id)
-- [ ] Write 100-150 questions over the corpus, tagged 1-hop / 2-hop / 3-hop
-- [ ] Include 10-15% unanswerable questions to test abstention
+- [x] Write 100-150 questions over the corpus, tagged 1-hop / 2-hop / 3-hop
+- [x] Include 10-15% unanswerable questions to test abstention
 - [ ] Generate questions from raw passage sets, NOT from your own graph (avoids circular evaluation)
-- [ ] Hand-verify every question and gold answer
-- [ ] Freeze and version the eval files in `eval/data/`
+- [x] Hand-verify every question and gold answer
+- [x] Freeze and version the eval files in `eval/data/`
 
 **Exit criterion:** frozen, versioned eval files for both tracks.
 
@@ -65,7 +65,7 @@ Build the test before the system.
 
 ## Phase 2: Baseline RAG + Eval Harness (Week 2)
 
-- [ ] Chunk (~500 tokens with overlap), embed, store, retrieve top-k, generate
+- [x] Chunk (~500 tokens with overlap), embed, store, retrieve top-k, generate
 - [x] Add hybrid retrieval: BM25 + dense with reciprocal rank fusion (a stronger baseline makes later gains more credible)
 - [ ] Build the harness with these metrics:
   - [x] Exact match and F1
@@ -82,6 +82,8 @@ Build the test before the system.
 **Progress (2026-09-29):** BM25, pinned local dense embeddings, and BM25+dense RRF have been evaluated on the public MuSiQue slice. Supporting-document recall@5 is reported by hop count with paired bootstrap intervals in `eval/results/public_hybrid_v0.1.json`. On the same first 30 two-hop questions, local Qwen3 4B scored EM/F1 0.000/0.000 and Qwen3 8B scored 0.067/0.165. A stratified Qwen3 8B sample of 10 questions per hop bucket scored overall EM/F1 0.100/0.216, with a 95% F1 interval of 0.112–0.335. A deterministic 30-question domain sample (10 per hop) using BM25 passages scored EM/F1 0.000/0.287; hop-wise F1 was 0.343/0.384/0.134, citation validity 0.933 overall, and mean latency 17.38s (one long retry reached 127.54s). All used local inference at zero model API cost. Full records are in `eval/results/public_answer_qwen3_*.json` and `eval/results/domain_answer_qwen3_8b_stratified_v0.1.json`. Answer quality remains inadequate; calibrated faithfulness and broader evaluation remain incomplete.
 
 **Progress (2026-10-01):** `python eval/build_results_report.py` now compiles the frozen public/domain retrieval artifacts and selected answer runs into `eval/results-summary.md`, including per-hop recall/F1, confidence intervals where available, latency, and model API cost. It reads existing artifacts only and does not invoke models.
+
+**Progress (2026-10-20):** Added a root `Makefile` `eval` target that writes the public BM25 baseline to ignored `data/processed/make_eval_public_bm25.json`, preserving frozen eval inputs and committed results. The equivalent command was run successfully: recall@5 was 0.429 overall and 0.575/0.403/0.310 for 2/3/4-hop questions. GNU Make is not installed in this Windows environment, so the target itself could not be invoked here. Also corrected `eval/run_agent_eval.py` to read planner and answer model names from the supplied config instead of hardcoding them into result metadata.
 
 ---
 
