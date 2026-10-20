@@ -26,6 +26,10 @@ Once graph extraction and consolidation have produced local node and edge files,
 
 The expanded graph (197 passages from 20 balanced papers) was evaluated against the 98 answerable questions in the domain set. Supporting-document recall@5 was 0.041 for graph-only (95% CI 0.014–0.073), 0.435 for BM25+graph RRF (0.361–0.514), and 0.549 for BM25 (0.474–0.622). The hybrid was below BM25, with a paired recall difference of -0.114 (95% CI -0.179 to -0.054). This is a diagnostic from an unaudited graph with 726 of 1,362 candidate triples rejected by validation; it does not support a claim that graph retrieval helps. Full per-question results and input hashes are in `results/domain_graph_v0.1.json`. The corpus covers only 20 papers from a provisional 325-paper inventory.
 
+## Full-coverage graph retrieval check
+
+The 3,203-passage extraction was consolidated into 10,798 nodes and 6,637 edges, then evaluated on the same 98 frozen answerable domain questions. The new full-coverage artifact scores graph-only 0.349 and BM25+graph RRF 0.583 recall@5; BM25 remains 0.549. Dense-only remains 0.224 after windowing long passages. Hop-split before/after results for all eight variants are in `../docs/domain-full-graph-retrieval-comparison.md`; the machine-readable after-run is `results/domain_graph_full_10_per_paper_after_debug_verified.json`. This full-corpus graph materially changes the initial pilot result, but it remains provisional pending relevance/rights review and manual extraction and alias audits.
+
 ## Domain retrieval ablations
 
 The same 98 answerable questions were used for BM25, local dense, hybrid, and graph comparisons. Dense vectors reused the exact 10,878-passage cache from the agent pilot (`sentence-transformers/all-MiniLM-L6-v2`, pinned revision). Every number is supporting-document recall@5; intervals and paired comparisons are in the machine-readable artifacts.

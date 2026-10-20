@@ -33,6 +33,7 @@ def main() -> None:
     args = parser.parse_args()
     if args.per_hop < 1:
         raise SystemExit("--per-hop must be positive")
+    config = tomllib.loads(args.config.read_text(encoding="utf-8"))
 
     all_questions = read_jsonl(args.questions)
     answerable = [question for question in all_questions if question.get("is_answerable", True)]
@@ -129,12 +130,15 @@ def main() -> None:
     summary = {
         "track": "domain",
         "runtime": "local_ollama",
-        "models": {"planner": "qwen3:4b-instruct", "answer": "qwen3:8b"},
+        "models": {
+            "planner": str(config["models"]["planning"]),
+            "answer": str(config["models"]["answer"]),
+        },
         "per_hop_sample_size": args.per_hop,
         "requested_question_count": len(selected),
         "failed_question_ids": failed_ids,
         "selection": "first answerable items in each hop bucket, preserving frozen file order",
-        "agent_limits": tomllib.loads(args.config.read_text(encoding="utf-8")).get("agent", {}),
+        "agent_limits": config.get("agent", {}),
         "estimated_model_api_cost_usd": 0.0,
         "overall": summarize_metrics(results, 10000, 20260928),
         "by_hop": {

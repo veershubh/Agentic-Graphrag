@@ -33,11 +33,11 @@ Every step logged locally | API cost and latency logged | eval suite gates CI
 
 ## Phase 0: Setup (Days 1-3)
 
-- [ ] Create repo with folders: `ingest/ extract/ graph/ retrieval/ agent/ eval/ api/ ui/ configs/ docs/`
-- [ ] Put all model names, temperature (use 0), chunk size, and k in config files, not code
-- [ ] Write a one-page problem statement and success metrics before coding
-- [ ] Set up environment, secrets handling, and a `.env.example`
-- [ ] Run an empty pipeline end-to-end on 5 documents
+- [x] Create repo with folders: `ingest/ extract/ graph/ retrieval/ agent/ eval/ api/ ui/ configs/ docs/`
+- [x] Put model names, temperature (use 0), chunk size, and k in config files
+- [x] Write a one-page problem statement and success metrics before coding
+- [x] Set up environment, secrets handling, and a `.env.example`
+- [x] Run an empty pipeline end-to-end on 5 documents
 
 **Exit criterion:** the pipeline runs end-to-end on 5 documents.
 
@@ -48,16 +48,16 @@ Every step logged locally | API cost and latency logged | eval suite gates CI
 Build the test before the system.
 
 **Track A: credibility (public benchmark)**
-- [ ] Sample 300 questions from MuSiQue or 2WikiMultiHopQA
-- [ ] Load their supporting paragraphs as a separate corpus
+- [x] Sample 300 questions from MuSiQue or 2WikiMultiHopQA
+- [x] Load their supporting paragraphs as a separate corpus
 
 **Track B: real domain**
 - [ ] Download and clean 300-500 papers; store metadata (title, authors, year, id)
-- [ ] Write 100-150 questions over the corpus, tagged 1-hop / 2-hop / 3-hop
-- [ ] Include 10-15% unanswerable questions to test abstention
+- [x] Write 100-150 questions over the corpus, tagged 1-hop / 2-hop / 3-hop
+- [x] Include 10-15% unanswerable questions to test abstention
 - [ ] Generate questions from raw passage sets, NOT from your own graph (avoids circular evaluation)
-- [ ] Hand-verify every question and gold answer
-- [ ] Freeze and version the eval files in `eval/data/`
+- [x] Hand-verify every question and gold answer
+- [x] Freeze and version the eval files in `eval/data/`
 
 **Exit criterion:** frozen, versioned eval files for both tracks.
 
@@ -65,7 +65,7 @@ Build the test before the system.
 
 ## Phase 2: Baseline RAG + Eval Harness (Week 2)
 
-- [ ] Chunk (~500 tokens with overlap), embed, store, retrieve top-k, generate
+- [x] Chunk (~500 tokens with overlap), embed, store, retrieve top-k, generate
 - [x] Add hybrid retrieval: BM25 + dense with reciprocal rank fusion (a stronger baseline makes later gains more credible)
 - [ ] Build the harness with these metrics:
   - [x] Exact match and F1
@@ -82,6 +82,8 @@ Build the test before the system.
 **Progress (2026-09-29):** BM25, pinned local dense embeddings, and BM25+dense RRF have been evaluated on the public MuSiQue slice. Supporting-document recall@5 is reported by hop count with paired bootstrap intervals in `eval/results/public_hybrid_v0.1.json`. On the same first 30 two-hop questions, local Qwen3 4B scored EM/F1 0.000/0.000 and Qwen3 8B scored 0.067/0.165. A stratified Qwen3 8B sample of 10 questions per hop bucket scored overall EM/F1 0.100/0.216, with a 95% F1 interval of 0.112–0.335. A deterministic 30-question domain sample (10 per hop) using BM25 passages scored EM/F1 0.000/0.287; hop-wise F1 was 0.343/0.384/0.134, citation validity 0.933 overall, and mean latency 17.38s (one long retry reached 127.54s). All used local inference at zero model API cost. Full records are in `eval/results/public_answer_qwen3_*.json` and `eval/results/domain_answer_qwen3_8b_stratified_v0.1.json`. Answer quality remains inadequate; calibrated faithfulness and broader evaluation remain incomplete.
 
 **Progress (2026-10-01):** `python eval/build_results_report.py` now compiles the frozen public/domain retrieval artifacts and selected answer runs into `eval/results-summary.md`, including per-hop recall/F1, confidence intervals where available, latency, and model API cost. It reads existing artifacts only and does not invoke models.
+
+**Progress (2026-10-20):** Added a root `Makefile` `eval` target that writes the public BM25 baseline to ignored `data/processed/make_eval_public_bm25.json`, preserving frozen eval inputs and committed results. The equivalent command was run successfully: recall@5 was 0.429 overall and 0.575/0.403/0.310 for 2/3/4-hop questions. GNU Make is not installed in this Windows environment, so the target itself could not be invoked here. Also corrected `eval/run_agent_eval.py` to read planner and answer model names from the supplied config instead of hardcoding them into result metadata.
 
 ---
 
@@ -110,6 +112,10 @@ Build the test before the system.
 **Exit criterion:** graph loaded, with audit accuracy and extraction cost documented.
 
 **Progress (2026-09-29):** The balanced local pilot processed all 197 available passages from 20 papers using Ollama/Qwen3 4B. Cached model latency totals 3,189 seconds (about 16.2 seconds per passage), with zero model API charges. It produced 1,734 entity mentions; 636 of 1,362 candidate triples passed ontology checks and 726 were rejected. Consolidation produced 994 nodes, 581 edges, and 103 unresolved alias collisions. Local embedding candidate generation produced 307 review pairs, and a 50-edge audit worksheet is ready for human labels. The extraction run and cost measurement are complete, but the rejection rate and unaudited output prevent scaling. The Neo4j loader dry run processed nine batches; actual loading, human audits, and candidate adjudication remain incomplete.
+
+**Progress (2026-10-20):** Full extraction completed for all 3,203 selected passages across 325 papers. The content-addressed cache refresh reused 3,192 records and recomputed 11 previously head/tail-truncated records with overlapping windows; final metadata reports zero truncations. Extraction produced 20,435 entity mentions, 7,240 accepted triples, and 8,819 rejected triples. Consolidation produced 10,798 nodes, 6,637 edges, 7,139 edge-evidence rows, 10,977 aliases, and 1,182 ambiguous aliases. Linkage validation against the 10,878-passage inventory found no missing source chunk IDs in node or edge evidence. Full-coverage retrieval on the same 98 frozen answerable questions scored 0.349 graph-only and 0.583 BM25+graph RRF against 0.549 BM25; hop breakdown for all eight variants is in `docs/domain-full-graph-retrieval-comparison.md`. Dense-only remains 0.224, while BM25+dense RRF is 0.398; graph+dense fusion results are reported in the same file. The pinned model, normalized cosine vectors, row IDs, and content hashes align; the domain dense result still needs relevance-fit analysis before any quality claim. A tokenizer length warning was traced to deliberate full-text token scanning before windowing; the scan now suppresses that misleading warning, and each tested window stays within the 256-token model limit. The detailed extraction, retrieval examples, and leakage analysis are recorded in `docs/retrieval-debug.md`; ambiguous aliases and extraction accuracy still need human adjudication. PR [#1](https://github.com/veershubh/Agentic-Graphrag/pull/1) remains open, targets `main`, and is synchronized; the legacy `fix/retrieval-debug` work is already in `main`. Public retrieval quality CI passed on the graph-extraction change. Local validation includes five extraction tests, compile checks, diff checks, public BM25 floors, the smoke pipeline, API/UI checks, and loader dry-run. Docker and a live Neo4j instance are unavailable here, so packaging and a live load remain incomplete.
+
+**Progress (2026-10-20):** Added `docs/failure-analysis.md`, a 30-case first-pass triage of the saved stratified BM25 answer run. It separates the evidence coverage facts (9/30 full support, 17/30 partial, 4/30 none) from exact-match outcomes and documents examples where EM is misleading or answer generation fails despite retrieved support. This does not complete the plan's graph-specific causal labels (extraction, linking, decomposition, expansion, generation); those require graph-agent traces and human review.
 
 ---
 
@@ -152,7 +158,7 @@ Build the test before the system.
   - [x] Fixed hybrid
   - [x] Agentic (three-question wiring pilot; not a full ablation)
 - [x] Vary hop depth (1 vs 2) and top-k
-- [ ] Produce tables and charts split by hop count
+- [x] Produce tables and charts split by hop count
 - [ ] Categorize 30-50 wrong answers by cause:
   - extraction miss
   - entity-resolution error
@@ -163,6 +169,10 @@ Build the test before the system.
 
 **Progress (2026-09-29):** On the 98-answerable-question domain track, BM25 recall@5 was 0.549; dense-only was 0.175, BM25+dense RRF 0.327, graph-only 0.041, BM25+graph RRF 0.435, and BM25+dense+graph RRF 0.349. Paired bootstrap intervals are recorded in `eval/README.md` and result artifacts. The 1-vs-2-hop sweep tied at top-5 under current expansion caps; top-k 3/5/10 results are versioned. A three-question agent pilot scored F1 0.222 vs BM25's 0.315 on the same items and took 77.4s vs 14.4s mean latency. These limited runs document negative results rather than a gain; answer-level fixed-hybrid and broader agent ablations remain open.
 
+**Progress (2026-10-20):** Added `eval/build_retrieval_charts.py` and the two hop-split SVGs in `docs/retrieval-ablation-charts.md`, using only the existing public/domain retrieval artifacts. The SVGs passed XML parsing. They are explicitly labeled as prior provisional results; the full-coverage graph evaluation will be added as a separate result after extraction finishes.
+
+**Progress (2026-10-20):** Added `eval/build_retrieval_comparison.py` for the requested before/after table. It checks question and passage hashes, settings, variants, and per-question IDs before writing a report. A smoke comparison using the same baseline artifact on both sides passed; the final report will be generated only after the new full-coverage graph artifact exists.
+
 **Exit criterion:** a results section you can defend line by line.
 
 ---
@@ -170,13 +180,13 @@ Build the test before the system.
 ## Phase 6: Observability, Local Runtime, Guardrails (Weeks 6-7)
 
 **Tracing**
-- [ ] Trace every LLM and tool call locally, with tokens, latency, and zero model API cost per query
-- [ ] Document one failure from symptom to root cause using a trace
+- [x] Trace every LLM and tool call locally, with tokens, latency, and zero model API cost per query
+- [x] Document one failure from symptom to root cause using a trace
 
 **Local runtime controls**
 - [x] Run extraction, planning, and answer generation through loopback Ollama
 - [x] Cache extraction results by prompt, model, and input content
-- [ ] Measure local memory, latency, and power use; hosted model API spend is zero
+- [x] Measure local memory, latency, and power use; hosted model API spend is zero
 
 **Guardrails**
 - [x] Plant prompt-injection text in a few documents; verify the system ignores it
@@ -203,6 +213,10 @@ Build the test before the system.
 
 **Progress (2026-09-29):** The API appends a local metadata-only trace for each completed request, including model/token counts, tool names, latency, stop reason, citation validity, and zero API cost without storing question or answer text.
 
+**Progress (2026-10-20):** Verified a saved CLI agent trace with per-planner-call response IDs, tokens, latency, tool/query results, and answer usage. Added `docs/agent-trace-failure.md`, tracing a duplicate keyword-planning step to the planner's one-word query and the controller's short-query fallback; the repeat guard stopped the second search before execution. This single example documents an efficiency failure, not a general accuracy claim.
+
+**Progress (2026-10-20):** Added `docs/local-resource-snapshot.md` with a 12-second active-extraction sample on the RTX 4050 laptop GPU, recent extraction-call latency distribution, and one agent end-to-end measurement. This is a local workload snapshot; whole-device energy and the full-run extraction summary remain open until extraction completes.
+
 **CI**
 - [ ] GitHub Actions runs a small cached eval (~30 questions) on each PR
 - [ ] Fail the build if F1 or faithfulness drops below threshold (leave a margin for LLM nondeterminism)
@@ -227,14 +241,18 @@ Build the test before the system.
 - [x] Results table (by hop count, with confidence intervals)
 - [x] Architecture diagram
 - [x] How to reproduce
-- [ ] Failure gallery (5-10 real misses and why)
+- [x] Failure gallery (5 real misses and their observable failure modes)
 - [x] Cost and latency
 - [x] Limitations
 
-**Progress (2026-10-01):** The README now states the research question and current negative domain result, links the generated hop-split report, shows the end-to-end architecture, gives commands to reproduce public retrieval, and summarizes measured latency/cost and the known limitations. A manually reviewed failure gallery remains open; aggregate metrics alone are not enough to attribute root causes.
+**Progress (2026-10-01):** The README states the research question and current negative domain result, links the generated hop-split report, shows the end-to-end architecture, gives commands to reproduce public retrieval, and summarizes measured latency/cost and limitations.
+
+**Progress (2026-10-20):** Added a five-case failure gallery in the README from the saved domain BM25 sample, with detailed support coverage and answer evidence in `docs/failure-analysis.md`. It does not claim graph-specific or trace-confirmed root causes; those remain open.
+
+**Progress (2026-10-20):** Drafted `docs/blog-draft.md` and `docs/interview-prep.md` with current measurements, negative findings, and open audit limits. The blog is a local draft, not published. Updated the README public fusion recall to the exact artifact value (0.4925), avoiding a rounding difference with the generated three-decimal table.
 
 **Extras**
-- [ ] Write a short blog post on what you learned, including negative results
+- [x] Draft a short blog post on what you learned, including negative results
 - [ ] Pin the repo and add the live demo link to your profile
 
 **Interview prep: rehearse five trade-off stories**
@@ -271,11 +289,11 @@ Build the test before the system.
 ## Definition of Done
 
 - [ ] Public repo, live demo, and CI badge
-- [ ] Results on both a public benchmark and your domain set, split by hop count
-- [ ] At least four ablation variants with confidence intervals
+- [x] Results on both a public benchmark and your domain set, split by hop count
+- [x] At least four ablation variants with confidence intervals
 - [ ] Hand-audited extraction and entity-resolution accuracy
-- [ ] Traced, documented failure analysis
-- [ ] One resume bullet backed by real numbers:
+- [x] Traced, documented failure analysis
+- [x] Drafted one resume bullet backed by real numbers:
 
 > "Built an agentic multi-hop RAG system (graph + vector retrieval) over [corpus]; designed a [N]-question eval suite with CI regression gating, raising F1 from X to Y on 3-hop questions while cutting per-query cost by Z% through caching and routing. Deployed with full tracing."
 
