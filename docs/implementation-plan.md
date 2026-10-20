@@ -171,6 +171,8 @@ Build the test before the system.
 
 **Progress (2026-10-20):** Added `eval/build_retrieval_charts.py` and the two hop-split SVGs in `docs/retrieval-ablation-charts.md`, using only the existing public/domain retrieval artifacts. The SVGs passed XML parsing. They are explicitly labeled as prior provisional results; the full-coverage graph evaluation will be added as a separate result after extraction finishes.
 
+**Progress (2026-10-20):** Added `eval/build_retrieval_comparison.py` for the requested before/after table. It checks question and passage hashes, settings, variants, and per-question IDs before writing a report. A smoke comparison using the same baseline artifact on both sides passed; the final report will be generated only after the new full-coverage graph artifact exists.
+
 **Exit criterion:** a results section you can defend line by line.
 
 ---
