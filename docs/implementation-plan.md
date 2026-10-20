@@ -178,8 +178,8 @@ Build the test before the system.
 ## Phase 6: Observability, Local Runtime, Guardrails (Weeks 6-7)
 
 **Tracing**
-- [ ] Trace every LLM and tool call locally, with tokens, latency, and zero model API cost per query
-- [ ] Document one failure from symptom to root cause using a trace
+- [x] Trace every LLM and tool call locally, with tokens, latency, and zero model API cost per query
+- [x] Document one failure from symptom to root cause using a trace
 
 **Local runtime controls**
 - [x] Run extraction, planning, and answer generation through loopback Ollama
@@ -210,6 +210,8 @@ Build the test before the system.
 **Progress (2026-09-29):** A same-origin static UI is served from `/` and presents answers/abstentions, citations, and the planner's search-tool path. It uses browser text nodes for model output and makes no third-party asset requests. It has not yet been browser-verified or packaged in Docker.
 
 **Progress (2026-09-29):** The API appends a local metadata-only trace for each completed request, including model/token counts, tool names, latency, stop reason, citation validity, and zero API cost without storing question or answer text.
+
+**Progress (2026-10-20):** Verified a saved CLI agent trace with per-planner-call response IDs, tokens, latency, tool/query results, and answer usage. Added `docs/agent-trace-failure.md`, tracing a duplicate keyword-planning step to the planner's one-word query and the controller's short-query fallback; the repeat guard stopped the second search before execution. This single example documents an efficiency failure, not a general accuracy claim.
 
 **CI**
 - [ ] GitHub Actions runs a small cached eval (~30 questions) on each PR
