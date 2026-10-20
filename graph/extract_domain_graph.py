@@ -86,6 +86,18 @@ def select_pilot_papers(inventory: list[dict[str, Any]], papers_per_year: int, s
     return selected
 
 
+def select_inventory_papers(
+    inventory: list[dict[str, Any]],
+    papers_per_year: int,
+    seed: int,
+    all_papers: bool = False,
+) -> list[dict[str, Any]]:
+    """Select every inventory paper or the reproducible balanced pilot."""
+    if all_papers:
+        return sorted(inventory, key=lambda paper: (int(paper["year"]), str(paper["arxiv_id"])))
+    return select_pilot_papers(inventory, papers_per_year, seed)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--inventory", type=Path, default=Path("eval/data/domain/papers_inventory_v1.0.jsonl"))
@@ -128,11 +140,7 @@ def main() -> None:
     inventory = read_jsonl(args.inventory)
     if args.all_papers and args.papers_per_year is not None:
         parser.error("--all-papers cannot be combined with --papers-per-year")
-    selected_papers = (
-        sorted(inventory, key=lambda paper: (int(paper["year"]), str(paper["arxiv_id"])))
-        if args.all_papers
-        else select_pilot_papers(inventory, papers_per_year, args.seed)
-    )
+    selected_papers = select_inventory_papers(inventory, papers_per_year, args.seed, args.all_papers)
     paper_by_id = {str(paper["arxiv_id"]): paper for paper in selected_papers}
     passage_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for passage in read_jsonl(args.passages):
