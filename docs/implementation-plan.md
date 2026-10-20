@@ -158,7 +158,7 @@ Build the test before the system.
   - [x] Fixed hybrid
   - [x] Agentic (three-question wiring pilot; not a full ablation)
 - [x] Vary hop depth (1 vs 2) and top-k
-- [ ] Produce tables and charts split by hop count
+- [x] Produce tables and charts split by hop count
 - [ ] Categorize 30-50 wrong answers by cause:
   - extraction miss
   - entity-resolution error
@@ -168,6 +168,8 @@ Build the test before the system.
 - [x] Document where GraphRAG does NOT help (negative results are strong interview material)
 
 **Progress (2026-09-29):** On the 98-answerable-question domain track, BM25 recall@5 was 0.549; dense-only was 0.175, BM25+dense RRF 0.327, graph-only 0.041, BM25+graph RRF 0.435, and BM25+dense+graph RRF 0.349. Paired bootstrap intervals are recorded in `eval/README.md` and result artifacts. The 1-vs-2-hop sweep tied at top-5 under current expansion caps; top-k 3/5/10 results are versioned. A three-question agent pilot scored F1 0.222 vs BM25's 0.315 on the same items and took 77.4s vs 14.4s mean latency. These limited runs document negative results rather than a gain; answer-level fixed-hybrid and broader agent ablations remain open.
+
+**Progress (2026-10-20):** Added `eval/build_retrieval_charts.py` and the two hop-split SVGs in `docs/retrieval-ablation-charts.md`, using only the existing public/domain retrieval artifacts. The SVGs passed XML parsing. They are explicitly labeled as prior provisional results; the full-coverage graph evaluation will be added as a separate result after extraction finishes.
 
 **Exit criterion:** a results section you can defend line by line.
 
