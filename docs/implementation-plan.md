@@ -247,8 +247,10 @@ Build the test before the system.
 
 **Progress (2026-10-20):** Added a five-case failure gallery in the README from the saved domain BM25 sample, with detailed support coverage and answer evidence in `docs/failure-analysis.md`. It does not claim graph-specific or trace-confirmed root causes; those remain open.
 
+**Progress (2026-10-20):** Drafted `docs/blog-draft.md` and `docs/interview-prep.md` with current measurements, negative findings, and open audit limits. The blog is a local draft, not published. Updated the README public fusion recall to the exact artifact value (0.4925), avoiding a rounding difference with the generated three-decimal table.
+
 **Extras**
-- [ ] Write a short blog post on what you learned, including negative results
+- [x] Draft a short blog post on what you learned, including negative results
 - [ ] Pin the repo and add the live demo link to your profile
 
 **Interview prep: rehearse five trade-off stories**

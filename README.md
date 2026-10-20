@@ -6,7 +6,7 @@ An experimental system for answering multi-hop research questions with keyword, 
 
 Facts needed for a multi-hop answer can be spread across several papers. This project tests whether linking papers, methods, datasets, and metrics in a knowledge graph improves evidence retrieval enough to justify the extra system complexity. The frozen MuSiQue slice provides a public benchmark; a separate LLM-evaluation research set provides a provisional domain diagnostic.
 
-On the public 300-question benchmark, BM25+dense reciprocal-rank fusion reached supporting-document recall@5 of 0.493 (95% bootstrap CI 0.464–0.522), versus 0.429 for BM25. On the provisional 98-question domain set, graph-only recall@5 was 0.041 and BM25+graph was 0.435, both below BM25 at 0.549. These are retrieval measurements, not answer-quality claims. The graph has not passed manual audits, and the domain corpus still needs relevance and rights review.
+On the public 300-question benchmark, BM25+dense reciprocal-rank fusion reached supporting-document recall@5 of 0.4925 (95% bootstrap CI 0.464–0.522), versus 0.429 for BM25. On the provisional 98-question domain set, graph-only recall@5 was 0.041 and BM25+graph was 0.435, both below BM25 at 0.549. These are retrieval measurements, not answer-quality claims. The graph has not passed manual audits, and the domain corpus still needs relevance and rights review.
 
 See the [hop-split results report](eval/results-summary.md) for saved retrieval and answer runs, confidence intervals, latency, and model API cost; the [retrieval charts](docs/retrieval-ablation-charts.md) show recall by hop. The project follows the staged [implementation plan](docs/implementation-plan.md); limitations and open milestones are tracked there.
 
