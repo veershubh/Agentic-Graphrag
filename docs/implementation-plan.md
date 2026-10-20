@@ -287,11 +287,11 @@ Build the test before the system.
 ## Definition of Done
 
 - [ ] Public repo, live demo, and CI badge
-- [ ] Results on both a public benchmark and your domain set, split by hop count
-- [ ] At least four ablation variants with confidence intervals
+- [x] Results on both a public benchmark and your domain set, split by hop count
+- [x] At least four ablation variants with confidence intervals
 - [ ] Hand-audited extraction and entity-resolution accuracy
-- [ ] Traced, documented failure analysis
-- [ ] One resume bullet backed by real numbers:
+- [x] Traced, documented failure analysis
+- [x] Drafted one resume bullet backed by real numbers:
 
 > "Built an agentic multi-hop RAG system (graph + vector retrieval) over [corpus]; designed a [N]-question eval suite with CI regression gating, raising F1 from X to Y on 3-hop questions while cutting per-query cost by Z% through caching and routing. Deployed with full tracing."
 

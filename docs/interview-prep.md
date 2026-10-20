@@ -2,6 +2,10 @@
 
 Use these as evidence-based talking points, not memorized claims. The current domain corpus and graph remain provisional and unaudited.
 
+## Resume bullet (draft)
+
+Built a local multi-hop RAG evaluation pipeline over 300 MuSiQue and 98 domain questions with hop-split confidence intervals and a GitHub Actions retrieval gate; BM25+dense RRF improved public recall@5 from 0.429 to 0.4925, while domain graph-only recall@5 was 0.041 versus BM25's 0.549, showing why graph quality must be audited before claiming a gain.
+
 ## Why use a constrained extraction schema?
 
 The graph needs stable entity types and a small relation vocabulary so triples can be validated and linked back to source chunks. The schema rejects unsupported endpoint combinations before they enter the graph. In the 197-passage pilot, 636 of 1,362 candidate triples passed validation and 726 were rejected. That validates the guardrail's ability to catch invalid candidates; it does not establish extraction precision. A 50-triple human audit and larger labeled sample are still needed.
