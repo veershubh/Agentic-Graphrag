@@ -103,6 +103,29 @@ def compact_retry_messages(messages: list[dict[str, str]], passage_char_limit: i
     ]
 
 
+def compact_retry_message_windows(
+    messages: list[dict[str, str]], window_char_limit: int, overlap: int = 160
+) -> list[list[dict[str, str]]]:
+    """Build compact prompts covering the full passage in overlapping windows."""
+    user_data = json.loads(messages[1]["content"])
+    passage_text = str(user_data.get("passage", ""))
+    if window_char_limit < 1 or overlap < 0 or overlap >= window_char_limit:
+        raise ValueError("window size must be positive and overlap smaller than the window")
+    step = window_char_limit - overlap
+    windows = []
+    for start in range(0, max(1, len(passage_text)), step):
+        window_data = dict(user_data)
+        window_data["passage"] = passage_text[start : start + window_char_limit]
+        windows.append(
+            compact_retry_messages(
+                [messages[0], {"role": "user", "content": json.dumps(window_data, ensure_ascii=False)}]
+            )
+        )
+        if start + window_char_limit >= len(passage_text):
+            break
+    return windows
+
+
 def select_pilot_papers(inventory: list[dict[str, Any]], papers_per_year: int, seed: int) -> list[dict[str, Any]]:
     by_year: dict[int, list[dict[str, Any]]] = defaultdict(list)
     for paper in inventory:
@@ -246,6 +269,7 @@ def main() -> None:
             extraction = None
             fallback_used = False
             fallback_char_limit = None
+            fallback_window_char_limit = None
             try:
                 primary_response = client.structured_chat(
                     model=model,
@@ -265,28 +289,90 @@ def main() -> None:
             if fallback_used:
                 fallback_budget = max(1, min(max_output_tokens, 400))
                 last_error = None
-                for char_limit in (None, 1800, 1200, 800, 500):
-                    compact_messages = compact_retry_messages(messages, char_limit)
-                    try:
-                        compact_response = client.structured_chat(
-                            model=model,
-                            temperature=temperature,
-                            max_output_tokens=fallback_budget,
-                            schema=COMPACT_RESPONSE_SCHEMA,
-                            messages=compact_messages,
-                        )
-                    except RuntimeError as compact_error:
-                        if "exceeds the available context size" in str(compact_error):
-                            last_error = compact_error
-                            continue
-                        raise
+                compact_messages = compact_retry_messages(messages)
+                try:
+                    compact_response = client.structured_chat(
+                        model=model,
+                        temperature=temperature,
+                        max_output_tokens=fallback_budget,
+                        schema=COMPACT_RESPONSE_SCHEMA,
+                        messages=compact_messages,
+                    )
                     responses.append(compact_response)
                     try:
                         extraction = json.loads(compact_response.output_text)
-                        fallback_char_limit = char_limit
-                        break
                     except json.JSONDecodeError as compact_error:
                         last_error = compact_error
+                except RuntimeError as compact_error:
+                    if "exceeds the available context size" not in str(compact_error):
+                        raise
+                    last_error = compact_error
+
+                if extraction is None:
+                    for window_size in (1400, 1000, 700):
+                        window_extractions = []
+                        window_failed = False
+                        for window_messages in compact_retry_message_windows(messages, window_size):
+                            try:
+                                window_response = client.structured_chat(
+                                    model=model,
+                                    temperature=temperature,
+                                    max_output_tokens=fallback_budget,
+                                    schema=COMPACT_RESPONSE_SCHEMA,
+                                    messages=window_messages,
+                                )
+                            except RuntimeError as window_error:
+                                if "exceeds the available context size" not in str(window_error):
+                                    raise
+                                last_error = window_error
+                                window_failed = True
+                                break
+                            responses.append(window_response)
+                            try:
+                                window_extractions.append(json.loads(window_response.output_text))
+                            except json.JSONDecodeError as window_error:
+                                last_error = window_error
+                                window_failed = True
+                                break
+                        if not window_failed:
+                            extraction = {
+                                "entities": [
+                                    entity
+                                    for window_extraction in window_extractions
+                                    for entity in window_extraction.get("entities", [])
+                                ],
+                                "triples": [
+                                    triple
+                                    for window_extraction in window_extractions
+                                    for triple in window_extraction.get("triples", [])
+                                ],
+                            }
+                            fallback_window_char_limit = window_size
+                            break
+
+                if extraction is None:
+                    for char_limit in (1800, 1200, 800, 500):
+                        compact_messages = compact_retry_messages(messages, char_limit)
+                        try:
+                            compact_response = client.structured_chat(
+                                model=model,
+                                temperature=temperature,
+                                max_output_tokens=fallback_budget,
+                                schema=COMPACT_RESPONSE_SCHEMA,
+                                messages=compact_messages,
+                            )
+                        except RuntimeError as compact_error:
+                            if "exceeds the available context size" in str(compact_error):
+                                last_error = compact_error
+                                continue
+                            raise
+                        responses.append(compact_response)
+                        try:
+                            extraction = json.loads(compact_response.output_text)
+                            fallback_char_limit = char_limit
+                            break
+                        except json.JSONDecodeError as compact_error:
+                            last_error = compact_error
                 if extraction is None:
                     detail = str(last_error) if last_error is not None else "no valid compact response"
                     raise RuntimeError(
@@ -351,6 +437,7 @@ def main() -> None:
                 "prompt_version": PROMPT_VERSION,
                 "fallback_prompt_version": COMPACT_PROMPT_VERSION if fallback_used else None,
                 "fallback_passage_char_limit": fallback_char_limit,
+                "fallback_window_char_limit": fallback_window_char_limit,
                 "entities": entities,
                 "triples": triples,
                 "rejected_triple_count": rejected_for_passage,
@@ -397,6 +484,7 @@ def main() -> None:
         "cache_misses": len(results) - cache_hits,
         "compact_fallback_count": sum(bool(row.get("fallback_prompt_version")) for row in results),
         "context_truncated_count": sum(row.get("fallback_passage_char_limit") is not None for row in results),
+        "windowed_fallback_count": sum(row.get("fallback_window_char_limit") is not None for row in results),
         "input_tokens": total_input_tokens,
         "output_tokens": total_output_tokens,
         "estimated_cost_usd": 0.0,

@@ -1,7 +1,7 @@
 import json
 import unittest
 
-from graph.extract_domain_graph import compact_retry_messages, select_inventory_papers
+from graph.extract_domain_graph import compact_retry_message_windows, compact_retry_messages, select_inventory_papers
 
 
 class InventorySelectionTests(unittest.TestCase):
@@ -52,6 +52,21 @@ class CompactRetryMessageTests(unittest.TestCase):
 
         payload = json.loads(compact_retry_messages(messages)[1]["content"])
         self.assertEqual(payload["passage"], passage)
+
+    def test_overlapping_windows_cover_the_full_passage(self):
+        passage = "0123456789" * 300
+        messages = [
+            {"role": "developer", "content": "Original prompt"},
+            {"role": "user", "content": json.dumps({"passage_id": "p1", "passage": passage})},
+        ]
+
+        windows = compact_retry_message_windows(messages, window_char_limit=1400, overlap=160)
+        window_texts = [json.loads(window[1]["content"])["passage"] for window in windows]
+
+        self.assertEqual(len(window_texts), 3)
+        self.assertEqual(window_texts[0][-160:], window_texts[1][:160])
+        self.assertEqual(window_texts[1][-160:], window_texts[2][:160])
+        self.assertEqual("".join([window_texts[0], window_texts[1][160:], window_texts[2][160:]]), passage)
 
 
 if __name__ == "__main__":
