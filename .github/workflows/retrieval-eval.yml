@@ -5,7 +5,9 @@ on:
     paths:
       - "retrieval/**"
       - "graph/**"
+      - "api/**"
       - "tests/**"
+      - "ui/**"
       - "eval/**"
       - "configs/default.toml"
       - ".github/workflows/retrieval-eval.yml"
