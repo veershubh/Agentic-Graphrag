@@ -26,7 +26,10 @@ def document_windows(document: dict[str, Any], model: Any) -> list[str]:
     if tokenizer is None or not isinstance(max_seq_length, int) or max_seq_length < 4:
         return [text]
 
-    token_ids = tokenizer(text, add_special_tokens=False, truncation=False)["input_ids"]
+    # Tokenize the full text without truncation so it can be split into model-sized
+    # windows below. Suppress the tokenizer's length warning: this deliberate scan
+    # is not passed to the model as one sequence.
+    token_ids = tokenizer(text, add_special_tokens=False, truncation=False, verbose=False)["input_ids"]
     special_tokens = int(tokenizer.num_special_tokens_to_add(pair=False))
     window_size = max_seq_length - special_tokens
     if len(token_ids) <= window_size:
