@@ -116,21 +116,167 @@ python eval/run_retrieval_eval.py
 
 ## Step 7: (Optional) Start API and UI
 
-```bash
-# Install API dependencies
-pip install -e ".[api]"
+### Prerequisites Checklist
 
-# Start the API server
+Before starting the API, verify:
+
+- ✅ Ollama is installed and running (`ollama serve`)
+- ✅ Required models are pulled:
+  ```bash
+  ollama pull llama3.2:3b-instruct-fp16
+  ollama pull nomic-embed-text
+  ```
+- ✅ Data files exist in `data/processed/`:
+  - `domain_inventory_passages_v1.0.jsonl`
+  - `domain_graph_nodes.jsonl`
+  - `domain_graph_edges.jsonl`
+- ✅ API dependencies installed:
+  ```bash
+  pip install -e ".[api]"
+  ```
+
+### Start API Server
+
+```powershell
 uvicorn api.app:app --host 127.0.0.1 --port 8000
 ```
 
-Open your browser to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to access the web UI.
+The API will start on `http://127.0.0.1:8000` and serve the UI at the root path.
 
-**Test in browser:**
-1. Enter a question (e.g., "What is BERT?")
-2. Click "Ask"
-3. Wait for response (may take 30-60 seconds)
-4. Verify answer and citations are displayed
+### Browser Testing Checklist
+
+**⚠️ Manual verification required by user with Ollama running locally.**
+
+Open your browser to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) and complete the following verification steps:
+
+#### 1. Health Check
+- Navigate to [http://127.0.0.1:8000/healthz](http://127.0.0.1:8000/healthz)
+- Verify JSON response with status "ok" and service versions
+- Expected response:
+  ```json
+  {
+    "status": "ok",
+    "ollama": "connected",
+    "data_loaded": true
+  }
+  ```
+
+#### 2. UI Load Test
+- Open [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+- Verify page loads without errors
+- Check browser console (F12) for JavaScript errors
+- Confirm UI elements are visible:
+  - Question input field
+  - "Ask" button
+  - Empty response area
+
+#### 3. Submit Test Questions
+
+Test with at least 3 different questions to verify various response types:
+
+**Test Question 1: Factual Query**
+- Question: `What is BERT?`
+- Expected behavior:
+  - Answer appears within 15-80 seconds
+  - Citations are numbered (e.g., [1], [2], [3])
+  - Paper titles are displayed below answer
+  - Agent steps show tool selections (e.g., "keyword", "vector", "graph")
+- Verify:
+  - ✅ Answer text renders correctly
+  - ✅ Citations are clickable/highlighted
+  - ✅ No JavaScript errors in console
+  - ✅ Agent steps section shows search queries
+
+**Test Question 2: Multi-hop Query**
+- Question: `What methods are evaluated on ImageNet?`
+- Expected behavior:
+  - May trigger multiple agent steps (decomposition)
+  - Shows reasoning steps in agent timeline
+  - Citations from multiple passages
+- Verify:
+  - ✅ Multiple agent steps visible
+  - ✅ Different search queries shown
+  - ✅ Citations link to correct passages
+
+**Test Question 3: Abstention Case**
+- Question: `What is the price of Bitcoin today?`
+- Expected behavior:
+  - Agent should abstain (out of domain)
+  - Answer may be empty or state "insufficient evidence"
+  - Fewer or no citations
+- Verify:
+  - ✅ Abstention is handled gracefully
+  - ✅ No error messages displayed
+  - ✅ UI remains functional for next query
+
+#### 4. Performance Verification
+
+Monitor timing for typical queries:
+- **BM25-only retrieval:** ~14 seconds
+- **Agent with graph retrieval:** ~77 seconds (first query may be slower due to cache building)
+- **Health check:** <1 second
+
+#### 5. Citation Display Test
+
+For any query with citations:
+- ✅ Citation IDs are sequential [1], [2], [3], etc.
+- ✅ Paper titles are displayed below citations
+- ✅ Hovering over citations shows passage context (if implemented)
+- ✅ Citations match the passages used in the answer
+
+#### 6. Agent Steps Display Test
+
+Verify agent reasoning is visible:
+- ✅ Each step shows:
+  - Tool name (keyword, vector, graph)
+  - Query text
+  - Number of results retrieved
+- ✅ Steps are displayed in chronological order
+- ✅ Final answer step shows synthesis
+
+### Expected Behavior Summary
+
+- **Response time:** 15-80 seconds depending on agent complexity
+- **Citations:** Numbered and linked to passages
+- **Agent steps:** Tool selections and queries visible
+- **Abstention:** Handled gracefully without errors
+- **Memory usage:** ~8GB RAM for Qwen3 8B model
+
+### Known Limitations
+
+- **First query slow:** Embedding cache building may take extra time (~30s)
+- **Large models:** Qwen 8B requires ~8GB RAM; consider smaller models if memory-constrained
+- **Agent vs BM25:** Agent queries take ~77s vs BM25-only ~14s
+- **No authentication:** API is local-only, no TLS or cross-origin support
+- **Single user:** No concurrent request handling optimizations
+
+### Troubleshooting UI Issues
+
+**Page doesn't load:**
+- Verify API is running: check terminal for uvicorn logs
+- Check URL is exactly `http://127.0.0.1:8000/` (not localhost)
+- Clear browser cache and reload
+
+**Questions hang/timeout:**
+- Check Ollama is running: `curl http://127.0.0.1:11434/api/tags`
+- Verify models are loaded: `ollama list`
+- Check API logs for errors
+- Ensure data files exist in `data/processed/`
+
+**JavaScript errors in console:**
+- Check browser compatibility (requires modern browser with ES6 support)
+- Verify `ui/index.html` is being served correctly
+- Check network tab for failed requests
+
+**No citations displayed:**
+- Normal for abstention cases
+- For domain questions, verify graph data exists
+- Check API response in browser network tab
+
+**Agent steps not showing:**
+- Verify API is returning `steps` array in JSON response
+- Check browser console for rendering errors
+- Ensure agent mode is enabled (not BM25-only mode)
 
 ## Troubleshooting
 
