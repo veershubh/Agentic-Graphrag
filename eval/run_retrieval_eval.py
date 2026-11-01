@@ -17,14 +17,7 @@ if str(REPOSITORY_ROOT) not in sys.path:
     sys.path.insert(0, str(REPOSITORY_ROOT))
 
 from retrieval.bm25 import BM25
-
-
-def read_jsonl(path: Path) -> list[dict[str, Any]]:
-    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
-
-
-def sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+from agentic_graphrag.io import read_jsonl, sha256_file
 
 
 def bootstrap_interval(values: list[float], replicates: int, seed: int) -> list[float]:
@@ -112,8 +105,8 @@ def main() -> None:
         bootstrap_seed=int(retrieval_config.get("bootstrap_seed", 20260928)),
     )
     result["inputs"] = {
-        "questions_sha256": sha256(args.questions),
-        "passages_sha256": sha256(args.passages),
+        "questions_sha256": sha256_file(args.questions),
+        "passages_sha256": sha256_file(args.passages),
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

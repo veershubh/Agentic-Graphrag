@@ -18,6 +18,7 @@ if str(REPOSITORY_ROOT) not in sys.path:
 if str(REPOSITORY_ROOT / "src") not in sys.path:
     sys.path.insert(0, str(REPOSITORY_ROOT / "src"))
 
+from agentic_graphrag.io import read_jsonl, sha256_file
 from agentic_graphrag.local_llm import LocalOllamaClient
 from eval.answer_metrics import citation_metrics, exact_match, summarize_metrics, token_f1
 
@@ -32,14 +33,6 @@ ANSWER_SCHEMA = {
     "required": ["answer", "citation_ids", "abstained"],
     "additionalProperties": False,
 }
-
-
-def read_jsonl(path: Path) -> list[dict[str, Any]]:
-    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
-
-
-def sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def abstention_metrics(records: list[dict[str, Any]]) -> dict[str, Any]:
@@ -248,9 +241,9 @@ def main() -> None:
             for hop, values in sorted(groups.items(), key=lambda item: int(item[0]))
         },
         "inputs": {
-            "questions_sha256": sha256(args.questions),
-            "passages_sha256": sha256(args.passages),
-            "retrieval_results_sha256": sha256(args.retrieval_results),
+            "questions_sha256": sha256_file(args.questions),
+            "passages_sha256": sha256_file(args.passages),
+            "retrieval_results_sha256": sha256_file(args.retrieval_results),
         },
         "records": results,
     }

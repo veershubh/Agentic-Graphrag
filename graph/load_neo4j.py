@@ -15,6 +15,7 @@ REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 if str(REPOSITORY_ROOT) not in sys.path:
     sys.path.insert(0, str(REPOSITORY_ROOT))
 
+from agentic_graphrag.io import read_jsonl
 from graph.ontology import PREDICATES
 
 
@@ -24,10 +25,6 @@ CONSTRAINTS = (
     "CREATE CONSTRAINT graph_source_chunk_id IF NOT EXISTS FOR (n:SourceChunk) REQUIRE n.id IS UNIQUE",
     "CREATE CONSTRAINT graph_source_paper_id IF NOT EXISTS FOR (n:SourcePaper) REQUIRE n.id IS UNIQUE",
 )
-
-
-def read_jsonl(path: Path) -> list[dict[str, Any]]:
-    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
 
 
 def batches(rows: list[dict[str, Any]], batch_size: int) -> list[list[dict[str, Any]]]:

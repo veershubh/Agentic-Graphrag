@@ -3,21 +3,12 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
 
-
-def read_jsonl(path: Path) -> list[dict[str, Any]]:
-    if not path.exists():
-        return []
-    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
-
-
-def sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+from agentic_graphrag.io import read_jsonl, sha256_file
 
 
 def audit(
@@ -92,8 +83,12 @@ def main() -> None:
     references = read_jsonl(args.references)
     if not references:
         raise SystemExit(f"No paper references found in {args.references}")
-    report = audit(references, read_jsonl(args.downloads), read_jsonl(args.papers), read_jsonl(args.extraction_failures))
-    report["references_sha256"] = sha256(args.references)
+    
+    def read_or_empty(path: Path) -> list[dict[str, Any]]:
+        return read_jsonl(path) if path.exists() else []
+    
+    report = audit(references, read_or_empty(args.downloads), read_or_empty(args.papers), read_or_empty(args.extraction_failures))
+    report["references_sha256"] = sha256_file(args.references)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(report, indent=2))

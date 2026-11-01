@@ -16,7 +16,8 @@ if str(REPOSITORY_ROOT) not in sys.path:
     sys.path.insert(0, str(REPOSITORY_ROOT))
 
 from eval.answer_metrics import summarize_metrics, exact_match, token_f1
-from eval.run_hybrid_eval import read_jsonl, sha256
+from eval.run_hybrid_eval import paired_comparison, read_jsonl, summarize
+from agentic_graphrag.io import sha256_file
 
 
 def main() -> None:
@@ -142,14 +143,14 @@ def main() -> None:
             for hop, rows in sorted(groups.items(), key=lambda item: int(item[0]))
         },
         "inputs": {
-            "questions_sha256": sha256(args.questions),
+            "questions_sha256": sha256_file(args.questions),
             "sampled_questions_sha256": hashlib.sha256(
                 "".join(json.dumps(question, ensure_ascii=False) + "\n" for question in selected).encode("utf-8")
             ).hexdigest(),
-            "passages_sha256": sha256(args.passages),
-            "nodes_sha256": sha256(args.nodes),
-            "edges_sha256": sha256(args.edges),
-            "config_sha256": sha256(args.config),
+            "passages_sha256": sha256_file(args.passages),
+            "nodes_sha256": sha256_file(args.nodes),
+            "edges_sha256": sha256_file(args.edges),
+            "config_sha256": sha256_file(args.config),
         },
         "records": results,
     }

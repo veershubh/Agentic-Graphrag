@@ -17,6 +17,7 @@ for import_path in (REPOSITORY_ROOT, REPOSITORY_ROOT / "src"):
     if str(import_path) not in sys.path:
         sys.path.insert(0, str(import_path))
 
+from agentic_graphrag.io import read_jsonl
 from agentic_graphrag.local_llm import LocalOllamaClient
 from graph.ontology import ALLOWED_ENDPOINTS, PREDICATES, extraction_records, normalize_name
 
@@ -58,10 +59,6 @@ RESPONSE_SCHEMA = {
     "required": ["entities", "triples"],
     "additionalProperties": False,
 }
-
-
-def read_jsonl(path: Path) -> list[dict[str, Any]]:
-    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
 
 
 def cache_key(passage: dict[str, Any], model: str) -> tuple[str, str]:

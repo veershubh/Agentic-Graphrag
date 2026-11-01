@@ -16,16 +16,9 @@ REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 if str(REPOSITORY_ROOT) not in sys.path:
     sys.path.insert(0, str(REPOSITORY_ROOT))
 
+from agentic_graphrag.io import read_jsonl, sha256_file
 from retrieval.bm25 import BM25
 from retrieval.fusion import reciprocal_rank_fusion
-
-
-def read_jsonl(path: Path) -> list[dict[str, Any]]:
-    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
-
-
-def sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def supporting_ids(question: dict[str, Any]) -> set[str]:
@@ -199,7 +192,7 @@ def main() -> None:
         "unanswerable_question_count_excluded": len(all_questions) - len(questions),
         "unanswerable_questions_included": sum(not question.get("is_answerable", True) for question in questions),
         "passage_count": len(passages),
-        "inputs": {"questions_sha256": sha256(args.questions), "passages_sha256": sha256(args.passages)},
+        "inputs": {"questions_sha256": sha256_file(args.questions), "passages_sha256": sha256_file(args.passages)},
     }
     if "dense" in retrievers:
         result["paired_comparisons"] = {

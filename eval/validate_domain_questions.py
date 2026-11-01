@@ -8,9 +8,7 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
-
-def read_jsonl(path: Path) -> list[dict[str, Any]]:
-    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+from agentic_graphrag.io import read_jsonl
 
 
 def validate(questions: list[dict[str, Any]], passages: list[dict[str, Any]], require_full_set: bool) -> list[str]:

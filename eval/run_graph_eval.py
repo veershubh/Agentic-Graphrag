@@ -13,7 +13,8 @@ REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 if str(REPOSITORY_ROOT) not in sys.path:
     sys.path.insert(0, str(REPOSITORY_ROOT))
 
-from eval.run_hybrid_eval import paired_comparison, read_jsonl, sha256, summarize
+from agentic_graphrag.io import read_jsonl, sha256_file
+from eval.run_hybrid_eval import paired_comparison, summarize
 from retrieval.bm25 import BM25
 from retrieval.fusion import reciprocal_rank_fusion
 from retrieval.graph import GraphIndex
@@ -207,10 +208,10 @@ def main() -> None:
         "node_count": len(nodes),
         "edge_count": len(edges),
         "inputs": {
-            "questions_sha256": sha256(args.questions),
-            "passages_sha256": sha256(args.passages),
-            "nodes_sha256": sha256(args.nodes),
-            "edges_sha256": sha256(args.edges),
+            "questions_sha256": sha256_file(args.questions),
+            "passages_sha256": sha256_file(args.passages),
+            "nodes_sha256": sha256_file(args.nodes),
+            "edges_sha256": sha256_file(args.edges),
         },
         "paired_comparisons": {
             f"{name}_minus_bm25": paired_comparison(

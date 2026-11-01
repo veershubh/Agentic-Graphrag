@@ -16,6 +16,7 @@ if str(REPOSITORY_ROOT) not in sys.path:
 if str(REPOSITORY_ROOT / "src") not in sys.path:
     sys.path.insert(0, str(REPOSITORY_ROOT / "src"))
 
+from agentic_graphrag.io import read_jsonl
 from agentic_graphrag.local_llm import LocalOllamaClient
 from retrieval.bm25 import BM25, tokenize
 from retrieval.graph import GraphIndex
@@ -42,10 +43,6 @@ ANSWER_SCHEMA = {
     "required": ["answer", "citation_ids", "abstained"],
     "additionalProperties": False,
 }
-
-
-def read_jsonl(path: Path) -> list[dict[str, Any]]:
-    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
 
 
 def parse_output(response: Any) -> dict[str, Any]:
