@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """Interactive helper for triple audit labeling."""
 
 import json
@@ -35,7 +36,7 @@ def print_triple_review(audit_path: Path) -> None:
         reviewer_correct = row.get('reviewer_correct', '')
         reviewer_notes = row.get('reviewer_notes', '')
         
-        status = '✅' if reviewer_correct == 'true' else '❌' if reviewer_correct == 'false' else '⏸️ '
+        status = '[PASS]' if reviewer_correct == 'true' else '[FAIL]' if reviewer_correct == 'false' else '[ ?? ]'
         
         print(f"{status} Row {i:2d}/50 [{audit_id[-12:]}]")
         print(f"  TRIPLE: ({subj_name} [{subj_kind}]) --[{pred}]--> ({obj_name} [{obj_kind}])")
@@ -58,7 +59,7 @@ def print_triple_review(audit_path: Path) -> None:
         print(f"Find: \\\"reviewer_correct\\\": \\\"\\\"")
         print(f"Replace with: \\\"reviewer_correct\\\": \\\"true\\\" or \\\"reviewer_correct\\\": \\\"false\\\"")
     else:
-        print(f"\n✅ All {len(rows)} triples labeled!")
+        print(f"\n[DONE] All {len(rows)} triples labeled!")
         print(f"\nRun: python graph/audit_triples.py --score {audit_path}")
     print(f"{'='*80}\n")
 
@@ -69,7 +70,7 @@ def print_unlabeled_only(audit_path: Path) -> None:
     unlabeled = [r for r in rows if r.get('reviewer_correct') == '']
     
     if not unlabeled:
-        print("✅ All triples labeled!")
+        print("[DONE] All triples labeled!")
         return
     
     print(f"\n{'='*80}")
@@ -83,11 +84,11 @@ def print_unlabeled_only(audit_path: Path) -> None:
         obj_name = row['object']['name']
         passage = row['passage_text']
         
-        print(f"⏸️  {i}/{len(unlabeled)} [{audit_id[-12:]}]")
+        print(f"[ ?? ] {i}/{len(unlabeled)} [{audit_id[-12:]}]")
         print(f"  TRIPLE: ({subj_name}) --[{pred}]--> ({obj_name})")
         print(f"  PASSAGE: {passage[:300]}...")
-        print(f"  → Does this passage EXPLICITLY support the triple?")
-        print(f"  → Edit JSONL and set reviewer_correct to true or false")
+        print(f"  -> Does this passage EXPLICITLY support the triple?")
+        print(f"  -> Edit JSONL and set reviewer_correct to true or false")
         print()
 
 
