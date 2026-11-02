@@ -11,6 +11,8 @@ Phase 0 (testing/refactoring) and Phase 1 preparation (extraction + tooling) are
 - **126 edges** (54 USES, 51 EVALUATES_ON, 14 CITES, 5 PROPOSES, 2 OUTPERFORMS)
 - **532 triples accepted**, 772 rejected (59% rejection rate)
 
+⚠️ **These numbers differ significantly from graph/README.md** (994 nodes → 257). See `DISCREPANCY_ANALYSIS.md` for explanation: the merge logic deduplicated more aggressively (6.2× vs 1.7× factor). The triple audit will validate if this is beneficial or harmful.
+
 **Critical question:** Is this graph quality good enough to scale to the full corpus?
 
 ## 📋 Two Labeling Tasks (3-5 hours total)
@@ -56,10 +58,13 @@ After completing both tasks, report these metrics:
 
 ```
 Triple Accuracy: X.XX (95% CI: X.XX-X.XX) from triple_audit_summary.json
-Entity Resolution Precision: X.XX from apply_entity_resolution output
-Alias Collisions Reduced: from 13 to Y (Z% reduction)
-Decision Gate: PASS or FAIL (accuracy ≥0.70 AND precision ≥0.90)
+Entity Resolution: N MERGE decisions applied, M KEEP_SEPARATE
+Alias Collisions: Currently 13 (down from 103 in old run)
+Unreviewed Pairs: Should be 0
+Decision Gate: PASS or FAIL (accuracy ≥0.70 required)
 ```
+
+**Note:** Ignore the "precision ≥0.90" metric—it's hardcoded to pass. Your real quality signal is: "Did I mistakenly merge entities that should be separate?"
 
 ## 🚦 What Happens Next
 
